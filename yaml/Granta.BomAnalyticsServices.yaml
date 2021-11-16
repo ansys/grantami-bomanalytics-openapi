@@ -9,7 +9,7 @@ paths:
     get:
       tags:
         - Documentation
-      summary: Provides the YAML specification for this service.
+      summary: Provides the YAML specification for this service
       description: ''
       operationId: getMiservicelayerBomAnalyticsV1svcYaml
       responses:

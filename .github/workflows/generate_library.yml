@@ -39,10 +39,10 @@ jobs:
         signoff: false
         branch: client-library-build
         delete-branch: true
-        title: 'Update client librayr'
+        title: 'Update client library'
         body: |
-          Update library from new yaml file
+          Update library with new YAML interface definition
         labels: |
-          automated pr
+          automated
         team-reviewers: |
           Maintainers
