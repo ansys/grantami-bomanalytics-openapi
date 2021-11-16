@@ -23,7 +23,7 @@ paths:
     post:
       tags:
         - Impacted Substances
-      summary: Get the impacted substances for materials
+      summary: Get the impacted substances for materials.
       description: "Examines the substances contained in the provided materials and reports the ones impacted by each of the provided legislations. There are four different ways in which a material can be referenced in the request - record GUID, record history GUID, record history identity, and material ID. There is no need to specify the table in which the material is defined, i.e. it can be either in the \"Materials in-house\" or \"MaterialUniverse\" table."
       operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesMaterials
       requestBody:
