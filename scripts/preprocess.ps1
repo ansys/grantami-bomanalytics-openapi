@@ -2,13 +2,13 @@
 	[Parameter(Mandatory=$true)]
 	[string] $DefinitionPath,
 	[Parameter(Mandatory=$true)]
-	[string] $OutputPath,
+	[string] $OutputPath
  )
 
 
 function Edit-YamlFile {
 	param (
-		[string]$YamlFile
+		[string]$YamlFile,
 		[string]$OutputPath
 	)
 	(Get-Content $YamlFile).replace('  - url: http://localhost', '  - url: http://localhost/mi_servicelayer') | Set-Content $OutputPath

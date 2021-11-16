@@ -3,9 +3,9 @@ info:
   title: Granta.BomAnalyticsServices
   version: V1
 servers:
-  - url: http://localhost
+  - url: http://localhost/mi_servicelayer
 paths:
-  /mi_servicelayer/BomAnalytics/v1.svc/yaml:
+  /BomAnalytics/v1.svc/yaml:
     get:
       tags:
         - Documentation
@@ -19,12 +19,12 @@ paths:
             application/json:
               schema:
                 type: string
-  /mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/materials:
+  /BomAnalytics/v1.svc/impacted-substances/materials:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for materials
-      description: "Examines the substances contained in the provided materials and\r\n            reports the ones impacted by each of the provided legislations.\r\n            There are four different ways in which a material can be referenced in the request -\r\n            record GUID, record history GUID, record history identity, and material ID. There is\r\n            no need to specify the table in which the material is defined, i.e. it can be either\r\n            in the \"Materials in-house\" or \"MaterialUniverse\" table."
+      description: "Examines the substances contained in the provided materials and reports the ones impacted by each of the provided legislations. There are four different ways in which a material can be referenced in the request - record GUID, record history GUID, record history identity, and material ID. There is no need to specify the table in which the material is defined, i.e. it can be either in the \"Materials in-house\" or \"MaterialUniverse\" table."
       operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesMaterials
       requestBody:
         description: ''
@@ -73,12 +73,12 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: MaterialId
                         ReferenceValue: elastomer-butadienerubber
-  /mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/specifications:
+  /BomAnalytics/v1.svc/impacted-substances/specifications:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for specifications
-      description: "Examines the substances contained in the provided specifications by\r\n            following links to substances, materials, coatings and other specifications, and\r\n            reports the ones impacted by one or more of the provided legislations.\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked coating, the one with the higher percentage amount\r\n            will be reported."
+      description: "Examines the substances contained in the provided specifications by following links to substances, materials, coatings and other specifications, and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported."
       operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesSpecifications
       requestBody:
         description: ''
@@ -142,12 +142,12 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: SpecificationId
                         ReferenceValue: 'MSP89,TypeI'
-  /mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/parts:
+  /BomAnalytics/v1.svc/impacted-substances/parts:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for parts
-      description: "Examines the substances contained in the provided parts by\r\n            following links to substances, materials, and other parts, and\r\n            reports the ones impacted by one or more of the provided legislations.\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked specification, the one with the higher percentage amount\r\n            will be reported."
+      description: "Examines the substances contained in the provided parts by following links to substances, materials, and other parts, and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked specification, the one with the higher percentage amount will be reported."
       operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesParts
       requestBody:
         description: ''
@@ -211,12 +211,12 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: PartNumber
                         ReferenceValue: AF-1235
-  /mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/bom1711:
+  /BomAnalytics/v1.svc/impacted-substances/bom1711:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for a BoM
-      description: "Examines the substances contained in the provided 17/11 BoM and\r\n            reports the ones impacted by one or more of the provided legislations.\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked specification, the one with the higher percentage amount\r\n            will be reported."
+      description: "Examines the substances contained in the provided 17/11 BoM and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked specification, the one with the higher percentage amount will be reported."
       operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesBom1711
       requestBody:
         description: ''
@@ -258,7 +258,7 @@ paths:
                             EcNumber: 204-881-4
                             MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
-  /mi_servicelayer/BomAnalytics/v1.svc/compliance/substances:
+  /BomAnalytics/v1.svc/compliance/substances:
     post:
       tags:
         - Compliance
@@ -266,7 +266,7 @@ paths:
       description: Performs compliance analysis on the provided substances in the context of the specified indicator definitions.
       operationId: postMiservicelayerBomAnalyticsV1svcComplianceSubstances
       requestBody:
-        description: "A set of substance references with their corresponding percentage amounts. The amounts will be\r\n                compared to the legislation thresholds to determine whether the substance is below or above it."
+        description: "A set of substance references with their corresponding percentage amounts. The amounts will be     compared to the legislation thresholds to determine whether the substance is below or above it."
         content:
           application/json:
             schema:
@@ -326,7 +326,7 @@ paths:
                             Flag: RohsAboveThreshold
                         ReferenceType: ChemicalName
                         ReferenceValue: '1,3-Butadiene'
-  /mi_servicelayer/BomAnalytics/v1.svc/compliance/materials:
+  /BomAnalytics/v1.svc/compliance/materials:
     post:
       tags:
         - Compliance
@@ -334,7 +334,7 @@ paths:
       description: Performs compliance analysis on the provided materials in the context of the specified indicator definitions.
       operationId: postMiservicelayerBomAnalyticsV1svcComplianceMaterials
       requestBody:
-        description: "A set of materials references. The substance amounts in each material will be\r\n                compared to the legislation thresholds to determine whether the substance is below or above it."
+        description: "A set of materials references. The substance amounts in each material will be     compared to the legislation thresholds to determine whether the substance is below or above it."
         content:
           application/json:
             schema:
@@ -415,7 +415,7 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-  /mi_servicelayer/BomAnalytics/v1.svc/compliance/specifications:
+  /BomAnalytics/v1.svc/compliance/specifications:
     post:
       tags:
         - Compliance
@@ -573,7 +573,7 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-  /mi_servicelayer/BomAnalytics/v1.svc/compliance/parts:
+  /BomAnalytics/v1.svc/compliance/parts:
     post:
       tags:
         - Compliance
@@ -734,7 +734,7 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-  /mi_servicelayer/BomAnalytics/v1.svc/compliance/bom1711:
+  /BomAnalytics/v1.svc/compliance/bom1711:
     post:
       tags:
         - Compliance
