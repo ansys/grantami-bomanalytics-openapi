@@ -24,8 +24,26 @@ jobs:
         distribution: 'adopt'
         cache: maven
       
-    - name: Deploy package to github packages
-      run: mvn compile
+    - name: Build client library
+      run: mvn -s .m2/settings.xml compile
       env:
         SERVER_USERNAME: ${{ secrets.REPO_USER }}
         SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
+        
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.PR_TOKEN }}
+        commit-message: Update client library
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        signoff: false
+        branch: client-library-build
+        delete-branch: true
+        title: 'Update client librayr'
+        body: |
+          Update library from new yaml file
+        labels: |
+          automated pr
+        team-reviewers: |
+          Maintainers
