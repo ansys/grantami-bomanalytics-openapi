@@ -9,6 +9,7 @@ on:
     - main
     paths:
     - 'yaml/*.yaml'
+    - 'pom.xml'
 
 jobs:
   build:
