@@ -91,10 +91,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install tox tox-gh-actions pytest
+          pip install tox tox-gh-actions
 
       - name: Test with tox
+        working-directory: ansys-grantami-bomanalytics-openapi
         run: |
-          cd ansys-grantami-bomanalytics-openapi
-          ls
-          tox -vv .
+          tox
