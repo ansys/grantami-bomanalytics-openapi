@@ -96,5 +96,7 @@ jobs:
           pip install tox tox-gh-actions
 
       - name: Test with tox
-        working-directory: ansys-grantami-bomanalytics-openapi
-        run: tox
+        run: |
+          cd ansys-grantami-bomanalytics-openapi
+          ls
+          tox .
