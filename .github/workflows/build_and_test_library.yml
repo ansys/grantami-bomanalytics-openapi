@@ -37,7 +37,7 @@ jobs:
           workflow_conclusion: success
           name: ansys-grantami-common-wheel
           path: ./deps
-          repo: https://github.com/pyansys/openapi-client-common.git
+          repo: pyansys/openapi-client-common
           check_artifacts: false
           search_artifacts: false
 
