@@ -1,0 +1,60 @@
+name: GitHub CI
+
+# run only on main branch.  This avoids duplicated actions on PRs
+on:
+  push:
+    tags:
+      - "*"
+    paths:
+      - "ansys-grantami-bomanalytics-openapi"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install build requirements
+        run: pip install build wheel
+
+      - name: Create local deps folder
+        run: |
+          cd ansys-grantami-bomanalytics-openapi
+          mkdir -p deps
+
+      - name: Copy client common wheel
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.REPO_TOKEN}}
+          workflow: ci_cd.yml
+          workflow_conclusion: success
+          name: ansys-grantami-common-wheel
+          path: ./deps
+          repo: https://github.com/pyansys/openapi-client-common.git
+          check_artifacts: false
+          search_artifacts: false
+
+      - name: Inspect deps folder
+        run: ls ./deps
+
+      - name: Create wheel
+        run: python -m build
+
+      - name: Validate wheel
+        run: |
+          pip install twine
+          twine check dist/*
+
+      - name: Upload wheel artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ansys-grantami-bomanalytics-openapi-wheel
+          path: dist/
+          retention-days: 7
