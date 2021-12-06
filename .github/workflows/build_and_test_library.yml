@@ -36,18 +36,17 @@ jobs:
           workflow: ci_cd.yml
           workflow_conclusion: success
           name: ansys-grantami-common-wheel
-          path: ./deps
+          path: ansys-grantami-bomanalytics-openapi/deps
           repo: pyansys/openapi-client-common
           check_artifacts: false
           search_artifacts: false
 
-      - name: Inspect deps folder
-        run: ls ./deps
-
       - name: Create wheel
+        working-directory: ansys-grantami-bomanalytics-openapi
         run: python -m build
 
       - name: Validate wheel
+        working-directory: ansys-grantami-bomanalytics-openapi
         run: |
           pip install twine
           twine check dist/*
@@ -56,5 +55,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ansys-grantami-bomanalytics-openapi-wheel
-          path: dist/
+          path: ansys-grantami-bomanalytics-openapi/dist/
           retention-days: 7
