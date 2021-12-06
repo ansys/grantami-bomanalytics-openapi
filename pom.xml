@@ -20,9 +20,10 @@
 						<configuration>
 							<inputSpec>${project.basedir}/yaml/Granta.BomAnalyticsServices.yaml</inputSpec>
 							<language>com.ansys.granta.codegen.AnsysPythonClientCodegen</language>
-							<output>GrantaBomSvcs</output>
+							<output>ansys-grantami-bomanalytics-openapi</output>
 							<configOptions>
-								<packageName>GrantaBomSvcs</packageName>
+								<packageName>ansys.grantami.bomanalytics_openapi</packageName>
+								<projectName>ansys-grantami-bomanalytics-openapi</projectName>
 							</configOptions>
 						</configuration>
 					</execution>
@@ -43,7 +44,7 @@
 					<dependency>
 						<groupId>com.ansys</groupId>
 						<artifactId>pyansys-swagger-codegen</artifactId>
-						<version>1.2.1-SNAPSHOT</version>
+						<version>1.2.2-SNAPSHOT</version>
 						<scope>compile</scope>
 					</dependency>
 				</dependencies>

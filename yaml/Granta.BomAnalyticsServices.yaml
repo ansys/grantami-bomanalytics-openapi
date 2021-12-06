@@ -3,15 +3,15 @@ info:
   title: Granta.BomAnalyticsServices
   version: V1
 servers:
-  - url: http://localhost/mi_servicelayer
+  - url: http://localhost/mi_servicelayer/BomAnalytics/v1.svc
 paths:
-  /BomAnalytics/v1.svc/yaml:
+  /yaml:
     get:
       tags:
         - Documentation
-      summary: Provides the YAML specification for this service
+      summary: Provides the YAML specification for this service.
       description: ''
-      operationId: getMiservicelayerBomAnalyticsV1svcYaml
+      operationId: getYaml
       responses:
         '200':
           description: The YAML specification
@@ -19,19 +19,19 @@ paths:
             application/json:
               schema:
                 type: string
-  /BomAnalytics/v1.svc/impacted-substances/materials:
+  /impacted-substances/materials:
     post:
       tags:
         - Impacted Substances
-      summary: Get the impacted substances for materials.
+      summary: Get the impacted substances for materials
       description: "Examines the substances contained in the provided materials and reports the ones impacted by each of the provided legislations. There are four different ways in which a material can be referenced in the request - record GUID, record history GUID, record history identity, and material ID. There is no need to specify the table in which the material is defined, i.e. it can be either in the \"Materials in-house\" or \"MaterialUniverse\" table."
-      operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesMaterials
+      operationId: postImpactedsubstancesMaterials
       requestBody:
         description: ''
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForMaterials.Request'
+              $ref: '#/components/schemas/GetImpactedSubstancesForMaterials.Request'
             examples:
               example1:
                 summary: Material referenced by 'Material ID'
@@ -51,7 +51,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForMaterials.Response'
+                $ref: '#/components/schemas/GetImpactedSubstancesForMaterials.Response'
               examples:
                 example1:
                   summary: Material referenced by 'Material ID'
@@ -73,19 +73,19 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: MaterialId
                         ReferenceValue: elastomer-butadienerubber
-  /BomAnalytics/v1.svc/impacted-substances/specifications:
+  /impacted-substances/specifications:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for specifications
       description: "Examines the substances contained in the provided specifications by following links to substances, materials, coatings and other specifications, and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported."
-      operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesSpecifications
+      operationId: postImpactedsubstancesSpecifications
       requestBody:
         description: ''
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForSpecifications.Request'
+              $ref: '#/components/schemas/GetImpactedSubstancesForSpecifications.Request'
             examples:
               example1:
                 summary: Two specifications and one legislation
@@ -106,7 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForSpecifications.Response'
+                $ref: '#/components/schemas/GetImpactedSubstancesForSpecifications.Response'
               examples:
                 example1:
                   summary: Two specifications and one legislation
@@ -142,19 +142,19 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: SpecificationId
                         ReferenceValue: 'MSP89,TypeI'
-  /BomAnalytics/v1.svc/impacted-substances/parts:
+  /impacted-substances/parts:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for parts
       description: "Examines the substances contained in the provided parts by following links to substances, materials, and other parts, and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked specification, the one with the higher percentage amount will be reported."
-      operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesParts
+      operationId: postImpactedsubstancesParts
       requestBody:
         description: ''
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForParts.Request'
+              $ref: '#/components/schemas/GetImpactedSubstancesForParts.Request'
             examples:
               example1:
                 summary: Two parts and one legislation
@@ -175,7 +175,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForParts.Response'
+                $ref: '#/components/schemas/GetImpactedSubstancesForParts.Response'
               examples:
                 example1:
                   summary: Two parts and one legislation
@@ -211,19 +211,19 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: PartNumber
                         ReferenceValue: AF-1235
-  /BomAnalytics/v1.svc/impacted-substances/bom1711:
+  /impacted-substances/bom1711:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for a BoM
       description: "Examines the substances contained in the provided 17/11 BoM and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked specification, the one with the higher percentage amount will be reported."
-      operationId: postMiservicelayerBomAnalyticsV1svcImpactedsubstancesBom1711
+      operationId: postImpactedsubstancesBom1711
       requestBody:
         description: ''
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForBom1711.Request'
+              $ref: '#/components/schemas/GetImpactedSubstancesForBom1711.Request'
             examples:
               example1:
                 summary: Single-part BoM with a substance
@@ -240,7 +240,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForBom1711.Response'
+                $ref: '#/components/schemas/GetImpactedSubstancesForBom1711.Response'
               examples:
                 example1:
                   summary: Single-part BoM with a substance
@@ -258,19 +258,19 @@ paths:
                             EcNumber: 204-881-4
                             MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
-  /BomAnalytics/v1.svc/compliance/substances:
+  /compliance/substances:
     post:
       tags:
         - Compliance
       summary: Get compliance for substances
       description: Performs compliance analysis on the provided substances in the context of the specified indicator definitions.
-      operationId: postMiservicelayerBomAnalyticsV1svcComplianceSubstances
+      operationId: postComplianceSubstances
       requestBody:
         description: "A set of substance references with their corresponding percentage amounts. The amounts will be     compared to the legislation thresholds to determine whether the substance is below or above it."
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForSubstances.Request'
+              $ref: '#/components/schemas/GetComplianceForSubstances.Request'
             examples:
               example1:
                 summary: Two substances and two indicators
@@ -306,7 +306,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForSubstances.Response'
+                $ref: '#/components/schemas/GetComplianceForSubstances.Response'
               examples:
                 example1:
                   summary: Two substances and two indicators
@@ -326,19 +326,19 @@ paths:
                             Flag: RohsAboveThreshold
                         ReferenceType: ChemicalName
                         ReferenceValue: '1,3-Butadiene'
-  /BomAnalytics/v1.svc/compliance/materials:
+  /compliance/materials:
     post:
       tags:
         - Compliance
       summary: Get compliance for materials
       description: Performs compliance analysis on the provided materials in the context of the specified indicator definitions.
-      operationId: postMiservicelayerBomAnalyticsV1svcComplianceMaterials
+      operationId: postComplianceMaterials
       requestBody:
         description: "A set of materials references. The substance amounts in each material will be     compared to the legislation thresholds to determine whether the substance is below or above it."
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForMaterials.Request'
+              $ref: '#/components/schemas/GetComplianceForMaterials.Request'
             examples:
               example1:
                 summary: Two materials and two indicators
@@ -372,7 +372,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForMaterials.Response'
+                $ref: '#/components/schemas/GetComplianceForMaterials.Response'
               examples:
                 example1:
                   summary: Two materials and two indicators
@@ -415,19 +415,19 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-  /BomAnalytics/v1.svc/compliance/specifications:
+  /compliance/specifications:
     post:
       tags:
         - Compliance
       summary: Get compliance for specifications
       description: Performs compliance analysis on the provided specifications in the context of the specified indicator definitions.
-      operationId: postMiservicelayerBomAnalyticsV1svcComplianceSpecifications
+      operationId: postComplianceSpecifications
       requestBody:
         description: A set of specification references.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForSpecifications.Request'
+              $ref: '#/components/schemas/GetComplianceForSpecifications.Request'
             examples:
               example1:
                 summary: Two specifications and two indicators
@@ -461,7 +461,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForSpecifications.Response'
+                $ref: '#/components/schemas/GetComplianceForSpecifications.Response'
               examples:
                 example1:
                   summary: Two specifications and two indicators
@@ -573,19 +573,19 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-  /BomAnalytics/v1.svc/compliance/parts:
+  /compliance/parts:
     post:
       tags:
         - Compliance
       summary: Get compliance for parts
       description: Performs compliance analysis on the provided parts in the context of the specified indicator definitions.
-      operationId: postMiservicelayerBomAnalyticsV1svcComplianceParts
+      operationId: postComplianceParts
       requestBody:
         description: A set of part references.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForParts.Request'
+              $ref: '#/components/schemas/GetComplianceForParts.Request'
             examples:
               example1:
                 summary: Two parts and two indicators
@@ -619,7 +619,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForParts.Response'
+                $ref: '#/components/schemas/GetComplianceForParts.Response'
               examples:
                 example1:
                   summary: Two parts and two indicators
@@ -734,19 +734,19 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-  /BomAnalytics/v1.svc/compliance/bom1711:
+  /compliance/bom1711:
     post:
       tags:
         - Compliance
       summary: Get the compliance for a BoM
       description: Performs compliance analysis on the provided 17/11 BoM in the context of the specified indicator definitions.
-      operationId: postMiservicelayerBomAnalyticsV1svcComplianceBom1711
+      operationId: postComplianceBom1711
       requestBody:
         description: ''
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForBom1711.Request'
+              $ref: '#/components/schemas/GetComplianceForBom1711.Request'
             examples:
               example1:
                 summary: Single-part BoM with a substance
@@ -776,7 +776,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForBom1711.Response'
+                $ref: '#/components/schemas/GetComplianceForBom1711.Response'
               examples:
                 example1:
                   summary: Single-part BoM with a substance
@@ -839,13 +839,13 @@ paths:
                         ReferenceValue: 
 components:
   schemas:
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForMaterials.Request:
+    GetImpactedSubstancesForMaterials.Request:
       type: object
       properties:
         Materials:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.MaterialReference'
+            $ref: '#/components/schemas/Common.MaterialReference'
         LegislationNames:
           type: array
           items:
@@ -853,7 +853,7 @@ components:
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Materials:
           - ReferenceType: MaterialId
@@ -862,14 +862,14 @@ components:
           - The SIN List 2.1 (Substitute It Now!)
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.Common.MaterialReference:
+    Common.MaterialReference:
       type: object
       properties:
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.Common.RequestConfig:
+    Common.RequestConfig:
       type: object
       properties:
         MaterialUniverseTableName:
@@ -884,13 +884,13 @@ components:
           type: string
         CoatingsTableName:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForMaterials.Response:
+    GetImpactedSubstancesForMaterials.Response:
       type: object
       properties:
         Materials:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForMaterials.Material'
+            $ref: '#/components/schemas/GetImpactedSubstancesForMaterials.Material'
       example:
         Materials:
           - Legislations:
@@ -908,18 +908,18 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: MaterialId
             ReferenceValue: elastomer-butadienerubber
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForMaterials.Material:
+    GetImpactedSubstancesForMaterials.Material:
       type: object
       properties:
         Legislations:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.LegislationWithImpactedSubstances'
+            $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.Common.LegislationWithImpactedSubstances:
+    Common.LegislationWithImpactedSubstances:
       type: object
       properties:
         LegislationName:
@@ -927,8 +927,8 @@ components:
         ImpactedSubstances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.ImpactedSubstance'
-    Granta.BomAnalyticsServices.Interface.Common.ImpactedSubstance:
+            $ref: '#/components/schemas/Common.ImpactedSubstance'
+    Common.ImpactedSubstance:
       type: object
       properties:
         SubstanceName:
@@ -945,13 +945,13 @@ components:
           type: number
           format: double
           nullable: true
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForSpecifications.Request:
+    GetImpactedSubstancesForSpecifications.Request:
       type: object
       properties:
         Specifications:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SpecificationReference'
+            $ref: '#/components/schemas/Common.SpecificationReference'
         LegislationNames:
           type: array
           items:
@@ -959,7 +959,7 @@ components:
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Specifications:
           - ReferenceType: MiRecordHistoryIdentity
@@ -970,20 +970,20 @@ components:
           - The SIN List 2.1 (Substitute It Now!)
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.Common.SpecificationReference:
+    Common.SpecificationReference:
       type: object
       properties:
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForSpecifications.Response:
+    GetImpactedSubstancesForSpecifications.Response:
       type: object
       properties:
         Specifications:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForSpecifications.Specification'
+            $ref: '#/components/schemas/GetImpactedSubstancesForSpecifications.Specification'
       example:
         Specifications:
           - Legislations:
@@ -1016,24 +1016,24 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: SpecificationId
             ReferenceValue: 'MSP89,TypeI'
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForSpecifications.Specification:
+    GetImpactedSubstancesForSpecifications.Specification:
       type: object
       properties:
         Legislations:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.LegislationWithImpactedSubstances'
+            $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForParts.Request:
+    GetImpactedSubstancesForParts.Request:
       type: object
       properties:
         Parts:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.PartReference'
+            $ref: '#/components/schemas/Common.PartReference'
         LegislationNames:
           type: array
           items:
@@ -1041,7 +1041,7 @@ components:
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Parts:
           - ReferenceType: MiRecordHistoryIdentity
@@ -1052,20 +1052,20 @@ components:
           - The SIN List 2.1 (Substitute It Now!)
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.Common.PartReference:
+    Common.PartReference:
       type: object
       properties:
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForParts.Response:
+    GetImpactedSubstancesForParts.Response:
       type: object
       properties:
         Parts:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForParts.Part'
+            $ref: '#/components/schemas/GetImpactedSubstancesForParts.Part'
       example:
         Parts:
           - Legislations:
@@ -1098,18 +1098,18 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: PartNumber
             ReferenceValue: AF-1235
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForParts.Part:
+    GetImpactedSubstancesForParts.Part:
       type: object
       properties:
         Legislations:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.LegislationWithImpactedSubstances'
+            $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForBom1711.Request:
+    GetImpactedSubstancesForBom1711.Request:
       type: object
       properties:
         BomXml1711:
@@ -1121,20 +1121,20 @@ components:
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.GetImpactedSubstancesForBom1711.Response:
+    GetImpactedSubstancesForBom1711.Response:
       type: object
       properties:
         Legislations:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.LegislationWithImpactedSubstances'
+            $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
       example:
         Legislations:
           - LegislationName: The SIN List 2.1 (Substitute It Now!)
@@ -1149,21 +1149,21 @@ components:
                 EcNumber: 204-881-4
                 MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
-    Granta.BomAnalyticsServices.Interface.GetComplianceForSubstances.Request:
+    GetComplianceForSubstances.Request:
       type: object
       properties:
         Substances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.GetComplianceForSubstances.SubstanceWithAmount'
+            $ref: '#/components/schemas/GetComplianceForSubstances.SubstanceWithAmount'
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorDefinition'
+            $ref: '#/components/schemas/Common.IndicatorDefinition'
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Substances:
           - PercentageAmount: 0.05
@@ -1189,7 +1189,7 @@ components:
             Type: Rohs
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.GetComplianceForSubstances.SubstanceWithAmount:
+    GetComplianceForSubstances.SubstanceWithAmount:
       type: object
       properties:
         PercentageAmount:
@@ -1199,7 +1199,7 @@ components:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.Common.IndicatorDefinition:
+    Common.IndicatorDefinition:
       type: object
       properties:
         Name:
@@ -1217,13 +1217,13 @@ components:
           type: boolean
         Type:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetComplianceForSubstances.Response:
+    GetComplianceForSubstances.Response:
       type: object
       properties:
         Substances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SubstanceWithCompliance'
+            $ref: '#/components/schemas/Common.SubstanceWithCompliance'
       example:
         Substances:
           - Indicators:
@@ -1240,39 +1240,39 @@ components:
                 Flag: RohsAboveThreshold
             ReferenceType: ChemicalName
             ReferenceValue: '1,3-Butadiene'
-    Granta.BomAnalyticsServices.Interface.Common.SubstanceWithCompliance:
+    Common.SubstanceWithCompliance:
       type: object
       properties:
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorResult'
+            $ref: '#/components/schemas/Common.IndicatorResult'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.Common.IndicatorResult:
+    Common.IndicatorResult:
       type: object
       properties:
         Name:
           type: string
         Flag:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetComplianceForMaterials.Request:
+    GetComplianceForMaterials.Request:
       type: object
       properties:
         Materials:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.MaterialReference'
+            $ref: '#/components/schemas/Common.MaterialReference'
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorDefinition'
+            $ref: '#/components/schemas/Common.IndicatorDefinition'
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Materials:
           - ReferenceType: MaterialId
@@ -1296,13 +1296,13 @@ components:
             Type: Rohs
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.GetComplianceForMaterials.Response:
+    GetComplianceForMaterials.Response:
       type: object
       properties:
         Materials:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.MaterialWithCompliance'
+            $ref: '#/components/schemas/Common.MaterialWithCompliance'
       example:
         Materials:
           - Indicators:
@@ -1342,36 +1342,36 @@ components:
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-    Granta.BomAnalyticsServices.Interface.Common.MaterialWithCompliance:
+    Common.MaterialWithCompliance:
       type: object
       properties:
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorResult'
+            $ref: '#/components/schemas/Common.IndicatorResult'
         Substances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SubstanceWithCompliance'
+            $ref: '#/components/schemas/Common.SubstanceWithCompliance'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetComplianceForSpecifications.Request:
+    GetComplianceForSpecifications.Request:
       type: object
       properties:
         Specifications:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SpecificationReference'
+            $ref: '#/components/schemas/Common.SpecificationReference'
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorDefinition'
+            $ref: '#/components/schemas/Common.IndicatorDefinition'
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Specifications:
           - ReferenceType: SpecificationId
@@ -1395,13 +1395,13 @@ components:
             Type: Rohs
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.GetComplianceForSpecifications.Response:
+    GetComplianceForSpecifications.Response:
       type: object
       properties:
         Specifications:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SpecificationWithCompliance'
+            $ref: '#/components/schemas/Common.SpecificationWithCompliance'
       example:
         Specifications:
           - Indicators:
@@ -1510,63 +1510,63 @@ components:
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-    Granta.BomAnalyticsServices.Interface.Common.SpecificationWithCompliance:
+    Common.SpecificationWithCompliance:
       type: object
       properties:
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorResult'
+            $ref: '#/components/schemas/Common.IndicatorResult'
         Specifications:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SpecificationWithCompliance'
+            $ref: '#/components/schemas/Common.SpecificationWithCompliance'
         Coatings:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.CoatingWithCompliance'
+            $ref: '#/components/schemas/Common.CoatingWithCompliance'
         Materials:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.MaterialWithCompliance'
+            $ref: '#/components/schemas/Common.MaterialWithCompliance'
         Substances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SubstanceWithCompliance'
+            $ref: '#/components/schemas/Common.SubstanceWithCompliance'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.Common.CoatingWithCompliance:
+    Common.CoatingWithCompliance:
       type: object
       properties:
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorResult'
+            $ref: '#/components/schemas/Common.IndicatorResult'
         Substances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SubstanceWithCompliance'
+            $ref: '#/components/schemas/Common.SubstanceWithCompliance'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetComplianceForParts.Request:
+    GetComplianceForParts.Request:
       type: object
       properties:
         Parts:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.PartReference'
+            $ref: '#/components/schemas/Common.PartReference'
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorDefinition'
+            $ref: '#/components/schemas/Common.IndicatorDefinition'
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         Parts:
           - ReferenceType: PartNumber
@@ -1590,13 +1590,13 @@ components:
             Type: Rohs
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.GetComplianceForParts.Response:
+    GetComplianceForParts.Response:
       type: object
       properties:
         Parts:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.PartWithCompliance'
+            $ref: '#/components/schemas/Common.PartWithCompliance'
       example:
         Parts:
           - Indicators:
@@ -1708,34 +1708,34 @@ components:
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-    Granta.BomAnalyticsServices.Interface.Common.PartWithCompliance:
+    Common.PartWithCompliance:
       type: object
       properties:
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorResult'
+            $ref: '#/components/schemas/Common.IndicatorResult'
         Parts:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.PartWithCompliance'
+            $ref: '#/components/schemas/Common.PartWithCompliance'
         Specifications:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SpecificationWithCompliance'
+            $ref: '#/components/schemas/Common.SpecificationWithCompliance'
         Materials:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.MaterialWithCompliance'
+            $ref: '#/components/schemas/Common.MaterialWithCompliance'
         Substances:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.SubstanceWithCompliance'
+            $ref: '#/components/schemas/Common.SubstanceWithCompliance'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Interface.GetComplianceForBom1711.Request:
+    GetComplianceForBom1711.Request:
       type: object
       properties:
         BomXml1711:
@@ -1743,11 +1743,11 @@ components:
         Indicators:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.IndicatorDefinition'
+            $ref: '#/components/schemas/Common.IndicatorDefinition'
         DatabaseKey:
           type: string
         Config:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.RequestConfig'
+          $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         Indicators:
@@ -1767,13 +1767,13 @@ components:
             Type: Rohs
         DatabaseKey: MI_Product_Risk
         Config: 
-    Granta.BomAnalyticsServices.Interface.GetComplianceForBom1711.Response:
+    GetComplianceForBom1711.Response:
       type: object
       properties:
         Parts:
           type: array
           items:
-            $ref: '#/components/schemas/Granta.BomAnalyticsServices.Interface.Common.PartWithCompliance'
+            $ref: '#/components/schemas/Common.PartWithCompliance'
       example:
         Parts:
           - Indicators:
