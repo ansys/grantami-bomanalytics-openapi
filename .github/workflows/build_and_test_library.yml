@@ -35,7 +35,7 @@ jobs:
           workflow_conclusion: success
           name: ansys-grantami-common-wheel
           path: ansys-grantami-bomanalytics-openapi/deps
-          repo: pyansys/openapi-client-common
+          repo: pyansys/openapi-common
           check_artifacts: false
           search_artifacts: false
 
@@ -87,7 +87,7 @@ jobs:
           workflow_conclusion: success
           name: ansys-grantami-common-wheel
           path: ansys-grantami-bomanalytics-openapi/deps
-          repo: pyansys/openapi-client-common
+          repo: pyansys/openapi-common
           check_artifacts: false
           search_artifacts: false
 
