@@ -1,17 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>io.swagger</groupId>
-    <artifactId>AnsysPython-swagger-codegen</artifactId>
-    <packaging>jar</packaging>
-    <name>AnsysPython-swagger-codegen</name>
-    <version>1.0.0</version>
-    <build>
-        <plugins>
-            <plugin>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>io.swagger</groupId>
+	<artifactId>AnsysPython-swagger-codegen</artifactId>
+	<packaging>jar</packaging>
+	<name>AnsysPython-swagger-codegen</name>
+	<version>1.0.0</version>
+	<build>
+		<plugins>
+			<plugin>
 				<groupId>io.swagger.codegen.v3</groupId>
-                <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>3.0.23</version>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>3.0.23</version>
 				<executions>
 					<execution>
 						<goals>
@@ -24,6 +23,7 @@
 							<configOptions>
 								<packageName>ansys.grantami.bomanalytics_openapi</packageName>
 								<projectName>ansys-grantami-bomanalytics-openapi</projectName>
+								<packageVersion>${package-version}</packageVersion>
 							</configOptions>
 						</configuration>
 					</execution>
@@ -51,10 +51,37 @@
 			</plugin>
 		</plugins>
 	</build>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <swagger-codegen-version>3.0.27</swagger-codegen-version>
-        <swagger-codegen-generators-version>1.0.27</swagger-codegen-generators-version>
-        <maven-plugin-version>1.0.0</maven-plugin-version>
-    </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<swagger-codegen-version>3.0.27</swagger-codegen-version>
+		<swagger-codegen-generators-version>1.0.27</swagger-codegen-generators-version>
+		<maven-plugin-version>1.0.0</maven-plugin-version>
+		<base-package-version>0.1.0</base-package-version>
+	</properties>
+	<profiles>
+		<profile>
+			<id>env-dev</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>dev</value>
+				</property>
+			</activation>
+			<properties>
+				<package-version>${base-package-version}.dev${build-id}</package-version>
+			</properties>
+		</profile>
+		<profile>
+			<id>env-release</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>release</value>
+				</property>
+			</activation>
+			<properties>
+				<package-version>${base-package-version}</package-version>
+			</properties>
+		</profile>
+	</profiles>
 </project>
