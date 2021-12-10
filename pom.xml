@@ -60,11 +60,10 @@
 	</properties>
 	<profiles>
 		<profile>
-			<id>env-dev</id>
+			<id>dev</id>
 			<activation>
 				<property>
-					<name>env</name>
-					<value>dev</value>
+					<name>!release</name>
 				</property>
 			</activation>
 			<properties>
@@ -72,11 +71,10 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>env-release</id>
+			<id>release</id>
 			<activation>
 				<property>
-					<name>env</name>
-					<value>release</value>
+					<name>release</name>
 				</property>
 			</activation>
 			<properties>
