@@ -1,4 +1,4 @@
-name: GitHub CI
+name: Generate Library and Create PR
 
 # run only on main branch.  This avoids duplicated actions on PRs
 on:
@@ -26,7 +26,7 @@ jobs:
         cache: maven
       
     - name: Build client library
-      run: mvn -s .m2/settings.xml compile
+      run: mvn -Dbuild-id=${{ github.run_id }} -s .m2/settings.xml compile
       env:
         SERVER_USERNAME: ${{ secrets.REPO_USER }}
         SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
