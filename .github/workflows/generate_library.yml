@@ -10,6 +10,7 @@ on:
     paths:
     - 'yaml/*.yaml'
     - 'pom.xml'
+    - '.github/workflows/generate_library.yml'
 
 jobs:
   build:
