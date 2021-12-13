@@ -21,6 +21,6 @@ def api_client():
     test_url = "http://localhost/mi_servicelayer/BomAnalytics/v1.svc"
     with requests_mock.Mocker() as m:
         m.get(test_url, status_code=200)
-        api_client = auth.ApiClientFactory(test_url).with_anonymous().build()
+        api_client = auth.ApiClientFactory(test_url).with_anonymous().connect()
         api_client.setup_client(models)
     return api_client
