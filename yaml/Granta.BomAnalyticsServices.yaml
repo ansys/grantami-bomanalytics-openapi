@@ -24,7 +24,7 @@ paths:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for materials
-      description: "Examines the substances contained in the provided materials and reports the ones impacted by each of the provided legislations. There are four different ways in which a material can be referenced in the request - record GUID, record history GUID, record history identity, and material ID. There is no need to specify the table in which the material is defined, i.e. it can be either in the \"Materials in-house\" or \"MaterialUniverse\" table."
+      description: "Examines the substances contained within one or more materials and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the material and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesMaterials
       requestBody:
         description: ''
@@ -35,19 +35,46 @@ paths:
             examples:
               example1:
                 summary: Material referenced by 'Material ID'
-                description: 'Example of a request including one material and one legislation of interest where the material is referenced by its "Material ID". In this case, the "Material ID" corresponds to a MaterialUniverse material but it could have been just as well a "Materials in-house" material.'
+                description: "This request includes one material and one legislation of interest where the material is referenced by its \"Material ID\". The \"Material ID\" corresponds to a MaterialUniverse material, but it could equally correspond to a \"Materials in-house\" material. The legislation name will determine which substances are reported as impacted substances for both materials."
                 value:
                   Materials:
                     - ReferenceType: MaterialId
                       ReferenceValue: elastomer-butadienerubber
                   LegislationNames:
                     - The SIN List 2.1 (Substitute It Now!)
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+              example2:
+                summary: Materials with different reference types
+                description: "This request includes two materials. The first material is referenced by its \"Record History GUID\", and the second by its \"Material ID\". Both materials correspond to MaterialUniverse records, but they could equally correspond to \"Materials in-house\" materials. The legislation name will determine which substances are reported as impacted substances for both materials."
+                value:
+                  Materials:
+                    - ReferenceType: MiRecordHistoryGuid
+                      ReferenceValue: 92f368c9-be68-481a-86a0-7a16a8265f77
+                    - ReferenceType: MaterialId
+                      ReferenceValue: stainless-316-annealed
+                  LegislationNames:
+                    - The SIN List 2.1 (Substitute It Now!)
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+              example3:
+                summary: Multiple materials and legislations
+                description: "This request includes two materials and two legislations of interest. Both materials are referenced by their \"Material ID\", but could be referenced by different reference types. Both legislation names will determine which substances are reported as impacted substances for both materials."
+                value:
+                  Materials:
+                    - ReferenceType: MaterialId
+                      ReferenceValue: plastic-pc-10-15ptfe-lubricated
+                    - ReferenceType: MaterialId
+                      ReferenceValue: stainless-316-annealed
+                  LegislationNames:
+                    - The SIN List 2.1 (Substitute It Now!)
+                    - EU Directive 2011/65/EU (RoHS 2)
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Substances contained within each materials from the request grouped by the legislation by which they are impacted.
+          description: "Substances contained within each material from the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response."
           content:
             application/json:
               schema:
@@ -55,7 +82,7 @@ paths:
               examples:
                 example1:
                   summary: Material referenced by 'Material ID'
-                  description: 'In this case, we have a single material object in the response, which references the material in the same way it was referenced in the request, i.e. by "Material ID". It contains a "Legislations" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the impacted substances contained within the material which are impacted by the given legislation.'
+                  description: "The response contains a single material object, which references the material in the same way it was referenced in the request, i.e. by \"Material ID\". The material object contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the material which are impacted by the specified legislation.  This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Materials:
                       - Legislations:
@@ -73,12 +100,82 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: MaterialId
                         ReferenceValue: elastomer-butadienerubber
+                    LogMessages: [ ]
+                example2:
+                  summary: Materials with different reference types
+                  description: "The response contains two material objects, each of which reference the material in the same way as the request. Each material contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the material which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
+                  value:
+                    Materials:
+                      - Legislations:
+                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                            ImpactedSubstances:
+                              - SubstanceName: 'Nitric acid, cadmium salt'
+                                CasNumber: 10325-94-7
+                                EcNumber: 233-710-6
+                                MaxPercentageAmountInMaterial: 0.7
+                                LegislationThreshold: 
+                              - SubstanceName: PFOA
+                                CasNumber: 335-67-1
+                                EcNumber: 206-397-9
+                                MaxPercentageAmountInMaterial: 
+                                LegislationThreshold: 
+                        ReferenceType: MiRecordHistoryGuid
+                        ReferenceValue: 92f368c9-be68-481a-86a0-7a16a8265f77
+                      - Legislations:
+                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                            ImpactedSubstances:
+                              - SubstanceName: 'Nitric acid, cadmium salt'
+                                CasNumber: 10325-94-7
+                                EcNumber: 233-710-6
+                                MaxPercentageAmountInMaterial: 0.7
+                                LegislationThreshold: 
+                        ReferenceType: MaterialId
+                        ReferenceValue: stainless-316-annealed
+                    LogMessages: [ ]
+                example3:
+                  summary: Multiple materials and legislations
+                  description: "The response contains two material objects, each of which reference the material in the same way as the request. Each material contains a \"Legislations\" array with two elements corresponding to the two legislations specified in the request. The legislation object itself contains an array of objects representing the substances contained within the material which are impacted by the specified legislation. If a legislation does not impact any substances for a particular material then it will not appear in the array of legislation objects for that material. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
+                  value:
+                    Materials:
+                      - Legislations:
+                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                            ImpactedSubstances:
+                              - SubstanceName: 'Nitric acid, cadmium salt'
+                                CasNumber: 10325-94-7
+                                EcNumber: 233-710-6
+                                MaxPercentageAmountInMaterial: 0.7
+                                LegislationThreshold: 
+                              - SubstanceName: PFOA
+                                CasNumber: 335-67-1
+                                EcNumber: 206-397-9
+                                MaxPercentageAmountInMaterial: 
+                                LegislationThreshold: 
+                          - LegislationName: EU Directive 2011/65/EU (RoHS 2)
+                            ImpactedSubstances:
+                              - SubstanceName: 'Nitric acid, cadmium salt'
+                                CasNumber: 10325-94-7
+                                EcNumber: 233-710-6
+                                MaxPercentageAmountInMaterial: 0.7
+                                LegislationThreshold: 0.01
+                        ReferenceType: MaterialId
+                        ReferenceValue: plastic-pc-10-15ptfe-lubricated
+                      - Legislations:
+                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                            ImpactedSubstances:
+                              - SubstanceName: 'Nitric acid, cadmium salt'
+                                CasNumber: 10325-94-7
+                                EcNumber: 233-710-6
+                                MaxPercentageAmountInMaterial: 0.7
+                                LegislationThreshold: 
+                        ReferenceType: MaterialId
+                        ReferenceValue: stainless-316-annealed
+                    LogMessages: [ ]
   /impacted-substances/specifications:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for specifications
-      description: "Examines the substances contained in the provided specifications by following links to substances, materials, coatings and other specifications, and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported."
+      description: "Examines the substances contained within one or more specifications by following links to substances, materials, coatings and other specifications, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesSpecifications
       requestBody:
         description: ''
@@ -89,6 +186,7 @@ paths:
             examples:
               example1:
                 summary: Two specifications and one legislation
+                description: "This request includes two specifications. The first specifications is referenced by its \"Record History identity\", and the second by its \"Specification ID\". The legislation name will determine which substances are reported as impacted substances for both specifications."
                 value:
                   Specifications:
                     - ReferenceType: MiRecordHistoryIdentity
@@ -97,12 +195,12 @@ paths:
                       ReferenceValue: 'MSP89,TypeI'
                   LegislationNames:
                     - The SIN List 2.1 (Substitute It Now!)
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Substances impacted by the supplied legislations
+          description: "Substances contained within each specification from the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the specification the substance occurs, e.g. included directly in the specification, in a referenced specification, coating, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
@@ -110,6 +208,7 @@ paths:
               examples:
                 example1:
                   summary: Two specifications and one legislation
+                  description: "The response contains two specification objects, each of which reference the specification in the same way as the request. Each specification contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the specification which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Specifications:
                       - Legislations:
@@ -142,12 +241,13 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: SpecificationId
                         ReferenceValue: 'MSP89,TypeI'
+                    LogMessages: [ ]
   /impacted-substances/parts:
     post:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for parts
-      description: "Examines the substances contained in the provided parts by following links to substances, materials, and other parts, and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked specification, the one with the higher percentage amount will be reported."
+      description: "Examines the substances contained within one or more parts by following links to substances, materials, specifications and other parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesParts
       requestBody:
         description: ''
@@ -158,20 +258,21 @@ paths:
             examples:
               example1:
                 summary: Two parts and one legislation
+                description: "This request includes two parts. The first part is referenced by its \"Record History identity\", and the second by its \"Part Number\". The legislation name will determine which substances are reported as impacted substances for both parts."
                 value:
                   Parts:
                     - ReferenceType: MiRecordHistoryIdentity
                       ReferenceValue: 14321
                     - ReferenceType: PartNumber
-                      ReferenceValue: AF-1235
+                      ReferenceValue: FLRY33
                   LegislationNames:
                     - The SIN List 2.1 (Substitute It Now!)
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Substances impacted by the supplied legislations
+          description: "Substances contained within each part from the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the part the substance occurs, e.g. included directly in the part, in a sub-component, specification, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
@@ -179,6 +280,7 @@ paths:
               examples:
                 example1:
                   summary: Two parts and one legislation
+                  description: "The response contains two part objects, each of which reference the part in the same way as the request. Each part contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the part which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Legislations:
@@ -210,13 +312,14 @@ paths:
                                 MaxPercentageAmountInMaterial: 1
                                 LegislationThreshold: 0.1
                         ReferenceType: PartNumber
-                        ReferenceValue: AF-1235
+                        ReferenceValue: FLRY33
+                    LogMessages: [ ]
   /impacted-substances/bom1711:
     post:
       tags:
         - Impacted Substances
-      summary: Get the impacted substances for a BoM
-      description: "Examines the substances contained in the provided 17/11 BoM and reports the ones impacted by one or more of the provided legislations. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked specification, the one with the higher percentage amount will be reported."
+      summary: Get the impacted substances for a Bill of Materials
+      description: "Examines the substances contained within a 17/11 Bill of Materials (BoM) by following links to substances, materials, specifications, and parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesBom1711
       requestBody:
         description: ''
@@ -226,24 +329,26 @@ paths:
               $ref: '#/components/schemas/GetImpactedSubstancesForBom1711.Request'
             examples:
               example1:
-                summary: Single-part BoM with a substance
+                summary: 17/11 BoM
+                description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
                 value:
-                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   LegislationNames:
                     - The SIN List 2.1 (Substitute It Now!)
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Substances impacted by the supplied legislations
+          description: "Substances contained within the BoM in the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the BoM the substance occurs, e.g. included in the BoM directly, in a sub-component, specification, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetImpactedSubstancesForBom1711.Response'
               examples:
                 example1:
-                  summary: Single-part BoM with a substance
+                  summary: 17/11 BoM
+                  description: "The response contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the BoM which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Legislations:
                       - LegislationName: The SIN List 2.1 (Substitute It Now!)
@@ -258,15 +363,16 @@ paths:
                             EcNumber: 204-881-4
                             MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
+                    LogMessages: [ ]
   /compliance/substances:
     post:
       tags:
         - Compliance
-      summary: Get compliance for substances
-      description: Performs compliance analysis on the provided substances in the context of the specified indicator definitions.
+      summary: Determine the compliance of one or more substances in the context of specified indicators
+      description: "Compliance is determined by comparing the substance quantity against the threshold defined for that indicator. The response includes the compliance status for each substance for each indicator. A substance can be referenced by one of six different identifiers: record GUID, record history GUID, record history identity, CAS Number, EC Number, or Chemical Name. The amount of substance is also required, since generally a substance is only non-compliant over a certain threshold. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold."
       operationId: postComplianceSubstances
       requestBody:
-        description: "A set of substance references with their corresponding percentage amounts. The amounts will be     compared to the legislation thresholds to determine whether the substance is below or above it."
+        description: ''
         content:
           application/json:
             schema:
@@ -274,6 +380,7 @@ paths:
             examples:
               example1:
                 summary: Two substances and two indicators
+                description: "A set of substance references with their corresponding percentage amounts. The amounts will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. "
                 value:
                   Substances:
                     - PercentageAmount: 0.05
@@ -297,12 +404,12 @@ paths:
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: Rohs
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Set of flags describing how each substance is impacted by each legislation.
+          description: "Each requested substance is returned with an array of indicators describing the compliance status for that substance evaluated against that indicator."
           content:
             application/json:
               schema:
@@ -310,6 +417,7 @@ paths:
               examples:
                 example1:
                   summary: Two substances and two indicators
+                  description: "The response contains a \"Substances\" array, with the elements corresponding to the substances specified in the request. Each substance contains the original reference from the request, along with an \"Indicators\" array. The \"Indicators\" array contains the compliance status for the substance evaluated against that indicator.  This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Substances:
                       - Indicators:
@@ -326,15 +434,16 @@ paths:
                             Flag: RohsAboveThreshold
                         ReferenceType: ChemicalName
                         ReferenceValue: '1,3-Butadiene'
+                    LogMessages: [ ]
   /compliance/materials:
     post:
       tags:
         - Compliance
-      summary: Get compliance for materials
-      description: Performs compliance analysis on the provided materials in the context of the specified indicator definitions.
+      summary: Determine the compliance of one or more materials in the context of specified indicators
+      description: "Compliance is determined first by identifying the substances contained within the materials, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances to the parent materials to determine material compliance. This endpoint reports the compliance result for both the materials and substances. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator."
       operationId: postComplianceMaterials
       requestBody:
-        description: "A set of materials references. The substance amounts in each material will be     compared to the legislation thresholds to determine whether the substance is below or above it."
+        description: ''
         content:
           application/json:
             schema:
@@ -342,6 +451,7 @@ paths:
             examples:
               example1:
                 summary: Two materials and two indicators
+                description: "A set of materials references and Indicator definitions. The substances contained within each material will be identified, and then the amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled up to the material to determine material compliance."
                 value:
                   Materials:
                     - ReferenceType: MaterialId
@@ -363,12 +473,36 @@ paths:
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: Rohs
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+              example2:
+                summary: Ignore Process Chemicals
+                description: "A single material reference and two Watch List indicators, once of which has been set to ignore process chemicals. This means any substances marked as being involved in the production of the material only will be marked as Not Impacted regardless of their concentration or legislative status."
+                value:
+                  Materials:
+                    - ReferenceType: MaterialId
+                      ReferenceValue: plastic-pc-20carbonfiber
+                  Indicators:
+                    - Name: Ignore Process Chemicals
+                      LegislationNames:
+                        - The SIN List 2.1 (Substitute It Now!)
+                      DefaultThresholdPercentage: 0.1
+                      IgnoreExemptions: false
+                      IgnoreProcessChemicals: true
+                      Type: WatchList
+                    - Name: Default Configuration
+                      LegislationNames:
+                        - The SIN List 2.1 (Substitute It Now!)
+                      DefaultThresholdPercentage: 0.1
+                      IgnoreExemptions: false
+                      IgnoreProcessChemicals: false
+                      Type: WatchList
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Set of flags describing how each material and the substances in it are impacted by the indicators.
+          description: "Each requested material is returned with an array of indicators describing the compliance status of each material against each indicator. Each material also contains an array of substances that describes the compliance status of each substance contained within that material against each indicator."
           content:
             application/json:
               schema:
@@ -376,6 +510,7 @@ paths:
               examples:
                 example1:
                   summary: Two materials and two indicators
+                  description: "The response contains a \"Materials\" array, with the elements corresponding to the materials specified in the request. Each material contains the original reference from the request, along with an \"Indicators\" array and a \"Substances\" array. The \"Indicators\" array contains the compliance status for the materials evaluated against that indicator. The \"Substances\" array contains the substance compliance for the substances contained within that material. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Materials:
                       - Indicators:
@@ -415,15 +550,44 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+                    LogMessages: [ ]
+                example2:
+                  summary: Ignore Process Chemicals
+                  description: "The material contains two substances; the material with the ID '34567' is non-compliant, and the material with the ID '12345' is compliant. The indicator with the default configuration gives a non-compliant result as expected both for the non-compliant substance and the material itself. However, the non-compliant substance is a 'process chemical', and so the indicator that has been configured to ignore process chemicals identifies the substance with ID '34567' as Not Impacted, which results in the material having a compliant result. This example is for illustrative purposes only; the substances contained within this material have been modified to demonstrate the behavior described above. The real response to the corresponding request will differ to the one shown here."
+                  value:
+                    Materials:
+                      - Indicators:
+                          - Name: Ignore Process Chemicals
+                            Flag: WatchListCompliant
+                          - Name: Default Configuration
+                            Flag: WatchListHasSubstanceAboveThreshold
+                        Substances:
+                          - Indicators:
+                              - Name: Ignore Process Chemicals
+                                Flag: WatchListBelowThreshold
+                              - Name: Default Configuration
+                                Flag: WatchListBelowThreshold
+                            ReferenceType: MiRecordHistoryIdentity
+                            ReferenceValue: 12345
+                          - Indicators:
+                              - Name: Ignore Process Chemicals
+                                Flag: WatchListNotImpacted
+                              - Name: Default Configuration
+                                Flag: WatchListAboveThreshold
+                            ReferenceType: MiRecordHistoryIdentity
+                            ReferenceValue: 34567
+                        ReferenceType: MaterialId
+                        ReferenceValue: plastic-pc-20carbonfiber
+                    LogMessages: [ ]
   /compliance/specifications:
     post:
       tags:
         - Compliance
-      summary: Get compliance for specifications
-      description: Performs compliance analysis on the provided specifications in the context of the specified indicator definitions.
+      summary: Determine the compliance of one or more specifications in the context of specified indicators
+      description: "Compliance is determined first by identifying the substances contained within the specifications, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, and specifications, to determine the compliance of the specifications included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex specification hierarchies. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator."
       operationId: postComplianceSpecifications
       requestBody:
-        description: A set of specification references.
+        description: ''
         content:
           application/json:
             schema:
@@ -431,6 +595,7 @@ paths:
             examples:
               example1:
                 summary: Two specifications and two indicators
+                description: "A set of specification references and Indicator definitions. The substances contained within each specification will be identified, following all links through intermediate specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the specification to determine overall specification compliance. Compliance will also be reported at each intermediate level of the specification hierarchy."
                 value:
                   Specifications:
                     - ReferenceType: SpecificationId
@@ -452,12 +617,12 @@ paths:
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: Rohs
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Set of flags describing how each specification and the components in it are impacted by the indicators.
+          description: "Each requested specification is returned with an array of indicators describing the compliance status of each specification against each indicator. Each specification also contains arrays of specifications, materials, coatings, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if only a single specification is requested, that specification can link to multiple specifications, which each link to multiple specifications, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root specification."
           content:
             application/json:
               schema:
@@ -465,6 +630,7 @@ paths:
               examples:
                 example1:
                   summary: Two specifications and two indicators
+                  description: "The response contains a \"Specifications\" array, with the elements corresponding to the specifications specified in the request. Each specification contains the original reference from the request, along with \"Indicators\", \"Specifications\", \"Materials\", \"Coatings\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the specifications evaluated against that indicator. The \"Specifications\", \"Materials\", \"Coatings\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. The example response also contains three log messages to illustrate the kind of log messages you may get when using this and other endpoints. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Specifications:
                       - Indicators:
@@ -573,15 +739,22 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+                    LogMessages:
+                      - Severity: warning
+                        Message: 'Could not determine declaration type for record ''MSP89,TypeI - Vapor Degrease'' from table ''Specifications''.'
+                      - Severity: warning
+                        Message: Could not determine declaration type for record 'ASTM D4080' from table 'Specifications'.
+                      - Severity: warning
+                        Message: Specification "ASTM D4080" with record 'ASTM D4080' from table 'Specifications' has a material row with a missing material link.
   /compliance/parts:
     post:
       tags:
         - Compliance
-      summary: Get compliance for parts
-      description: Performs compliance analysis on the provided parts in the context of the specified indicator definitions.
+      summary: Determine the compliance of one or more parts in the context of specified indicators
+      description: "Compliance is determined first by identifying the substances contained within the parts, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator."
       operationId: postComplianceParts
       requestBody:
-        description: A set of part references.
+        description: ''
         content:
           application/json:
             schema:
@@ -589,10 +762,11 @@ paths:
             examples:
               example1:
                 summary: Two parts and two indicators
+                description: "A set of part references and Indicator definitions. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
                 value:
                   Parts:
                     - ReferenceType: PartNumber
-                      ReferenceValue: AF-1235
+                      ReferenceValue: FLRY33
                     - ReferenceType: MiRecordGuid
                       ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
                   Indicators:
@@ -610,12 +784,36 @@ paths:
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: Rohs
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+              example2:
+                summary: Ignore Exemptions
+                description: "A single part reference and two RoHS indicators, once of which has been set to ignore exemptions. This means any parts marked as being exempt from certain RoHS-impacted substances will instead be marked as Non Compliant if they contain such substances."
+                value:
+                  Parts:
+                    - ReferenceType: PartNumber
+                      ReferenceValue: FLRY33
+                  Indicators:
+                    - Name: Ignore Exemptions
+                      LegislationNames:
+                        - EU Directive 2011/65/EU (RoHS 2)
+                      DefaultThresholdPercentage: 0.1
+                      IgnoreExemptions: true
+                      IgnoreProcessChemicals: false
+                      Type: Rohs
+                    - Name: Default Configuration
+                      LegislationNames:
+                        - EU Directive 2011/65/EU (RoHS 2)
+                      DefaultThresholdPercentage: 0.1
+                      IgnoreExemptions: false
+                      IgnoreProcessChemicals: false
+                      Type: Rohs
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Set of flags describing how each part and the components in it are impacted by the indicators.
+          description: "Each requested part is returned with an array of indicators describing the compliance status of each part against each indicator. Each part also contains arrays of parts, specifications, materials, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if only a single part is requested, that part can link to multiple parts, which each link to multiple parts, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root part."
           content:
             application/json:
               schema:
@@ -623,6 +821,7 @@ paths:
               examples:
                 example1:
                   summary: Two parts and two indicators
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the parts evaluated against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Indicators:
@@ -671,7 +870,7 @@ paths:
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: PartNumber
-                        ReferenceValue: AF-1235
+                        ReferenceValue: FLRY33
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -734,12 +933,37 @@ paths:
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+                    LogMessages: [ ]
+                example2:
+                  summary: Ignore Exemptions
+                  description: "The part 'FLRY33' has a RoHS exemption declared for lead as an alloying element. This part contains two lead, amongst other elements, in a concentration above 0.1% and would therefore normally be non-compliant under RoHS.  The indicator with the default configuration gives a non-compliant result for the substance, but identifies the RoHS exemption on the part and so determines the compliance status as 'Compliant With Exemptions'. However, the indicator which is configured to ignore exemptions does not consider the exemption status of the part, and reports the compliance of both the substance and the part as 'Non Compliant'. This example is for illustrative purposes only; the substances contained within this part have been modified to demonstrate the behavior described above. The real response to the corresponding request will differ to the one shown here."
+                  value:
+                    Parts:
+                      - Indicators:
+                          - Name: Ignore Exemptions
+                            Flag: RohsNonCompliant
+                          - Name: Default Configuration
+                            Flag: RohsCompliantWithExemptions
+                        Parts: 
+                        Specifications: [ ]
+                        Materials: [ ]
+                        Substances:
+                          - Indicators:
+                              - Name: Ignore Exemptions
+                                Flag: RohsAboveThreshold
+                              - Name: Default Configuration
+                                Flag: RohsAboveThreshold
+                            ReferenceType: MiRecordHistoryIdentity
+                            ReferenceValue: 72969
+                        ReferenceType: PartNumber
+                        ReferenceValue: FLRY33
+                    LogMessages: [ ]
   /compliance/bom1711:
     post:
       tags:
         - Compliance
-      summary: Get the compliance for a BoM
-      description: Performs compliance analysis on the provided 17/11 BoM in the context of the specified indicator definitions.
+      summary: Determine the compliance of a BoM in the context of specified indicators
+      description: "Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator."
       operationId: postComplianceBom1711
       requestBody:
         description: ''
@@ -750,8 +974,9 @@ paths:
             examples:
               example1:
                 summary: Single-part BoM with a substance
+                description: "The root part in this BoM includes two sub-parts; the first references a substance directly, and the second references a material. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
                 value:
-                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   Indicators:
                     - Name: Indicator 1
                       LegislationNames:
@@ -767,12 +992,12 @@ paths:
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: Rohs
-                  DatabaseKey: MI_Product_Risk
+                  DatabaseKey: MI_Restricted_Substances
                   Config: 
         required: true
       responses:
         '200':
-          description: Set of flags describing how each the BoM components are impacted by the indicators.
+          description: "Each part included in the BoM is returned with an array of indicators describing the compliance status of each part against each indicator. Each part also contains arrays of parts, specifications, materials, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root part."
           content:
             application/json:
               schema:
@@ -780,6 +1005,7 @@ paths:
               examples:
                 example1:
                   summary: Single-part BoM with a substance
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the parts evaluated against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Indicators:
@@ -837,6 +1063,7 @@ paths:
                         Substances: [ ]
                         ReferenceType: PartNumber
                         ReferenceValue: 
+                    LogMessages: [ ]
 components:
   schemas:
     GetImpactedSubstancesForMaterials.Request:
@@ -860,7 +1087,7 @@ components:
             ReferenceValue: elastomer-butadienerubber
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     Common.MaterialReference:
       type: object
@@ -891,6 +1118,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetImpactedSubstancesForMaterials.Material'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Materials:
           - Legislations:
@@ -908,6 +1139,7 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: MaterialId
             ReferenceValue: elastomer-butadienerubber
+        LogMessages: [ ]
     GetImpactedSubstancesForMaterials.Material:
       type: object
       properties:
@@ -945,6 +1177,13 @@ components:
           type: number
           format: double
           nullable: true
+    Common.LogEntry:
+      type: object
+      properties:
+        Severity:
+          type: string
+        Message:
+          type: string
     GetImpactedSubstancesForSpecifications.Request:
       type: object
       properties:
@@ -968,7 +1207,7 @@ components:
             ReferenceValue: 'MSP89,TypeI'
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     Common.SpecificationReference:
       type: object
@@ -984,6 +1223,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetImpactedSubstancesForSpecifications.Specification'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Specifications:
           - Legislations:
@@ -1016,6 +1259,7 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: SpecificationId
             ReferenceValue: 'MSP89,TypeI'
+        LogMessages: [ ]
     GetImpactedSubstancesForSpecifications.Specification:
       type: object
       properties:
@@ -1047,10 +1291,10 @@ components:
           - ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 14321
           - ReferenceType: PartNumber
-            ReferenceValue: AF-1235
+            ReferenceValue: FLRY33
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     Common.PartReference:
       type: object
@@ -1066,6 +1310,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetImpactedSubstancesForParts.Part'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Parts:
           - Legislations:
@@ -1097,7 +1345,8 @@ components:
                     MaxPercentageAmountInMaterial: 1
                     LegislationThreshold: 0.1
             ReferenceType: PartNumber
-            ReferenceValue: AF-1235
+            ReferenceValue: FLRY33
+        LogMessages: [ ]
     GetImpactedSubstancesForParts.Part:
       type: object
       properties:
@@ -1123,10 +1372,10 @@ components:
         Config:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
-        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     GetImpactedSubstancesForBom1711.Response:
       type: object
@@ -1135,6 +1384,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Legislations:
           - LegislationName: The SIN List 2.1 (Substitute It Now!)
@@ -1149,6 +1402,7 @@ components:
                 EcNumber: 204-881-4
                 MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
+        LogMessages: [ ]
     GetComplianceForSubstances.Request:
       type: object
       properties:
@@ -1187,7 +1441,7 @@ components:
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: Rohs
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     GetComplianceForSubstances.SubstanceWithAmount:
       type: object
@@ -1224,6 +1478,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Substances:
           - Indicators:
@@ -1240,6 +1498,7 @@ components:
                 Flag: RohsAboveThreshold
             ReferenceType: ChemicalName
             ReferenceValue: '1,3-Butadiene'
+        LogMessages: [ ]
     Common.SubstanceWithCompliance:
       type: object
       properties:
@@ -1294,7 +1553,7 @@ components:
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: Rohs
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     GetComplianceForMaterials.Response:
       type: object
@@ -1303,6 +1562,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialWithCompliance'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Materials:
           - Indicators:
@@ -1342,6 +1605,7 @@ components:
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+        LogMessages: [ ]
     Common.MaterialWithCompliance:
       type: object
       properties:
@@ -1393,7 +1657,7 @@ components:
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: Rohs
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     GetComplianceForSpecifications.Response:
       type: object
@@ -1402,6 +1666,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationWithCompliance'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Specifications:
           - Indicators:
@@ -1510,6 +1778,13 @@ components:
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+        LogMessages:
+          - Severity: warning
+            Message: 'Could not determine declaration type for record ''MSP89,TypeI - Vapor Degrease'' from table ''Specifications''.'
+          - Severity: warning
+            Message: Could not determine declaration type for record 'ASTM D4080' from table 'Specifications'.
+          - Severity: warning
+            Message: Specification "ASTM D4080" with record 'ASTM D4080' from table 'Specifications' has a material row with a missing material link.
     Common.SpecificationWithCompliance:
       type: object
       properties:
@@ -1570,7 +1845,7 @@ components:
       example:
         Parts:
           - ReferenceType: PartNumber
-            ReferenceValue: AF-1235
+            ReferenceValue: FLRY33
           - ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
         Indicators:
@@ -1588,7 +1863,7 @@ components:
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: Rohs
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     GetComplianceForParts.Response:
       type: object
@@ -1597,6 +1872,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartWithCompliance'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Parts:
           - Indicators:
@@ -1645,7 +1924,7 @@ components:
             Materials: [ ]
             Substances: [ ]
             ReferenceType: PartNumber
-            ReferenceValue: AF-1235
+            ReferenceValue: FLRY33
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -1708,6 +1987,7 @@ components:
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+        LogMessages: [ ]
     Common.PartWithCompliance:
       type: object
       properties:
@@ -1749,7 +2029,7 @@ components:
         Config:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
-        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Product_Risk</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         Indicators:
           - Name: Indicator 1
             LegislationNames:
@@ -1765,7 +2045,7 @@ components:
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: Rohs
-        DatabaseKey: MI_Product_Risk
+        DatabaseKey: MI_Restricted_Substances
         Config: 
     GetComplianceForBom1711.Response:
       type: object
@@ -1774,6 +2054,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartWithCompliance'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
       example:
         Parts:
           - Indicators:
@@ -1831,3 +2115,4 @@ components:
             Substances: [ ]
             ReferenceType: PartNumber
             ReferenceValue: 
+        LogMessages: [ ]
