@@ -28,24 +28,30 @@ class GetImpactedSubstancesForPartsResponse(Model):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'parts': 'list[GetImpactedSubstancesForPartsPart]'
+        'parts': 'list[GetImpactedSubstancesForPartsPart]',
+        'log_messages': 'list[CommonLogEntry]'
     }
 
     attribute_map = {
-        'parts': 'Parts'
+        'parts': 'Parts',
+        'log_messages': 'LogMessages'
     }
 
     subtype_mapping = {
-        'Parts': 'GetImpactedSubstancesForPartsPart'
+        'Parts': 'GetImpactedSubstancesForPartsPart',
+        'LogMessages': 'CommonLogEntry'
     }
 
 
-    def __init__(self, parts=None):  # noqa: E501
+    def __init__(self, parts=None, log_messages=None):  # noqa: E501
         """GetImpactedSubstancesForPartsResponse - a model defined in Swagger"""  # noqa: E501
         self._parts = None
+        self._log_messages = None
         self.discriminator = None
         if parts is not None:
             self.parts = parts
+        if log_messages is not None:
+            self.log_messages = log_messages
 
     @property
     def parts(self):
@@ -64,6 +70,24 @@ class GetImpactedSubstancesForPartsResponse(Model):
         :type: list[GetImpactedSubstancesForPartsPart]
         """
         self._parts = parts
+
+    @property
+    def log_messages(self):
+        """Gets the log_messages of this GetImpactedSubstancesForPartsResponse.  # noqa: E501
+
+        :return: The log_messages of this GetImpactedSubstancesForPartsResponse.  # noqa: E501
+        :rtype: list[CommonLogEntry]
+        """
+        return self._log_messages
+
+    @log_messages.setter
+    def log_messages(self, log_messages):
+        """Sets the log_messages of this GetImpactedSubstancesForPartsResponse.
+
+        :param log_messages: The log_messages of this GetImpactedSubstancesForPartsResponse.  # noqa: E501
+        :type: list[CommonLogEntry]
+        """
+        self._log_messages = log_messages
 
     def to_dict(self):
         """Returns the model properties as a dict"""

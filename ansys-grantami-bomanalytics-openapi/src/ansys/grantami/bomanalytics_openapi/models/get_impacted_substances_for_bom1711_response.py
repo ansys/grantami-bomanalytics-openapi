@@ -28,24 +28,30 @@ class GetImpactedSubstancesForBom1711Response(Model):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'legislations': 'list[CommonLegislationWithImpactedSubstances]'
+        'legislations': 'list[CommonLegislationWithImpactedSubstances]',
+        'log_messages': 'list[CommonLogEntry]'
     }
 
     attribute_map = {
-        'legislations': 'Legislations'
+        'legislations': 'Legislations',
+        'log_messages': 'LogMessages'
     }
 
     subtype_mapping = {
-        'Legislations': 'CommonLegislationWithImpactedSubstances'
+        'Legislations': 'CommonLegislationWithImpactedSubstances',
+        'LogMessages': 'CommonLogEntry'
     }
 
 
-    def __init__(self, legislations=None):  # noqa: E501
+    def __init__(self, legislations=None, log_messages=None):  # noqa: E501
         """GetImpactedSubstancesForBom1711Response - a model defined in Swagger"""  # noqa: E501
         self._legislations = None
+        self._log_messages = None
         self.discriminator = None
         if legislations is not None:
             self.legislations = legislations
+        if log_messages is not None:
+            self.log_messages = log_messages
 
     @property
     def legislations(self):
@@ -64,6 +70,24 @@ class GetImpactedSubstancesForBom1711Response(Model):
         :type: list[CommonLegislationWithImpactedSubstances]
         """
         self._legislations = legislations
+
+    @property
+    def log_messages(self):
+        """Gets the log_messages of this GetImpactedSubstancesForBom1711Response.  # noqa: E501
+
+        :return: The log_messages of this GetImpactedSubstancesForBom1711Response.  # noqa: E501
+        :rtype: list[CommonLogEntry]
+        """
+        return self._log_messages
+
+    @log_messages.setter
+    def log_messages(self, log_messages):
+        """Sets the log_messages of this GetImpactedSubstancesForBom1711Response.
+
+        :param log_messages: The log_messages of this GetImpactedSubstancesForBom1711Response.  # noqa: E501
+        :type: list[CommonLogEntry]
+        """
+        self._log_messages = log_messages
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -28,24 +28,30 @@ class GetComplianceForSpecificationsResponse(Model):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'specifications': 'list[CommonSpecificationWithCompliance]'
+        'specifications': 'list[CommonSpecificationWithCompliance]',
+        'log_messages': 'list[CommonLogEntry]'
     }
 
     attribute_map = {
-        'specifications': 'Specifications'
+        'specifications': 'Specifications',
+        'log_messages': 'LogMessages'
     }
 
     subtype_mapping = {
-        'Specifications': 'CommonSpecificationWithCompliance'
+        'Specifications': 'CommonSpecificationWithCompliance',
+        'LogMessages': 'CommonLogEntry'
     }
 
 
-    def __init__(self, specifications=None):  # noqa: E501
+    def __init__(self, specifications=None, log_messages=None):  # noqa: E501
         """GetComplianceForSpecificationsResponse - a model defined in Swagger"""  # noqa: E501
         self._specifications = None
+        self._log_messages = None
         self.discriminator = None
         if specifications is not None:
             self.specifications = specifications
+        if log_messages is not None:
+            self.log_messages = log_messages
 
     @property
     def specifications(self):
@@ -64,6 +70,24 @@ class GetComplianceForSpecificationsResponse(Model):
         :type: list[CommonSpecificationWithCompliance]
         """
         self._specifications = specifications
+
+    @property
+    def log_messages(self):
+        """Gets the log_messages of this GetComplianceForSpecificationsResponse.  # noqa: E501
+
+        :return: The log_messages of this GetComplianceForSpecificationsResponse.  # noqa: E501
+        :rtype: list[CommonLogEntry]
+        """
+        return self._log_messages
+
+    @log_messages.setter
+    def log_messages(self, log_messages):
+        """Sets the log_messages of this GetComplianceForSpecificationsResponse.
+
+        :param log_messages: The log_messages of this GetComplianceForSpecificationsResponse.  # noqa: E501
+        :type: list[CommonLogEntry]
+        """
+        self._log_messages = log_messages
 
     def to_dict(self):
         """Returns the model properties as a dict"""

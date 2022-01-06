@@ -1,10 +1,10 @@
-# GetComplianceForSpecificationsResponse
+# CommonLogEntry
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**specifications** | [**list[CommonSpecificationWithCompliance]**](CommonSpecificationWithCompliance.md) |  | [optional] 
-**log_messages** | [**list[CommonLogEntry]**](CommonLogEntry.md) |  | [optional] 
+**severity** | **str** |  | [optional] 
+**message** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

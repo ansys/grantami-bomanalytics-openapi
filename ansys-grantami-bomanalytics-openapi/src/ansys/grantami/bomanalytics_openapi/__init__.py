@@ -22,6 +22,7 @@ from .models.common_impacted_substance import CommonImpactedSubstance
 from .models.common_indicator_definition import CommonIndicatorDefinition
 from .models.common_indicator_result import CommonIndicatorResult
 from .models.common_legislation_with_impacted_substances import CommonLegislationWithImpactedSubstances
+from .models.common_log_entry import CommonLogEntry
 from .models.common_material_reference import CommonMaterialReference
 from .models.common_material_with_compliance import CommonMaterialWithCompliance
 from .models.common_part_reference import CommonPartReference

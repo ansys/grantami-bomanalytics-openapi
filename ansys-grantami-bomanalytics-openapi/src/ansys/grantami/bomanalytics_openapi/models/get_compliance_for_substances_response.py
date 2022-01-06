@@ -28,24 +28,30 @@ class GetComplianceForSubstancesResponse(Model):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'substances': 'list[CommonSubstanceWithCompliance]'
+        'substances': 'list[CommonSubstanceWithCompliance]',
+        'log_messages': 'list[CommonLogEntry]'
     }
 
     attribute_map = {
-        'substances': 'Substances'
+        'substances': 'Substances',
+        'log_messages': 'LogMessages'
     }
 
     subtype_mapping = {
-        'Substances': 'CommonSubstanceWithCompliance'
+        'Substances': 'CommonSubstanceWithCompliance',
+        'LogMessages': 'CommonLogEntry'
     }
 
 
-    def __init__(self, substances=None):  # noqa: E501
+    def __init__(self, substances=None, log_messages=None):  # noqa: E501
         """GetComplianceForSubstancesResponse - a model defined in Swagger"""  # noqa: E501
         self._substances = None
+        self._log_messages = None
         self.discriminator = None
         if substances is not None:
             self.substances = substances
+        if log_messages is not None:
+            self.log_messages = log_messages
 
     @property
     def substances(self):
@@ -64,6 +70,24 @@ class GetComplianceForSubstancesResponse(Model):
         :type: list[CommonSubstanceWithCompliance]
         """
         self._substances = substances
+
+    @property
+    def log_messages(self):
+        """Gets the log_messages of this GetComplianceForSubstancesResponse.  # noqa: E501
+
+        :return: The log_messages of this GetComplianceForSubstancesResponse.  # noqa: E501
+        :rtype: list[CommonLogEntry]
+        """
+        return self._log_messages
+
+    @log_messages.setter
+    def log_messages(self, log_messages):
+        """Sets the log_messages of this GetComplianceForSubstancesResponse.
+
+        :param log_messages: The log_messages of this GetComplianceForSubstancesResponse.  # noqa: E501
+        :type: list[CommonLogEntry]
+        """
+        self._log_messages = log_messages
 
     def to_dict(self):
         """Returns the model properties as a dict"""
