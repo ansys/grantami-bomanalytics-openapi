@@ -10,8 +10,8 @@ function Edit-YamlFile {
 	)
 	
 	(Get-Content $OutputPath) | Foreach-Object {
-		$_ -replace '(\\r)?\\n\s+', ' ' `
-		   -replace '\\\\\s*', ' ' `
+		$_ -replace '\s?(\\r)?\\n\s+', ' ' `
+		   -replace '(\\\\\s*)+', ' ' `
 		} | Set-Content $OutputPath
 	
 }
