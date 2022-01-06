@@ -24,9 +24,9 @@ class ComplianceApi(object):
         self.api_client = api_client
 
     def post_compliance_bom1711(self, body, **kwargs):  # noqa: E501
-        """Get the compliance for a BoM  # noqa: E501
+        """Determine the compliance of a BoM in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided 17/11 BoM in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
         :param GetComplianceForBom1711Request body: (required)
@@ -37,9 +37,9 @@ class ComplianceApi(object):
         return data
 
     def post_compliance_bom1711_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Get the compliance for a BoM  # noqa: E501
+        """Determine the compliance of a BoM in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided 17/11 BoM in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
         :param GetComplianceForBom1711Request body: (required)
@@ -104,12 +104,12 @@ class ComplianceApi(object):
             collection_formats=collection_formats)
 
     def post_compliance_materials(self, body, **kwargs):  # noqa: E501
-        """Get compliance for materials  # noqa: E501
+        """Determine the compliance of one or more materials in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided materials in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the materials, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances to the parent materials to determine material compliance. This endpoint reports the compliance result for both the materials and substances. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForMaterialsRequest body: A set of materials references. The substance amounts in each material will be     compared to the legislation thresholds to determine whether the substance is below or above it. (required)
+        :param GetComplianceForMaterialsRequest body: (required)
         :return: GetComplianceForMaterialsResponse
         """
         kwargs['_return_http_data_only'] = True
@@ -117,12 +117,12 @@ class ComplianceApi(object):
         return data
 
     def post_compliance_materials_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Get compliance for materials  # noqa: E501
+        """Determine the compliance of one or more materials in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided materials in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the materials, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances to the parent materials to determine material compliance. This endpoint reports the compliance result for both the materials and substances. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForMaterialsRequest body: A set of materials references. The substance amounts in each material will be     compared to the legislation thresholds to determine whether the substance is below or above it. (required)
+        :param GetComplianceForMaterialsRequest body: (required)
         :return: GetComplianceForMaterialsResponse
         """
 
@@ -184,12 +184,12 @@ class ComplianceApi(object):
             collection_formats=collection_formats)
 
     def post_compliance_parts(self, body, **kwargs):  # noqa: E501
-        """Get compliance for parts  # noqa: E501
+        """Determine the compliance of one or more parts in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided parts in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the parts, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForPartsRequest body: A set of part references. (required)
+        :param GetComplianceForPartsRequest body: (required)
         :return: GetComplianceForPartsResponse
         """
         kwargs['_return_http_data_only'] = True
@@ -197,12 +197,12 @@ class ComplianceApi(object):
         return data
 
     def post_compliance_parts_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Get compliance for parts  # noqa: E501
+        """Determine the compliance of one or more parts in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided parts in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the parts, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForPartsRequest body: A set of part references. (required)
+        :param GetComplianceForPartsRequest body: (required)
         :return: GetComplianceForPartsResponse
         """
 
@@ -264,12 +264,12 @@ class ComplianceApi(object):
             collection_formats=collection_formats)
 
     def post_compliance_specifications(self, body, **kwargs):  # noqa: E501
-        """Get compliance for specifications  # noqa: E501
+        """Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided specifications in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the specifications, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, and specifications, to determine the compliance of the specifications included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex specification hierarchies. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForSpecificationsRequest body: A set of specification references. (required)
+        :param GetComplianceForSpecificationsRequest body: (required)
         :return: GetComplianceForSpecificationsResponse
         """
         kwargs['_return_http_data_only'] = True
@@ -277,12 +277,12 @@ class ComplianceApi(object):
         return data
 
     def post_compliance_specifications_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Get compliance for specifications  # noqa: E501
+        """Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided specifications in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined first by identifying the substances contained within the specifications, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, and specifications, to determine the compliance of the specifications included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex specification hierarchies. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForSpecificationsRequest body: A set of specification references. (required)
+        :param GetComplianceForSpecificationsRequest body: (required)
         :return: GetComplianceForSpecificationsResponse
         """
 
@@ -344,12 +344,12 @@ class ComplianceApi(object):
             collection_formats=collection_formats)
 
     def post_compliance_substances(self, body, **kwargs):  # noqa: E501
-        """Get compliance for substances  # noqa: E501
+        """Determine the compliance of one or more substances in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided substances in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined by comparing the substance quantity against the threshold defined for that indicator. The response includes the compliance status for each substance for each indicator. A substance can be referenced by one of six different identifiers: record GUID, record history GUID, record history identity, CAS Number, EC Number, or Chemical Name. The amount of substance is also required, since generally a substance is only non-compliant over a certain threshold. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForSubstancesRequest body: A set of substance references with their corresponding percentage amounts. The amounts will be     compared to the legislation thresholds to determine whether the substance is below or above it. (required)
+        :param GetComplianceForSubstancesRequest body: (required)
         :return: GetComplianceForSubstancesResponse
         """
         kwargs['_return_http_data_only'] = True
@@ -357,12 +357,12 @@ class ComplianceApi(object):
         return data
 
     def post_compliance_substances_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Get compliance for substances  # noqa: E501
+        """Determine the compliance of one or more substances in the context of specified indicators  # noqa: E501
 
-        Performs compliance analysis on the provided substances in the context of the specified indicator definitions.  # noqa: E501
+        Compliance is determined by comparing the substance quantity against the threshold defined for that indicator. The response includes the compliance status for each substance for each indicator. A substance can be referenced by one of six different identifiers: record GUID, record history GUID, record history identity, CAS Number, EC Number, or Chemical Name. The amount of substance is also required, since generally a substance is only non-compliant over a certain threshold. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold.  # noqa: E501
         This method makes a synchronous HTTP request.
 
-        :param GetComplianceForSubstancesRequest body: A set of substance references with their corresponding percentage amounts. The amounts will be     compared to the legislation thresholds to determine whether the substance is below or above it. (required)
+        :param GetComplianceForSubstancesRequest body: (required)
         :return: GetComplianceForSubstancesResponse
         """
 

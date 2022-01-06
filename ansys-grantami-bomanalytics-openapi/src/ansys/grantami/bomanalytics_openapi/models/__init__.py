@@ -20,6 +20,7 @@ from .common_impacted_substance import CommonImpactedSubstance
 from .common_indicator_definition import CommonIndicatorDefinition
 from .common_indicator_result import CommonIndicatorResult
 from .common_legislation_with_impacted_substances import CommonLegislationWithImpactedSubstances
+from .common_log_entry import CommonLogEntry
 from .common_material_reference import CommonMaterialReference
 from .common_material_with_compliance import CommonMaterialWithCompliance
 from .common_part_reference import CommonPartReference

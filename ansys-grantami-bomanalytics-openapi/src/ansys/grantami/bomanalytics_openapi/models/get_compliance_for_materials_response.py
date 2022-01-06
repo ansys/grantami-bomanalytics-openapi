@@ -28,24 +28,30 @@ class GetComplianceForMaterialsResponse(Model):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'materials': 'list[CommonMaterialWithCompliance]'
+        'materials': 'list[CommonMaterialWithCompliance]',
+        'log_messages': 'list[CommonLogEntry]'
     }
 
     attribute_map = {
-        'materials': 'Materials'
+        'materials': 'Materials',
+        'log_messages': 'LogMessages'
     }
 
     subtype_mapping = {
-        'Materials': 'CommonMaterialWithCompliance'
+        'Materials': 'CommonMaterialWithCompliance',
+        'LogMessages': 'CommonLogEntry'
     }
 
 
-    def __init__(self, materials=None):  # noqa: E501
+    def __init__(self, materials=None, log_messages=None):  # noqa: E501
         """GetComplianceForMaterialsResponse - a model defined in Swagger"""  # noqa: E501
         self._materials = None
+        self._log_messages = None
         self.discriminator = None
         if materials is not None:
             self.materials = materials
+        if log_messages is not None:
+            self.log_messages = log_messages
 
     @property
     def materials(self):
@@ -64,6 +70,24 @@ class GetComplianceForMaterialsResponse(Model):
         :type: list[CommonMaterialWithCompliance]
         """
         self._materials = materials
+
+    @property
+    def log_messages(self):
+        """Gets the log_messages of this GetComplianceForMaterialsResponse.  # noqa: E501
+
+        :return: The log_messages of this GetComplianceForMaterialsResponse.  # noqa: E501
+        :rtype: list[CommonLogEntry]
+        """
+        return self._log_messages
+
+    @log_messages.setter
+    def log_messages(self, log_messages):
+        """Sets the log_messages of this GetComplianceForMaterialsResponse.
+
+        :param log_messages: The log_messages of this GetComplianceForMaterialsResponse.  # noqa: E501
+        :type: list[CommonLogEntry]
+        """
+        self._log_messages = log_messages
 
     def to_dict(self):
         """Returns the model properties as a dict"""

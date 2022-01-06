@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost/mi_servicelayer/BomAnalytics/v1.svc*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_compliance_bom1711**](ComplianceApi.md#post_compliance_bom1711) | **POST** /compliance/bom1711 | Get the compliance for a BoM
-[**post_compliance_materials**](ComplianceApi.md#post_compliance_materials) | **POST** /compliance/materials | Get compliance for materials
-[**post_compliance_parts**](ComplianceApi.md#post_compliance_parts) | **POST** /compliance/parts | Get compliance for parts
-[**post_compliance_specifications**](ComplianceApi.md#post_compliance_specifications) | **POST** /compliance/specifications | Get compliance for specifications
-[**post_compliance_substances**](ComplianceApi.md#post_compliance_substances) | **POST** /compliance/substances | Get compliance for substances
+[**post_compliance_bom1711**](ComplianceApi.md#post_compliance_bom1711) | **POST** /compliance/bom1711 | Determine the compliance of a BoM in the context of specified indicators
+[**post_compliance_materials**](ComplianceApi.md#post_compliance_materials) | **POST** /compliance/materials | Determine the compliance of one or more materials in the context of specified indicators
+[**post_compliance_parts**](ComplianceApi.md#post_compliance_parts) | **POST** /compliance/parts | Determine the compliance of one or more parts in the context of specified indicators
+[**post_compliance_specifications**](ComplianceApi.md#post_compliance_specifications) | **POST** /compliance/specifications | Determine the compliance of one or more specifications in the context of specified indicators
+[**post_compliance_substances**](ComplianceApi.md#post_compliance_substances) | **POST** /compliance/substances | Determine the compliance of one or more substances in the context of specified indicators
 
 # **post_compliance_bom1711**
 > GetComplianceForBom1711Response post_compliance_bom1711(body)
 
-Get the compliance for a BoM
+Determine the compliance of a BoM in the context of specified indicators
 
-Performs compliance analysis on the provided 17/11 BoM in the context of the specified indicator definitions.
+Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator.
 
 ### Example
 ```python
@@ -35,7 +35,7 @@ client.setup_client(ansys.grantami.bomanalytics_openapi.models)
 api_instance = ansys.grantami.bomanalytics_openapi.ComplianceApi(client)
 
 try:
-    # Get the compliance for a BoM
+    # Determine the compliance of a BoM in the context of specified indicators
     api_response = api_instance.post_compliance_bom1711(body)
     pprint(api_response)
 except ApiException as e:
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 # **post_compliance_materials**
 > GetComplianceForMaterialsResponse post_compliance_materials(body)
 
-Get compliance for materials
+Determine the compliance of one or more materials in the context of specified indicators
 
-Performs compliance analysis on the provided materials in the context of the specified indicator definitions.
+Compliance is determined first by identifying the substances contained within the materials, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances to the parent materials to determine material compliance. This endpoint reports the compliance result for both the materials and substances. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.
 
 ### Example
 ```python
@@ -85,7 +85,7 @@ client.setup_client(ansys.grantami.bomanalytics_openapi.models)
 api_instance = ansys.grantami.bomanalytics_openapi.ComplianceApi(client)
 
 try:
-    # Get compliance for materials
+    # Determine the compliance of one or more materials in the context of specified indicators
     api_response = api_instance.post_compliance_materials(body)
     pprint(api_response)
 except ApiException as e:
@@ -96,7 +96,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetComplianceForMaterialsRequest**](GetComplianceForMaterialsRequest.md)| A set of materials references. The substance amounts in each material will be     compared to the legislation thresholds to determine whether the substance is below or above it. | 
+ **body** | [**GetComplianceForMaterialsRequest**](GetComplianceForMaterialsRequest.md)|  | 
 
 ### Return type
 
@@ -113,9 +113,9 @@ Name | Type | Description  | Notes
 # **post_compliance_parts**
 > GetComplianceForPartsResponse post_compliance_parts(body)
 
-Get compliance for parts
+Determine the compliance of one or more parts in the context of specified indicators
 
-Performs compliance analysis on the provided parts in the context of the specified indicator definitions.
+Compliance is determined first by identifying the substances contained within the parts, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator.
 
 ### Example
 ```python
@@ -135,7 +135,7 @@ client.setup_client(ansys.grantami.bomanalytics_openapi.models)
 api_instance = ansys.grantami.bomanalytics_openapi.ComplianceApi(client)
 
 try:
-    # Get compliance for parts
+    # Determine the compliance of one or more parts in the context of specified indicators
     api_response = api_instance.post_compliance_parts(body)
     pprint(api_response)
 except ApiException as e:
@@ -146,7 +146,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetComplianceForPartsRequest**](GetComplianceForPartsRequest.md)| A set of part references. | 
+ **body** | [**GetComplianceForPartsRequest**](GetComplianceForPartsRequest.md)|  | 
 
 ### Return type
 
@@ -163,9 +163,9 @@ Name | Type | Description  | Notes
 # **post_compliance_specifications**
 > GetComplianceForSpecificationsResponse post_compliance_specifications(body)
 
-Get compliance for specifications
+Determine the compliance of one or more specifications in the context of specified indicators
 
-Performs compliance analysis on the provided specifications in the context of the specified indicator definitions.
+Compliance is determined first by identifying the substances contained within the specifications, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, and specifications, to determine the compliance of the specifications included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex specification hierarchies. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.
 
 ### Example
 ```python
@@ -185,7 +185,7 @@ client.setup_client(ansys.grantami.bomanalytics_openapi.models)
 api_instance = ansys.grantami.bomanalytics_openapi.ComplianceApi(client)
 
 try:
-    # Get compliance for specifications
+    # Determine the compliance of one or more specifications in the context of specified indicators
     api_response = api_instance.post_compliance_specifications(body)
     pprint(api_response)
 except ApiException as e:
@@ -196,7 +196,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetComplianceForSpecificationsRequest**](GetComplianceForSpecificationsRequest.md)| A set of specification references. | 
+ **body** | [**GetComplianceForSpecificationsRequest**](GetComplianceForSpecificationsRequest.md)|  | 
 
 ### Return type
 
@@ -213,9 +213,9 @@ Name | Type | Description  | Notes
 # **post_compliance_substances**
 > GetComplianceForSubstancesResponse post_compliance_substances(body)
 
-Get compliance for substances
+Determine the compliance of one or more substances in the context of specified indicators
 
-Performs compliance analysis on the provided substances in the context of the specified indicator definitions.
+Compliance is determined by comparing the substance quantity against the threshold defined for that indicator. The response includes the compliance status for each substance for each indicator. A substance can be referenced by one of six different identifiers: record GUID, record history GUID, record history identity, CAS Number, EC Number, or Chemical Name. The amount of substance is also required, since generally a substance is only non-compliant over a certain threshold. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold.
 
 ### Example
 ```python
@@ -235,7 +235,7 @@ client.setup_client(ansys.grantami.bomanalytics_openapi.models)
 api_instance = ansys.grantami.bomanalytics_openapi.ComplianceApi(client)
 
 try:
-    # Get compliance for substances
+    # Determine the compliance of one or more substances in the context of specified indicators
     api_response = api_instance.post_compliance_substances(body)
     pprint(api_response)
 except ApiException as e:
@@ -246,7 +246,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetComplianceForSubstancesRequest**](GetComplianceForSubstancesRequest.md)| A set of substance references with their corresponding percentage amounts. The amounts will be     compared to the legislation thresholds to determine whether the substance is below or above it. | 
+ **body** | [**GetComplianceForSubstancesRequest**](GetComplianceForSubstancesRequest.md)|  | 
 
 ### Return type
 
