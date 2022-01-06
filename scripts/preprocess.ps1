@@ -8,7 +8,12 @@ function Edit-YamlFile {
 	param (
 		[string]$OutputPath
 	)
-	(Get-Content $OutputPath).replace('\r\n            ', ' ') | Set-Content $OutputPath
+	
+	(Get-Content $OutputPath) | Foreach-Object {
+		$_ -replace '(\\r)?\\n\s+', ' ' `
+		   -replace '\\\\\s*', ' ' `
+		} | Set-Content $OutputPath
+	
 }
 
 Edit-YamlFile $OutputPath
