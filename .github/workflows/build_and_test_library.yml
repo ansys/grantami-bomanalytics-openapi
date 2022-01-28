@@ -4,12 +4,10 @@ on:
     tags:
       - "*"
     paths:
-      - "ansys-grantami-bomanalytics-openapi"
+      - "ansys-grantami-bomanalytics-openapi/**"
   pull_request:
-    tags:
-      - "*"
     paths:
-      - "ansys-grantami-bomanalytics-openapi"
+      - "ansys-grantami-bomanalytics-openapi/**"
   workflow_dispatch:
 
 jobs:
