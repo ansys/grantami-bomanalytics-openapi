@@ -12,7 +12,7 @@
 """
 
 # import Model ABC
-from .model_base import Model
+from ansys.openapi.common import ModelBase
 
 # import models into model package
 from .common_coating_with_compliance import CommonCoatingWithCompliance
