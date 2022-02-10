@@ -1,2 +1,0 @@
-ansys-openapi-common
-requests>=2.26.0
