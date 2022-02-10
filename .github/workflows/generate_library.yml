@@ -34,6 +34,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
+    
+    - name: Clean library folder
+      run: rm -rf grantami-bomanalytics-openapi
       
     - name: Build client library
       run: mvn -Dbuild-id=${{ github.run_number }} -s .m2/settings.xml compile
