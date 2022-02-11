@@ -35,7 +35,7 @@ class TestComplianceApi():
     def test_post_compliance_bom1711(self, api_client):
         """Test case for post_compliance_bom1711
 
-        Get the compliance for a BoM  # noqa: E501
+        Determine the compliance of a BoM in the context of specified indicators  # noqa: E501
         """
         model = generate_model(GetComplianceForBom1711Request)
         client = ComplianceApi(api_client)
@@ -48,7 +48,7 @@ class TestComplianceApi():
     def test_post_compliance_materials(self, api_client):
         """Test case for post_compliance_materials
 
-        Get compliance for materials  # noqa: E501
+        Determine the compliance of one or more materials in the context of specified indicators  # noqa: E501
         """
         model = generate_model(GetComplianceForMaterialsRequest)
         client = ComplianceApi(api_client)
@@ -61,7 +61,7 @@ class TestComplianceApi():
     def test_post_compliance_parts(self, api_client):
         """Test case for post_compliance_parts
 
-        Get compliance for parts  # noqa: E501
+        Determine the compliance of one or more parts in the context of specified indicators  # noqa: E501
         """
         model = generate_model(GetComplianceForPartsRequest)
         client = ComplianceApi(api_client)
@@ -74,7 +74,7 @@ class TestComplianceApi():
     def test_post_compliance_specifications(self, api_client):
         """Test case for post_compliance_specifications
 
-        Get compliance for specifications  # noqa: E501
+        Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
         """
         model = generate_model(GetComplianceForSpecificationsRequest)
         client = ComplianceApi(api_client)
@@ -87,7 +87,7 @@ class TestComplianceApi():
     def test_post_compliance_substances(self, api_client):
         """Test case for post_compliance_substances
 
-        Get compliance for substances  # noqa: E501
+        Determine the compliance of one or more substances in the context of specified indicators  # noqa: E501
         """
         model = generate_model(GetComplianceForSubstancesRequest)
         client = ComplianceApi(api_client)

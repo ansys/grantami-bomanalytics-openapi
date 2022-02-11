@@ -33,7 +33,7 @@ class TestImpactedSubstancesApi():
     def test_post_impactedsubstances_bom1711(self, api_client):
         """Test case for post_impactedsubstances_bom1711
 
-        Get the impacted substances for a BoM  # noqa: E501
+        Get the impacted substances for a Bill of Materials  # noqa: E501
         """
         model = generate_model(GetImpactedSubstancesForBom1711Request)
         client = ImpactedSubstancesApi(api_client)
