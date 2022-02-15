@@ -3,11 +3,17 @@ on:
   push:
     tags:
       - "*"
-    paths:
-      - "ansys-grantami-bomanalytics-openapi/**"
+    paths-ignore:
+    - 'yaml/*.yaml'
+    - 'pom.xml'
+    - '.github/workflows/generate_library.yml'
+    - '.m2/*'
   pull_request:
-    paths:
-      - "ansys-grantami-bomanalytics-openapi/**"
+    paths-ignore:
+    - 'yaml/*.yaml'
+    - 'pom.xml'
+    - '.github/workflows/generate_library.yml'
+    - '.m2/*'
   workflow_dispatch:
 
 jobs:
@@ -17,10 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Python
+      - name: Setup Python 3.10
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: "3.10"
 
       - name: Install build requirements
         run: pip install build wheel
@@ -47,7 +53,6 @@ jobs:
         run: python -m build
 
       - name: Validate wheel
-        if: ${{ false }}
         working-directory: ansys-grantami-bomanalytics-openapi
         run: |
           pip install twine
@@ -103,3 +108,33 @@ jobs:
         working-directory: ansys-grantami-bomanalytics-openapi
         run: |
           tox
+
+  Release:
+    if: contains(github.ref, 'refs/tags') && github.event_name == 'push'
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.10"
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: ansys-grantami-bomanalytics-openapi-wheel
+
+      # note how we use the PyPI tokens
+      - name: Upload to Azure PyPi (disabled)
+        run: |
+          pip install twine
+          # twine upload --skip-existing ./**/*.whl
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./**/*.whl
