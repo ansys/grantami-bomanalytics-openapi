@@ -3,8 +3,6 @@ name: Generate Library and Create PR
 # run only on main branch.  This avoids duplicated actions on PRs
 on:
   push:
-    tags:
-    - "*"
     branches:
     - main
     paths:
