@@ -36,3 +36,6 @@ the standard
    ```
 
 Once the tag is pushed to GitHub, a workflow will build and publish the release.
+
+Finally, bump the base package version in `pom.xml` to MAJOR.MINOR.0 in the main branch to ensure subsequent build artefacts
+are given appropriate version numbers.
