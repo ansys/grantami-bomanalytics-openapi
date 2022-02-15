@@ -9,6 +9,11 @@ on:
     - 'yaml/*.yaml'
     - 'pom.xml'
     - '.github/workflows/generate_library.yml'
+  pull_request:
+    paths:
+    - 'yaml/*.yaml'
+    - 'pom.xml'
+    - '.github/workflows/generate_library.yml'
 
 jobs:
   build:
