@@ -49,6 +49,7 @@ jobs:
         SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
         
     - name: Create Pull Request
+      if: github.event_name == 'push'
       uses: peter-evans/create-pull-request@v3
       with:
         commit-message: Update client library
@@ -56,6 +57,7 @@ jobs:
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         signoff: false
         branch: client-library-build
+        base: ${{ github.head_ref }}
         delete-branch: true
         token: ${{ steps.get_workflow_token.outputs.token }}
         title: 'Update client library'
