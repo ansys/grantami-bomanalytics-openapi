@@ -36,7 +36,6 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-        cache: maven
     
     - name: Clean library folder
       run: rm -rf ansys-grantami-bomanalytics-openapi
