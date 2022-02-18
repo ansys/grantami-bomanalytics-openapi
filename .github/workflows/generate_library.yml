@@ -45,8 +45,8 @@ jobs:
       run: mvn -Dbuild-id=${{ github.run_number }} -s .m2/settings.xml compile
       env:
         MAVEN_OPTS: "-Dlog4j2.formatMsgNoLookups=true"
-        SERVER_USERNAME: pyansys-ci-bot[bot]
-        SERVER_PASSWORD: ${{ steps.get_workflow_token.outputs.token }}
+        SERVER_USERNAME: ${{ secrets.REPO_USER }}
+        SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
         
     - name: Create Pull Request
       if: github.event_name == 'push'
