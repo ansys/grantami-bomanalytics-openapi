@@ -46,7 +46,7 @@ jobs:
       env:
         MAVEN_OPTS: "-Dlog4j2.formatMsgNoLookups=true"
         SERVER_USERNAME: ${{ secrets.REPO_USER }}
-        SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
+        SERVER_PASSWORD: ${{ steps.get_workflow_token.outputs.token }}
         
     - name: Create Pull Request
       if: github.event_name == 'push'
