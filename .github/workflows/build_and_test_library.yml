@@ -93,10 +93,10 @@ jobs:
           path: ~/dist
 
       # note how we use the PyPI tokens
-      - name: Upload to Azure PyPi (disabled)
+      - name: Upload to PyPI
         run: |
           pip install twine
-          # twine upload --skip-existing ~/**/*.whl
+          twine upload --skip-existing ~/**/*.whl
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
