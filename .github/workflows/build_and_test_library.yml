@@ -96,7 +96,7 @@ jobs:
       - name: Upload to PyPI
         run: |
           pip install twine
-          twine upload --skip-existing ~/**/*.whl
+          twine upload --skip-existing --non-interactive ~/**/*.whl
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
