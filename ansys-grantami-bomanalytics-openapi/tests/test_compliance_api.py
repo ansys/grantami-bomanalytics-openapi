@@ -24,7 +24,7 @@ from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specification
 from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_response import GetComplianceForSpecificationsResponse
 from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_request import GetComplianceForSubstancesRequest
 from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_response import GetComplianceForSubstancesResponse
-from .common import generate_model, get_example
+from .mocked_tests import generate_model, get_example
 
 
 class TestComplianceApi():

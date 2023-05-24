@@ -86,7 +86,11 @@ class ImpactedSubstancesApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetImpactedSubstancesForBom1711Response',
+        }
+        
         return self.api_client.call_api(
             '/impacted-substances/bom1711', 'POST',
             path_params,
@@ -95,11 +99,11 @@ class ImpactedSubstancesApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetImpactedSubstancesForBom1711Response',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_impactedsubstances_materials(self, body, **kwargs):  # noqa: E501
         """Get the impacted substances for materials  # noqa: E501
@@ -166,7 +170,11 @@ class ImpactedSubstancesApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetImpactedSubstancesForMaterialsResponse',
+        }
+        
         return self.api_client.call_api(
             '/impacted-substances/materials', 'POST',
             path_params,
@@ -175,11 +183,11 @@ class ImpactedSubstancesApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetImpactedSubstancesForMaterialsResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_impactedsubstances_parts(self, body, **kwargs):  # noqa: E501
         """Get the impacted substances for parts  # noqa: E501
@@ -246,7 +254,11 @@ class ImpactedSubstancesApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetImpactedSubstancesForPartsResponse',
+        }
+        
         return self.api_client.call_api(
             '/impacted-substances/parts', 'POST',
             path_params,
@@ -255,11 +267,11 @@ class ImpactedSubstancesApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetImpactedSubstancesForPartsResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_impactedsubstances_specifications(self, body, **kwargs):  # noqa: E501
         """Get the impacted substances for specifications  # noqa: E501
@@ -326,7 +338,11 @@ class ImpactedSubstancesApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetImpactedSubstancesForSpecificationsResponse',
+        }
+        
         return self.api_client.call_api(
             '/impacted-substances/specifications', 'POST',
             path_params,
@@ -335,8 +351,8 @@ class ImpactedSubstancesApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetImpactedSubstancesForSpecificationsResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)

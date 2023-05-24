@@ -86,7 +86,11 @@ class ComplianceApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetComplianceForBom1711Response',
+        }
+        
         return self.api_client.call_api(
             '/compliance/bom1711', 'POST',
             path_params,
@@ -95,11 +99,11 @@ class ComplianceApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetComplianceForBom1711Response',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_compliance_materials(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more materials in the context of specified indicators  # noqa: E501
@@ -166,7 +170,11 @@ class ComplianceApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetComplianceForMaterialsResponse',
+        }
+        
         return self.api_client.call_api(
             '/compliance/materials', 'POST',
             path_params,
@@ -175,11 +183,11 @@ class ComplianceApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetComplianceForMaterialsResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_compliance_parts(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more parts in the context of specified indicators  # noqa: E501
@@ -246,7 +254,11 @@ class ComplianceApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetComplianceForPartsResponse',
+        }
+        
         return self.api_client.call_api(
             '/compliance/parts', 'POST',
             path_params,
@@ -255,11 +267,11 @@ class ComplianceApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetComplianceForPartsResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_compliance_specifications(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
@@ -326,7 +338,11 @@ class ComplianceApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetComplianceForSpecificationsResponse',
+        }
+        
         return self.api_client.call_api(
             '/compliance/specifications', 'POST',
             path_params,
@@ -335,11 +351,11 @@ class ComplianceApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetComplianceForSpecificationsResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)
 
     def post_compliance_substances(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more substances in the context of specified indicators  # noqa: E501
@@ -406,7 +422,11 @@ class ComplianceApi(ApiBase):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-
+        
+        response_type_map = {
+            200: 'GetComplianceForSubstancesResponse',
+        }
+        
         return self.api_client.call_api(
             '/compliance/substances', 'POST',
             path_params,
@@ -415,8 +435,8 @@ class ComplianceApi(ApiBase):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GetComplianceForSubstancesResponse',  # noqa: E501
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
+            collection_formats=collection_formats,
+            response_type_map=response_type_map)

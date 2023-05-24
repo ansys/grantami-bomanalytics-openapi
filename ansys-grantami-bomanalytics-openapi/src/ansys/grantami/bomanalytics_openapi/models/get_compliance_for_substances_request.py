@@ -136,6 +136,10 @@ class GetComplianceForSubstancesRequest(ModelBase):
         """
         self._config = config
 
+    def get_real_child_model(self, data):
+        """Raises a NotImplementedError for a type without a discriminator defined."""
+        raise NotImplementedError()
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}

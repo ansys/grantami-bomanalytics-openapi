@@ -22,7 +22,7 @@ from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_part
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_parts_response import GetImpactedSubstancesForPartsResponse
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_specifications_request import GetImpactedSubstancesForSpecificationsRequest
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_specifications_response import GetImpactedSubstancesForSpecificationsResponse
-from .common import generate_model, get_example
+from .mocked_tests import generate_model, get_example
 
 
 class TestImpactedSubstancesApi():

@@ -12,7 +12,7 @@
 
 import pytest  # noqa: F401
 from ansys.grantami.bomanalytics_openapi.models import GetImpactedSubstancesForBom1711Request  # noqa: E501
-from .common import generate_model
+from .mocked_tests import generate_model
 
 
 

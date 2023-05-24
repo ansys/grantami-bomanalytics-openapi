@@ -179,6 +179,10 @@ class CommonRequestConfig(ModelBase):
         """
         self._coatings_table_name = coatings_table_name
 
+    def get_real_child_model(self, data):
+        """Raises a NotImplementedError for a type without a discriminator defined."""
+        raise NotImplementedError()
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
