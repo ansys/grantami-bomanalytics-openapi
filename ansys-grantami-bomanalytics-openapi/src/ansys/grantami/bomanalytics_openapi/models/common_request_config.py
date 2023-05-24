@@ -202,6 +202,10 @@ class CommonRequestConfig(ModelBase):
         """
         self._maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
+    def get_real_child_model(self, data):
+        """Raises a NotImplementedError for a type without a discriminator defined."""
+        raise NotImplementedError()
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
