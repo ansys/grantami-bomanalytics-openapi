@@ -190,9 +190,9 @@ paths:
                 value:
                   Specifications:
                     - ReferenceType: MiRecordHistoryIdentity
-                      ReferenceValue: 14321
+                      ReferenceValue: 545019
                     - ReferenceType: SpecificationId
-                      ReferenceValue: 'MSP89,TypeI'
+                      ReferenceValue: AMS03-27
                   LegislationNames:
                     - The SIN List 2.1 (Substitute It Now!)
                   DatabaseKey: MI_Restricted_Substances
@@ -225,7 +225,7 @@ paths:
                                 MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
-                        ReferenceValue: 14321
+                        ReferenceValue: 545019
                       - Legislations:
                           - LegislationName: The SIN List 2.1 (Substitute It Now!)
                             ImpactedSubstances:
@@ -240,7 +240,7 @@ paths:
                                 MaxPercentageAmountInMaterial: 1
                                 LegislationThreshold: 0.1
                         ReferenceType: SpecificationId
-                        ReferenceValue: 'MSP89,TypeI'
+                        ReferenceValue: AMS03-27
                     LogMessages: [ ]
   /impacted-substances/parts:
     post:
@@ -262,7 +262,7 @@ paths:
                 value:
                   Parts:
                     - ReferenceType: MiRecordHistoryIdentity
-                      ReferenceValue: 14321
+                      ReferenceValue: 565024
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
                   LegislationNames:
@@ -297,7 +297,7 @@ paths:
                                 MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
-                        ReferenceValue: 14321
+                        ReferenceValue: 565024
                       - Legislations:
                           - LegislationName: The SIN List 2.1 (Substitute It Now!)
                             ImpactedSubstances:
@@ -332,7 +332,7 @@ paths:
                 summary: 17/11 BoM
                 description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
                 value:
-                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   LegislationNames:
                     - The SIN List 2.1 (Substitute It Now!)
                   DatabaseKey: MI_Restricted_Substances
@@ -601,7 +601,7 @@ paths:
                     - ReferenceType: SpecificationId
                       ReferenceValue: 'MSP89,TypeI'
                     - ReferenceType: MiRecordGuid
-                      ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+                      ReferenceValue: e0f41223-4b6b-40be-8982-39999c68f471
                   Indicators:
                     - Name: Indicator 1
                       LegislationNames:
@@ -768,7 +768,7 @@ paths:
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
                     - ReferenceType: MiRecordGuid
-                      ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+                      ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
                   Indicators:
                     - Name: Indicator 1
                       LegislationNames:
@@ -932,7 +932,7 @@ paths:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
-                        ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+                        ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
                     LogMessages: [ ]
                 example2:
                   summary: Ignore Exemptions
@@ -976,7 +976,7 @@ paths:
                 summary: Single-part BoM with a substance
                 description: "The root part in this BoM includes two sub-parts; the first references a substance directly, and the second references a material. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
                 value:
-                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+                  BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   Indicators:
                     - Name: Indicator 1
                       LegislationNames:
@@ -1111,6 +1111,9 @@ components:
           type: string
         CoatingsTableName:
           type: string
+        MaximumSpecToSpecLinkDepth:
+          type: integer
+          format: int32
     GetImpactedSubstancesForMaterials.Response:
       type: object
       properties:
@@ -1202,9 +1205,9 @@ components:
       example:
         Specifications:
           - ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: 14321
+            ReferenceValue: 545019
           - ReferenceType: SpecificationId
-            ReferenceValue: 'MSP89,TypeI'
+            ReferenceValue: AMS03-27
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
         DatabaseKey: MI_Restricted_Substances
@@ -1243,7 +1246,7 @@ components:
                     MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: 14321
+            ReferenceValue: 545019
           - Legislations:
               - LegislationName: The SIN List 2.1 (Substitute It Now!)
                 ImpactedSubstances:
@@ -1258,7 +1261,7 @@ components:
                     MaxPercentageAmountInMaterial: 1
                     LegislationThreshold: 0.1
             ReferenceType: SpecificationId
-            ReferenceValue: 'MSP89,TypeI'
+            ReferenceValue: AMS03-27
         LogMessages: [ ]
     GetImpactedSubstancesForSpecifications.Specification:
       type: object
@@ -1289,7 +1292,7 @@ components:
       example:
         Parts:
           - ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: 14321
+            ReferenceValue: 565024
           - ReferenceType: PartNumber
             ReferenceValue: FLRY33
         LegislationNames:
@@ -1330,7 +1333,7 @@ components:
                     MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: 14321
+            ReferenceValue: 565024
           - Legislations:
               - LegislationName: The SIN List 2.1 (Substitute It Now!)
                 ImpactedSubstances:
@@ -1372,7 +1375,7 @@ components:
         Config:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
-        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         LegislationNames:
           - The SIN List 2.1 (Substitute It Now!)
         DatabaseKey: MI_Restricted_Substances
@@ -1641,7 +1644,7 @@ components:
           - ReferenceType: SpecificationId
             ReferenceValue: 'MSP89,TypeI'
           - ReferenceType: MiRecordGuid
-            ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+            ReferenceValue: e0f41223-4b6b-40be-8982-39999c68f471
         Indicators:
           - Name: Indicator 1
             LegislationNames:
@@ -1847,7 +1850,7 @@ components:
           - ReferenceType: PartNumber
             ReferenceValue: FLRY33
           - ReferenceType: MiRecordGuid
-            ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+            ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
         Indicators:
           - Name: Indicator 1
             LegislationNames:
@@ -1986,7 +1989,7 @@ components:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 34567
             ReferenceType: MiRecordGuid
-            ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
+            ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
         LogMessages: [ ]
     Common.PartWithCompliance:
       type: object
@@ -2029,7 +2032,7 @@ components:
         Config:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
-        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">41656452-1b2c-4ded-ad1b-1df8b3cf6e7e</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">15069d02-9475-4f05-8810-57de68a2e9cc</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">12ef41e5-0417-409e-b94b-bc79e7787db9</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+        BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         Indicators:
           - Name: Indicator 1
             LegislationNames:

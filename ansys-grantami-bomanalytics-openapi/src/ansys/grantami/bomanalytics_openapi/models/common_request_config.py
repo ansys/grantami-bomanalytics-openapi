@@ -33,7 +33,8 @@ class CommonRequestConfig(ModelBase):
         'specifications_table_name': 'str',
         'products_and_parts_table_name': 'str',
         'substances_table_name': 'str',
-        'coatings_table_name': 'str'
+        'coatings_table_name': 'str',
+        'maximum_spec_to_spec_link_depth': 'int'
     }
 
     attribute_map = {
@@ -42,14 +43,15 @@ class CommonRequestConfig(ModelBase):
         'specifications_table_name': 'SpecificationsTableName',
         'products_and_parts_table_name': 'ProductsAndPartsTableName',
         'substances_table_name': 'SubstancesTableName',
-        'coatings_table_name': 'CoatingsTableName'
+        'coatings_table_name': 'CoatingsTableName',
+        'maximum_spec_to_spec_link_depth': 'MaximumSpecToSpecLinkDepth'
     }
 
     subtype_mapping = {
     }
 
 
-    def __init__(self, material_universe_table_name=None, inhouse_materials_table_name=None, specifications_table_name=None, products_and_parts_table_name=None, substances_table_name=None, coatings_table_name=None):  # noqa: E501
+    def __init__(self, material_universe_table_name=None, inhouse_materials_table_name=None, specifications_table_name=None, products_and_parts_table_name=None, substances_table_name=None, coatings_table_name=None, maximum_spec_to_spec_link_depth=None):  # noqa: E501
         """CommonRequestConfig - a model defined in Swagger"""  # noqa: E501
         self._material_universe_table_name = None
         self._inhouse_materials_table_name = None
@@ -57,6 +59,7 @@ class CommonRequestConfig(ModelBase):
         self._products_and_parts_table_name = None
         self._substances_table_name = None
         self._coatings_table_name = None
+        self._maximum_spec_to_spec_link_depth = None
         self.discriminator = None
         if material_universe_table_name is not None:
             self.material_universe_table_name = material_universe_table_name
@@ -70,6 +73,8 @@ class CommonRequestConfig(ModelBase):
             self.substances_table_name = substances_table_name
         if coatings_table_name is not None:
             self.coatings_table_name = coatings_table_name
+        if maximum_spec_to_spec_link_depth is not None:
+            self.maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
     @property
     def material_universe_table_name(self):
@@ -178,6 +183,24 @@ class CommonRequestConfig(ModelBase):
         :type: str
         """
         self._coatings_table_name = coatings_table_name
+
+    @property
+    def maximum_spec_to_spec_link_depth(self):
+        """Gets the maximum_spec_to_spec_link_depth of this CommonRequestConfig.  # noqa: E501
+
+        :return: The maximum_spec_to_spec_link_depth of this CommonRequestConfig.  # noqa: E501
+        :rtype: int
+        """
+        return self._maximum_spec_to_spec_link_depth
+
+    @maximum_spec_to_spec_link_depth.setter
+    def maximum_spec_to_spec_link_depth(self, maximum_spec_to_spec_link_depth):
+        """Sets the maximum_spec_to_spec_link_depth of this CommonRequestConfig.
+
+        :param maximum_spec_to_spec_link_depth: The maximum_spec_to_spec_link_depth of this CommonRequestConfig.  # noqa: E501
+        :type: int
+        """
+        self._maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
     def get_real_child_model(self, data):
         """Raises a NotImplementedError for a type without a discriminator defined."""
