@@ -14,7 +14,7 @@ import pytest  # noqa: F401
 import requests_mock
 
 from ansys.grantami.bomanalytics_openapi.api.documentation_api import DocumentationApi  # noqa: E501
-from .common import generate_model, get_example
+from .mocked_tests import generate_model, get_example
 
 
 class TestDocumentationApi():
