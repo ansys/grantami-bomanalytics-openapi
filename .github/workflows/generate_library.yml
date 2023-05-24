@@ -37,7 +37,7 @@ jobs:
         cache: maven
     
     - name: "Clean library folder"
-      run: rm -rf ansys-grantami-serverapi-openapi
+      run: rm -rf ansys-grantami-bomanalytics-openapi
       
     - name: "Build client library"
       run: mvn -Dbuild-id=${{ github.run_number }} -s .m2/settings.xml compile
@@ -49,7 +49,7 @@ jobs:
     - name: "Commit changes to library code"
       uses: EndBug/add-and-commit@v9
       with:
-        add: 'ansys-grantami-serverapi-openapi'
+        add: 'ansys-grantami-bomanalytics-openapi'
         committer_name: 'GitHub Actions'
         committer_email: 'actions@github.com'
         message: 'Generate Client Library code - Automated'
