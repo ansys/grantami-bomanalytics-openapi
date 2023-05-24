@@ -37,7 +37,7 @@ jobs:
           python -m pip install --upgrade pip tox
 
       - name: "Test with tox"
-        working-directory: ansys-grantami-serverapi-openapi
+        working-directory: ansys-grantami-bomanalytics-openapi
         run: |
           tox -e py
 
