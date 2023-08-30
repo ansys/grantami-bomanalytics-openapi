@@ -22,62 +22,58 @@ from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_part
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_parts_response import GetImpactedSubstancesForPartsResponse
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_specifications_request import GetImpactedSubstancesForSpecificationsRequest
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_specifications_response import GetImpactedSubstancesForSpecificationsResponse
-from .mocked_tests import generate_model, get_example
+from .mocked_tests import generate_model, get_example, mock_method
 
 
-class TestImpactedSubstancesApi():
+class TestImpactedSubstancesApi:
     """ImpactedSubstancesApi unit test stubs"""
 
 
     
     def test_post_impactedsubstances_bom1711(self, api_client):
         """Test case for post_impactedsubstances_bom1711
-
         Get the impacted substances for a Bill of Materials  # noqa: E501
         """
         model = generate_model(GetImpactedSubstancesForBom1711Request)
         client = ImpactedSubstancesApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/bom1711', json=get_example(GetImpactedSubstancesForBom1711Response))
+            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/bom1711', get_example(GetImpactedSubstancesForBom1711Response))
             result = client.post_impactedsubstances_bom1711(model)
         assert isinstance(result, GetImpactedSubstancesForBom1711Response)
 
     
     def test_post_impactedsubstances_materials(self, api_client):
         """Test case for post_impactedsubstances_materials
-
         Get the impacted substances for materials  # noqa: E501
         """
         model = generate_model(GetImpactedSubstancesForMaterialsRequest)
         client = ImpactedSubstancesApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/materials', json=get_example(GetImpactedSubstancesForMaterialsResponse))
+            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/materials', get_example(GetImpactedSubstancesForMaterialsResponse))
             result = client.post_impactedsubstances_materials(model)
         assert isinstance(result, GetImpactedSubstancesForMaterialsResponse)
 
     
     def test_post_impactedsubstances_parts(self, api_client):
         """Test case for post_impactedsubstances_parts
-
         Get the impacted substances for parts  # noqa: E501
         """
         model = generate_model(GetImpactedSubstancesForPartsRequest)
         client = ImpactedSubstancesApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/parts', json=get_example(GetImpactedSubstancesForPartsResponse))
+            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/parts', get_example(GetImpactedSubstancesForPartsResponse))
             result = client.post_impactedsubstances_parts(model)
         assert isinstance(result, GetImpactedSubstancesForPartsResponse)
 
     
     def test_post_impactedsubstances_specifications(self, api_client):
         """Test case for post_impactedsubstances_specifications
-
         Get the impacted substances for specifications  # noqa: E501
         """
         model = generate_model(GetImpactedSubstancesForSpecificationsRequest)
         client = ImpactedSubstancesApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/specifications', json=get_example(GetImpactedSubstancesForSpecificationsResponse))
+            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/specifications', get_example(GetImpactedSubstancesForSpecificationsResponse))
             result = client.post_impactedsubstances_specifications(model)
         assert isinstance(result, GetImpactedSubstancesForSpecificationsResponse)
 
