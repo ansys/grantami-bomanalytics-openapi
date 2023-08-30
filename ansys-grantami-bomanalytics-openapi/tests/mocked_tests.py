@@ -33,10 +33,29 @@ def get_complex_arg_value(values, arg, model_class):
     class_name = model_class.subtype_mapping[arg]
     sub_class = getattr(models_module, class_name)
     if arg_value:
-        return [sub_class(**get_arg_dict(example_value, sub_class)) for example_value in arg_value]
+        results = []
+        if isinstance(arg_value, dict):
+            # Dictionary of primitives
+            args = {}
+            for rest_name, value in arg_value.items():
+                python_arg_name = get_python_arg_name(sub_class, rest_name)
+                args[python_arg_name] = value
+            obj = sub_class(**args)
+            results.append(obj)
+        else:
+            # List of complex types
+            for example_value in arg_value:
+                args = get_arg_dict(example_value, sub_class)
+                obj = sub_class(**args)
+                results.append(obj)
+        return results
 
 
 def get_python_arg_name(model_class, arg):
     for python_arg, api_arg in model_class.attribute_map.items():
         if api_arg == arg:
             return python_arg
+
+def mock_method(mocker, verb, url, response_json):
+    mocker_method = getattr(mocker, verb.lower())
+    mocker_method(url, json=response_json)
