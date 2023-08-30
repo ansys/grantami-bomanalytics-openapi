@@ -41,7 +41,7 @@ dependencies = [
 [project.optional-dependencies]
 test = [
     "pytest == 7.0.0",
-    "requests-mock == 1.9.3"
+    "requests-mock == 1.11.0"
 ]
 
 [tool.flit.module]
