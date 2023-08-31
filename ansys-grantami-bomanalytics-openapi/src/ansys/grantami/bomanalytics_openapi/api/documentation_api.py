@@ -28,7 +28,7 @@ class DocumentationApi(ApiBase):
 
         :return: str
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         (data) = self.get_yaml_with_http_info(**kwargs)  # noqa: E501
         return data
 
@@ -41,18 +41,20 @@ class DocumentationApi(ApiBase):
         """
 
         all_params = []  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in params['kwargs'].items():
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '{}' to method get_yaml".format(key)
+                    "Got an unexpected keyword argument '{}' to method get_yaml".format(
+                        key
+                    )
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         collection_formats = {}
 
@@ -67,26 +69,29 @@ class DocumentationApi(ApiBase):
 
         body_params = None
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-        
+
         response_type_map = {
-            200: 'str',
+            200: "str",
         }
-        
+
         return self.api_client.call_api(
-            '/yaml', 'GET',
+            "/yaml",
+            "GET",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
-            response_type_map=response_type_map)
+            response_type_map=response_type_map,
+        )

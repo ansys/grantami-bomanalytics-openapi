@@ -21,4 +21,3 @@ def test_CommonRequestConfig():
 
     model = generate_model(CommonRequestConfig)
     assert model
-

@@ -20,6 +20,7 @@ class CommonPartReference(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -27,19 +28,14 @@ class CommonPartReference(ModelBase):
       attribute_map (dict): The key is attribute name
                             and the value is json key in definition.
     """
-    swagger_types = {
-        'reference_type': 'str',
-        'reference_value': 'str'
-    }
+    swagger_types = {"reference_type": "str", "reference_value": "str"}
 
     attribute_map = {
-        'reference_type': 'ReferenceType',
-        'reference_value': 'ReferenceValue'
+        "reference_type": "ReferenceType",
+        "reference_value": "ReferenceValue",
     }
 
-    subtype_mapping = {
-    }
-
+    subtype_mapping = {}
 
     def __init__(self, reference_type=None, reference_value=None):  # noqa: E501
         """CommonPartReference - a model defined in Swagger"""  # noqa: E501
@@ -98,18 +94,20 @@ class CommonPartReference(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(CommonPartReference, dict):

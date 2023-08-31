@@ -11,9 +11,10 @@
 """
 
 import pytest  # noqa: F401
-from ansys.grantami.bomanalytics_openapi.models import GetComplianceForBom1711Response  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models import (
+    GetComplianceForBom1711Response,
+)  # noqa: E501
 from .mocked_tests import generate_model
-
 
 
 def test_GetComplianceForBom1711Response():
@@ -21,4 +22,3 @@ def test_GetComplianceForBom1711Response():
 
     model = generate_model(GetComplianceForBom1711Response)
     assert model
-

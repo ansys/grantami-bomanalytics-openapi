@@ -13,25 +13,45 @@
 import pytest  # noqa: F401
 import requests_mock
 
-from ansys.grantami.bomanalytics_openapi.api.compliance_api import ComplianceApi  # noqa: E501
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_request import GetComplianceForBom1711Request
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_response import GetComplianceForBom1711Response
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_request import GetComplianceForMaterialsRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_response import GetComplianceForMaterialsResponse
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_request import GetComplianceForPartsRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_response import GetComplianceForPartsResponse
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_request import GetComplianceForSpecificationsRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_response import GetComplianceForSpecificationsResponse
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_request import GetComplianceForSubstancesRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_response import GetComplianceForSubstancesResponse
+from ansys.grantami.bomanalytics_openapi.api.compliance_api import (
+    ComplianceApi,
+)  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_request import (
+    GetComplianceForBom1711Request,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_response import (
+    GetComplianceForBom1711Response,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_request import (
+    GetComplianceForMaterialsRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_response import (
+    GetComplianceForMaterialsResponse,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_request import (
+    GetComplianceForPartsRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_response import (
+    GetComplianceForPartsResponse,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_request import (
+    GetComplianceForSpecificationsRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_response import (
+    GetComplianceForSpecificationsResponse,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_request import (
+    GetComplianceForSubstancesRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_response import (
+    GetComplianceForSubstancesResponse,
+)
 from .mocked_tests import generate_model, get_example
 
 
-class TestComplianceApi():
+class TestComplianceApi:
     """ComplianceApi unit test stubs"""
 
-
-    
     def test_post_compliance_bom1711(self, api_client):
         """Test case for post_compliance_bom1711
 
@@ -40,11 +60,13 @@ class TestComplianceApi():
         model = generate_model(GetComplianceForBom1711Request)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/bom1711', json=get_example(GetComplianceForBom1711Response))
+            m.post(
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/bom1711",
+                json=get_example(GetComplianceForBom1711Response),
+            )
             result = client.post_compliance_bom1711(model)
         assert isinstance(result, GetComplianceForBom1711Response)
 
-    
     def test_post_compliance_materials(self, api_client):
         """Test case for post_compliance_materials
 
@@ -53,11 +75,13 @@ class TestComplianceApi():
         model = generate_model(GetComplianceForMaterialsRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/materials', json=get_example(GetComplianceForMaterialsResponse))
+            m.post(
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/materials",
+                json=get_example(GetComplianceForMaterialsResponse),
+            )
             result = client.post_compliance_materials(model)
         assert isinstance(result, GetComplianceForMaterialsResponse)
 
-    
     def test_post_compliance_parts(self, api_client):
         """Test case for post_compliance_parts
 
@@ -66,11 +90,13 @@ class TestComplianceApi():
         model = generate_model(GetComplianceForPartsRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/parts', json=get_example(GetComplianceForPartsResponse))
+            m.post(
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/parts",
+                json=get_example(GetComplianceForPartsResponse),
+            )
             result = client.post_compliance_parts(model)
         assert isinstance(result, GetComplianceForPartsResponse)
 
-    
     def test_post_compliance_specifications(self, api_client):
         """Test case for post_compliance_specifications
 
@@ -79,11 +105,13 @@ class TestComplianceApi():
         model = generate_model(GetComplianceForSpecificationsRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/specifications', json=get_example(GetComplianceForSpecificationsResponse))
+            m.post(
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/specifications",
+                json=get_example(GetComplianceForSpecificationsResponse),
+            )
             result = client.post_compliance_specifications(model)
         assert isinstance(result, GetComplianceForSpecificationsResponse)
 
-    
     def test_post_compliance_substances(self, api_client):
         """Test case for post_compliance_substances
 
@@ -92,7 +120,9 @@ class TestComplianceApi():
         model = generate_model(GetComplianceForSubstancesRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            m.post('http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/substances', json=get_example(GetComplianceForSubstancesResponse))
+            m.post(
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/substances",
+                json=get_example(GetComplianceForSubstancesResponse),
+            )
             result = client.post_compliance_substances(model)
         assert isinstance(result, GetComplianceForSubstancesResponse)
-

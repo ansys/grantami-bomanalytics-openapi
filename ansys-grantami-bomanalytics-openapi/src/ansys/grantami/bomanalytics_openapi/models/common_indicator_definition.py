@@ -20,6 +20,7 @@ class CommonIndicatorDefinition(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,28 +29,34 @@ class CommonIndicatorDefinition(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'legislation_names': 'list[str]',
-        'default_threshold_percentage': 'float',
-        'ignore_exemptions': 'bool',
-        'ignore_process_chemicals': 'bool',
-        'type': 'str'
+        "name": "str",
+        "legislation_names": "list[str]",
+        "default_threshold_percentage": "float",
+        "ignore_exemptions": "bool",
+        "ignore_process_chemicals": "bool",
+        "type": "str",
     }
 
     attribute_map = {
-        'name': 'Name',
-        'legislation_names': 'LegislationNames',
-        'default_threshold_percentage': 'DefaultThresholdPercentage',
-        'ignore_exemptions': 'IgnoreExemptions',
-        'ignore_process_chemicals': 'IgnoreProcessChemicals',
-        'type': 'Type'
+        "name": "Name",
+        "legislation_names": "LegislationNames",
+        "default_threshold_percentage": "DefaultThresholdPercentage",
+        "ignore_exemptions": "IgnoreExemptions",
+        "ignore_process_chemicals": "IgnoreProcessChemicals",
+        "type": "Type",
     }
 
-    subtype_mapping = {
-    }
+    subtype_mapping = {}
 
-
-    def __init__(self, name=None, legislation_names=None, default_threshold_percentage=None, ignore_exemptions=None, ignore_process_chemicals=None, type=None):  # noqa: E501
+    def __init__(
+        self,
+        name=None,
+        legislation_names=None,
+        default_threshold_percentage=None,
+        ignore_exemptions=None,
+        ignore_process_chemicals=None,
+        type=None,
+    ):  # noqa: E501
         """CommonIndicatorDefinition - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._legislation_names = None
@@ -190,18 +197,20 @@ class CommonIndicatorDefinition(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(CommonIndicatorDefinition, dict):

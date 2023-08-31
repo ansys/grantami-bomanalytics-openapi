@@ -20,6 +20,7 @@ class CommonRequestConfig(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,30 +29,37 @@ class CommonRequestConfig(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'material_universe_table_name': 'str',
-        'inhouse_materials_table_name': 'str',
-        'specifications_table_name': 'str',
-        'products_and_parts_table_name': 'str',
-        'substances_table_name': 'str',
-        'coatings_table_name': 'str',
-        'maximum_spec_to_spec_link_depth': 'int'
+        "material_universe_table_name": "str",
+        "inhouse_materials_table_name": "str",
+        "specifications_table_name": "str",
+        "products_and_parts_table_name": "str",
+        "substances_table_name": "str",
+        "coatings_table_name": "str",
+        "maximum_spec_to_spec_link_depth": "int",
     }
 
     attribute_map = {
-        'material_universe_table_name': 'MaterialUniverseTableName',
-        'inhouse_materials_table_name': 'InhouseMaterialsTableName',
-        'specifications_table_name': 'SpecificationsTableName',
-        'products_and_parts_table_name': 'ProductsAndPartsTableName',
-        'substances_table_name': 'SubstancesTableName',
-        'coatings_table_name': 'CoatingsTableName',
-        'maximum_spec_to_spec_link_depth': 'MaximumSpecToSpecLinkDepth'
+        "material_universe_table_name": "MaterialUniverseTableName",
+        "inhouse_materials_table_name": "InhouseMaterialsTableName",
+        "specifications_table_name": "SpecificationsTableName",
+        "products_and_parts_table_name": "ProductsAndPartsTableName",
+        "substances_table_name": "SubstancesTableName",
+        "coatings_table_name": "CoatingsTableName",
+        "maximum_spec_to_spec_link_depth": "MaximumSpecToSpecLinkDepth",
     }
 
-    subtype_mapping = {
-    }
+    subtype_mapping = {}
 
-
-    def __init__(self, material_universe_table_name=None, inhouse_materials_table_name=None, specifications_table_name=None, products_and_parts_table_name=None, substances_table_name=None, coatings_table_name=None, maximum_spec_to_spec_link_depth=None):  # noqa: E501
+    def __init__(
+        self,
+        material_universe_table_name=None,
+        inhouse_materials_table_name=None,
+        specifications_table_name=None,
+        products_and_parts_table_name=None,
+        substances_table_name=None,
+        coatings_table_name=None,
+        maximum_spec_to_spec_link_depth=None,
+    ):  # noqa: E501
         """CommonRequestConfig - a model defined in Swagger"""  # noqa: E501
         self._material_universe_table_name = None
         self._inhouse_materials_table_name = None
@@ -213,18 +221,20 @@ class CommonRequestConfig(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(CommonRequestConfig, dict):

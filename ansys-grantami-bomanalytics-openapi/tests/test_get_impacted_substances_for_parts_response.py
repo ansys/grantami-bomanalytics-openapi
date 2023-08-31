@@ -11,9 +11,10 @@
 """
 
 import pytest  # noqa: F401
-from ansys.grantami.bomanalytics_openapi.models import GetImpactedSubstancesForPartsResponse  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models import (
+    GetImpactedSubstancesForPartsResponse,
+)  # noqa: E501
 from .mocked_tests import generate_model
-
 
 
 def test_GetImpactedSubstancesForPartsResponse():
@@ -21,4 +22,3 @@ def test_GetImpactedSubstancesForPartsResponse():
 
     model = generate_model(GetImpactedSubstancesForPartsResponse)
     assert model
-

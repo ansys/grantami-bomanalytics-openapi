@@ -20,6 +20,7 @@ class CommonImpactedSubstance(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,26 +29,31 @@ class CommonImpactedSubstance(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'substance_name': 'str',
-        'cas_number': 'str',
-        'ec_number': 'str',
-        'max_percentage_amount_in_material': 'float',
-        'legislation_threshold': 'float'
+        "substance_name": "str",
+        "cas_number": "str",
+        "ec_number": "str",
+        "max_percentage_amount_in_material": "float",
+        "legislation_threshold": "float",
     }
 
     attribute_map = {
-        'substance_name': 'SubstanceName',
-        'cas_number': 'CasNumber',
-        'ec_number': 'EcNumber',
-        'max_percentage_amount_in_material': 'MaxPercentageAmountInMaterial',
-        'legislation_threshold': 'LegislationThreshold'
+        "substance_name": "SubstanceName",
+        "cas_number": "CasNumber",
+        "ec_number": "EcNumber",
+        "max_percentage_amount_in_material": "MaxPercentageAmountInMaterial",
+        "legislation_threshold": "LegislationThreshold",
     }
 
-    subtype_mapping = {
-    }
+    subtype_mapping = {}
 
-
-    def __init__(self, substance_name=None, cas_number=None, ec_number=None, max_percentage_amount_in_material=None, legislation_threshold=None):  # noqa: E501
+    def __init__(
+        self,
+        substance_name=None,
+        cas_number=None,
+        ec_number=None,
+        max_percentage_amount_in_material=None,
+        legislation_threshold=None,
+    ):  # noqa: E501
         """CommonImpactedSubstance - a model defined in Swagger"""  # noqa: E501
         self._substance_name = None
         self._cas_number = None
@@ -167,18 +173,20 @@ class CommonImpactedSubstance(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(CommonImpactedSubstance, dict):

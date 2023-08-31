@@ -20,6 +20,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,22 +29,22 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'percentage_amount': 'float',
-        'reference_type': 'str',
-        'reference_value': 'str'
+        "percentage_amount": "float",
+        "reference_type": "str",
+        "reference_value": "str",
     }
 
     attribute_map = {
-        'percentage_amount': 'PercentageAmount',
-        'reference_type': 'ReferenceType',
-        'reference_value': 'ReferenceValue'
+        "percentage_amount": "PercentageAmount",
+        "reference_type": "ReferenceType",
+        "reference_value": "ReferenceValue",
     }
 
-    subtype_mapping = {
-    }
+    subtype_mapping = {}
 
-
-    def __init__(self, percentage_amount=None, reference_type=None, reference_value=None):  # noqa: E501
+    def __init__(
+        self, percentage_amount=None, reference_type=None, reference_value=None
+    ):  # noqa: E501
         """GetComplianceForSubstancesSubstanceWithAmount - a model defined in Swagger"""  # noqa: E501
         self._percentage_amount = None
         self._reference_type = None
@@ -121,18 +122,20 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(GetComplianceForSubstancesSubstanceWithAmount, dict):

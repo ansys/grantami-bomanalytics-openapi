@@ -20,6 +20,7 @@ class GetComplianceForBom1711Request(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,26 +29,27 @@ class GetComplianceForBom1711Request(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'bom_xml1711': 'str',
-        'indicators': 'list[CommonIndicatorDefinition]',
-        'database_key': 'str',
-        'config': 'CommonRequestConfig'
+        "bom_xml1711": "str",
+        "indicators": "list[CommonIndicatorDefinition]",
+        "database_key": "str",
+        "config": "CommonRequestConfig",
     }
 
     attribute_map = {
-        'bom_xml1711': 'BomXml1711',
-        'indicators': 'Indicators',
-        'database_key': 'DatabaseKey',
-        'config': 'Config'
+        "bom_xml1711": "BomXml1711",
+        "indicators": "Indicators",
+        "database_key": "DatabaseKey",
+        "config": "Config",
     }
 
     subtype_mapping = {
-        'Indicators': 'CommonIndicatorDefinition',
-        'Config': 'CommonRequestConfig'
+        "Indicators": "CommonIndicatorDefinition",
+        "Config": "CommonRequestConfig",
     }
 
-
-    def __init__(self, bom_xml1711=None, indicators=None, database_key=None, config=None):  # noqa: E501
+    def __init__(
+        self, bom_xml1711=None, indicators=None, database_key=None, config=None
+    ):  # noqa: E501
         """GetComplianceForBom1711Request - a model defined in Swagger"""  # noqa: E501
         self._bom_xml1711 = None
         self._indicators = None
@@ -146,18 +148,20 @@ class GetComplianceForBom1711Request(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(GetComplianceForBom1711Request, dict):

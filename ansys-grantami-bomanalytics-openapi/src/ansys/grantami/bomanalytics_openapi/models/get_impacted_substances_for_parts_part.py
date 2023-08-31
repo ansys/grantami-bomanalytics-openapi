@@ -20,6 +20,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,23 +29,24 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'legislations': 'list[CommonLegislationWithImpactedSubstances]',
-        'reference_type': 'str',
-        'reference_value': 'str'
+        "legislations": "list[CommonLegislationWithImpactedSubstances]",
+        "reference_type": "str",
+        "reference_value": "str",
     }
 
     attribute_map = {
-        'legislations': 'Legislations',
-        'reference_type': 'ReferenceType',
-        'reference_value': 'ReferenceValue'
+        "legislations": "Legislations",
+        "reference_type": "ReferenceType",
+        "reference_value": "ReferenceValue",
     }
 
     subtype_mapping = {
-        'Legislations': 'CommonLegislationWithImpactedSubstances',
+        "Legislations": "CommonLegislationWithImpactedSubstances",
     }
 
-
-    def __init__(self, legislations=None, reference_type=None, reference_value=None):  # noqa: E501
+    def __init__(
+        self, legislations=None, reference_type=None, reference_value=None
+    ):  # noqa: E501
         """GetImpactedSubstancesForPartsPart - a model defined in Swagger"""  # noqa: E501
         self._legislations = None
         self._reference_type = None
@@ -122,18 +124,20 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(GetImpactedSubstancesForPartsPart, dict):

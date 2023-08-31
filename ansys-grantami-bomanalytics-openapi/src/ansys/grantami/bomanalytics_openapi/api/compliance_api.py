@@ -30,8 +30,10 @@ class ComplianceApi(ApiBase):
         :param GetComplianceForBom1711Request body: (required)
         :return: GetComplianceForBom1711Response
         """
-        kwargs['_return_http_data_only'] = True
-        (data) = self.post_compliance_bom1711_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        (data) = self.post_compliance_bom1711_with_http_info(
+            body, **kwargs
+        )  # noqa: E501
         return data
 
     def post_compliance_bom1711_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -44,23 +46,26 @@ class ComplianceApi(ApiBase):
         :return: GetComplianceForBom1711Response
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in params['kwargs'].items():
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '{}' to method post_compliance_bom1711".format(key)
+                    "Got an unexpected keyword argument '{}' to method post_compliance_bom1711".format(
+                        key
+                    )
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `post_compliance_bom1711`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `post_compliance_bom1711`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -74,36 +79,42 @@ class ComplianceApi(ApiBase):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-        
+
         response_type_map = {
-            200: 'GetComplianceForBom1711Response',
+            200: "GetComplianceForBom1711Response",
         }
-        
+
         return self.api_client.call_api(
-            '/compliance/bom1711', 'POST',
+            "/compliance/bom1711",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
-            response_type_map=response_type_map)
+            response_type_map=response_type_map,
+        )
 
     def post_compliance_materials(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more materials in the context of specified indicators  # noqa: E501
@@ -114,8 +125,10 @@ class ComplianceApi(ApiBase):
         :param GetComplianceForMaterialsRequest body: (required)
         :return: GetComplianceForMaterialsResponse
         """
-        kwargs['_return_http_data_only'] = True
-        (data) = self.post_compliance_materials_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        (data) = self.post_compliance_materials_with_http_info(
+            body, **kwargs
+        )  # noqa: E501
         return data
 
     def post_compliance_materials_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -128,23 +141,26 @@ class ComplianceApi(ApiBase):
         :return: GetComplianceForMaterialsResponse
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in params['kwargs'].items():
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '{}' to method post_compliance_materials".format(key)
+                    "Got an unexpected keyword argument '{}' to method post_compliance_materials".format(
+                        key
+                    )
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `post_compliance_materials`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `post_compliance_materials`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -158,36 +174,42 @@ class ComplianceApi(ApiBase):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-        
+
         response_type_map = {
-            200: 'GetComplianceForMaterialsResponse',
+            200: "GetComplianceForMaterialsResponse",
         }
-        
+
         return self.api_client.call_api(
-            '/compliance/materials', 'POST',
+            "/compliance/materials",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
-            response_type_map=response_type_map)
+            response_type_map=response_type_map,
+        )
 
     def post_compliance_parts(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more parts in the context of specified indicators  # noqa: E501
@@ -198,7 +220,7 @@ class ComplianceApi(ApiBase):
         :param GetComplianceForPartsRequest body: (required)
         :return: GetComplianceForPartsResponse
         """
-        kwargs['_return_http_data_only'] = True
+        kwargs["_return_http_data_only"] = True
         (data) = self.post_compliance_parts_with_http_info(body, **kwargs)  # noqa: E501
         return data
 
@@ -212,23 +234,26 @@ class ComplianceApi(ApiBase):
         :return: GetComplianceForPartsResponse
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in params['kwargs'].items():
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '{}' to method post_compliance_parts".format(key)
+                    "Got an unexpected keyword argument '{}' to method post_compliance_parts".format(
+                        key
+                    )
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `post_compliance_parts`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `post_compliance_parts`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -242,36 +267,42 @@ class ComplianceApi(ApiBase):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-        
+
         response_type_map = {
-            200: 'GetComplianceForPartsResponse',
+            200: "GetComplianceForPartsResponse",
         }
-        
+
         return self.api_client.call_api(
-            '/compliance/parts', 'POST',
+            "/compliance/parts",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
-            response_type_map=response_type_map)
+            response_type_map=response_type_map,
+        )
 
     def post_compliance_specifications(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
@@ -282,11 +313,15 @@ class ComplianceApi(ApiBase):
         :param GetComplianceForSpecificationsRequest body: (required)
         :return: GetComplianceForSpecificationsResponse
         """
-        kwargs['_return_http_data_only'] = True
-        (data) = self.post_compliance_specifications_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        (data) = self.post_compliance_specifications_with_http_info(
+            body, **kwargs
+        )  # noqa: E501
         return data
 
-    def post_compliance_specifications_with_http_info(self, body, **kwargs):  # noqa: E501
+    def post_compliance_specifications_with_http_info(
+        self, body, **kwargs
+    ):  # noqa: E501
         """Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
 
         Compliance is determined first by identifying the substances contained within the specifications, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, and specifications, to determine the compliance of the specifications included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex specification hierarchies. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator.  # noqa: E501
@@ -296,23 +331,26 @@ class ComplianceApi(ApiBase):
         :return: GetComplianceForSpecificationsResponse
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in params['kwargs'].items():
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '{}' to method post_compliance_specifications".format(key)
+                    "Got an unexpected keyword argument '{}' to method post_compliance_specifications".format(
+                        key
+                    )
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `post_compliance_specifications`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `post_compliance_specifications`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -326,36 +364,42 @@ class ComplianceApi(ApiBase):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-        
+
         response_type_map = {
-            200: 'GetComplianceForSpecificationsResponse',
+            200: "GetComplianceForSpecificationsResponse",
         }
-        
+
         return self.api_client.call_api(
-            '/compliance/specifications', 'POST',
+            "/compliance/specifications",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
-            response_type_map=response_type_map)
+            response_type_map=response_type_map,
+        )
 
     def post_compliance_substances(self, body, **kwargs):  # noqa: E501
         """Determine the compliance of one or more substances in the context of specified indicators  # noqa: E501
@@ -366,8 +410,10 @@ class ComplianceApi(ApiBase):
         :param GetComplianceForSubstancesRequest body: (required)
         :return: GetComplianceForSubstancesResponse
         """
-        kwargs['_return_http_data_only'] = True
-        (data) = self.post_compliance_substances_with_http_info(body, **kwargs)  # noqa: E501
+        kwargs["_return_http_data_only"] = True
+        (data) = self.post_compliance_substances_with_http_info(
+            body, **kwargs
+        )  # noqa: E501
         return data
 
     def post_compliance_substances_with_http_info(self, body, **kwargs):  # noqa: E501
@@ -380,23 +426,26 @@ class ComplianceApi(ApiBase):
         :return: GetComplianceForSubstancesResponse
         """
 
-        all_params = ['body']  # noqa: E501
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ["body"]  # noqa: E501
+        all_params.append("_return_http_data_only")
+        all_params.append("_preload_content")
+        all_params.append("_request_timeout")
 
         params = locals()
-        for key, val in params['kwargs'].items():
+        for key, val in params["kwargs"].items():
             if key not in all_params:
                 raise TypeError(
-                    "Got an unexpected keyword argument '{}' to method post_compliance_substances".format(key)
+                    "Got an unexpected keyword argument '{}' to method post_compliance_substances".format(
+                        key
+                    )
                 )
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
         # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `post_compliance_substances`")  # noqa: E501
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter `body` when calling `post_compliance_substances`"
+            )  # noqa: E501
 
         collection_formats = {}
 
@@ -410,33 +459,39 @@ class ComplianceApi(ApiBase):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if "body" in params:
+            body_params = params["body"]
         # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )  # noqa: E501
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+        header_params[
+            "Content-Type"
+        ] = self.api_client.select_header_content_type(  # noqa: E501
+            ["application/json"]
+        )  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
-        
+
         response_type_map = {
-            200: 'GetComplianceForSubstancesResponse',
+            200: "GetComplianceForSubstancesResponse",
         }
-        
+
         return self.api_client.call_api(
-            '/compliance/substances', 'POST',
+            "/compliance/substances",
+            "POST",
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
             collection_formats=collection_formats,
-            response_type_map=response_type_map)
+            response_type_map=response_type_map,
+        )

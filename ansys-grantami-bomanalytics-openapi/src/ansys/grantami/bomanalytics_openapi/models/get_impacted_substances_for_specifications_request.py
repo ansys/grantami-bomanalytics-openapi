@@ -20,6 +20,7 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
 
     Do not edit the class manually.
     """
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
@@ -28,26 +29,31 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'specifications': 'list[CommonSpecificationReference]',
-        'legislation_names': 'list[str]',
-        'database_key': 'str',
-        'config': 'CommonRequestConfig'
+        "specifications": "list[CommonSpecificationReference]",
+        "legislation_names": "list[str]",
+        "database_key": "str",
+        "config": "CommonRequestConfig",
     }
 
     attribute_map = {
-        'specifications': 'Specifications',
-        'legislation_names': 'LegislationNames',
-        'database_key': 'DatabaseKey',
-        'config': 'Config'
+        "specifications": "Specifications",
+        "legislation_names": "LegislationNames",
+        "database_key": "DatabaseKey",
+        "config": "Config",
     }
 
     subtype_mapping = {
-        'Specifications': 'CommonSpecificationReference',
-        'Config': 'CommonRequestConfig'
+        "Specifications": "CommonSpecificationReference",
+        "Config": "CommonRequestConfig",
     }
 
-
-    def __init__(self, specifications=None, legislation_names=None, database_key=None, config=None):  # noqa: E501
+    def __init__(
+        self,
+        specifications=None,
+        legislation_names=None,
+        database_key=None,
+        config=None,
+    ):  # noqa: E501
         """GetImpactedSubstancesForSpecificationsRequest - a model defined in Swagger"""  # noqa: E501
         self._specifications = None
         self._legislation_names = None
@@ -146,18 +152,20 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         for attr in self.swagger_types.keys():
             value = getattr(self, attr)
             if isinstance(value, list):
-                result[attr] = list(map(
-                    lambda x: x.to_dict() if hasattr(x, "to_dict") else x,
-                    value
-                ))
+                result[attr] = list(
+                    map(lambda x: x.to_dict() if hasattr(x, "to_dict") else x, value)
+                )
             elif hasattr(value, "to_dict"):
                 result[attr] = value.to_dict()
             elif isinstance(value, dict):
-                result[attr] = dict(map(
-                    lambda item: (item[0], item[1].to_dict())
-                    if hasattr(item[1], "to_dict") else item,
-                    value.items()
-                ))
+                result[attr] = dict(
+                    map(
+                        lambda item: (item[0], item[1].to_dict())
+                        if hasattr(item[1], "to_dict")
+                        else item,
+                        value.items(),
+                    )
+                )
             else:
                 result[attr] = value
         if issubclass(GetImpactedSubstancesForSpecificationsRequest, dict):
