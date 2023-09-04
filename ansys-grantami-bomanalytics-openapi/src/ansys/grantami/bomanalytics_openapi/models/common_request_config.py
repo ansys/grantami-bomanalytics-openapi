@@ -43,6 +43,9 @@ class CommonRequestConfig(ModelBase):
         "products_and_parts_table_name": "str",
         "substances_table_name": "str",
         "coatings_table_name": "str",
+        "transport_table_name": "str",
+        "process_universe_table_name": "str",
+        "locations_table_name": "str",
         "maximum_spec_to_spec_link_depth": "int",
     }
 
@@ -53,6 +56,9 @@ class CommonRequestConfig(ModelBase):
         "products_and_parts_table_name": "ProductsAndPartsTableName",
         "substances_table_name": "SubstancesTableName",
         "coatings_table_name": "CoatingsTableName",
+        "transport_table_name": "TransportTableName",
+        "process_universe_table_name": "ProcessUniverseTableName",
+        "locations_table_name": "LocationsTableName",
         "maximum_spec_to_spec_link_depth": "MaximumSpecToSpecLinkDepth",
     }
 
@@ -63,11 +69,14 @@ class CommonRequestConfig(ModelBase):
         *,
         coatings_table_name: "Optional[str]" = None,
         inhouse_materials_table_name: "Optional[str]" = None,
+        locations_table_name: "Optional[str]" = None,
         material_universe_table_name: "Optional[str]" = None,
         maximum_spec_to_spec_link_depth: "Optional[int]" = None,
+        process_universe_table_name: "Optional[str]" = None,
         products_and_parts_table_name: "Optional[str]" = None,
         specifications_table_name: "Optional[str]" = None,
         substances_table_name: "Optional[str]" = None,
+        transport_table_name: "Optional[str]" = None,
     ) -> None:
         """CommonRequestConfig - a model defined in Swagger
 
@@ -75,11 +84,14 @@ class CommonRequestConfig(ModelBase):
         ----------
             coatings_table_name: str, optional
             inhouse_materials_table_name: str, optional
+            locations_table_name: str, optional
             material_universe_table_name: str, optional
             maximum_spec_to_spec_link_depth: int, optional
+            process_universe_table_name: str, optional
             products_and_parts_table_name: str, optional
             specifications_table_name: str, optional
             substances_table_name: str, optional
+            transport_table_name: str, optional
         """
         self._material_universe_table_name = None
         self._inhouse_materials_table_name = None
@@ -87,6 +99,9 @@ class CommonRequestConfig(ModelBase):
         self._products_and_parts_table_name = None
         self._substances_table_name = None
         self._coatings_table_name = None
+        self._transport_table_name = None
+        self._process_universe_table_name = None
+        self._locations_table_name = None
         self._maximum_spec_to_spec_link_depth = None
         self.discriminator = None
         if material_universe_table_name is not None:
@@ -101,6 +116,12 @@ class CommonRequestConfig(ModelBase):
             self.substances_table_name = substances_table_name
         if coatings_table_name is not None:
             self.coatings_table_name = coatings_table_name
+        if transport_table_name is not None:
+            self.transport_table_name = transport_table_name
+        if process_universe_table_name is not None:
+            self.process_universe_table_name = process_universe_table_name
+        if locations_table_name is not None:
+            self.locations_table_name = locations_table_name
         if maximum_spec_to_spec_link_depth is not None:
             self.maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
@@ -237,6 +258,72 @@ class CommonRequestConfig(ModelBase):
             The coatings_table_name of this CommonRequestConfig.
         """
         self._coatings_table_name = coatings_table_name
+
+    @property
+    def transport_table_name(self) -> "str":
+        """Gets the transport_table_name of this CommonRequestConfig.
+
+        Returns
+        -------
+        str
+            The transport_table_name of this CommonRequestConfig.
+        """
+        return self._transport_table_name
+
+    @transport_table_name.setter
+    def transport_table_name(self, transport_table_name: "str") -> None:
+        """Sets the transport_table_name of this CommonRequestConfig.
+
+        Parameters
+        ----------
+        transport_table_name: str
+            The transport_table_name of this CommonRequestConfig.
+        """
+        self._transport_table_name = transport_table_name
+
+    @property
+    def process_universe_table_name(self) -> "str":
+        """Gets the process_universe_table_name of this CommonRequestConfig.
+
+        Returns
+        -------
+        str
+            The process_universe_table_name of this CommonRequestConfig.
+        """
+        return self._process_universe_table_name
+
+    @process_universe_table_name.setter
+    def process_universe_table_name(self, process_universe_table_name: "str") -> None:
+        """Sets the process_universe_table_name of this CommonRequestConfig.
+
+        Parameters
+        ----------
+        process_universe_table_name: str
+            The process_universe_table_name of this CommonRequestConfig.
+        """
+        self._process_universe_table_name = process_universe_table_name
+
+    @property
+    def locations_table_name(self) -> "str":
+        """Gets the locations_table_name of this CommonRequestConfig.
+
+        Returns
+        -------
+        str
+            The locations_table_name of this CommonRequestConfig.
+        """
+        return self._locations_table_name
+
+    @locations_table_name.setter
+    def locations_table_name(self, locations_table_name: "str") -> None:
+        """Sets the locations_table_name of this CommonRequestConfig.
+
+        Parameters
+        ----------
+        locations_table_name: str
+            The locations_table_name of this CommonRequestConfig.
+        """
+        self._locations_table_name = locations_table_name
 
     @property
     def maximum_spec_to_spec_link_depth(self) -> "int":
