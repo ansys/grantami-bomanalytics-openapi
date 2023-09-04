@@ -21,4 +21,3 @@ def test_CommonPartReference():
 
     model = generate_model(CommonPartReference)
     assert model
-

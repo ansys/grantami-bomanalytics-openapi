@@ -21,4 +21,3 @@ def test_CommonLogEntry():
 
     model = generate_model(CommonLogEntry)
     assert model
-

@@ -11,7 +11,9 @@
 """
 
 import pytest  # noqa: F401
-from ansys.grantami.bomanalytics_openapi.models import CommonPartWithCompliance  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models import (
+    CommonPartWithCompliance,
+)  # noqa: E501
 from .mocked_tests import generate_model
 
 
@@ -21,4 +23,3 @@ def test_CommonPartWithCompliance():
 
     model = generate_model(CommonPartWithCompliance)
     assert model
-

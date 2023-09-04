@@ -11,7 +11,9 @@
 """
 
 import pytest  # noqa: F401
-from ansys.grantami.bomanalytics_openapi.models import CommonImpactedSubstance  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models import (
+    CommonImpactedSubstance,
+)  # noqa: E501
 from .mocked_tests import generate_model
 
 
@@ -21,4 +23,3 @@ def test_CommonImpactedSubstance():
 
     model = generate_model(CommonImpactedSubstance)
     assert model
-

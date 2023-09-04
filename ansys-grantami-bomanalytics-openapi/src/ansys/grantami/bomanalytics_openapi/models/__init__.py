@@ -18,7 +18,9 @@ from .common_coating_with_compliance import CommonCoatingWithCompliance
 from .common_impacted_substance import CommonImpactedSubstance
 from .common_indicator_definition import CommonIndicatorDefinition
 from .common_indicator_result import CommonIndicatorResult
-from .common_legislation_with_impacted_substances import CommonLegislationWithImpactedSubstances
+from .common_legislation_with_impacted_substances import (
+    CommonLegislationWithImpactedSubstances,
+)
 from .common_log_entry import CommonLogEntry
 from .common_material_reference import CommonMaterialReference
 from .common_material_with_compliance import CommonMaterialWithCompliance
@@ -34,19 +36,45 @@ from .get_compliance_for_materials_request import GetComplianceForMaterialsReque
 from .get_compliance_for_materials_response import GetComplianceForMaterialsResponse
 from .get_compliance_for_parts_request import GetComplianceForPartsRequest
 from .get_compliance_for_parts_response import GetComplianceForPartsResponse
-from .get_compliance_for_specifications_request import GetComplianceForSpecificationsRequest
-from .get_compliance_for_specifications_response import GetComplianceForSpecificationsResponse
+from .get_compliance_for_specifications_request import (
+    GetComplianceForSpecificationsRequest,
+)
+from .get_compliance_for_specifications_response import (
+    GetComplianceForSpecificationsResponse,
+)
 from .get_compliance_for_substances_request import GetComplianceForSubstancesRequest
 from .get_compliance_for_substances_response import GetComplianceForSubstancesResponse
-from .get_compliance_for_substances_substance_with_amount import GetComplianceForSubstancesSubstanceWithAmount
-from .get_impacted_substances_for_bom1711_request import GetImpactedSubstancesForBom1711Request
-from .get_impacted_substances_for_bom1711_response import GetImpactedSubstancesForBom1711Response
-from .get_impacted_substances_for_materials_material import GetImpactedSubstancesForMaterialsMaterial
-from .get_impacted_substances_for_materials_request import GetImpactedSubstancesForMaterialsRequest
-from .get_impacted_substances_for_materials_response import GetImpactedSubstancesForMaterialsResponse
+from .get_compliance_for_substances_substance_with_amount import (
+    GetComplianceForSubstancesSubstanceWithAmount,
+)
+from .get_impacted_substances_for_bom1711_request import (
+    GetImpactedSubstancesForBom1711Request,
+)
+from .get_impacted_substances_for_bom1711_response import (
+    GetImpactedSubstancesForBom1711Response,
+)
+from .get_impacted_substances_for_materials_material import (
+    GetImpactedSubstancesForMaterialsMaterial,
+)
+from .get_impacted_substances_for_materials_request import (
+    GetImpactedSubstancesForMaterialsRequest,
+)
+from .get_impacted_substances_for_materials_response import (
+    GetImpactedSubstancesForMaterialsResponse,
+)
 from .get_impacted_substances_for_parts_part import GetImpactedSubstancesForPartsPart
-from .get_impacted_substances_for_parts_request import GetImpactedSubstancesForPartsRequest
-from .get_impacted_substances_for_parts_response import GetImpactedSubstancesForPartsResponse
-from .get_impacted_substances_for_specifications_request import GetImpactedSubstancesForSpecificationsRequest
-from .get_impacted_substances_for_specifications_response import GetImpactedSubstancesForSpecificationsResponse
-from .get_impacted_substances_for_specifications_specification import GetImpactedSubstancesForSpecificationsSpecification
+from .get_impacted_substances_for_parts_request import (
+    GetImpactedSubstancesForPartsRequest,
+)
+from .get_impacted_substances_for_parts_response import (
+    GetImpactedSubstancesForPartsResponse,
+)
+from .get_impacted_substances_for_specifications_request import (
+    GetImpactedSubstancesForSpecificationsRequest,
+)
+from .get_impacted_substances_for_specifications_response import (
+    GetImpactedSubstancesForSpecificationsResponse,
+)
+from .get_impacted_substances_for_specifications_specification import (
+    GetImpactedSubstancesForSpecificationsSpecification,
+)

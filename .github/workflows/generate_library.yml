@@ -45,6 +45,15 @@ jobs:
         MAVEN_OPTS: "-Dlog4j2.formatMsgNoLookups=true"
         SERVER_USERNAME: ${{ secrets.REPO_USER }}
         SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: "Install and run black"
+      run: |
+        pip install black
+        black ./ansys-grantami-bomanalytics-openapi/src ./ansys-grantami-bomanalytics-openapi/tests
         
     - name: "Commit changes to library code"
       uses: EndBug/add-and-commit@v9
