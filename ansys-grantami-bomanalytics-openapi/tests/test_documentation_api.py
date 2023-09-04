@@ -13,22 +13,26 @@
 import pytest  # noqa: F401
 import requests_mock
 
-from ansys.grantami.bomanalytics_openapi.api.documentation_api import DocumentationApi  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.api.documentation_api import (
+    DocumentationApi,
+)  # noqa: E501
 from .mocked_tests import generate_model, get_example, mock_method
 
 
 class TestDocumentationApi:
     """DocumentationApi unit test stubs"""
 
-
-    
     def test_get_yaml(self, api_client):
         """Test case for get_yaml
         Provides the YAML specification for this service.  # noqa: E501
         """
         client = DocumentationApi(api_client)
         with requests_mock.Mocker() as m:
-            mock_method(m, 'GET', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/yaml', get_example(str))
+            mock_method(
+                m,
+                "GET",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/yaml",
+                get_example(str),
+            )
             result = client.get_yaml()
         assert isinstance(result, str)
-

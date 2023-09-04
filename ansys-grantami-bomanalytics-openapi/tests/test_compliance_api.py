@@ -13,25 +13,45 @@
 import pytest  # noqa: F401
 import requests_mock
 
-from ansys.grantami.bomanalytics_openapi.api.compliance_api import ComplianceApi  # noqa: E501
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_request import GetComplianceForBom1711Request
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_response import GetComplianceForBom1711Response
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_request import GetComplianceForMaterialsRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_response import GetComplianceForMaterialsResponse
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_request import GetComplianceForPartsRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_response import GetComplianceForPartsResponse
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_request import GetComplianceForSpecificationsRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_response import GetComplianceForSpecificationsResponse
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_request import GetComplianceForSubstancesRequest
-from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_response import GetComplianceForSubstancesResponse
+from ansys.grantami.bomanalytics_openapi.api.compliance_api import (
+    ComplianceApi,
+)  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_request import (
+    GetComplianceForBom1711Request,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_response import (
+    GetComplianceForBom1711Response,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_request import (
+    GetComplianceForMaterialsRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_response import (
+    GetComplianceForMaterialsResponse,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_request import (
+    GetComplianceForPartsRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_parts_response import (
+    GetComplianceForPartsResponse,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_request import (
+    GetComplianceForSpecificationsRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_specifications_response import (
+    GetComplianceForSpecificationsResponse,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_request import (
+    GetComplianceForSubstancesRequest,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_substances_response import (
+    GetComplianceForSubstancesResponse,
+)
 from .mocked_tests import generate_model, get_example, mock_method
 
 
 class TestComplianceApi:
     """ComplianceApi unit test stubs"""
 
-
-    
     def test_post_compliance_bom1711(self, api_client):
         """Test case for post_compliance_bom1711
         Determine the compliance of a BoM in the context of specified indicators  # noqa: E501
@@ -39,11 +59,15 @@ class TestComplianceApi:
         model = generate_model(GetComplianceForBom1711Request)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/bom1711', get_example(GetComplianceForBom1711Response))
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/bom1711",
+                get_example(GetComplianceForBom1711Response),
+            )
             result = client.post_compliance_bom1711(body=model)
         assert isinstance(result, GetComplianceForBom1711Response)
 
-    
     def test_post_compliance_materials(self, api_client):
         """Test case for post_compliance_materials
         Determine the compliance of one or more materials in the context of specified indicators  # noqa: E501
@@ -51,11 +75,15 @@ class TestComplianceApi:
         model = generate_model(GetComplianceForMaterialsRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/materials', get_example(GetComplianceForMaterialsResponse))
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/materials",
+                get_example(GetComplianceForMaterialsResponse),
+            )
             result = client.post_compliance_materials(body=model)
         assert isinstance(result, GetComplianceForMaterialsResponse)
 
-    
     def test_post_compliance_parts(self, api_client):
         """Test case for post_compliance_parts
         Determine the compliance of one or more parts in the context of specified indicators  # noqa: E501
@@ -63,11 +91,15 @@ class TestComplianceApi:
         model = generate_model(GetComplianceForPartsRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/parts', get_example(GetComplianceForPartsResponse))
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/parts",
+                get_example(GetComplianceForPartsResponse),
+            )
             result = client.post_compliance_parts(body=model)
         assert isinstance(result, GetComplianceForPartsResponse)
 
-    
     def test_post_compliance_specifications(self, api_client):
         """Test case for post_compliance_specifications
         Determine the compliance of one or more specifications in the context of specified indicators  # noqa: E501
@@ -75,11 +107,15 @@ class TestComplianceApi:
         model = generate_model(GetComplianceForSpecificationsRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/specifications', get_example(GetComplianceForSpecificationsResponse))
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/specifications",
+                get_example(GetComplianceForSpecificationsResponse),
+            )
             result = client.post_compliance_specifications(body=model)
         assert isinstance(result, GetComplianceForSpecificationsResponse)
 
-    
     def test_post_compliance_substances(self, api_client):
         """Test case for post_compliance_substances
         Determine the compliance of one or more substances in the context of specified indicators  # noqa: E501
@@ -87,7 +123,11 @@ class TestComplianceApi:
         model = generate_model(GetComplianceForSubstancesRequest)
         client = ComplianceApi(api_client)
         with requests_mock.Mocker() as m:
-            mock_method(m, 'POST', 'http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/substances', get_example(GetComplianceForSubstancesResponse))
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/substances",
+                get_example(GetComplianceForSubstancesResponse),
+            )
             result = client.post_compliance_substances(body=model)
         assert isinstance(result, GetComplianceForSubstancesResponse)
-
