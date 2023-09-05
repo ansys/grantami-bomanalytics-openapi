@@ -364,6 +364,56 @@ paths:
                             MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
                     LogMessages: [ ]
+  /impacted-substances/bom2301:
+    post:
+      tags:
+        - Impacted Substances
+      summary: Get the impacted substances for a Bill of Materials
+      description: "Examines the substances contained within a 23/01 Bill of Materials (BoM) by following links to substances, materials, specifications, and parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. Legislations are specified by the legislation 'Short title' attribute."
+      operationId: postImpactedsubstancesBom2301
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetImpactedSubstancesForBom2301.Request'
+            examples:
+              example1:
+                summary: 23/01 BoM
+                description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
+                value:
+                  BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+                  LegislationNames:
+                    - The SIN List 2.1 (Substitute It Now!)
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+        required: true
+      responses:
+        '200':
+          description: "Substances contained within the BoM in the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the BoM the substance occurs, e.g. included in the BoM directly, in a sub-component, specification, material, etc. This information is supplied by the Compliance API functionality."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetImpactedSubstancesForBom2301.Response'
+              examples:
+                example1:
+                  summary: 23/01 BoM
+                  description: "The response contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the BoM which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
+                  value:
+                    Legislations:
+                      - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                        ImpactedSubstances:
+                          - SubstanceName: '1,3-Butadiene'
+                            CasNumber: 106-99-0
+                            EcNumber: 203-450-8
+                            MaxPercentageAmountInMaterial: 
+                            LegislationThreshold: 0.1
+                          - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
+                            CasNumber: 128-37-0
+                            EcNumber: 204-881-4
+                            MaxPercentageAmountInMaterial: 
+                            LegislationThreshold: 0.1
+                    LogMessages: [ ]
   /compliance/substances:
     post:
       tags:
@@ -391,15 +441,15 @@ paths:
                       ReferenceValue: '1,3-Butadiene'
                   Indicators:
                     - Name: Indicator 1
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: WatchList
                     - Name: Indicator 2
-                      LegislationNames:
-                        - EU Directive 2000/53/EC (ELV)
+                      LegislationIds:
+                        - ELV
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -460,15 +510,15 @@ paths:
                       ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
                   Indicators:
                     - Name: Indicator 1
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: WatchList
                     - Name: Indicator 2
-                      LegislationNames:
-                        - EU Directive 2000/53/EC (ELV)
+                      LegislationIds:
+                        - ELV
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -484,15 +534,15 @@ paths:
                       ReferenceValue: plastic-pc-20carbonfiber
                   Indicators:
                     - Name: Ignore Process Chemicals
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: true
                       Type: WatchList
                     - Name: Default Configuration
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -604,15 +654,15 @@ paths:
                       ReferenceValue: e0f41223-4b6b-40be-8982-39999c68f471
                   Indicators:
                     - Name: Indicator 1
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: WatchList
                     - Name: Indicator 2
-                      LegislationNames:
-                        - EU Directive 2000/53/EC (ELV)
+                      LegislationIds:
+                        - ELV
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -771,15 +821,15 @@ paths:
                       ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
                   Indicators:
                     - Name: Indicator 1
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: WatchList
                     - Name: Indicator 2
-                      LegislationNames:
-                        - EU Directive 2000/53/EC (ELV)
+                      LegislationIds:
+                        - ELV
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -795,15 +845,15 @@ paths:
                       ReferenceValue: FLRY33
                   Indicators:
                     - Name: Ignore Exemptions
-                      LegislationNames:
-                        - EU Directive 2011/65/EU (RoHS 2)
+                      LegislationIds:
+                        - RoHS
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: true
                       IgnoreProcessChemicals: false
                       Type: Rohs
                     - Name: Default Configuration
-                      LegislationNames:
-                        - EU Directive 2011/65/EU (RoHS 2)
+                      LegislationIds:
+                        - RoHS
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -979,15 +1029,15 @@ paths:
                   BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   Indicators:
                     - Name: Indicator 1
-                      LegislationNames:
-                        - The SIN List 2.1 (Substitute It Now!)
+                      LegislationIds:
+                        - SINList
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
                       Type: WatchList
                     - Name: Indicator 2
-                      LegislationNames:
-                        - EU Directive 2000/53/EC (ELV)
+                      LegislationIds:
+                        - ELV
                       DefaultThresholdPercentage: 0.1
                       IgnoreExemptions: false
                       IgnoreProcessChemicals: false
@@ -1064,6 +1114,565 @@ paths:
                         ReferenceType: PartNumber
                         ReferenceValue: 
                     LogMessages: [ ]
+  /compliance/bom2301:
+    post:
+      tags:
+        - Compliance
+      summary: Determine the compliance of a BoM in the context of specified indicators
+      description: "Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator."
+      operationId: postComplianceBom2301
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetComplianceForBom2301.Request'
+            examples:
+              example1:
+                summary: Single-part BoM with a substance
+                description: "The root part in this BoM includes two sub-parts; the first references a substance directly, and the second references a material. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
+                value:
+                  BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+                  Indicators:
+                    - Name: Indicator 1
+                      LegislationIds:
+                        - SINList
+                      DefaultThresholdPercentage: 0.1
+                      IgnoreExemptions: false
+                      IgnoreProcessChemicals: false
+                      Type: WatchList
+                    - Name: Indicator 2
+                      LegislationIds:
+                        - ELV
+                      DefaultThresholdPercentage: 0.1
+                      IgnoreExemptions: false
+                      IgnoreProcessChemicals: false
+                      Type: Rohs
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+        required: true
+      responses:
+        '200':
+          description: "Each part included in the BoM is returned with an array of indicators describing the compliance status of each part against each indicator. Each part also contains arrays of parts, specifications, materials, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root part."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetComplianceForBom2301.Response'
+              examples:
+                example1:
+                  summary: Single-part BoM with a substance
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the parts evaluated against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
+                  value:
+                    Parts:
+                      - Indicators:
+                          - Name: Indicator 1
+                            Flag: WatchListAllSubstancesBelowThreshold
+                          - Name: Indicator 2
+                            Flag: RohsCompliant
+                        Parts:
+                          - Indicators:
+                              - Name: Indicator 1
+                                Flag: WatchListAllSubstancesBelowThreshold
+                              - Name: Indicator 2
+                                Flag: RohsCompliant
+                            Parts: [ ]
+                            Specifications: [ ]
+                            Materials: [ ]
+                            Substances:
+                              - Indicators:
+                                  - Name: Indicator 1
+                                    Flag: WatchListNotImpacted
+                                  - Name: Indicator 2
+                                    Flag: RohsNotImpacted
+                                ReferenceType: MiRecordHistoryIdentity
+                                ReferenceValue: 62345
+                            ReferenceType: PartNumber
+                            ReferenceValue: 
+                        Specifications: [ ]
+                        Materials: [ ]
+                        Substances: [ ]
+                        ReferenceType: PartNumber
+                        ReferenceValue: 
+                      - Indicators:
+                          - Name: Indicator 1
+                            Flag: WatchListHasSubstanceAboveThreshold
+                          - Name: Indicator 2
+                            Flag: RohsNonCompliant
+                        Parts: [ ]
+                        Specifications: [ ]
+                        Materials:
+                          - Indicators:
+                              - Name: Indicator 1
+                                Flag: WatchListAllSubstancesBelowThreshold
+                              - Name: Indicator 2
+                                Flag: RohsCompliant
+                            Substances:
+                              - Indicators:
+                                  - Name: Indicator 1
+                                    Flag: WatchListBelowThreshold
+                                  - Name: Indicator 2
+                                    Flag: RohsBelowThreshold
+                                ReferenceType: MiRecordHistoryIdentity
+                                ReferenceValue: 12345
+                            ReferenceType: MiRecordHistoryIdentity
+                            ReferenceValue: 111111
+                        Substances: [ ]
+                        ReferenceType: PartNumber
+                        ReferenceValue: 
+                    LogMessages: [ ]
+  /licenses:
+    get:
+      tags:
+        - Licenses
+      summary: Determine if Restricted Substances and Sustainability licenses are available
+      operationId: getLicenses
+      responses:
+        '200':
+          description: "Returns a list of Granta MI analysis product licenses (\"Restricted Substances\", \"Sustainability\"), each with a value of true or false depending on the availability of that license."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAvailableLicenses.Response'
+              examples:
+                example1:
+                  summary: 'Restricted Substances license available, Sustainability license unavailable'
+                  value:
+                    RestrictedSubstances: true
+                    Sustainability: false
+                    LogMessages: [ ]
+  /sustainability/bom2301:
+    post:
+      tags:
+        - Sustainability
+      summary: 'Provides sustainability analysis for a BoM, including embodied energy and climate change (CO2-eq) values.'
+      description: "This endpoint reports sustainability results for each applicable level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. Embodied Energy and Climate Change (CO2-eq) are rolled-up at a part level. The associated energy and climate change values with a process are the costs of applying that process to the parent material or part. The associated energy and climate change values with a material are the production costs of the material and do not include the costs of any processes applied to it. However the associated values with a part are the sum of any contained materials and parts, the processes applied to those materials as well as any processes applied directly to the part itself."
+      operationId: postSustainabilityBom2301
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetSustainabilityForBom2301.Request'
+            examples:
+              example1:
+                summary: Single-part BoM with a material and process.
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it."
+                value:
+                  BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
+                  PreferredUnits: 
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+              example2:
+                summary: 'Single-part BoM with a material, process and transport stage with specified mass and energy units'
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it. The BoM also includes a transport stage."
+                value:
+                  BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><TransportPhase><TransportStage><Name>Transport Stage One</Name><MITransportReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">5fc9b500-d807-40a0-9138-f30dc46f0d70</recordGUID></MITransportReference><Distance Unit="km">100</Distance></TransportStage></TransportPhase><Location>  <MILocationReference>    <dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>    <recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>  </MILocationReference>  <Name></Name></Location><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
+                  PreferredUnits:
+                    MassUnit: lb
+                    EnergyUnit: kcal
+                  DatabaseKey: MI_Restricted_Substances
+        required: true
+      responses:
+        '200':
+          description: "Each part included in the BoM which is applicable for sustainability analysis is returned with an embodied energy and climate change (CO2-eq) property. Additionally materials which have end of life data available will be returned with recyclable, downcycle and biodegradable properties showing which end of life options are available for the material. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. If no preferred units are specified in the Config key of the request, mass and climate change values will be returned in 'kg' and embodied energy will be returned in 'MJ'."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSustainabilityForBom2301.Response'
+              examples:
+                example1:
+                  summary: Single-part BoM with a material and process
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Embodied Energy\" and \"Climate Change\" properties, as well as \"Parts\", \"Specifications\", \"Materials\", \"Substances\" and \"Processes\" arrays. This example is for illustrative purposes only."
+                  value:
+                    Parts:
+                      - Parts:
+                          - Parts: [ ]
+                            Materials:
+                              - Processes:
+                                  - EmbodiedEnergy:
+                                      Value: 0.09
+                                      Unit: MJ
+                                    ClimateChange:
+                                      Value: 0
+                                      Unit: kg
+                                    ReferenceType: MiRecordHistoryGuid
+                                    ReferenceValue: d986c90a-2835-45f3-8b69-d6d662dcf53a
+                                Substances: [ ]
+                                EmbodiedEnergy:
+                                  Value: 441.1
+                                  Unit: MJ
+                                ClimateChange:
+                                  Value: 14.9
+                                  Unit: kg
+                                Recyclable: true
+                                Biodegradable: false
+                                Downcycle: true
+                                ReportedMass:
+                                  Value: 2
+                                  Unit: kg
+                                ReferenceType: MiRecordGuid
+                                ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                            Processes: [ ]
+                            Substances: [ ]
+                            Specifications: [ ]
+                            EmbodiedEnergy:
+                              Value: 441.2
+                              Unit: MJ
+                            ClimateChange:
+                              Value: 14.2
+                              Unit: kg
+                            ReportedMass:
+                              Value: 2
+                              Unit: kg
+                            ReferenceType: PartNumber
+                            ReferenceValue: 
+                        Materials: [ ]
+                        Processes: [ ]
+                        Substances: [ ]
+                        Specifications: [ ]
+                        EmbodiedEnergy:
+                          Value: 441.2
+                          Unit: MJ
+                        ClimateChange:
+                          Value: 14.2
+                          Unit: kg
+                        ReportedMass:
+                          Value: 2
+                          Unit: kg
+                        ReferenceType: PartNumber
+                        ReferenceValue: 
+                    TransportStages: [ ]
+                    LogMessages: [ ]
+                example2:
+                  summary: 'Single-part BoM with a material, process and transport stage with specified mass and energy units'
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Embodied Energy\" and \"Climate Change\" properties, as well as \"Parts\", \"Specifications\", \"Materials\", \"Substances\" and \"Processes\" arrays. Mass, energy and climate change values are converted and returned to the respective preferred unit in the request. This example is for illustrative purposes only."
+                  value:
+                    Parts:
+                      - Parts:
+                          - Parts: [ ]
+                            Materials:
+                              - Processes:
+                                  - EmbodiedEnergy:
+                                      Value: 22.22
+                                      Unit: kcal
+                                    ClimateChange:
+                                      Value: 0.01
+                                      Unit: lb
+                                    ReferenceType: MiRecordHistoryGuid
+                                    ReferenceValue: d986c90a-2835-45f3-8b69-d6d662dcf53a
+                                Substances: [ ]
+                                EmbodiedEnergy:
+                                  Value: 105355.58
+                                  Unit: kcal
+                                ClimateChange:
+                                  Value: 31.29
+                                  Unit: lb
+                                Recyclable: true
+                                Biodegradable: false
+                                Downcycle: true
+                                ReportedMass:
+                                  Value: 4.41
+                                  Unit: lb
+                                ReferenceType: MiRecordGuid
+                                ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                            Processes: [ ]
+                            Substances: [ ]
+                            Specifications: [ ]
+                            EmbodiedEnergy:
+                              Value: 105377.81
+                              Unit: kcal
+                            ClimateChange:
+                              Value: 31.3
+                              Unit: lb
+                            ReportedMass:
+                              Value: 4.41
+                              Unit: lb
+                            ReferenceType: PartNumber
+                            ReferenceValue: 
+                        Materials: [ ]
+                        Processes: [ ]
+                        Substances: [ ]
+                        Specifications: [ ]
+                        EmbodiedEnergy:
+                          Value: 105790.03
+                          Unit: kcal
+                        ClimateChange:
+                          Value: 31.56
+                          Unit: lb
+                        ReportedMass:
+                          Value: 4.41
+                          Unit: lb
+                        ReferenceType: PartNumber
+                        ReferenceValue: 
+                    TransportStages:
+                      - EmbodiedEnergy:
+                          Value: 412.22
+                          Unit: kcal
+                        ClimateChange:
+                          Value: 0.25
+                          Unit: lb
+                        ReferenceType: MiRecordGuid
+                        ReferenceValue: 5fc9b500-d807-40a0-9138-f30dc46f0d70
+                    LogMessages: [ ]
+  /sustainability-summary/bom2301:
+    post:
+      tags:
+        - Sustainability
+      summary: "Summarises the sustainability analysis for a BoM, highlighting the most significant contributors to the environmental impact."
+      description: "This endpoint summarises sustainability results for the material, transport and process phases. For BoMs containing many materials and processes, this can result in the response being very large. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. The PhaseSummary property for each phase reports the percentage impact relative to the entire BoM energy/climate change. Individual materials and transport entries give their percentage impact relative to the phase, whilst individual process entries give their percentage relative to the process type. A primary process entry with a embodied energy contribution of 50% would be 50% of the total embodied energy of primary processes in the BoM, whereas a transport entry with the same contribution would be 50% of all transport energy in the BoM."
+      operationId: postSustainabilitysummaryBom2301
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetSustainabilitySummaryForBom2301.Request'
+            examples:
+              example1:
+                summary: Single-part BoM with a material and two processes.
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it."
+                value:
+                  BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
+                  PreferredUnits: 
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+              example2:
+                summary: 'Single-part BoM with a material, two processes and transport.'
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it. The BoM also has a transport stage defined."
+                value:
+                  BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <TransportPhase>    <TransportStage>      <Name>Transport Stage One</Name>              <MITransportReference>              <dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>              <recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">66e8fe77-9da3-4ae9-a914-c22038f1d9c9</recordGUID>          </MITransportReference>         <Distance Unit= "km">100</Distance>    </TransportStage>  </TransportPhase><Location>  <MILocationReference>    <dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>    <recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>  </MILocationReference>  <Name></Name></Location>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
+                  PreferredUnits:
+                    MassUnit: lb
+                    EnergyUnit: kcal
+                    DistanceUnit: ft
+                  DatabaseKey: MI_Restricted_Substances
+                  Config: 
+        required: true
+      responses:
+        '200':
+          description: "Each phase is created with a PhaseSummary, summarising the contributions of the phase as a whole. The contribution of each process relative to its process type is returned and the contribution of each material relative to the phase is returned, along with the components that contain the most of that material where applicable. The contribution of each transport stage is returned relative to the phase. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. If no preferred units are specified in the PreferredUnits key of the request, mass and climate change values will be returned in 'kg', embodied energy will be returned in 'MJ' and distance in 'km'."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSustainabilitySummaryForBom2301.Response'
+              examples:
+                example1:
+                  summary: Single-part BoM with a material and two processes
+                  description: "The response contains a MaterialSummary, ProcessSummary and TransportSummary which each provide a summary view of the phase. The largest contributors for each phase will be returned with their embodied energy and climate change values, alongside their record reference (where applicable) This example is for illustrative purposes only."
+                  value:
+                    MaterialSummary:
+                      Summary:
+                        - Name: steel-kovar-annealed
+                          RecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                          EmbodiedEnergy:
+                            Value: 134.482549067761
+                            Unit: MJ
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 4.3276934674222
+                            Unit: kg
+                          ClimateChangePercentage: 100
+                          MassBeforeProcessing:
+                            Value: 0.625
+                            Unit: kg
+                          MassAfterProcessing:
+                            Value: 0.5
+                            Unit: kg
+                          LargestContributors:
+                            - ComponentName: ''
+                              RecordReference:
+                                ReferenceType: PartNumber
+                                ReferenceValue: 
+                              MaterialMassBeforeProcessing:
+                                Value: 0.625
+                                Unit: kg
+                      PhaseSummary:
+                        Phase: Material
+                        EmbodiedEnergy:
+                          Value: 134.482549067761
+                          Unit: MJ
+                        EmbodiedEnergyPercentage: 95.1957177924867
+                        ClimateChange:
+                          Value: 4.3276934674222
+                          Unit: kg
+                        ClimateChangePercentage: 93.623465310322
+                    ProcessSummary:
+                      PrimaryProcesses:
+                        - ProcessName: Metal casting
+                          ProcessRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: baa6c95b-ff0e-4811-9120-92717ee15bda
+                          MaterialRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          EmbodiedEnergy:
+                            Value: 6.55438765769984
+                            Unit: MJ
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 0.283705040845716
+                            Unit: kg
+                          ClimateChangePercentage: 100
+                      SecondaryProcesses:
+                        - ProcessName: 'Machining, coarse'
+                          ProcessRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 907bda29-e800-44f6-b7ea-4eb8e7cff375
+                          MaterialRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          EmbodiedEnergy:
+                            Value: 0.232599537624153
+                            Unit: MJ
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 0.0110467869128737
+                            Unit: kg
+                          ClimateChangePercentage: 100
+                      JoiningAndFinishingProcesses: [ ]
+                      PhaseSummary:
+                        Phase: Processes
+                        EmbodiedEnergy:
+                          Value: 6.78698719532399
+                          Unit: MJ
+                        EmbodiedEnergyPercentage: 4.80428220751333
+                        ClimateChange:
+                          Value: 0.29475182775859
+                          Unit: kg
+                        ClimateChangePercentage: 6.37653468967796
+                    TransportSummary:
+                      Summary: [ ]
+                      PhaseSummary:
+                        Phase: Transport
+                        EmbodiedEnergy:
+                          Value: 0
+                          Unit: MJ
+                        EmbodiedEnergyPercentage: 0
+                        ClimateChange:
+                          Value: 0
+                          Unit: kg
+                        ClimateChangePercentage: 0
+                    LogMessages: [ ]
+                example2:
+                  summary: 'Single-part BoM with a material, two processes and transport'
+                  description: "The response contains a MaterialSummary, ProcessSummary and TransportSummary which each provide a summary view of the phase. The largest contributors for each phase will be returned with their embodied energy and climate change values, alongside their record reference (where applicable) Mass, energy, climate change and distance values are converted and returned in the respective preferred unit of the request. This example is for illustrative purposes only."
+                  value:
+                    MaterialSummary:
+                      Summary:
+                        - Name: steel-kovar-annealed
+                          RecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                          EmbodiedEnergy:
+                            Value: 7671874.70450957
+                            Unit: kcal
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 21.034152136876
+                            Unit: lb
+                          ClimateChangePercentage: 100
+                          MassBeforeProcessing:
+                            Value: 3.03772556547961
+                            Unit: lb
+                          MassAfterProcessing:
+                            Value: 2.43018045238368
+                            Unit: lb
+                          LargestContributors:
+                            - ComponentName: ''
+                              RecordReference:
+                                ReferenceType: PartNumber
+                                ReferenceValue: 
+                              MaterialMassBeforeProcessing:
+                                Value: 1.37788913865548
+                                Unit: lb
+                      PhaseSummary:
+                        Phase: Material
+                        EmbodiedEnergy:
+                          Value: 7671874.70450957
+                          Unit: kcal
+                        EmbodiedEnergyPercentage: 94.7918659930888
+                        ClimateChange:
+                          Value: 21.034152136876
+                          Unit: lb
+                        ClimateChangePercentage: 92.7736535242851
+                    ProcessSummary:
+                      PrimaryProcesses:
+                        - ProcessName: Metal casting
+                          ProcessRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: baa6c95b-ff0e-4811-9120-92717ee15bda
+                          MaterialRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          EmbodiedEnergy:
+                            Value: 373910.527598049
+                            Unit: kcal
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 1.37890888901195
+                            Unit: lb
+                          ClimateChangePercentage: 100
+                      SecondaryProcesses:
+                        - ProcessName: 'Machining, coarse'
+                          ProcessRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 907bda29-e800-44f6-b7ea-4eb8e7cff375
+                          MaterialRecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          EmbodiedEnergy:
+                            Value: 13269.1901019829
+                            Unit: kcal
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 0.053691371234627
+                            Unit: lb
+                          ClimateChangePercentage: 100
+                      JoiningAndFinishingProcesses: [ ]
+                      PhaseSummary:
+                        Phase: Processes
+                        EmbodiedEnergy:
+                          Value: 387179.717700032
+                          Unit: kcal
+                        EmbodiedEnergyPercentage: 4.78390084940908
+                        ClimateChange:
+                          Value: 1.43260026024657
+                          Unit: lb
+                        ClimateChangePercentage: 6.31865545699414
+                    TransportSummary:
+                      Summary:
+                        - StageName: Transport Stage One
+                          RecordReference:
+                            ReferenceType: MiRecordGuid
+                            ReferenceValue: 66e8fe77-9da3-4ae9-a914-c22038f1d9c9
+                          Distance:
+                            Value: 1076391041.67097
+                            Unit: ft
+                          EmbodiedEnergy:
+                            Value: 34334.8408194864
+                            Unit: kcal
+                          EmbodiedEnergyPercentage: 100
+                          ClimateChange:
+                            Value: 0.205796691795169
+                            Unit: lb
+                          ClimateChangePercentage: 100
+                      PhaseSummary:
+                        Phase: Transport
+                        EmbodiedEnergy:
+                          Value: 34334.8408194864
+                          Unit: kcal
+                        EmbodiedEnergyPercentage: 0.424233157502127
+                        ClimateChange:
+                          Value: 0.205796691795169
+                          Unit: lb
+                        ClimateChangePercentage: 0.907691018720791
+                    LogMessages: [ ]
 components:
   schemas:
     GetImpactedSubstancesForMaterials.Request:
@@ -1110,6 +1719,12 @@ components:
         SubstancesTableName:
           type: string
         CoatingsTableName:
+          type: string
+        TransportTableName:
+          type: string
+        ProcessUniverseTableName:
+          type: string
+        LocationsTableName:
           type: string
         MaximumSpecToSpecLinkDepth:
           type: integer
@@ -1406,6 +2021,51 @@ components:
                 MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
         LogMessages: [ ]
+    GetImpactedSubstancesForBom2301.Request:
+      type: object
+      properties:
+        BomXml2301:
+          type: string
+        LegislationNames:
+          type: array
+          items:
+            type: string
+        DatabaseKey:
+          type: string
+        Config:
+          $ref: '#/components/schemas/Common.RequestConfig'
+      example:
+        BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+        LegislationNames:
+          - The SIN List 2.1 (Substitute It Now!)
+        DatabaseKey: MI_Restricted_Substances
+        Config: 
+    GetImpactedSubstancesForBom2301.Response:
+      type: object
+      properties:
+        Legislations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
+      example:
+        Legislations:
+          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+            ImpactedSubstances:
+              - SubstanceName: '1,3-Butadiene'
+                CasNumber: 106-99-0
+                EcNumber: 203-450-8
+                MaxPercentageAmountInMaterial: 
+                LegislationThreshold: 0.1
+              - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
+                CasNumber: 128-37-0
+                EcNumber: 204-881-4
+                MaxPercentageAmountInMaterial: 
+                LegislationThreshold: 0.1
+        LogMessages: [ ]
     GetComplianceForSubstances.Request:
       type: object
       properties:
@@ -1431,15 +2091,15 @@ components:
             ReferenceValue: '1,3-Butadiene'
         Indicators:
           - Name: Indicator 1
-            LegislationNames:
-              - The SIN List 2.1 (Substitute It Now!)
+            LegislationIds:
+              - SINList
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: WatchList
           - Name: Indicator 2
-            LegislationNames:
-              - EU Directive 2000/53/EC (ELV)
+            LegislationIds:
+              - ELV
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
@@ -1461,7 +2121,7 @@ components:
       properties:
         Name:
           type: string
-        LegislationNames:
+        LegislationIds:
           type: array
           items:
             type: string
@@ -1543,15 +2203,15 @@ components:
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
         Indicators:
           - Name: Indicator 1
-            LegislationNames:
-              - The SIN List 2.1 (Substitute It Now!)
+            LegislationIds:
+              - SINList
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: WatchList
           - Name: Indicator 2
-            LegislationNames:
-              - EU Directive 2000/53/EC (ELV)
+            LegislationIds:
+              - ELV
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
@@ -1647,15 +2307,15 @@ components:
             ReferenceValue: e0f41223-4b6b-40be-8982-39999c68f471
         Indicators:
           - Name: Indicator 1
-            LegislationNames:
-              - The SIN List 2.1 (Substitute It Now!)
+            LegislationIds:
+              - SINList
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: WatchList
           - Name: Indicator 2
-            LegislationNames:
-              - EU Directive 2000/53/EC (ELV)
+            LegislationIds:
+              - ELV
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
@@ -1853,15 +2513,15 @@ components:
             ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
         Indicators:
           - Name: Indicator 1
-            LegislationNames:
-              - The SIN List 2.1 (Substitute It Now!)
+            LegislationIds:
+              - SINList
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: WatchList
           - Name: Indicator 2
-            LegislationNames:
-              - EU Directive 2000/53/EC (ELV)
+            LegislationIds:
+              - ELV
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
@@ -2035,15 +2695,15 @@ components:
         BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
         Indicators:
           - Name: Indicator 1
-            LegislationNames:
-              - The SIN List 2.1 (Substitute It Now!)
+            LegislationIds:
+              - SINList
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
             Type: WatchList
           - Name: Indicator 2
-            LegislationNames:
-              - EU Directive 2000/53/EC (ELV)
+            LegislationIds:
+              - ELV
             DefaultThresholdPercentage: 0.1
             IgnoreExemptions: false
             IgnoreProcessChemicals: false
@@ -2119,3 +2779,621 @@ components:
             ReferenceType: PartNumber
             ReferenceValue: 
         LogMessages: [ ]
+    GetComplianceForBom2301.Request:
+      type: object
+      properties:
+        BomXml2301:
+          type: string
+        Indicators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.IndicatorDefinition'
+        DatabaseKey:
+          type: string
+        Config:
+          $ref: '#/components/schemas/Common.RequestConfig'
+      example:
+        BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
+        Indicators:
+          - Name: Indicator 1
+            LegislationIds:
+              - SINList
+            DefaultThresholdPercentage: 0.1
+            IgnoreExemptions: false
+            IgnoreProcessChemicals: false
+            Type: WatchList
+          - Name: Indicator 2
+            LegislationIds:
+              - ELV
+            DefaultThresholdPercentage: 0.1
+            IgnoreExemptions: false
+            IgnoreProcessChemicals: false
+            Type: Rohs
+        DatabaseKey: MI_Restricted_Substances
+        Config: 
+    GetComplianceForBom2301.Response:
+      type: object
+      properties:
+        Parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.PartWithCompliance'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
+      example:
+        Parts:
+          - Indicators:
+              - Name: Indicator 1
+                Flag: WatchListAllSubstancesBelowThreshold
+              - Name: Indicator 2
+                Flag: RohsCompliant
+            Parts:
+              - Indicators:
+                  - Name: Indicator 1
+                    Flag: WatchListAllSubstancesBelowThreshold
+                  - Name: Indicator 2
+                    Flag: RohsCompliant
+                Parts: [ ]
+                Specifications: [ ]
+                Materials: [ ]
+                Substances:
+                  - Indicators:
+                      - Name: Indicator 1
+                        Flag: WatchListNotImpacted
+                      - Name: Indicator 2
+                        Flag: RohsNotImpacted
+                    ReferenceType: MiRecordHistoryIdentity
+                    ReferenceValue: 62345
+                ReferenceType: PartNumber
+                ReferenceValue: 
+            Specifications: [ ]
+            Materials: [ ]
+            Substances: [ ]
+            ReferenceType: PartNumber
+            ReferenceValue: 
+          - Indicators:
+              - Name: Indicator 1
+                Flag: WatchListHasSubstanceAboveThreshold
+              - Name: Indicator 2
+                Flag: RohsNonCompliant
+            Parts: [ ]
+            Specifications: [ ]
+            Materials:
+              - Indicators:
+                  - Name: Indicator 1
+                    Flag: WatchListAllSubstancesBelowThreshold
+                  - Name: Indicator 2
+                    Flag: RohsCompliant
+                Substances:
+                  - Indicators:
+                      - Name: Indicator 1
+                        Flag: WatchListBelowThreshold
+                      - Name: Indicator 2
+                        Flag: RohsBelowThreshold
+                    ReferenceType: MiRecordHistoryIdentity
+                    ReferenceValue: 12345
+                ReferenceType: MiRecordHistoryIdentity
+                ReferenceValue: 111111
+            Substances: [ ]
+            ReferenceType: PartNumber
+            ReferenceValue: 
+        LogMessages: [ ]
+    GetAvailableLicenses.Response:
+      type: object
+      properties:
+        RestrictedSubstances:
+          type: boolean
+        Sustainability:
+          type: boolean
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
+      example:
+        RestrictedSubstances: true
+        Sustainability: false
+        LogMessages: [ ]
+    GetSustainabilityForBom2301.Request:
+      type: object
+      properties:
+        BomXml2301:
+          type: string
+        PreferredUnits:
+          $ref: '#/components/schemas/Common.PreferredUnits'
+        DatabaseKey:
+          type: string
+        Config:
+          $ref: '#/components/schemas/Common.RequestConfig'
+      example:
+        BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
+        PreferredUnits: 
+        DatabaseKey: MI_Restricted_Substances
+        Config: 
+    Common.PreferredUnits:
+      type: object
+      properties:
+        MassUnit:
+          type: string
+        EnergyUnit:
+          type: string
+        DistanceUnit:
+          type: string
+    GetSustainabilityForBom2301.Response:
+      type: object
+      properties:
+        Parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.PartWithSustainability'
+        TransportStages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.TransportWithSustainability'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
+      example:
+        Parts:
+          - Parts:
+              - Parts: [ ]
+                Materials:
+                  - Processes:
+                      - EmbodiedEnergy:
+                          Value: 0.09
+                          Unit: MJ
+                        ClimateChange:
+                          Value: 0
+                          Unit: kg
+                        ReferenceType: MiRecordHistoryGuid
+                        ReferenceValue: d986c90a-2835-45f3-8b69-d6d662dcf53a
+                    Substances: [ ]
+                    EmbodiedEnergy:
+                      Value: 441.1
+                      Unit: MJ
+                    ClimateChange:
+                      Value: 14.9
+                      Unit: kg
+                    Recyclable: true
+                    Biodegradable: false
+                    Downcycle: true
+                    ReportedMass:
+                      Value: 2
+                      Unit: kg
+                    ReferenceType: MiRecordGuid
+                    ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+                Processes: [ ]
+                Substances: [ ]
+                Specifications: [ ]
+                EmbodiedEnergy:
+                  Value: 441.2
+                  Unit: MJ
+                ClimateChange:
+                  Value: 14.2
+                  Unit: kg
+                ReportedMass:
+                  Value: 2
+                  Unit: kg
+                ReferenceType: PartNumber
+                ReferenceValue: 
+            Materials: [ ]
+            Processes: [ ]
+            Substances: [ ]
+            Specifications: [ ]
+            EmbodiedEnergy:
+              Value: 441.2
+              Unit: MJ
+            ClimateChange:
+              Value: 14.2
+              Unit: kg
+            ReportedMass:
+              Value: 2
+              Unit: kg
+            ReferenceType: PartNumber
+            ReferenceValue: 
+        TransportStages: [ ]
+        LogMessages: [ ]
+    Common.Sustainability.PartWithSustainability:
+      type: object
+      properties:
+        Parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.PartWithSustainability'
+        Materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.MaterialWithSustainability'
+        Processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.ProcessWithSustainability'
+        Substances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.SubstanceReference'
+        Specifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.SpecificationWithSustainability'
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReportedMass:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Common.Sustainability.MaterialWithSustainability:
+      type: object
+      properties:
+        Processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.ProcessWithSustainability'
+        Substances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.SubstanceReference'
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        Recyclable:
+          type: boolean
+          nullable: true
+        Biodegradable:
+          type: boolean
+          nullable: true
+        Downcycle:
+          type: boolean
+          nullable: true
+        ReportedMass:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Common.Sustainability.ProcessWithSustainability:
+      type: object
+      properties:
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit:
+      type: object
+      properties:
+        Value:
+          type: number
+          format: double
+          nullable: true
+        Unit:
+          type: string
+    Common.SubstanceReference:
+      type: object
+      properties:
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Common.Sustainability.SpecificationWithSustainability:
+      type: object
+      properties:
+        Specifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.SpecificationWithSustainability'
+        Materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.MaterialWithSustainability'
+        Substances:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.SubstanceReference'
+        Coatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.CoatingReference'
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReportedMass:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Common.CoatingReference:
+      type: object
+      properties:
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Common.Sustainability.TransportWithSustainability:
+      type: object
+      properties:
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    GetSustainabilitySummaryForBom2301.Request:
+      type: object
+      properties:
+        BomXml2301:
+          type: string
+        PreferredUnits:
+          $ref: '#/components/schemas/Common.PreferredUnits'
+        DatabaseKey:
+          type: string
+        Config:
+          $ref: '#/components/schemas/Common.RequestConfig'
+      example:
+        BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
+        PreferredUnits: 
+        DatabaseKey: MI_Restricted_Substances
+        Config: 
+    GetSustainabilitySummaryForBom2301.Response:
+      type: object
+      properties:
+        MaterialSummary:
+          $ref: '#/components/schemas/Common.Sustainability.MaterialSummary'
+        ProcessSummary:
+          $ref: '#/components/schemas/Common.Sustainability.ProcessSummary'
+        TransportSummary:
+          $ref: '#/components/schemas/Common.Sustainability.TransportSummary'
+        LogMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.LogEntry'
+      example:
+        MaterialSummary:
+          Summary:
+            - Name: steel-kovar-annealed
+              RecordReference:
+                ReferenceType: MiRecordGuid
+                ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+              EmbodiedEnergy:
+                Value: 134.482549067761
+                Unit: MJ
+              EmbodiedEnergyPercentage: 100
+              ClimateChange:
+                Value: 4.3276934674222
+                Unit: kg
+              ClimateChangePercentage: 100
+              MassBeforeProcessing:
+                Value: 0.625
+                Unit: kg
+              MassAfterProcessing:
+                Value: 0.5
+                Unit: kg
+              LargestContributors:
+                - ComponentName: ''
+                  RecordReference:
+                    ReferenceType: PartNumber
+                    ReferenceValue: 
+                  MaterialMassBeforeProcessing:
+                    Value: 0.625
+                    Unit: kg
+          PhaseSummary:
+            Phase: Material
+            EmbodiedEnergy:
+              Value: 134.482549067761
+              Unit: MJ
+            EmbodiedEnergyPercentage: 95.1957177924867
+            ClimateChange:
+              Value: 4.3276934674222
+              Unit: kg
+            ClimateChangePercentage: 93.623465310322
+        ProcessSummary:
+          PrimaryProcesses:
+            - ProcessName: Metal casting
+              ProcessRecordReference:
+                ReferenceType: MiRecordGuid
+                ReferenceValue: baa6c95b-ff0e-4811-9120-92717ee15bda
+              MaterialRecordReference:
+                ReferenceType: MiRecordGuid
+                ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+              MaterialName: 'High alloy steel, Kovar, annealed'
+              EmbodiedEnergy:
+                Value: 6.55438765769984
+                Unit: MJ
+              EmbodiedEnergyPercentage: 100
+              ClimateChange:
+                Value: 0.283705040845716
+                Unit: kg
+              ClimateChangePercentage: 100
+          SecondaryProcesses:
+            - ProcessName: 'Machining, coarse'
+              ProcessRecordReference:
+                ReferenceType: MiRecordGuid
+                ReferenceValue: 907bda29-e800-44f6-b7ea-4eb8e7cff375
+              MaterialRecordReference:
+                ReferenceType: MiRecordGuid
+                ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
+              MaterialName: 'High alloy steel, Kovar, annealed'
+              EmbodiedEnergy:
+                Value: 0.232599537624153
+                Unit: MJ
+              EmbodiedEnergyPercentage: 100
+              ClimateChange:
+                Value: 0.0110467869128737
+                Unit: kg
+              ClimateChangePercentage: 100
+          JoiningAndFinishingProcesses: [ ]
+          PhaseSummary:
+            Phase: Processes
+            EmbodiedEnergy:
+              Value: 6.78698719532399
+              Unit: MJ
+            EmbodiedEnergyPercentage: 4.80428220751333
+            ClimateChange:
+              Value: 0.29475182775859
+              Unit: kg
+            ClimateChangePercentage: 6.37653468967796
+        TransportSummary:
+          Summary: [ ]
+          PhaseSummary:
+            Phase: Transport
+            EmbodiedEnergy:
+              Value: 0
+              Unit: MJ
+            EmbodiedEnergyPercentage: 0
+            ClimateChange:
+              Value: 0
+              Unit: kg
+            ClimateChangePercentage: 0
+        LogMessages: [ ]
+    Common.Sustainability.MaterialSummary:
+      type: object
+      properties:
+        Summary:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.MaterialSummaryEntry'
+        PhaseSummary:
+          $ref: '#/components/schemas/Common.Sustainability.PhaseSummary'
+    Common.Sustainability.MaterialSummaryEntry:
+      type: object
+      properties:
+        Name:
+          type: string
+        RecordReference:
+          $ref: '#/components/schemas/Common.MaterialReference'
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        EmbodiedEnergyPercentage:
+          type: number
+          format: double
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChangePercentage:
+          type: number
+          format: double
+        MassBeforeProcessing:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        MassAfterProcessing:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        LargestContributors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.MaterialContributingComponent'
+    Common.Sustainability.MaterialContributingComponent:
+      type: object
+      properties:
+        ComponentName:
+          type: string
+        RecordReference:
+          $ref: '#/components/schemas/Common.PartReference'
+        MaterialMassBeforeProcessing:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+    Common.Sustainability.PhaseSummary:
+      type: object
+      properties:
+        Phase:
+          type: string
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        EmbodiedEnergyPercentage:
+          type: number
+          format: double
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChangePercentage:
+          type: number
+          format: double
+    Common.Sustainability.ProcessSummary:
+      type: object
+      properties:
+        PrimaryProcesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.ProcessSummaryEntry'
+        SecondaryProcesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.ProcessSummaryEntry'
+        JoiningAndFinishingProcesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.ProcessSummaryEntry'
+        PhaseSummary:
+          $ref: '#/components/schemas/Common.Sustainability.PhaseSummary'
+    Common.Sustainability.ProcessSummaryEntry:
+      type: object
+      properties:
+        ProcessName:
+          type: string
+        ProcessRecordReference:
+          $ref: '#/components/schemas/Common.ProcessReference'
+        MaterialRecordReference:
+          $ref: '#/components/schemas/Common.MaterialReference'
+        MaterialName:
+          type: string
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        EmbodiedEnergyPercentage:
+          type: number
+          format: double
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChangePercentage:
+          type: number
+          format: double
+    Common.ProcessReference:
+      type: object
+      properties:
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string
+    Common.Sustainability.TransportSummary:
+      type: object
+      properties:
+        Summary:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Sustainability.TransportSummaryEntry'
+        PhaseSummary:
+          $ref: '#/components/schemas/Common.Sustainability.PhaseSummary'
+    Common.Sustainability.TransportSummaryEntry:
+      type: object
+      properties:
+        StageName:
+          type: string
+        RecordReference:
+          $ref: '#/components/schemas/Common.TransportReference'
+        Distance:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        EmbodiedEnergy:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        EmbodiedEnergyPercentage:
+          type: number
+          format: double
+        ClimateChange:
+          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+        ClimateChangePercentage:
+          type: number
+          format: double
+    Common.TransportReference:
+      type: object
+      properties:
+        ReferenceType:
+          type: string
+        ReferenceValue:
+          type: string

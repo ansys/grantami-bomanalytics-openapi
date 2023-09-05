@@ -113,6 +113,95 @@ class ImpactedSubstancesApi(ApiBase):
             response_type_map=response_type_map,
         )
 
+    def post_impactedsubstances_bom2301(
+        self, *, body: "GetImpactedSubstancesForBom2301Request"
+    ) -> "GetImpactedSubstancesForBom2301Response":
+        """Get the impacted substances for a Bill of Materials
+
+        Examines the substances contained within a 23/01 Bill of Materials (BoM) by following links to substances, materials, specifications, and parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. Legislations are specified by the legislation 'Short title' attribute.
+        This method makes a synchronous HTTP request.
+
+        Parameters
+        ----------
+        body: GetImpactedSubstancesForBom2301Request
+
+        Returns
+        -------
+        GetImpactedSubstancesForBom2301Response
+        """
+        data = self._post_impactedsubstances_bom2301_with_http_info(
+            body, _return_http_data_only=True
+        )
+        return data  # type: ignore[return-value]
+
+    def _post_impactedsubstances_bom2301_with_http_info(
+        self, body: "GetImpactedSubstancesForBom2301Request", **kwargs
+    ):
+        all_params = [
+            "body",
+            "_return_http_data_only",
+            "_preload_content",
+            "_request_timeout",
+        ]
+
+        params = locals()
+        for key, val in params["kwargs"].items():
+            if key not in all_params:
+                raise TypeError(
+                    f"Got an unexpected keyword argument '{key}' to method post_impactedsubstances_bom2301"
+                )
+            params[key] = val
+        del params["kwargs"]
+        # verify the required parameter "body" is set
+        if "body" not in params or params["body"] is None:
+            raise ValueError(
+                "Missing the required parameter 'body' when calling 'post_impactedsubstances_bom2301'"
+            )
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if "body" in params and body is not None:
+            body_params = params["body"]
+        # HTTP header 'Accept'
+        header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
+        )
+
+        # HTTP header 'Content-Type'
+        header_params["Content-Type"] = self.api_client.select_header_content_type(
+            ["application/json"]
+        )
+
+        response_type_map = {
+            200: "GetImpactedSubstancesForBom2301Response",
+        }
+
+        return self.api_client.call_api(
+            "/impacted-substances/bom2301",
+            "POST",
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            _return_http_data_only=params.get("_return_http_data_only"),
+            _preload_content=params.get("_preload_content", True),
+            _request_timeout=params.get("_request_timeout"),
+            collection_formats=collection_formats,
+            response_type_map=response_type_map,
+        )
+
     def post_impactedsubstances_materials(
         self, *, body: "GetImpactedSubstancesForMaterialsRequest"
     ) -> "GetImpactedSubstancesForMaterialsResponse":

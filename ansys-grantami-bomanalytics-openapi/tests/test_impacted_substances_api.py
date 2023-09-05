@@ -22,6 +22,12 @@ from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_bom1
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_bom1711_response import (
     GetImpactedSubstancesForBom1711Response,
 )
+from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_bom2301_request import (
+    GetImpactedSubstancesForBom2301Request,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_bom2301_response import (
+    GetImpactedSubstancesForBom2301Response,
+)
 from ansys.grantami.bomanalytics_openapi.models.get_impacted_substances_for_materials_request import (
     GetImpactedSubstancesForMaterialsRequest,
 )
@@ -61,6 +67,22 @@ class TestImpactedSubstancesApi:
             )
             result = client.post_impactedsubstances_bom1711(body=model)
         assert isinstance(result, GetImpactedSubstancesForBom1711Response)
+
+    def test_post_impactedsubstances_bom2301(self, api_client):
+        """Test case for post_impactedsubstances_bom2301
+        Get the impacted substances for a Bill of Materials  # noqa: E501
+        """
+        model = generate_model(GetImpactedSubstancesForBom2301Request)
+        client = ImpactedSubstancesApi(api_client)
+        with requests_mock.Mocker() as m:
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/impacted-substances/bom2301",
+                get_example(GetImpactedSubstancesForBom2301Response),
+            )
+            result = client.post_impactedsubstances_bom2301(body=model)
+        assert isinstance(result, GetImpactedSubstancesForBom2301Response)
 
     def test_post_impactedsubstances_materials(self, api_client):
         """Test case for post_impactedsubstances_materials

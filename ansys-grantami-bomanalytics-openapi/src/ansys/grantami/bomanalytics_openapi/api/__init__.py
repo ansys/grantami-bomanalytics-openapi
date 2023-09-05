@@ -7,3 +7,5 @@ from ansys.openapi.common import ApiBase
 from .compliance_api import ComplianceApi
 from .documentation_api import DocumentationApi
 from .impacted_substances_api import ImpactedSubstancesApi
+from .licenses_api import LicensesApi
+from .sustainability_api import SustainabilityApi

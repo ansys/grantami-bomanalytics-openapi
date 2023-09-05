@@ -38,7 +38,7 @@ class CommonIndicatorDefinition(ModelBase):
     """
     swagger_types = {
         "name": "str",
-        "legislation_names": "list[str]",
+        "legislation_ids": "list[str]",
         "default_threshold_percentage": "float",
         "ignore_exemptions": "bool",
         "ignore_process_chemicals": "bool",
@@ -47,7 +47,7 @@ class CommonIndicatorDefinition(ModelBase):
 
     attribute_map = {
         "name": "Name",
-        "legislation_names": "LegislationNames",
+        "legislation_ids": "LegislationIds",
         "default_threshold_percentage": "DefaultThresholdPercentage",
         "ignore_exemptions": "IgnoreExemptions",
         "ignore_process_chemicals": "IgnoreProcessChemicals",
@@ -62,7 +62,7 @@ class CommonIndicatorDefinition(ModelBase):
         default_threshold_percentage: "Optional[float]" = None,
         ignore_exemptions: "Optional[bool]" = None,
         ignore_process_chemicals: "Optional[bool]" = None,
-        legislation_names: "Optional[List[str]]" = None,
+        legislation_ids: "Optional[List[str]]" = None,
         name: "Optional[str]" = None,
         type: "Optional[str]" = None,
     ) -> None:
@@ -73,12 +73,12 @@ class CommonIndicatorDefinition(ModelBase):
             default_threshold_percentage: float, optional
             ignore_exemptions: bool, optional
             ignore_process_chemicals: bool, optional
-            legislation_names: List[str], optional
+            legislation_ids: List[str], optional
             name: str, optional
             type: str, optional
         """
         self._name = None
-        self._legislation_names = None
+        self._legislation_ids = None
         self._default_threshold_percentage = None
         self._ignore_exemptions = None
         self._ignore_process_chemicals = None
@@ -86,8 +86,8 @@ class CommonIndicatorDefinition(ModelBase):
         self.discriminator = None
         if name is not None:
             self.name = name
-        if legislation_names is not None:
-            self.legislation_names = legislation_names
+        if legislation_ids is not None:
+            self.legislation_ids = legislation_ids
         if default_threshold_percentage is not None:
             self.default_threshold_percentage = default_threshold_percentage
         if ignore_exemptions is not None:
@@ -120,26 +120,26 @@ class CommonIndicatorDefinition(ModelBase):
         self._name = name
 
     @property
-    def legislation_names(self) -> "list[str]":
-        """Gets the legislation_names of this CommonIndicatorDefinition.
+    def legislation_ids(self) -> "list[str]":
+        """Gets the legislation_ids of this CommonIndicatorDefinition.
 
         Returns
         -------
         list[str]
-            The legislation_names of this CommonIndicatorDefinition.
+            The legislation_ids of this CommonIndicatorDefinition.
         """
-        return self._legislation_names
+        return self._legislation_ids
 
-    @legislation_names.setter
-    def legislation_names(self, legislation_names: "list[str]") -> None:
-        """Sets the legislation_names of this CommonIndicatorDefinition.
+    @legislation_ids.setter
+    def legislation_ids(self, legislation_ids: "list[str]") -> None:
+        """Sets the legislation_ids of this CommonIndicatorDefinition.
 
         Parameters
         ----------
-        legislation_names: list[str]
-            The legislation_names of this CommonIndicatorDefinition.
+        legislation_ids: list[str]
+            The legislation_ids of this CommonIndicatorDefinition.
         """
-        self._legislation_names = legislation_names
+        self._legislation_ids = legislation_ids
 
     @property
     def default_threshold_percentage(self) -> "float":

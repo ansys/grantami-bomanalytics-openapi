@@ -22,6 +22,12 @@ from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_reque
 from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom1711_response import (
     GetComplianceForBom1711Response,
 )
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom2301_request import (
+    GetComplianceForBom2301Request,
+)
+from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_bom2301_response import (
+    GetComplianceForBom2301Response,
+)
 from ansys.grantami.bomanalytics_openapi.models.get_compliance_for_materials_request import (
     GetComplianceForMaterialsRequest,
 )
@@ -67,6 +73,22 @@ class TestComplianceApi:
             )
             result = client.post_compliance_bom1711(body=model)
         assert isinstance(result, GetComplianceForBom1711Response)
+
+    def test_post_compliance_bom2301(self, api_client):
+        """Test case for post_compliance_bom2301
+        Determine the compliance of a BoM in the context of specified indicators  # noqa: E501
+        """
+        model = generate_model(GetComplianceForBom2301Request)
+        client = ComplianceApi(api_client)
+        with requests_mock.Mocker() as m:
+            mock_method(
+                m,
+                "POST",
+                "http://localhost/mi_servicelayer/BomAnalytics/v1.svc/compliance/bom2301",
+                get_example(GetComplianceForBom2301Response),
+            )
+            result = client.post_compliance_bom2301(body=model)
+        assert isinstance(result, GetComplianceForBom2301Response)
 
     def test_post_compliance_materials(self, api_client):
         """Test case for post_compliance_materials
