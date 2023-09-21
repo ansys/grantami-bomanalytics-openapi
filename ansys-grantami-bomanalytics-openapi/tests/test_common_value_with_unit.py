@@ -11,15 +11,13 @@
 """
 
 import pytest  # noqa: F401
-from ansys.grantami.bomanalytics_openapi.models import (
-    GrantaBomAnalyticsServicesImplementationCommonValueWithUnit,
-)  # noqa: E501
+from ansys.grantami.bomanalytics_openapi.models import CommonValueWithUnit  # noqa: E501
 from .mocked_tests import generate_model
 
 
 @pytest.mark.xfail(reason="No example payload in API definition")
-def test_GrantaBomAnalyticsServicesImplementationCommonValueWithUnit():
-    """Test GrantaBomAnalyticsServicesImplementationCommonValueWithUnit"""
+def test_CommonValueWithUnit():
+    """Test CommonValueWithUnit"""
 
-    model = generate_model(GrantaBomAnalyticsServicesImplementationCommonValueWithUnit)
+    model = generate_model(CommonValueWithUnit)
     assert model

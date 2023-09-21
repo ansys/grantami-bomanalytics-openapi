@@ -39,7 +39,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     swagger_types = {
         "component_name": "str",
         "record_reference": "CommonPartReference",
-        "material_mass_before_processing": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "material_mass_before_processing": "CommonValueWithUnit",
     }
 
     attribute_map = {
@@ -50,14 +50,14 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
 
     subtype_mapping = {
         "RecordReference": "CommonPartReference",
-        "MaterialMassBeforeProcessing": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "MaterialMassBeforeProcessing": "CommonValueWithUnit",
     }
 
     def __init__(
         self,
         *,
         component_name: "Optional[str]" = None,
-        material_mass_before_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        material_mass_before_processing: "Optional[CommonValueWithUnit]" = None,
         record_reference: "Optional[CommonPartReference]" = None,
     ) -> None:
         """CommonSustainabilityMaterialContributingComponent - a model defined in Swagger
@@ -65,7 +65,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         Parameters
         ----------
             component_name: str, optional
-            material_mass_before_processing: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            material_mass_before_processing: CommonValueWithUnit, optional
             record_reference: CommonPartReference, optional
         """
         self._component_name = None
@@ -124,28 +124,25 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         self._record_reference = record_reference
 
     @property
-    def material_mass_before_processing(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def material_mass_before_processing(self) -> "CommonValueWithUnit":
         """Gets the material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._material_mass_before_processing
 
     @material_mass_before_processing.setter
     def material_mass_before_processing(
-        self,
-        material_mass_before_processing: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        self, material_mass_before_processing: "CommonValueWithUnit"
     ) -> None:
         """Sets the material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        material_mass_before_processing: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        material_mass_before_processing: CommonValueWithUnit
             The material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
         """
         self._material_mass_before_processing = material_mass_before_processing
