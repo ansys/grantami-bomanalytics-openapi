@@ -55,7 +55,7 @@ class GetComplianceForSubstancesResponse(ModelBase):
         self,
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
-        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None,
+        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None
     ) -> None:
         """GetComplianceForSubstancesResponse - a model defined in Swagger
 

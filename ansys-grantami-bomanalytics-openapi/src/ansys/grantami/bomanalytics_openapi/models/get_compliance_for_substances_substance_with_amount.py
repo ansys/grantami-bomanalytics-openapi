@@ -55,7 +55,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
         *,
         percentage_amount: "Optional[float]" = None,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None,
+        reference_value: "Optional[str]" = None
     ) -> None:
         """GetComplianceForSubstancesSubstanceWithAmount - a model defined in Swagger
 

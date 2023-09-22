@@ -76,7 +76,7 @@ class CommonRequestConfig(ModelBase):
         products_and_parts_table_name: "Optional[str]" = None,
         specifications_table_name: "Optional[str]" = None,
         substances_table_name: "Optional[str]" = None,
-        transport_table_name: "Optional[str]" = None,
+        transport_table_name: "Optional[str]" = None
     ) -> None:
         """CommonRequestConfig - a model defined in Swagger
 

@@ -73,7 +73,7 @@ class CommonPartWithCompliance(ModelBase):
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
         specifications: "Optional[List[CommonSpecificationWithCompliance]]" = None,
-        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None,
+        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None
     ) -> None:
         """CommonPartWithCompliance - a model defined in Swagger
 

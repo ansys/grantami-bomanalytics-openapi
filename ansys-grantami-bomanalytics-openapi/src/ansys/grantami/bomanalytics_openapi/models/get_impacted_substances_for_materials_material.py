@@ -57,7 +57,7 @@ class GetImpactedSubstancesForMaterialsMaterial(ModelBase):
         *,
         legislations: "Optional[List[CommonLegislationWithImpactedSubstances]]" = None,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None,
+        reference_value: "Optional[str]" = None
     ) -> None:
         """GetImpactedSubstancesForMaterialsMaterial - a model defined in Swagger
 

@@ -61,7 +61,7 @@ class CommonImpactedSubstance(ModelBase):
         ec_number: "Optional[str]" = None,
         legislation_threshold: "Optional[float]" = None,
         max_percentage_amount_in_material: "Optional[float]" = None,
-        substance_name: "Optional[str]" = None,
+        substance_name: "Optional[str]" = None
     ) -> None:
         """CommonImpactedSubstance - a model defined in Swagger
 

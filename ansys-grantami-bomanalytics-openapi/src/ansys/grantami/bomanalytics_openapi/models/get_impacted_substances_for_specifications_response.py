@@ -55,7 +55,7 @@ class GetImpactedSubstancesForSpecificationsResponse(ModelBase):
         self,
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
-        specifications: "Optional[List[GetImpactedSubstancesForSpecificationsSpecification]]" = None,
+        specifications: "Optional[List[GetImpactedSubstancesForSpecificationsSpecification]]" = None
     ) -> None:
         """GetImpactedSubstancesForSpecificationsResponse - a model defined in Swagger
 

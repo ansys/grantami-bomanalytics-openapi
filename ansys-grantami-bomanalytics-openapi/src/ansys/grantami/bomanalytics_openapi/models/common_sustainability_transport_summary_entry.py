@@ -72,7 +72,7 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
         embodied_energy_percentage: "Optional[float]" = None,
         record_reference: "Optional[CommonTransportReference]" = None,
-        stage_name: "Optional[str]" = None,
+        stage_name: "Optional[str]" = None
     ) -> None:
         """CommonSustainabilityTransportSummaryEntry - a model defined in Swagger
 

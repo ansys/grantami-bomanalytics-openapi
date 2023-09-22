@@ -55,7 +55,7 @@ class GetComplianceForSpecificationsResponse(ModelBase):
         self,
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
-        specifications: "Optional[List[CommonSpecificationWithCompliance]]" = None,
+        specifications: "Optional[List[CommonSpecificationWithCompliance]]" = None
     ) -> None:
         """GetComplianceForSpecificationsResponse - a model defined in Swagger
 

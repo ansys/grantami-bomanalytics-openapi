@@ -55,7 +55,7 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
         self,
         *,
         legislations: "Optional[List[CommonLegislationWithImpactedSubstances]]" = None,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
+        log_messages: "Optional[List[CommonLogEntry]]" = None
     ) -> None:
         """GetImpactedSubstancesForBom1711Response - a model defined in Swagger
 

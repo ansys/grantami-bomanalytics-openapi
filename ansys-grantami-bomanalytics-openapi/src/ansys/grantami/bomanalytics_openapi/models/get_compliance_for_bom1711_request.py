@@ -61,7 +61,7 @@ class GetComplianceForBom1711Request(ModelBase):
         bom_xml1711: "Optional[str]" = None,
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
-        indicators: "Optional[List[CommonIndicatorDefinition]]" = None,
+        indicators: "Optional[List[CommonIndicatorDefinition]]" = None
     ) -> None:
         """GetComplianceForBom1711Request - a model defined in Swagger
 

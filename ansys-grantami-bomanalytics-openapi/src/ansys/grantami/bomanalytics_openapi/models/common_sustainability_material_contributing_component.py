@@ -58,7 +58,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         *,
         component_name: "Optional[str]" = None,
         material_mass_before_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
-        record_reference: "Optional[CommonPartReference]" = None,
+        record_reference: "Optional[CommonPartReference]" = None
     ) -> None:
         """CommonSustainabilityMaterialContributingComponent - a model defined in Swagger
 

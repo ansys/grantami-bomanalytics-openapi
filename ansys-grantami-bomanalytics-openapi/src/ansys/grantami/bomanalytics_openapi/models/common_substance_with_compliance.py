@@ -57,7 +57,7 @@ class CommonSubstanceWithCompliance(ModelBase):
         *,
         indicators: "Optional[List[CommonIndicatorResult]]" = None,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None,
+        reference_value: "Optional[str]" = None
     ) -> None:
         """CommonSubstanceWithCompliance - a model defined in Swagger
 

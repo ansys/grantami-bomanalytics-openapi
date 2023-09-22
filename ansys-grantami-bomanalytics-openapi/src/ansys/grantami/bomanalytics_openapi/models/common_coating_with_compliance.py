@@ -61,7 +61,7 @@ class CommonCoatingWithCompliance(ModelBase):
         indicators: "Optional[List[CommonIndicatorResult]]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
-        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None,
+        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None
     ) -> None:
         """CommonCoatingWithCompliance - a model defined in Swagger
 

@@ -61,7 +61,7 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
         climate_change: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
         embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None,
+        reference_value: "Optional[str]" = None
     ) -> None:
         """CommonSustainabilityProcessWithSustainability - a model defined in Swagger
 

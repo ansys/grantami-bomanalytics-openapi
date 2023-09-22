@@ -57,7 +57,7 @@ class GetAvailableLicensesResponse(ModelBase):
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
         restricted_substances: "Optional[bool]" = None,
-        sustainability: "Optional[bool]" = None,
+        sustainability: "Optional[bool]" = None
     ) -> None:
         """GetAvailableLicensesResponse - a model defined in Swagger
 

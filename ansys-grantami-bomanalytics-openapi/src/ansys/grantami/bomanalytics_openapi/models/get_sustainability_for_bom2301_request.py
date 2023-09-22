@@ -61,7 +61,7 @@ class GetSustainabilityForBom2301Request(ModelBase):
         bom_xml2301: "Optional[str]" = None,
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
-        preferred_units: "Optional[CommonPreferredUnits]" = None,
+        preferred_units: "Optional[CommonPreferredUnits]" = None
     ) -> None:
         """GetSustainabilityForBom2301Request - a model defined in Swagger
 

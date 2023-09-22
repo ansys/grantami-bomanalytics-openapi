@@ -52,7 +52,7 @@ class CommonSpecificationReference(ModelBase):
         self,
         *,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None,
+        reference_value: "Optional[str]" = None
     ) -> None:
         """CommonSpecificationReference - a model defined in Swagger
 

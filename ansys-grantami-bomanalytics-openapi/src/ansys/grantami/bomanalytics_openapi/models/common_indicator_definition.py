@@ -64,7 +64,7 @@ class CommonIndicatorDefinition(ModelBase):
         ignore_process_chemicals: "Optional[bool]" = None,
         legislation_ids: "Optional[List[str]]" = None,
         name: "Optional[str]" = None,
-        type: "Optional[str]" = None,
+        type: "Optional[str]" = None
     ) -> None:
         """CommonIndicatorDefinition - a model defined in Swagger
 

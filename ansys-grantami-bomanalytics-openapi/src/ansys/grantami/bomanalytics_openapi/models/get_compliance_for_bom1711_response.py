@@ -55,7 +55,7 @@ class GetComplianceForBom1711Response(ModelBase):
         self,
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
-        parts: "Optional[List[CommonPartWithCompliance]]" = None,
+        parts: "Optional[List[CommonPartWithCompliance]]" = None
     ) -> None:
         """GetComplianceForBom1711Response - a model defined in Swagger
 

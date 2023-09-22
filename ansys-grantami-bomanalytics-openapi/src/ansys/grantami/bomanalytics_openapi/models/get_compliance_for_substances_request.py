@@ -62,7 +62,7 @@ class GetComplianceForSubstancesRequest(ModelBase):
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
         indicators: "Optional[List[CommonIndicatorDefinition]]" = None,
-        substances: "Optional[List[GetComplianceForSubstancesSubstanceWithAmount]]" = None,
+        substances: "Optional[List[GetComplianceForSubstancesSubstanceWithAmount]]" = None
     ) -> None:
         """GetComplianceForSubstancesRequest - a model defined in Swagger
 

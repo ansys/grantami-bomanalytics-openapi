@@ -54,7 +54,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         self,
         *,
         impacted_substances: "Optional[List[CommonImpactedSubstance]]" = None,
-        legislation_name: "Optional[str]" = None,
+        legislation_name: "Optional[str]" = None
     ) -> None:
         """CommonLegislationWithImpactedSubstances - a model defined in Swagger
 

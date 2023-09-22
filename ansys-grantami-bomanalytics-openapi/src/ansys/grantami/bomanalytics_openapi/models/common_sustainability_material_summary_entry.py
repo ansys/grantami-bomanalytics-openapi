@@ -80,7 +80,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         mass_after_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
         mass_before_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
         name: "Optional[str]" = None,
-        record_reference: "Optional[CommonMaterialReference]" = None,
+        record_reference: "Optional[CommonMaterialReference]" = None
     ) -> None:
         """CommonSustainabilityMaterialSummaryEntry - a model defined in Swagger
 

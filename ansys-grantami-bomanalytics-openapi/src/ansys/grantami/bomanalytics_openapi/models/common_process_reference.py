@@ -52,7 +52,7 @@ class CommonProcessReference(ModelBase):
         self,
         *,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None,
+        reference_value: "Optional[str]" = None
     ) -> None:
         """CommonProcessReference - a model defined in Swagger
 

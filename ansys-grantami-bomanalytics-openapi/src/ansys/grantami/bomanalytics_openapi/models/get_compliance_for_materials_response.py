@@ -55,7 +55,7 @@ class GetComplianceForMaterialsResponse(ModelBase):
         self,
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
-        materials: "Optional[List[CommonMaterialWithCompliance]]" = None,
+        materials: "Optional[List[CommonMaterialWithCompliance]]" = None
     ) -> None:
         """GetComplianceForMaterialsResponse - a model defined in Swagger
 
