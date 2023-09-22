@@ -68,6 +68,7 @@ from .common_sustainability_transport_with_sustainability import (
     CommonSustainabilityTransportWithSustainability,
 )
 from .common_transport_reference import CommonTransportReference
+from .common_value_with_unit import CommonValueWithUnit
 from .get_available_licenses_response import GetAvailableLicensesResponse
 from .get_compliance_for_bom1711_request import GetComplianceForBom1711Request
 from .get_compliance_for_bom1711_response import GetComplianceForBom1711Response
@@ -132,7 +133,4 @@ from .get_sustainability_summary_for_bom2301_request import (
 )
 from .get_sustainability_summary_for_bom2301_response import (
     GetSustainabilitySummaryForBom2301Response,
-)
-from .granta_bom_analytics_services_implementation_common_value_with_unit import (
-    GrantaBomAnalyticsServicesImplementationCommonValueWithUnit,
 )

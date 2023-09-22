@@ -38,14 +38,14 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
     """
     swagger_types = {
         "materials": "list[CommonMaterialReference]",
-        "legislation_names": "list[str]",
+        "legislation_ids": "list[str]",
         "database_key": "str",
         "config": "CommonRequestConfig",
     }
 
     attribute_map = {
         "materials": "Materials",
-        "legislation_names": "LegislationNames",
+        "legislation_ids": "LegislationIds",
         "database_key": "DatabaseKey",
         "config": "Config",
     }
@@ -60,7 +60,7 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         *,
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
-        legislation_names: "Optional[List[str]]" = None,
+        legislation_ids: "Optional[List[str]]" = None,
         materials: "Optional[List[CommonMaterialReference]]" = None,
     ) -> None:
         """GetImpactedSubstancesForMaterialsRequest - a model defined in Swagger
@@ -69,18 +69,18 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         ----------
             config: CommonRequestConfig, optional
             database_key: str, optional
-            legislation_names: List[str], optional
+            legislation_ids: List[str], optional
             materials: List[CommonMaterialReference], optional
         """
         self._materials = None
-        self._legislation_names = None
+        self._legislation_ids = None
         self._database_key = None
         self._config = None
         self.discriminator = None
         if materials is not None:
             self.materials = materials
-        if legislation_names is not None:
-            self.legislation_names = legislation_names
+        if legislation_ids is not None:
+            self.legislation_ids = legislation_ids
         if database_key is not None:
             self.database_key = database_key
         if config is not None:
@@ -109,26 +109,26 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         self._materials = materials
 
     @property
-    def legislation_names(self) -> "list[str]":
-        """Gets the legislation_names of this GetImpactedSubstancesForMaterialsRequest.
+    def legislation_ids(self) -> "list[str]":
+        """Gets the legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
 
         Returns
         -------
         list[str]
-            The legislation_names of this GetImpactedSubstancesForMaterialsRequest.
+            The legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
         """
-        return self._legislation_names
+        return self._legislation_ids
 
-    @legislation_names.setter
-    def legislation_names(self, legislation_names: "list[str]") -> None:
-        """Sets the legislation_names of this GetImpactedSubstancesForMaterialsRequest.
+    @legislation_ids.setter
+    def legislation_ids(self, legislation_ids: "list[str]") -> None:
+        """Sets the legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
 
         Parameters
         ----------
-        legislation_names: list[str]
-            The legislation_names of this GetImpactedSubstancesForMaterialsRequest.
+        legislation_ids: list[str]
+            The legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
         """
-        self._legislation_names = legislation_names
+        self._legislation_ids = legislation_ids
 
     @property
     def database_key(self) -> "str":

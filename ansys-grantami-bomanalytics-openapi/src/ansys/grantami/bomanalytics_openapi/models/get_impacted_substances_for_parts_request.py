@@ -38,14 +38,14 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
     """
     swagger_types = {
         "parts": "list[CommonPartReference]",
-        "legislation_names": "list[str]",
+        "legislation_ids": "list[str]",
         "database_key": "str",
         "config": "CommonRequestConfig",
     }
 
     attribute_map = {
         "parts": "Parts",
-        "legislation_names": "LegislationNames",
+        "legislation_ids": "LegislationIds",
         "database_key": "DatabaseKey",
         "config": "Config",
     }
@@ -60,7 +60,7 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
         *,
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
-        legislation_names: "Optional[List[str]]" = None,
+        legislation_ids: "Optional[List[str]]" = None,
         parts: "Optional[List[CommonPartReference]]" = None,
     ) -> None:
         """GetImpactedSubstancesForPartsRequest - a model defined in Swagger
@@ -69,18 +69,18 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
         ----------
             config: CommonRequestConfig, optional
             database_key: str, optional
-            legislation_names: List[str], optional
+            legislation_ids: List[str], optional
             parts: List[CommonPartReference], optional
         """
         self._parts = None
-        self._legislation_names = None
+        self._legislation_ids = None
         self._database_key = None
         self._config = None
         self.discriminator = None
         if parts is not None:
             self.parts = parts
-        if legislation_names is not None:
-            self.legislation_names = legislation_names
+        if legislation_ids is not None:
+            self.legislation_ids = legislation_ids
         if database_key is not None:
             self.database_key = database_key
         if config is not None:
@@ -109,26 +109,26 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
         self._parts = parts
 
     @property
-    def legislation_names(self) -> "list[str]":
-        """Gets the legislation_names of this GetImpactedSubstancesForPartsRequest.
+    def legislation_ids(self) -> "list[str]":
+        """Gets the legislation_ids of this GetImpactedSubstancesForPartsRequest.
 
         Returns
         -------
         list[str]
-            The legislation_names of this GetImpactedSubstancesForPartsRequest.
+            The legislation_ids of this GetImpactedSubstancesForPartsRequest.
         """
-        return self._legislation_names
+        return self._legislation_ids
 
-    @legislation_names.setter
-    def legislation_names(self, legislation_names: "list[str]") -> None:
-        """Sets the legislation_names of this GetImpactedSubstancesForPartsRequest.
+    @legislation_ids.setter
+    def legislation_ids(self, legislation_ids: "list[str]") -> None:
+        """Sets the legislation_ids of this GetImpactedSubstancesForPartsRequest.
 
         Parameters
         ----------
-        legislation_names: list[str]
-            The legislation_names of this GetImpactedSubstancesForPartsRequest.
+        legislation_ids: list[str]
+            The legislation_ids of this GetImpactedSubstancesForPartsRequest.
         """
-        self._legislation_names = legislation_names
+        self._legislation_ids = legislation_ids
 
     @property
     def database_key(self) -> "str":
