@@ -81,7 +81,7 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         recyclable: "Optional[bool]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
-        reported_mass: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        reported_mass: "Optional[CommonValueWithUnit]" = None,
         substances: "Optional[List[CommonSubstanceReference]]" = None
     ) -> None:
         """CommonSustainabilityMaterialWithSustainability - a model defined in Swagger

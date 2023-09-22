@@ -78,9 +78,8 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         embodied_energy_percentage: "Optional[float]" = None,
         identity: "Optional[str]" = None,
         largest_contributors: "Optional[List[CommonSustainabilityMaterialContributingComponent]]" = None,
-        mass_after_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
-        mass_before_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
-        name: "Optional[str]" = None,
+        mass_after_processing: "Optional[CommonValueWithUnit]" = None,
+        mass_before_processing: "Optional[CommonValueWithUnit]" = None,
         record_reference: "Optional[CommonMaterialReference]" = None
     ) -> None:
         """CommonSustainabilityMaterialSummaryEntry - a model defined in Swagger
