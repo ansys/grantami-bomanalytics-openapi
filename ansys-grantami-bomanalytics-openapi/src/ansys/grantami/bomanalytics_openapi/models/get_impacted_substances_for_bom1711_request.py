@@ -38,14 +38,14 @@ class GetImpactedSubstancesForBom1711Request(ModelBase):
     """
     swagger_types = {
         "bom_xml1711": "str",
-        "legislation_names": "list[str]",
+        "legislation_ids": "list[str]",
         "database_key": "str",
         "config": "CommonRequestConfig",
     }
 
     attribute_map = {
         "bom_xml1711": "BomXml1711",
-        "legislation_names": "LegislationNames",
+        "legislation_ids": "LegislationIds",
         "database_key": "DatabaseKey",
         "config": "Config",
     }
@@ -69,17 +69,17 @@ class GetImpactedSubstancesForBom1711Request(ModelBase):
             bom_xml1711: str, optional
             config: CommonRequestConfig, optional
             database_key: str, optional
-            legislation_names: List[str], optional
+            legislation_ids: List[str], optional
         """
         self._bom_xml1711 = None
-        self._legislation_names = None
+        self._legislation_ids = None
         self._database_key = None
         self._config = None
         self.discriminator = None
         if bom_xml1711 is not None:
             self.bom_xml1711 = bom_xml1711
-        if legislation_names is not None:
-            self.legislation_names = legislation_names
+        if legislation_ids is not None:
+            self.legislation_ids = legislation_ids
         if database_key is not None:
             self.database_key = database_key
         if config is not None:
@@ -108,26 +108,26 @@ class GetImpactedSubstancesForBom1711Request(ModelBase):
         self._bom_xml1711 = bom_xml1711
 
     @property
-    def legislation_names(self) -> "list[str]":
-        """Gets the legislation_names of this GetImpactedSubstancesForBom1711Request.
+    def legislation_ids(self) -> "list[str]":
+        """Gets the legislation_ids of this GetImpactedSubstancesForBom1711Request.
 
         Returns
         -------
         list[str]
-            The legislation_names of this GetImpactedSubstancesForBom1711Request.
+            The legislation_ids of this GetImpactedSubstancesForBom1711Request.
         """
-        return self._legislation_names
+        return self._legislation_ids
 
-    @legislation_names.setter
-    def legislation_names(self, legislation_names: "list[str]") -> None:
-        """Sets the legislation_names of this GetImpactedSubstancesForBom1711Request.
+    @legislation_ids.setter
+    def legislation_ids(self, legislation_ids: "list[str]") -> None:
+        """Sets the legislation_ids of this GetImpactedSubstancesForBom1711Request.
 
         Parameters
         ----------
-        legislation_names: list[str]
-            The legislation_names of this GetImpactedSubstancesForBom1711Request.
+        legislation_ids: list[str]
+            The legislation_ids of this GetImpactedSubstancesForBom1711Request.
         """
-        self._legislation_names = legislation_names
+        self._legislation_ids = legislation_ids
 
     @property
     def database_key(self) -> "str":

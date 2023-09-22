@@ -42,9 +42,9 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "processes": "list[CommonSustainabilityProcessWithSustainability]",
         "substances": "list[CommonSubstanceReference]",
         "specifications": "list[CommonSustainabilitySpecificationWithSustainability]",
-        "embodied_energy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "climate_change": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "reported_mass": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
+        "climate_change": "CommonValueWithUnit",
+        "reported_mass": "CommonValueWithUnit",
         "reference_type": "str",
         "reference_value": "str",
     }
@@ -68,22 +68,22 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "Processes": "CommonSustainabilityProcessWithSustainability",
         "Substances": "CommonSubstanceReference",
         "Specifications": "CommonSustainabilitySpecificationWithSustainability",
-        "EmbodiedEnergy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ClimateChange": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ReportedMass": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "EmbodiedEnergy": "CommonValueWithUnit",
+        "ClimateChange": "CommonValueWithUnit",
+        "ReportedMass": "CommonValueWithUnit",
     }
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
-        embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        climate_change: "Optional[CommonValueWithUnit]" = None,
+        embodied_energy: "Optional[CommonValueWithUnit]" = None,
         materials: "Optional[List[CommonSustainabilityMaterialWithSustainability]]" = None,
         parts: "Optional[List[CommonSustainabilityPartWithSustainability]]" = None,
         processes: "Optional[List[CommonSustainabilityProcessWithSustainability]]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
-        reported_mass: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        reported_mass: "Optional[CommonValueWithUnit]" = None,
         specifications: "Optional[List[CommonSustainabilitySpecificationWithSustainability]]" = None,
         substances: "Optional[List[CommonSubstanceReference]]" = None
     ) -> None:
@@ -91,14 +91,14 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
 
         Parameters
         ----------
-            climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
-            embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            climate_change: CommonValueWithUnit, optional
+            embodied_energy: CommonValueWithUnit, optional
             materials: List[CommonSustainabilityMaterialWithSustainability], optional
             parts: List[CommonSustainabilityPartWithSustainability], optional
             processes: List[CommonSustainabilityProcessWithSustainability], optional
             reference_type: str, optional
             reference_value: str, optional
-            reported_mass: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            reported_mass: CommonValueWithUnit, optional
             specifications: List[CommonSustainabilitySpecificationWithSustainability], optional
             substances: List[CommonSubstanceReference], optional
         """
@@ -254,82 +254,67 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._specifications = specifications
 
     @property
-    def embodied_energy(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def embodied_energy(self) -> "CommonValueWithUnit":
         """Gets the embodied_energy of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityPartWithSustainability.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(
-        self,
-        embodied_energy: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
         """Sets the embodied_energy of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        embodied_energy: CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityPartWithSustainability.
         """
         self._embodied_energy = embodied_energy
 
     @property
-    def climate_change(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def climate_change(self) -> "CommonValueWithUnit":
         """Gets the climate_change of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The climate_change of this CommonSustainabilityPartWithSustainability.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(
-        self,
-        climate_change: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
         """Sets the climate_change of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        climate_change: CommonValueWithUnit
             The climate_change of this CommonSustainabilityPartWithSustainability.
         """
         self._climate_change = climate_change
 
     @property
-    def reported_mass(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def reported_mass(self) -> "CommonValueWithUnit":
         """Gets the reported_mass of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The reported_mass of this CommonSustainabilityPartWithSustainability.
         """
         return self._reported_mass
 
     @reported_mass.setter
-    def reported_mass(
-        self,
-        reported_mass: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def reported_mass(self, reported_mass: "CommonValueWithUnit") -> None:
         """Sets the reported_mass of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        reported_mass: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        reported_mass: CommonValueWithUnit
             The reported_mass of this CommonSustainabilityPartWithSustainability.
         """
         self._reported_mass = reported_mass

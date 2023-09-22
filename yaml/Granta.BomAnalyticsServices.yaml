@@ -40,10 +40,10 @@ paths:
                   Materials:
                     - ReferenceType: MaterialId
                       ReferenceValue: elastomer-butadienerubber
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
+                  LegislationIds:
+                    - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
               example2:
                 summary: Materials with different reference types
                 description: "This request includes two materials. The first material is referenced by its \"Record History GUID\", and the second by its \"Material ID\". Both materials correspond to MaterialUniverse records, but they could equally correspond to \"Materials in-house\" materials. The legislation name will determine which substances are reported as impacted substances for both materials."
@@ -53,10 +53,10 @@ paths:
                       ReferenceValue: 92f368c9-be68-481a-86a0-7a16a8265f77
                     - ReferenceType: MaterialId
                       ReferenceValue: stainless-316-annealed
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
+                  LegislationIds:
+                    - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
               example3:
                 summary: Multiple materials and legislations
                 description: "This request includes two materials and two legislations of interest. Both materials are referenced by their \"Material ID\", but could be referenced by different reference types. Both legislation names will determine which substances are reported as impacted substances for both materials."
@@ -66,11 +66,11 @@ paths:
                       ReferenceValue: plastic-pc-10-15ptfe-lubricated
                     - ReferenceType: MaterialId
                       ReferenceValue: stainless-316-annealed
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
-                    - EU Directive 2011/65/EU (RoHS 2)
+                  LegislationIds:
+                    - SINList
+                    - RoHS
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -86,17 +86,17 @@ paths:
                   value:
                     Materials:
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: '1,3-Butadiene'
                                 CasNumber: 106-99-0
                                 EcNumber: 203-450-8
-                                MaxPercentageAmountInMaterial: 
+                                MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                                 CasNumber: 128-37-0
                                 EcNumber: 204-881-4
-                                MaxPercentageAmountInMaterial: 
+                                MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                         ReferenceType: MaterialId
                         ReferenceValue: elastomer-butadienerubber
@@ -107,28 +107,28 @@ paths:
                   value:
                     Materials:
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: 'Nitric acid, cadmium salt'
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold: 
+                                LegislationThreshold:
                               - SubstanceName: PFOA
                                 CasNumber: 335-67-1
                                 EcNumber: 206-397-9
-                                MaxPercentageAmountInMaterial: 
-                                LegislationThreshold: 
+                                MaxPercentageAmountInMaterial:
+                                LegislationThreshold:
                         ReferenceType: MiRecordHistoryGuid
                         ReferenceValue: 92f368c9-be68-481a-86a0-7a16a8265f77
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: 'Nitric acid, cadmium salt'
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold: 
+                                LegislationThreshold:
                         ReferenceType: MaterialId
                         ReferenceValue: stainless-316-annealed
                     LogMessages: [ ]
@@ -138,19 +138,19 @@ paths:
                   value:
                     Materials:
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: 'Nitric acid, cadmium salt'
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold: 
+                                LegislationThreshold:
                               - SubstanceName: PFOA
                                 CasNumber: 335-67-1
                                 EcNumber: 206-397-9
-                                MaxPercentageAmountInMaterial: 
-                                LegislationThreshold: 
-                          - LegislationName: EU Directive 2011/65/EU (RoHS 2)
+                                MaxPercentageAmountInMaterial:
+                                LegislationThreshold:
+                          - LegislationId: RoHS
                             ImpactedSubstances:
                               - SubstanceName: 'Nitric acid, cadmium salt'
                                 CasNumber: 10325-94-7
@@ -160,13 +160,13 @@ paths:
                         ReferenceType: MaterialId
                         ReferenceValue: plastic-pc-10-15ptfe-lubricated
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: 'Nitric acid, cadmium salt'
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold: 
+                                LegislationThreshold:
                         ReferenceType: MaterialId
                         ReferenceValue: stainless-316-annealed
                     LogMessages: [ ]
@@ -193,10 +193,10 @@ paths:
                       ReferenceValue: 545019
                     - ReferenceType: SpecificationId
                       ReferenceValue: AMS03-27
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
+                  LegislationIds:
+                    - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -212,22 +212,22 @@ paths:
                   value:
                     Specifications:
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: '1,3-Butadiene'
                                 CasNumber: 106-99-0
                                 EcNumber: 203-450-8
-                                MaxPercentageAmountInMaterial: 
+                                MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                                 CasNumber: 128-37-0
                                 EcNumber: 204-881-4
-                                MaxPercentageAmountInMaterial: 
+                                MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
                         ReferenceValue: 545019
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: Benzophenone
                                 CasNumber: 119-61-9
@@ -265,10 +265,10 @@ paths:
                       ReferenceValue: 565024
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
+                  LegislationIds:
+                    - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -284,22 +284,22 @@ paths:
                   value:
                     Parts:
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: '1,3-Butadiene'
                                 CasNumber: 106-99-0
                                 EcNumber: 203-450-8
-                                MaxPercentageAmountInMaterial: 
+                                MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                                 CasNumber: 128-37-0
                                 EcNumber: 204-881-4
-                                MaxPercentageAmountInMaterial: 
+                                MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
                         ReferenceValue: 565024
                       - Legislations:
-                          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                          - LegislationId: SINList
                             ImpactedSubstances:
                               - SubstanceName: Benzophenone
                                 CasNumber: 119-61-9
@@ -333,10 +333,10 @@ paths:
                 description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
                 value:
                   BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
+                  LegislationIds:
+                    - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -351,17 +351,17 @@ paths:
                   description: "The response contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the BoM which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Legislations:
-                      - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                      - LegislationId: SINList
                         ImpactedSubstances:
                           - SubstanceName: '1,3-Butadiene'
                             CasNumber: 106-99-0
                             EcNumber: 203-450-8
-                            MaxPercentageAmountInMaterial: 
+                            MaxPercentageAmountInMaterial:
                             LegislationThreshold: 0.1
                           - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                             CasNumber: 128-37-0
                             EcNumber: 204-881-4
-                            MaxPercentageAmountInMaterial: 
+                            MaxPercentageAmountInMaterial:
                             LegislationThreshold: 0.1
                     LogMessages: [ ]
   /impacted-substances/bom2301:
@@ -383,10 +383,10 @@ paths:
                 description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
                 value:
                   BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
-                  LegislationNames:
-                    - The SIN List 2.1 (Substitute It Now!)
+                  LegislationIds:
+                    - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -401,17 +401,17 @@ paths:
                   description: "The response contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the BoM which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Legislations:
-                      - LegislationName: The SIN List 2.1 (Substitute It Now!)
+                      - LegislationId: SINList
                         ImpactedSubstances:
                           - SubstanceName: '1,3-Butadiene'
                             CasNumber: 106-99-0
                             EcNumber: 203-450-8
-                            MaxPercentageAmountInMaterial: 
+                            MaxPercentageAmountInMaterial:
                             LegislationThreshold: 0.1
                           - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                             CasNumber: 128-37-0
                             EcNumber: 204-881-4
-                            MaxPercentageAmountInMaterial: 
+                            MaxPercentageAmountInMaterial:
                             LegislationThreshold: 0.1
                     LogMessages: [ ]
   /compliance/substances:
@@ -455,7 +455,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -524,7 +524,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
               example2:
                 summary: Ignore Process Chemicals
                 description: "A single material reference and two Watch List indicators, once of which has been set to ignore process chemicals. This means any substances marked as being involved in the production of the material only will be marked as Not Impacted regardless of their concentration or legislative status."
@@ -548,7 +548,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: WatchList
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -668,7 +668,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -835,7 +835,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
               example2:
                 summary: Ignore Exemptions
                 description: "A single part reference and two RoHS indicators, once of which has been set to ignore exemptions. This means any parts marked as being exempt from certain RoHS-impacted substances will instead be marked as Non Compliant if they contain such substances."
@@ -859,7 +859,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -994,7 +994,7 @@ paths:
                             Flag: RohsNonCompliant
                           - Name: Default Configuration
                             Flag: RohsCompliantWithExemptions
-                        Parts: 
+                        Parts:
                         Specifications: [ ]
                         Materials: [ ]
                         Substances:
@@ -1043,7 +1043,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -1081,12 +1081,12 @@ paths:
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 62345
                             ReferenceType: PartNumber
-                            ReferenceValue: 
+                            ReferenceValue:
                         Specifications: [ ]
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: PartNumber
-                        ReferenceValue: 
+                        ReferenceValue:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -1112,7 +1112,7 @@ paths:
                             ReferenceValue: 111111
                         Substances: [ ]
                         ReferenceType: PartNumber
-                        ReferenceValue: 
+                        ReferenceValue:
                     LogMessages: [ ]
   /compliance/bom2301:
     post:
@@ -1149,7 +1149,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -1187,12 +1187,12 @@ paths:
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 62345
                             ReferenceType: PartNumber
-                            ReferenceValue: 
+                            ReferenceValue:
                         Specifications: [ ]
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: PartNumber
-                        ReferenceValue: 
+                        ReferenceValue:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -1218,7 +1218,7 @@ paths:
                             ReferenceValue: 111111
                         Substances: [ ]
                         ReferenceType: PartNumber
-                        ReferenceValue: 
+                        ReferenceValue:
                     LogMessages: [ ]
   /licenses:
     get:
@@ -1259,9 +1259,9 @@ paths:
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it."
                 value:
                   BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
-                  PreferredUnits: 
+                  PreferredUnits:
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
               example2:
                 summary: 'Single-part BoM with a material, process and transport stage with specified mass and energy units'
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it. The BoM also includes a transport stage."
@@ -1274,7 +1274,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each part included in the BoM which is applicable for sustainability analysis is returned with an embodied energy and climate change (CO2-eq) property. Additionally materials which have end of life data available will be returned with recyclable, downcycle and biodegradable properties showing which end of life options are available for the material. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. If no preferred units are specified in the Config key of the request, mass and climate change values will be returned in 'kg' and embodied energy will be returned in 'MJ'."
+          description: "Each part included in the BoM which is applicable for sustainability analysis is returned with an embodied energy and climate change (CO2-eq) property. Additionally materials which have end of life data available will be returned with recyclable, functional recycle and biodegradable properties showing which end of life options are available for the material. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. If no preferred units are specified in the Config key of the request, mass and climate change values will be returned in 'kg' and embodied energy will be returned in 'MJ'."
           content:
             application/json:
               schema:
@@ -1306,7 +1306,7 @@ paths:
                                   Unit: kg
                                 Recyclable: true
                                 Biodegradable: false
-                                Downcycle: true
+                                FunctionalRecycle: true
                                 ReportedMass:
                                   Value: 2
                                   Unit: kg
@@ -1325,7 +1325,7 @@ paths:
                               Value: 2
                               Unit: kg
                             ReferenceType: PartNumber
-                            ReferenceValue: 
+                            ReferenceValue:
                         Materials: [ ]
                         Processes: [ ]
                         Substances: [ ]
@@ -1340,7 +1340,7 @@ paths:
                           Value: 2
                           Unit: kg
                         ReferenceType: PartNumber
-                        ReferenceValue: 
+                        ReferenceValue:
                     TransportStages: [ ]
                     LogMessages: [ ]
                 example2:
@@ -1369,7 +1369,7 @@ paths:
                                   Unit: lb
                                 Recyclable: true
                                 Biodegradable: false
-                                Downcycle: true
+                                FunctionalRecycle: true
                                 ReportedMass:
                                   Value: 4.41
                                   Unit: lb
@@ -1388,7 +1388,7 @@ paths:
                               Value: 4.41
                               Unit: lb
                             ReferenceType: PartNumber
-                            ReferenceValue: 
+                            ReferenceValue:
                         Materials: [ ]
                         Processes: [ ]
                         Substances: [ ]
@@ -1403,7 +1403,7 @@ paths:
                           Value: 4.41
                           Unit: lb
                         ReferenceType: PartNumber
-                        ReferenceValue: 
+                        ReferenceValue:
                     TransportStages:
                       - EmbodiedEnergy:
                           Value: 412.22
@@ -1433,9 +1433,9 @@ paths:
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it."
                 value:
                   BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
-                  PreferredUnits: 
+                  PreferredUnits:
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
               example2:
                 summary: 'Single-part BoM with a material, two processes and transport.'
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it. The BoM also has a transport stage defined."
@@ -1446,7 +1446,7 @@ paths:
                     EnergyUnit: kcal
                     DistanceUnit: ft
                   DatabaseKey: MI_Restricted_Substances
-                  Config: 
+                  Config:
         required: true
       responses:
         '200':
@@ -1462,7 +1462,7 @@ paths:
                   value:
                     MaterialSummary:
                       Summary:
-                        - Name: steel-kovar-annealed
+                        - Identity: steel-kovar-annealed
                           RecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
@@ -1484,7 +1484,7 @@ paths:
                             - ComponentName: ''
                               RecordReference:
                                 ReferenceType: PartNumber
-                                ReferenceValue: 
+                                ReferenceValue:
                               MaterialMassBeforeProcessing:
                                 Value: 0.625
                                 Unit: kg
@@ -1507,7 +1507,7 @@ paths:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          MaterialIdentity: 'High alloy steel, Kovar, annealed'
                           EmbodiedEnergy:
                             Value: 6.55438765769984
                             Unit: MJ
@@ -1524,7 +1524,7 @@ paths:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          MaterialIdentity: 'High alloy steel, Kovar, annealed'
                           EmbodiedEnergy:
                             Value: 0.232599537624153
                             Unit: MJ
@@ -1563,7 +1563,7 @@ paths:
                   value:
                     MaterialSummary:
                       Summary:
-                        - Name: steel-kovar-annealed
+                        - Identity: steel-kovar-annealed
                           RecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
@@ -1585,7 +1585,7 @@ paths:
                             - ComponentName: ''
                               RecordReference:
                                 ReferenceType: PartNumber
-                                ReferenceValue: 
+                                ReferenceValue:
                               MaterialMassBeforeProcessing:
                                 Value: 1.37788913865548
                                 Unit: lb
@@ -1608,7 +1608,7 @@ paths:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          MaterialIdentity: 'High alloy steel, Kovar, annealed'
                           EmbodiedEnergy:
                             Value: 373910.527598049
                             Unit: kcal
@@ -1625,7 +1625,7 @@ paths:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                          MaterialName: 'High alloy steel, Kovar, annealed'
+                          MaterialIdentity: 'High alloy steel, Kovar, annealed'
                           EmbodiedEnergy:
                             Value: 13269.1901019829
                             Unit: kcal
@@ -1682,7 +1682,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialReference'
-        LegislationNames:
+        LegislationIds:
           type: array
           items:
             type: string
@@ -1694,10 +1694,10 @@ components:
         Materials:
           - ReferenceType: MaterialId
             ReferenceValue: elastomer-butadienerubber
-        LegislationNames:
-          - The SIN List 2.1 (Substitute It Now!)
+        LegislationIds:
+          - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     Common.MaterialReference:
       type: object
       properties:
@@ -1743,17 +1743,17 @@ components:
       example:
         Materials:
           - Legislations:
-              - LegislationName: The SIN List 2.1 (Substitute It Now!)
+              - LegislationId: SINList
                 ImpactedSubstances:
                   - SubstanceName: '1,3-Butadiene'
                     CasNumber: 106-99-0
                     EcNumber: 203-450-8
-                    MaxPercentageAmountInMaterial: 
+                    MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
                   - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                     CasNumber: 128-37-0
                     EcNumber: 204-881-4
-                    MaxPercentageAmountInMaterial: 
+                    MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
             ReferenceType: MaterialId
             ReferenceValue: elastomer-butadienerubber
@@ -1772,7 +1772,7 @@ components:
     Common.LegislationWithImpactedSubstances:
       type: object
       properties:
-        LegislationName:
+        LegislationId:
           type: string
         ImpactedSubstances:
           type: array
@@ -1809,7 +1809,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationReference'
-        LegislationNames:
+        LegislationIds:
           type: array
           items:
             type: string
@@ -1823,10 +1823,10 @@ components:
             ReferenceValue: 545019
           - ReferenceType: SpecificationId
             ReferenceValue: AMS03-27
-        LegislationNames:
-          - The SIN List 2.1 (Substitute It Now!)
+        LegislationIds:
+          - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     Common.SpecificationReference:
       type: object
       properties:
@@ -1848,22 +1848,22 @@ components:
       example:
         Specifications:
           - Legislations:
-              - LegislationName: The SIN List 2.1 (Substitute It Now!)
+              - LegislationId: SINList
                 ImpactedSubstances:
                   - SubstanceName: '1,3-Butadiene'
                     CasNumber: 106-99-0
                     EcNumber: 203-450-8
-                    MaxPercentageAmountInMaterial: 
+                    MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
                   - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                     CasNumber: 128-37-0
                     EcNumber: 204-881-4
-                    MaxPercentageAmountInMaterial: 
+                    MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 545019
           - Legislations:
-              - LegislationName: The SIN List 2.1 (Substitute It Now!)
+              - LegislationId: SINList
                 ImpactedSubstances:
                   - SubstanceName: Benzophenone
                     CasNumber: 119-61-9
@@ -1896,7 +1896,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartReference'
-        LegislationNames:
+        LegislationIds:
           type: array
           items:
             type: string
@@ -1910,10 +1910,10 @@ components:
             ReferenceValue: 565024
           - ReferenceType: PartNumber
             ReferenceValue: FLRY33
-        LegislationNames:
-          - The SIN List 2.1 (Substitute It Now!)
+        LegislationIds:
+          - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     Common.PartReference:
       type: object
       properties:
@@ -1935,22 +1935,22 @@ components:
       example:
         Parts:
           - Legislations:
-              - LegislationName: The SIN List 2.1 (Substitute It Now!)
+              - LegislationId: SINList
                 ImpactedSubstances:
                   - SubstanceName: '1,3-Butadiene'
                     CasNumber: 106-99-0
                     EcNumber: 203-450-8
-                    MaxPercentageAmountInMaterial: 
+                    MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
                   - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                     CasNumber: 128-37-0
                     EcNumber: 204-881-4
-                    MaxPercentageAmountInMaterial: 
+                    MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 565024
           - Legislations:
-              - LegislationName: The SIN List 2.1 (Substitute It Now!)
+              - LegislationId: SINList
                 ImpactedSubstances:
                   - SubstanceName: Benzophenone
                     CasNumber: 119-61-9
@@ -1981,7 +1981,7 @@ components:
       properties:
         BomXml1711:
           type: string
-        LegislationNames:
+        LegislationIds:
           type: array
           items:
             type: string
@@ -1991,10 +1991,10 @@ components:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
-        LegislationNames:
-          - The SIN List 2.1 (Substitute It Now!)
+        LegislationIds:
+          - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetImpactedSubstancesForBom1711.Response:
       type: object
       properties:
@@ -2008,17 +2008,17 @@ components:
             $ref: '#/components/schemas/Common.LogEntry'
       example:
         Legislations:
-          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+          - LegislationId: SINList
             ImpactedSubstances:
               - SubstanceName: '1,3-Butadiene'
                 CasNumber: 106-99-0
                 EcNumber: 203-450-8
-                MaxPercentageAmountInMaterial: 
+                MaxPercentageAmountInMaterial:
                 LegislationThreshold: 0.1
               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                 CasNumber: 128-37-0
                 EcNumber: 204-881-4
-                MaxPercentageAmountInMaterial: 
+                MaxPercentageAmountInMaterial:
                 LegislationThreshold: 0.1
         LogMessages: [ ]
     GetImpactedSubstancesForBom2301.Request:
@@ -2026,7 +2026,7 @@ components:
       properties:
         BomXml2301:
           type: string
-        LegislationNames:
+        LegislationIds:
           type: array
           items:
             type: string
@@ -2036,10 +2036,10 @@ components:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
-        LegislationNames:
-          - The SIN List 2.1 (Substitute It Now!)
+        LegislationIds:
+          - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetImpactedSubstancesForBom2301.Response:
       type: object
       properties:
@@ -2053,17 +2053,17 @@ components:
             $ref: '#/components/schemas/Common.LogEntry'
       example:
         Legislations:
-          - LegislationName: The SIN List 2.1 (Substitute It Now!)
+          - LegislationId: SINList
             ImpactedSubstances:
               - SubstanceName: '1,3-Butadiene'
                 CasNumber: 106-99-0
                 EcNumber: 203-450-8
-                MaxPercentageAmountInMaterial: 
+                MaxPercentageAmountInMaterial:
                 LegislationThreshold: 0.1
               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                 CasNumber: 128-37-0
                 EcNumber: 204-881-4
-                MaxPercentageAmountInMaterial: 
+                MaxPercentageAmountInMaterial:
                 LegislationThreshold: 0.1
         LogMessages: [ ]
     GetComplianceForSubstances.Request:
@@ -2105,7 +2105,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetComplianceForSubstances.SubstanceWithAmount:
       type: object
       properties:
@@ -2217,7 +2217,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetComplianceForMaterials.Response:
       type: object
       properties:
@@ -2321,7 +2321,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetComplianceForSpecifications.Response:
       type: object
       properties:
@@ -2527,7 +2527,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetComplianceForParts.Response:
       type: object
       properties:
@@ -2709,7 +2709,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetComplianceForBom1711.Response:
       type: object
       properties:
@@ -2746,12 +2746,12 @@ components:
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 62345
                 ReferenceType: PartNumber
-                ReferenceValue: 
+                ReferenceValue:
             Specifications: [ ]
             Materials: [ ]
             Substances: [ ]
             ReferenceType: PartNumber
-            ReferenceValue: 
+            ReferenceValue:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -2777,7 +2777,7 @@ components:
                 ReferenceValue: 111111
             Substances: [ ]
             ReferenceType: PartNumber
-            ReferenceValue: 
+            ReferenceValue:
         LogMessages: [ ]
     GetComplianceForBom2301.Request:
       type: object
@@ -2810,7 +2810,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetComplianceForBom2301.Response:
       type: object
       properties:
@@ -2847,12 +2847,12 @@ components:
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 62345
                 ReferenceType: PartNumber
-                ReferenceValue: 
+                ReferenceValue:
             Specifications: [ ]
             Materials: [ ]
             Substances: [ ]
             ReferenceType: PartNumber
-            ReferenceValue: 
+            ReferenceValue:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -2878,7 +2878,7 @@ components:
                 ReferenceValue: 111111
             Substances: [ ]
             ReferenceType: PartNumber
-            ReferenceValue: 
+            ReferenceValue:
         LogMessages: [ ]
     GetAvailableLicenses.Response:
       type: object
@@ -2908,9 +2908,9 @@ components:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
-        PreferredUnits: 
+        PreferredUnits:
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     Common.PreferredUnits:
       type: object
       properties:
@@ -2958,7 +2958,7 @@ components:
                       Unit: kg
                     Recyclable: true
                     Biodegradable: false
-                    Downcycle: true
+                    FunctionalRecycle: true
                     ReportedMass:
                       Value: 2
                       Unit: kg
@@ -2977,7 +2977,7 @@ components:
                   Value: 2
                   Unit: kg
                 ReferenceType: PartNumber
-                ReferenceValue: 
+                ReferenceValue:
             Materials: [ ]
             Processes: [ ]
             Substances: [ ]
@@ -2992,7 +2992,7 @@ components:
               Value: 2
               Unit: kg
             ReferenceType: PartNumber
-            ReferenceValue: 
+            ReferenceValue:
         TransportStages: [ ]
         LogMessages: [ ]
     Common.Sustainability.PartWithSustainability:
@@ -3019,11 +3019,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.Sustainability.SpecificationWithSustainability'
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReportedMass:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3040,20 +3040,20 @@ components:
           items:
             $ref: '#/components/schemas/Common.SubstanceReference'
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         Recyclable:
           type: boolean
           nullable: true
         Biodegradable:
           type: boolean
           nullable: true
-        Downcycle:
+        FunctionalRecycle:
           type: boolean
           nullable: true
         ReportedMass:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3062,14 +3062,14 @@ components:
       type: object
       properties:
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
-    Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit:
+    Common.ValueWithUnit:
       type: object
       properties:
         Value:
@@ -3105,11 +3105,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.CoatingReference'
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReportedMass:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3125,9 +3125,9 @@ components:
       type: object
       properties:
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3145,9 +3145,9 @@ components:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
-        PreferredUnits: 
+        PreferredUnits:
         DatabaseKey: MI_Restricted_Substances
-        Config: 
+        Config:
     GetSustainabilitySummaryForBom2301.Response:
       type: object
       properties:
@@ -3164,7 +3164,7 @@ components:
       example:
         MaterialSummary:
           Summary:
-            - Name: steel-kovar-annealed
+            - Identity: steel-kovar-annealed
               RecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
@@ -3186,7 +3186,7 @@ components:
                 - ComponentName: ''
                   RecordReference:
                     ReferenceType: PartNumber
-                    ReferenceValue: 
+                    ReferenceValue:
                   MaterialMassBeforeProcessing:
                     Value: 0.625
                     Unit: kg
@@ -3209,7 +3209,7 @@ components:
               MaterialRecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-              MaterialName: 'High alloy steel, Kovar, annealed'
+              MaterialIdentity: 'High alloy steel, Kovar, annealed'
               EmbodiedEnergy:
                 Value: 6.55438765769984
                 Unit: MJ
@@ -3226,7 +3226,7 @@ components:
               MaterialRecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-              MaterialName: 'High alloy steel, Kovar, annealed'
+              MaterialIdentity: 'High alloy steel, Kovar, annealed'
               EmbodiedEnergy:
                 Value: 0.232599537624153
                 Unit: MJ
@@ -3271,24 +3271,24 @@ components:
     Common.Sustainability.MaterialSummaryEntry:
       type: object
       properties:
-        Name:
+        Identity:
           type: string
         RecordReference:
           $ref: '#/components/schemas/Common.MaterialReference'
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
           type: number
           format: double
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
         MassBeforeProcessing:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         MassAfterProcessing:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         LargestContributors:
           type: array
           items:
@@ -3301,19 +3301,19 @@ components:
         RecordReference:
           $ref: '#/components/schemas/Common.PartReference'
         MaterialMassBeforeProcessing:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
     Common.Sustainability.PhaseSummary:
       type: object
       properties:
         Phase:
           type: string
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
           type: number
           format: double
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
@@ -3343,15 +3343,15 @@ components:
           $ref: '#/components/schemas/Common.ProcessReference'
         MaterialRecordReference:
           $ref: '#/components/schemas/Common.MaterialReference'
-        MaterialName:
+        MaterialIdentity:
           type: string
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
           type: number
           format: double
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
@@ -3379,14 +3379,14 @@ components:
         RecordReference:
           $ref: '#/components/schemas/Common.TransportReference'
         Distance:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergy:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
           type: number
           format: double
         ClimateChange:
-          $ref: '#/components/schemas/Granta.BomAnalyticsServices.Implementation.Common.ValueWithUnit'
+          $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double

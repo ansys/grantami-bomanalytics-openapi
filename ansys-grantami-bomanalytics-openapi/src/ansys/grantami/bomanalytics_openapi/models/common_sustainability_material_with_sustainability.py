@@ -39,12 +39,12 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
     swagger_types = {
         "processes": "list[CommonSustainabilityProcessWithSustainability]",
         "substances": "list[CommonSubstanceReference]",
-        "embodied_energy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "climate_change": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
+        "climate_change": "CommonValueWithUnit",
         "recyclable": "bool",
         "biodegradable": "bool",
-        "downcycle": "bool",
-        "reported_mass": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "functional_recycle": "bool",
+        "reported_mass": "CommonValueWithUnit",
         "reference_type": "str",
         "reference_value": "str",
     }
@@ -56,7 +56,7 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         "climate_change": "ClimateChange",
         "recyclable": "Recyclable",
         "biodegradable": "Biodegradable",
-        "downcycle": "Downcycle",
+        "functional_recycle": "FunctionalRecycle",
         "reported_mass": "ReportedMass",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
@@ -65,18 +65,18 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
     subtype_mapping = {
         "Processes": "CommonSustainabilityProcessWithSustainability",
         "Substances": "CommonSubstanceReference",
-        "EmbodiedEnergy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ClimateChange": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ReportedMass": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "EmbodiedEnergy": "CommonValueWithUnit",
+        "ClimateChange": "CommonValueWithUnit",
+        "ReportedMass": "CommonValueWithUnit",
     }
 
     def __init__(
         self,
         *,
         biodegradable: "Optional[bool]" = None,
-        climate_change: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
-        downcycle: "Optional[bool]" = None,
-        embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        climate_change: "Optional[CommonValueWithUnit]" = None,
+        embodied_energy: "Optional[CommonValueWithUnit]" = None,
+        functional_recycle: "Optional[bool]" = None,
         processes: "Optional[List[CommonSustainabilityProcessWithSustainability]]" = None,
         recyclable: "Optional[bool]" = None,
         reference_type: "Optional[str]" = None,
@@ -89,14 +89,14 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         Parameters
         ----------
             biodegradable: bool, optional
-            climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
-            downcycle: bool, optional
-            embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            climate_change: CommonValueWithUnit, optional
+            embodied_energy: CommonValueWithUnit, optional
+            functional_recycle: bool, optional
             processes: List[CommonSustainabilityProcessWithSustainability], optional
             recyclable: bool, optional
             reference_type: str, optional
             reference_value: str, optional
-            reported_mass: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            reported_mass: CommonValueWithUnit, optional
             substances: List[CommonSubstanceReference], optional
         """
         self._processes = None
@@ -105,7 +105,7 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._climate_change = None
         self._recyclable = None
         self._biodegradable = None
-        self._downcycle = None
+        self._functional_recycle = None
         self._reported_mass = None
         self._reference_type = None
         self._reference_value = None
@@ -122,8 +122,8 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             self.recyclable = recyclable
         if biodegradable is not None:
             self.biodegradable = biodegradable
-        if downcycle is not None:
-            self.downcycle = downcycle
+        if functional_recycle is not None:
+            self.functional_recycle = functional_recycle
         if reported_mass is not None:
             self.reported_mass = reported_mass
         if reference_type is not None:
@@ -178,55 +178,45 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._substances = substances
 
     @property
-    def embodied_energy(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def embodied_energy(self) -> "CommonValueWithUnit":
         """Gets the embodied_energy of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(
-        self,
-        embodied_energy: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
         """Sets the embodied_energy of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        embodied_energy: CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityMaterialWithSustainability.
         """
         self._embodied_energy = embodied_energy
 
     @property
-    def climate_change(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def climate_change(self) -> "CommonValueWithUnit":
         """Gets the climate_change of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The climate_change of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(
-        self,
-        climate_change: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
         """Sets the climate_change of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        climate_change: CommonValueWithUnit
             The climate_change of this CommonSustainabilityMaterialWithSustainability.
         """
         self._climate_change = climate_change
@@ -276,50 +266,45 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._biodegradable = biodegradable
 
     @property
-    def downcycle(self) -> "bool":
-        """Gets the downcycle of this CommonSustainabilityMaterialWithSustainability.
+    def functional_recycle(self) -> "bool":
+        """Gets the functional_recycle of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
         bool
-            The downcycle of this CommonSustainabilityMaterialWithSustainability.
+            The functional_recycle of this CommonSustainabilityMaterialWithSustainability.
         """
-        return self._downcycle
+        return self._functional_recycle
 
-    @downcycle.setter
-    def downcycle(self, downcycle: "bool") -> None:
-        """Sets the downcycle of this CommonSustainabilityMaterialWithSustainability.
+    @functional_recycle.setter
+    def functional_recycle(self, functional_recycle: "bool") -> None:
+        """Sets the functional_recycle of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        downcycle: bool
-            The downcycle of this CommonSustainabilityMaterialWithSustainability.
+        functional_recycle: bool
+            The functional_recycle of this CommonSustainabilityMaterialWithSustainability.
         """
-        self._downcycle = downcycle
+        self._functional_recycle = functional_recycle
 
     @property
-    def reported_mass(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def reported_mass(self) -> "CommonValueWithUnit":
         """Gets the reported_mass of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The reported_mass of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._reported_mass
 
     @reported_mass.setter
-    def reported_mass(
-        self,
-        reported_mass: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def reported_mass(self, reported_mass: "CommonValueWithUnit") -> None:
         """Sets the reported_mass of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        reported_mass: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        reported_mass: CommonValueWithUnit
             The reported_mass of this CommonSustainabilityMaterialWithSustainability.
         """
         self._reported_mass = reported_mass

@@ -40,10 +40,10 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "process_name": "str",
         "process_record_reference": "CommonProcessReference",
         "material_record_reference": "CommonMaterialReference",
-        "material_name": "str",
-        "embodied_energy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "material_identity": "str",
+        "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
-        "climate_change": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
     }
 
@@ -51,7 +51,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "process_name": "ProcessName",
         "process_record_reference": "ProcessRecordReference",
         "material_record_reference": "MaterialRecordReference",
-        "material_name": "MaterialName",
+        "material_identity": "MaterialIdentity",
         "embodied_energy": "EmbodiedEnergy",
         "embodied_energy_percentage": "EmbodiedEnergyPercentage",
         "climate_change": "ClimateChange",
@@ -61,18 +61,18 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
     subtype_mapping = {
         "ProcessRecordReference": "CommonProcessReference",
         "MaterialRecordReference": "CommonMaterialReference",
-        "EmbodiedEnergy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ClimateChange": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "EmbodiedEnergy": "CommonValueWithUnit",
+        "ClimateChange": "CommonValueWithUnit",
     }
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        climate_change: "Optional[CommonValueWithUnit]" = None,
         climate_change_percentage: "Optional[float]" = None,
-        embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        embodied_energy: "Optional[CommonValueWithUnit]" = None,
         embodied_energy_percentage: "Optional[float]" = None,
-        material_name: "Optional[str]" = None,
+        material_identity: "Optional[str]" = None,
         material_record_reference: "Optional[CommonMaterialReference]" = None,
         process_name: "Optional[str]" = None,
         process_record_reference: "Optional[CommonProcessReference]" = None
@@ -81,11 +81,11 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
 
         Parameters
         ----------
-            climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            climate_change: CommonValueWithUnit, optional
             climate_change_percentage: float, optional
-            embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            embodied_energy: CommonValueWithUnit, optional
             embodied_energy_percentage: float, optional
-            material_name: str, optional
+            material_identity: str, optional
             material_record_reference: CommonMaterialReference, optional
             process_name: str, optional
             process_record_reference: CommonProcessReference, optional
@@ -93,7 +93,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._process_name = None
         self._process_record_reference = None
         self._material_record_reference = None
-        self._material_name = None
+        self._material_identity = None
         self._embodied_energy = None
         self._embodied_energy_percentage = None
         self._climate_change = None
@@ -105,8 +105,8 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
             self.process_record_reference = process_record_reference
         if material_record_reference is not None:
             self.material_record_reference = material_record_reference
-        if material_name is not None:
-            self.material_name = material_name
+        if material_identity is not None:
+            self.material_identity = material_identity
         if embodied_energy is not None:
             self.embodied_energy = embodied_energy
         if embodied_energy_percentage is not None:
@@ -187,50 +187,45 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._material_record_reference = material_record_reference
 
     @property
-    def material_name(self) -> "str":
-        """Gets the material_name of this CommonSustainabilityProcessSummaryEntry.
+    def material_identity(self) -> "str":
+        """Gets the material_identity of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
         str
-            The material_name of this CommonSustainabilityProcessSummaryEntry.
+            The material_identity of this CommonSustainabilityProcessSummaryEntry.
         """
-        return self._material_name
+        return self._material_identity
 
-    @material_name.setter
-    def material_name(self, material_name: "str") -> None:
-        """Sets the material_name of this CommonSustainabilityProcessSummaryEntry.
+    @material_identity.setter
+    def material_identity(self, material_identity: "str") -> None:
+        """Sets the material_identity of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        material_name: str
-            The material_name of this CommonSustainabilityProcessSummaryEntry.
+        material_identity: str
+            The material_identity of this CommonSustainabilityProcessSummaryEntry.
         """
-        self._material_name = material_name
+        self._material_identity = material_identity
 
     @property
-    def embodied_energy(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def embodied_energy(self) -> "CommonValueWithUnit":
         """Gets the embodied_energy of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(
-        self,
-        embodied_energy: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
         """Sets the embodied_energy of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        embodied_energy: CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityProcessSummaryEntry.
         """
         self._embodied_energy = embodied_energy
@@ -258,28 +253,23 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def climate_change(self) -> "CommonValueWithUnit":
         """Gets the climate_change of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The climate_change of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(
-        self,
-        climate_change: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
         """Sets the climate_change of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        climate_change: CommonValueWithUnit
             The climate_change of this CommonSustainabilityProcessSummaryEntry.
         """
         self._climate_change = climate_change

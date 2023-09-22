@@ -39,10 +39,10 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
     swagger_types = {
         "stage_name": "str",
         "record_reference": "CommonTransportReference",
-        "distance": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "embodied_energy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "distance": "CommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
-        "climate_change": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
     }
 
@@ -58,18 +58,18 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
 
     subtype_mapping = {
         "RecordReference": "CommonTransportReference",
-        "Distance": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "EmbodiedEnergy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ClimateChange": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "Distance": "CommonValueWithUnit",
+        "EmbodiedEnergy": "CommonValueWithUnit",
+        "ClimateChange": "CommonValueWithUnit",
     }
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        climate_change: "Optional[CommonValueWithUnit]" = None,
         climate_change_percentage: "Optional[float]" = None,
-        distance: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
-        embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        distance: "Optional[CommonValueWithUnit]" = None,
+        embodied_energy: "Optional[CommonValueWithUnit]" = None,
         embodied_energy_percentage: "Optional[float]" = None,
         record_reference: "Optional[CommonTransportReference]" = None,
         stage_name: "Optional[str]" = None
@@ -78,10 +78,10 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
 
         Parameters
         ----------
-            climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            climate_change: CommonValueWithUnit, optional
             climate_change_percentage: float, optional
-            distance: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
-            embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            distance: CommonValueWithUnit, optional
+            embodied_energy: CommonValueWithUnit, optional
             embodied_energy_percentage: float, optional
             record_reference: CommonTransportReference, optional
             stage_name: str, optional
@@ -154,52 +154,45 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         self._record_reference = record_reference
 
     @property
-    def distance(self) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def distance(self) -> "CommonValueWithUnit":
         """Gets the distance of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The distance of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._distance
 
     @distance.setter
-    def distance(
-        self, distance: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit"
-    ) -> None:
+    def distance(self, distance: "CommonValueWithUnit") -> None:
         """Sets the distance of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        distance: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        distance: CommonValueWithUnit
             The distance of this CommonSustainabilityTransportSummaryEntry.
         """
         self._distance = distance
 
     @property
-    def embodied_energy(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def embodied_energy(self) -> "CommonValueWithUnit":
         """Gets the embodied_energy of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(
-        self,
-        embodied_energy: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
         """Sets the embodied_energy of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        embodied_energy: CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityTransportSummaryEntry.
         """
         self._embodied_energy = embodied_energy
@@ -227,28 +220,23 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def climate_change(self) -> "CommonValueWithUnit":
         """Gets the climate_change of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The climate_change of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(
-        self,
-        climate_change: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
         """Sets the climate_change of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        climate_change: CommonValueWithUnit
             The climate_change of this CommonSustainabilityTransportSummaryEntry.
         """
         self._climate_change = climate_change

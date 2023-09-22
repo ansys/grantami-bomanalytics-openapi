@@ -37,19 +37,19 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
 
     """
     swagger_types = {
-        "name": "str",
+        "identity": "str",
         "record_reference": "CommonMaterialReference",
-        "embodied_energy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
-        "climate_change": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
-        "mass_before_processing": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "mass_after_processing": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "mass_before_processing": "CommonValueWithUnit",
+        "mass_after_processing": "CommonValueWithUnit",
         "largest_contributors": "list[CommonSustainabilityMaterialContributingComponent]",
     }
 
     attribute_map = {
-        "name": "Name",
+        "identity": "Identity",
         "record_reference": "RecordReference",
         "embodied_energy": "EmbodiedEnergy",
         "embodied_energy_percentage": "EmbodiedEnergyPercentage",
@@ -62,20 +62,21 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
 
     subtype_mapping = {
         "RecordReference": "CommonMaterialReference",
-        "EmbodiedEnergy": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "ClimateChange": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "MassBeforeProcessing": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-        "MassAfterProcessing": "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        "EmbodiedEnergy": "CommonValueWithUnit",
+        "ClimateChange": "CommonValueWithUnit",
+        "MassBeforeProcessing": "CommonValueWithUnit",
+        "MassAfterProcessing": "CommonValueWithUnit",
         "LargestContributors": "CommonSustainabilityMaterialContributingComponent",
     }
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        climate_change: "Optional[CommonValueWithUnit]" = None,
         climate_change_percentage: "Optional[float]" = None,
-        embodied_energy: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
+        embodied_energy: "Optional[CommonValueWithUnit]" = None,
         embodied_energy_percentage: "Optional[float]" = None,
+        identity: "Optional[str]" = None,
         largest_contributors: "Optional[List[CommonSustainabilityMaterialContributingComponent]]" = None,
         mass_after_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
         mass_before_processing: "Optional[GrantaBomAnalyticsServicesImplementationCommonValueWithUnit]" = None,
@@ -86,17 +87,17 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
 
         Parameters
         ----------
-            climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            climate_change: CommonValueWithUnit, optional
             climate_change_percentage: float, optional
-            embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
+            embodied_energy: CommonValueWithUnit, optional
             embodied_energy_percentage: float, optional
+            identity: str, optional
             largest_contributors: List[CommonSustainabilityMaterialContributingComponent], optional
-            mass_after_processing: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
-            mass_before_processing: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit, optional
-            name: str, optional
+            mass_after_processing: CommonValueWithUnit, optional
+            mass_before_processing: CommonValueWithUnit, optional
             record_reference: CommonMaterialReference, optional
         """
-        self._name = None
+        self._identity = None
         self._record_reference = None
         self._embodied_energy = None
         self._embodied_energy_percentage = None
@@ -106,8 +107,8 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._mass_after_processing = None
         self._largest_contributors = None
         self.discriminator = None
-        if name is not None:
-            self.name = name
+        if identity is not None:
+            self.identity = identity
         if record_reference is not None:
             self.record_reference = record_reference
         if embodied_energy is not None:
@@ -126,26 +127,26 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
             self.largest_contributors = largest_contributors
 
     @property
-    def name(self) -> "str":
-        """Gets the name of this CommonSustainabilityMaterialSummaryEntry.
+    def identity(self) -> "str":
+        """Gets the identity of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
         str
-            The name of this CommonSustainabilityMaterialSummaryEntry.
+            The identity of this CommonSustainabilityMaterialSummaryEntry.
         """
-        return self._name
+        return self._identity
 
-    @name.setter
-    def name(self, name: "str") -> None:
-        """Sets the name of this CommonSustainabilityMaterialSummaryEntry.
+    @identity.setter
+    def identity(self, identity: "str") -> None:
+        """Sets the identity of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        name: str
-            The name of this CommonSustainabilityMaterialSummaryEntry.
+        identity: str
+            The identity of this CommonSustainabilityMaterialSummaryEntry.
         """
-        self._name = name
+        self._identity = identity
 
     @property
     def record_reference(self) -> "CommonMaterialReference":
@@ -170,28 +171,23 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._record_reference = record_reference
 
     @property
-    def embodied_energy(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def embodied_energy(self) -> "CommonValueWithUnit":
         """Gets the embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(
-        self,
-        embodied_energy: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
         """Sets the embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        embodied_energy: CommonValueWithUnit
             The embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
         """
         self._embodied_energy = embodied_energy
@@ -219,28 +215,23 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def climate_change(self) -> "CommonValueWithUnit":
         """Gets the climate_change of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The climate_change of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(
-        self,
-        climate_change: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
-    ) -> None:
+    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
         """Sets the climate_change of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        climate_change: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        climate_change: CommonValueWithUnit
             The climate_change of this CommonSustainabilityMaterialSummaryEntry.
         """
         self._climate_change = climate_change
@@ -268,55 +259,49 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._climate_change_percentage = climate_change_percentage
 
     @property
-    def mass_before_processing(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def mass_before_processing(self) -> "CommonValueWithUnit":
         """Gets the mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._mass_before_processing
 
     @mass_before_processing.setter
     def mass_before_processing(
-        self,
-        mass_before_processing: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        self, mass_before_processing: "CommonValueWithUnit"
     ) -> None:
         """Sets the mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        mass_before_processing: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        mass_before_processing: CommonValueWithUnit
             The mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
         self._mass_before_processing = mass_before_processing
 
     @property
-    def mass_after_processing(
-        self,
-    ) -> "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit":
+    def mass_after_processing(self) -> "CommonValueWithUnit":
         """Gets the mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        CommonValueWithUnit
             The mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._mass_after_processing
 
     @mass_after_processing.setter
     def mass_after_processing(
-        self,
-        mass_after_processing: "GrantaBomAnalyticsServicesImplementationCommonValueWithUnit",
+        self, mass_after_processing: "CommonValueWithUnit"
     ) -> None:
         """Sets the mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        mass_after_processing: GrantaBomAnalyticsServicesImplementationCommonValueWithUnit
+        mass_after_processing: CommonValueWithUnit
             The mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
         self._mass_after_processing = mass_after_processing

@@ -37,12 +37,12 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
 
     """
     swagger_types = {
-        "legislation_name": "str",
+        "legislation_id": "str",
         "impacted_substances": "list[CommonImpactedSubstance]",
     }
 
     attribute_map = {
-        "legislation_name": "LegislationName",
+        "legislation_id": "LegislationId",
         "impacted_substances": "ImpactedSubstances",
     }
 
@@ -61,37 +61,37 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         Parameters
         ----------
             impacted_substances: List[CommonImpactedSubstance], optional
-            legislation_name: str, optional
+            legislation_id: str, optional
         """
-        self._legislation_name = None
+        self._legislation_id = None
         self._impacted_substances = None
         self.discriminator = None
-        if legislation_name is not None:
-            self.legislation_name = legislation_name
+        if legislation_id is not None:
+            self.legislation_id = legislation_id
         if impacted_substances is not None:
             self.impacted_substances = impacted_substances
 
     @property
-    def legislation_name(self) -> "str":
-        """Gets the legislation_name of this CommonLegislationWithImpactedSubstances.
+    def legislation_id(self) -> "str":
+        """Gets the legislation_id of this CommonLegislationWithImpactedSubstances.
 
         Returns
         -------
         str
-            The legislation_name of this CommonLegislationWithImpactedSubstances.
+            The legislation_id of this CommonLegislationWithImpactedSubstances.
         """
-        return self._legislation_name
+        return self._legislation_id
 
-    @legislation_name.setter
-    def legislation_name(self, legislation_name: "str") -> None:
-        """Sets the legislation_name of this CommonLegislationWithImpactedSubstances.
+    @legislation_id.setter
+    def legislation_id(self, legislation_id: "str") -> None:
+        """Sets the legislation_id of this CommonLegislationWithImpactedSubstances.
 
         Parameters
         ----------
-        legislation_name: str
-            The legislation_name of this CommonLegislationWithImpactedSubstances.
+        legislation_id: str
+            The legislation_id of this CommonLegislationWithImpactedSubstances.
         """
-        self._legislation_name = legislation_name
+        self._legislation_id = legislation_id
 
     @property
     def impacted_substances(self) -> "list[CommonImpactedSubstance]":
