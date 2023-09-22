@@ -37,29 +37,6 @@ python-dateutil = "^2.8.2"
 pytest = "^7.0.0"
 requests-mock = "^1.0.0"
 
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist = py38,py39,py310,py311
-isolated_build = True
-
-[gh-actions]
-python =
-    3.8: py38
-    3.9: py39
-    3.10: py310
-    3.11: py311
-
-[testenv]
-install_command = pip install {opts} {packages}
-allowlist_externals = poetry
-commands_pre =
-    poetry install --no-root --sync --no-cache
-commands =
-    poetry run pytest {posargs}
-changedir = {toxinidir}/tests
-"""
-
 [tool.pytest.ini_options]
 testpaths = [
     "./tests",
