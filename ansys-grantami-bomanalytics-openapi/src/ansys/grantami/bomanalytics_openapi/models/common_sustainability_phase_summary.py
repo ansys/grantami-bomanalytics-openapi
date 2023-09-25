@@ -64,7 +64,7 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         climate_change_percentage: "Optional[float]" = None,
         embodied_energy: "Optional[CommonValueWithUnit]" = None,
         embodied_energy_percentage: "Optional[float]" = None,
-        phase: "Optional[str]" = None
+        phase: "Optional[str]" = None,
     ) -> None:
         """CommonSustainabilityPhaseSummary - a model defined in Swagger
 

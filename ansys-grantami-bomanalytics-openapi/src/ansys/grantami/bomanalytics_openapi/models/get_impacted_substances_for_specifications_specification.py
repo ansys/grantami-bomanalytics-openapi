@@ -57,7 +57,7 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
         *,
         legislations: "Optional[List[CommonLegislationWithImpactedSubstances]]" = None,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None
+        reference_value: "Optional[str]" = None,
     ) -> None:
         """GetImpactedSubstancesForSpecificationsSpecification - a model defined in Swagger
 

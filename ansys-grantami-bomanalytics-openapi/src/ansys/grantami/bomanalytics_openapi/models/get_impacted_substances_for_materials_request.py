@@ -61,7 +61,7 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
         legislation_ids: "Optional[List[str]]" = None,
-        materials: "Optional[List[CommonMaterialReference]]" = None
+        materials: "Optional[List[CommonMaterialReference]]" = None,
     ) -> None:
         """GetImpactedSubstancesForMaterialsRequest - a model defined in Swagger
 

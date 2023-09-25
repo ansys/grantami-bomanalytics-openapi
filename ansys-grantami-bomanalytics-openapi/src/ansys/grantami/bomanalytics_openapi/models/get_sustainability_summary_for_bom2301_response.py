@@ -63,7 +63,7 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         log_messages: "Optional[List[CommonLogEntry]]" = None,
         material_summary: "Optional[CommonSustainabilityMaterialSummary]" = None,
         process_summary: "Optional[CommonSustainabilityProcessSummary]" = None,
-        transport_summary: "Optional[CommonSustainabilityTransportSummary]" = None
+        transport_summary: "Optional[CommonSustainabilityTransportSummary]" = None,
     ) -> None:
         """GetSustainabilitySummaryForBom2301Response - a model defined in Swagger
 

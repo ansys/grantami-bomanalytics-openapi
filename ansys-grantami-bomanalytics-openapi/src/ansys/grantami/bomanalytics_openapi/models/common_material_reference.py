@@ -52,7 +52,7 @@ class CommonMaterialReference(ModelBase):
         self,
         *,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None
+        reference_value: "Optional[str]" = None,
     ) -> None:
         """CommonMaterialReference - a model defined in Swagger
 

@@ -52,7 +52,7 @@ class CommonCoatingReference(ModelBase):
         self,
         *,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None
+        reference_value: "Optional[str]" = None,
     ) -> None:
         """CommonCoatingReference - a model defined in Swagger
 

@@ -57,7 +57,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
         *,
         legislations: "Optional[List[CommonLegislationWithImpactedSubstances]]" = None,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None
+        reference_value: "Optional[str]" = None,
     ) -> None:
         """GetImpactedSubstancesForPartsPart - a model defined in Swagger
 

@@ -62,7 +62,7 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
         indicators: "Optional[List[CommonIndicatorDefinition]]" = None,
-        specifications: "Optional[List[CommonSpecificationReference]]" = None
+        specifications: "Optional[List[CommonSpecificationReference]]" = None,
     ) -> None:
         """GetComplianceForSpecificationsRequest - a model defined in Swagger
 

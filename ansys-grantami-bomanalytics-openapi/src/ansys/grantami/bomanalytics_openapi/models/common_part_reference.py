@@ -52,7 +52,7 @@ class CommonPartReference(ModelBase):
         self,
         *,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None
+        reference_value: "Optional[str]" = None,
     ) -> None:
         """CommonPartReference - a model defined in Swagger
 

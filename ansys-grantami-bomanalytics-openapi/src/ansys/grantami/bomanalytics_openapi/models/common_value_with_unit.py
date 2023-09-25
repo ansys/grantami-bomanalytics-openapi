@@ -49,7 +49,10 @@ class CommonValueWithUnit(ModelBase):
     subtype_mapping = {}
 
     def __init__(
-        self, *, unit: "Optional[str]" = None, value: "Optional[float]" = None
+        self,
+        *,
+        unit: "Optional[str]" = None,
+        value: "Optional[float]" = None,
     ) -> None:
         """CommonValueWithUnit - a model defined in Swagger
 

@@ -75,7 +75,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         material_identity: "Optional[str]" = None,
         material_record_reference: "Optional[CommonMaterialReference]" = None,
         process_name: "Optional[str]" = None,
-        process_record_reference: "Optional[CommonProcessReference]" = None
+        process_record_reference: "Optional[CommonProcessReference]" = None,
     ) -> None:
         """CommonSustainabilityProcessSummaryEntry - a model defined in Swagger
 

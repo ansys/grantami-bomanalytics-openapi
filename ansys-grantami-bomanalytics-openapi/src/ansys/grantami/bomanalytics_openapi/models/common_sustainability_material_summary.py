@@ -55,7 +55,7 @@ class CommonSustainabilityMaterialSummary(ModelBase):
         self,
         *,
         phase_summary: "Optional[CommonSustainabilityPhaseSummary]" = None,
-        summary: "Optional[List[CommonSustainabilityMaterialSummaryEntry]]" = None
+        summary: "Optional[List[CommonSustainabilityMaterialSummaryEntry]]" = None,
     ) -> None:
         """CommonSustainabilityMaterialSummary - a model defined in Swagger
 

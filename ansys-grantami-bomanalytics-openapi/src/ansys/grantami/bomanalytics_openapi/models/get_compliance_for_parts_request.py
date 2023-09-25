@@ -62,7 +62,7 @@ class GetComplianceForPartsRequest(ModelBase):
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
         indicators: "Optional[List[CommonIndicatorDefinition]]" = None,
-        parts: "Optional[List[CommonPartReference]]" = None
+        parts: "Optional[List[CommonPartReference]]" = None,
     ) -> None:
         """GetComplianceForPartsRequest - a model defined in Swagger
 

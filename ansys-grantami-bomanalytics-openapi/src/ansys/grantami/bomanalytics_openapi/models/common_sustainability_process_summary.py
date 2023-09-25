@@ -63,7 +63,7 @@ class CommonSustainabilityProcessSummary(ModelBase):
         joining_and_finishing_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None,
         phase_summary: "Optional[CommonSustainabilityPhaseSummary]" = None,
         primary_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None,
-        secondary_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None
+        secondary_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None,
     ) -> None:
         """CommonSustainabilityProcessSummary - a model defined in Swagger
 

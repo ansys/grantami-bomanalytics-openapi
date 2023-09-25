@@ -55,7 +55,7 @@ class CommonPreferredUnits(ModelBase):
         *,
         distance_unit: "Optional[str]" = None,
         energy_unit: "Optional[str]" = None,
-        mass_unit: "Optional[str]" = None
+        mass_unit: "Optional[str]" = None,
     ) -> None:
         """CommonPreferredUnits - a model defined in Swagger
 

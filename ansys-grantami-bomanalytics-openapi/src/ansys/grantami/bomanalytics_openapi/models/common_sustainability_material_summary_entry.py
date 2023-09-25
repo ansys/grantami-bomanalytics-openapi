@@ -80,7 +80,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         largest_contributors: "Optional[List[CommonSustainabilityMaterialContributingComponent]]" = None,
         mass_after_processing: "Optional[CommonValueWithUnit]" = None,
         mass_before_processing: "Optional[CommonValueWithUnit]" = None,
-        record_reference: "Optional[CommonMaterialReference]" = None
+        record_reference: "Optional[CommonMaterialReference]" = None,
     ) -> None:
         """CommonSustainabilityMaterialSummaryEntry - a model defined in Swagger
 

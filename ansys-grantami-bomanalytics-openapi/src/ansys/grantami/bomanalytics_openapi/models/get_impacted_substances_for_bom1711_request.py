@@ -60,7 +60,7 @@ class GetImpactedSubstancesForBom1711Request(ModelBase):
         bom_xml1711: "Optional[str]" = None,
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
-        legislation_ids: "Optional[List[str]]" = None
+        legislation_ids: "Optional[List[str]]" = None,
     ) -> None:
         """GetImpactedSubstancesForBom1711Request - a model defined in Swagger
 

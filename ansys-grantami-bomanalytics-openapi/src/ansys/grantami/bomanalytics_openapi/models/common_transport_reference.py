@@ -52,7 +52,7 @@ class CommonTransportReference(ModelBase):
         self,
         *,
         reference_type: "Optional[str]" = None,
-        reference_value: "Optional[str]" = None
+        reference_value: "Optional[str]" = None,
     ) -> None:
         """CommonTransportReference - a model defined in Swagger
 

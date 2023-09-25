@@ -85,7 +85,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         reference_value: "Optional[str]" = None,
         reported_mass: "Optional[CommonValueWithUnit]" = None,
         specifications: "Optional[List[CommonSustainabilitySpecificationWithSustainability]]" = None,
-        substances: "Optional[List[CommonSubstanceReference]]" = None
+        substances: "Optional[List[CommonSubstanceReference]]" = None,
     ) -> None:
         """CommonSustainabilityPartWithSustainability - a model defined in Swagger
 

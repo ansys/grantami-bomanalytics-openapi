@@ -62,7 +62,7 @@ class GetComplianceForMaterialsRequest(ModelBase):
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
         indicators: "Optional[List[CommonIndicatorDefinition]]" = None,
-        materials: "Optional[List[CommonMaterialReference]]" = None
+        materials: "Optional[List[CommonMaterialReference]]" = None,
     ) -> None:
         """GetComplianceForMaterialsRequest - a model defined in Swagger
 

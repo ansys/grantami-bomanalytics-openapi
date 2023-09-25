@@ -61,7 +61,7 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         config: "Optional[CommonRequestConfig]" = None,
         database_key: "Optional[str]" = None,
         legislation_ids: "Optional[List[str]]" = None,
-        specifications: "Optional[List[CommonSpecificationReference]]" = None
+        specifications: "Optional[List[CommonSpecificationReference]]" = None,
     ) -> None:
         """GetImpactedSubstancesForSpecificationsRequest - a model defined in Swagger
 

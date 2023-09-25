@@ -49,7 +49,10 @@ class CommonIndicatorResult(ModelBase):
     subtype_mapping = {}
 
     def __init__(
-        self, *, flag: "Optional[str]" = None, name: "Optional[str]" = None
+        self,
+        *,
+        flag: "Optional[str]" = None,
+        name: "Optional[str]" = None,
     ) -> None:
         """CommonIndicatorResult - a model defined in Swagger
 

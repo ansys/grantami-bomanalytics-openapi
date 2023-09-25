@@ -49,7 +49,10 @@ class CommonLogEntry(ModelBase):
     subtype_mapping = {}
 
     def __init__(
-        self, *, message: "Optional[str]" = None, severity: "Optional[str]" = None
+        self,
+        *,
+        message: "Optional[str]" = None,
+        severity: "Optional[str]" = None,
     ) -> None:
         """CommonLogEntry - a model defined in Swagger
 

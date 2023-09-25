@@ -59,7 +59,7 @@ class GetSustainabilityForBom2301Response(ModelBase):
         *,
         log_messages: "Optional[List[CommonLogEntry]]" = None,
         parts: "Optional[List[CommonSustainabilityPartWithSustainability]]" = None,
-        transport_stages: "Optional[List[CommonSustainabilityTransportWithSustainability]]" = None
+        transport_stages: "Optional[List[CommonSustainabilityTransportWithSustainability]]" = None,
     ) -> None:
         """GetSustainabilityForBom2301Response - a model defined in Swagger
 
