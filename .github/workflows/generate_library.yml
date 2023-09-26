@@ -37,8 +37,9 @@ jobs:
         cache: maven
     
     - name: "Clean library folder"
-      run: rm -rf ansys-grantami-bomanalytics-openapi
-      
+      run: find . ! -name 'poetry.lock' -type f -exec rm -f {} +
+      working-directory: ansys-grantami-bomanalytics-openapi
+
     - name: "Build client library"
       run: mvn -Dbuild-id=${{ github.run_number }} -s .m2/settings.xml compile
       env:
@@ -50,11 +51,18 @@ jobs:
       with:
         python-version: "3.11"
 
+    - name: "Ensure poetry.lock file is up to date"
+      run: |
+        pip install poetry
+        poetry lock --no-update
+      working-directory: ansys-grantami-bomanalytics-openapi
+
     - name: "Install and run black"
       run: |
         pip install black
-        black ./ansys-grantami-bomanalytics-openapi/src ./ansys-grantami-bomanalytics-openapi/tests
-        
+        black ./src ./tests
+      working-directory: ansys-grantami-bomanalytics-openapi
+
     - name: "Commit changes to library code"
       uses: EndBug/add-and-commit@v9
       with:
