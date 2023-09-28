@@ -24,7 +24,7 @@ paths:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for materials
-      description: "Examines the substances contained within one or more materials and reports those that\r\n            are impacted by the specified legislations. Each substance includes the quantity of that\r\n            substance in the material and the quantity threshold imposed on that substance by the\r\n            relevant legislation. Both the quantity and threshold are only reported if present in\r\n            Granta MI, otherwise they are null.\\\r\n            \\\r\n            A material can be referenced by one of four different identifiers: record GUID, record\r\n            history GUID, record history identity, or material ID. The table that contains the\r\n            material of interest is not required, materials will be discovered if they are present\r\n            in either in the \"Materials in-house\" or \"MaterialUniverse\" tables.\\\r\n            \\\r\n            Legislations are specified by the legislation 'Short title' attribute."
+      description: "Examines the substances contained within one or more materials and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the material and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesMaterials
       requestBody:
         description: ''
@@ -35,7 +35,7 @@ paths:
             examples:
               example1:
                 summary: Material referenced by 'Material ID'
-                description: "This request includes one material and one legislation of interest where the material is\n                    referenced by its \"Material ID\". The \"Material ID\" corresponds to a MaterialUniverse material,\n                    but it could equally correspond to a \"Materials in-house\" material. The legislation name will\n                    determine which substances are reported as impacted substances for both materials."
+                description: "This request includes one material and one legislation of interest where the material is referenced by its \"Material ID\". The \"Material ID\" corresponds to a MaterialUniverse material, but it could equally correspond to a \"Materials in-house\" material. The legislation name will determine which substances are reported as impacted substances for both materials."
                 value:
                   Materials:
                     - ReferenceType: MaterialId
@@ -47,7 +47,7 @@ paths:
                   Config: 
               example2:
                 summary: Materials with different reference types
-                description: "This request includes two materials. The first material is referenced by its \"Record History\n                    GUID\", and the second by its \"Material ID\". Both materials correspond to MaterialUniverse\n                    records, but they could equally correspond to \"Materials in-house\" materials. The legislation\n                    name will determine which substances are reported as impacted substances for both materials."
+                description: "This request includes two materials. The first material is referenced by its \"Record History GUID\", and the second by its \"Material ID\". Both materials correspond to MaterialUniverse records, but they could equally correspond to \"Materials in-house\" materials. The legislation name will determine which substances are reported as impacted substances for both materials."
                 value:
                   Materials:
                     - ReferenceType: MiRecordHistoryGuid
@@ -62,7 +62,7 @@ paths:
                   Config: 
               example3:
                 summary: Multiple materials and legislations
-                description: "This request includes two materials and two legislations of interest. Both materials are\n                    referenced by their \"Material ID\", but could be referenced by different reference types. Both\n                    legislation names will determine which substances are reported as impacted substances for both\n                    materials."
+                description: "This request includes two materials and two legislations of interest. Both materials are referenced by their \"Material ID\", but could be referenced by different reference types. Both legislation names will determine which substances are reported as impacted substances for both materials."
                 value:
                   Materials:
                     - ReferenceType: MaterialId
@@ -79,7 +79,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Substances contained within each material from the request grouped by the legislation by which they are\r\n                impacted. A legislation is only included in the response if it impacts at least one substance; empty\r\n                legislation groupings are omitted from the response."
+          description: "Substances contained within each material from the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response."
           content:
             application/json:
               schema:
@@ -87,7 +87,7 @@ paths:
               examples:
                 example1:
                   summary: Material referenced by 'Material ID'
-                  description: "The response contains a single material object, which references the material in the same way it was\n                    referenced in the request, i.e. by \"Material ID\". The material object contains a \"Legislations\" array\n                    with a single element corresponding to the single legislation specified in the request.\\\n                    \\\n                    The legislation object itself contains an array of objects representing the substances contained within\n                    the material which are impacted by the specified legislation. \\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a single material object, which references the material in the same way it was referenced in the request, i.e. by \"Material ID\". The material object contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the material which are impacted by the specified legislation.  This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Materials:
                       - Legislations:
@@ -109,7 +109,7 @@ paths:
                     LogMessages: [ ]
                 example2:
                   summary: Materials with different reference types
-                  description: "The response contains two material objects, each of which reference the material in the same way\n                    as the request. Each material contains a \"Legislations\" array with a single element corresponding to the\n                    single legislation specified in the request.\\\n                    \\\n                    The legislation object itself contains an array of objects representing the substances contained within the\n                    material which are impacted by the specified legislation.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains two material objects, each of which reference the material in the same way as the request. Each material contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the material which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Materials:
                       - Legislations:
@@ -142,7 +142,7 @@ paths:
                     LogMessages: [ ]
                 example3:
                   summary: Multiple materials and legislations
-                  description: "The response contains two material objects, each of which reference the material in the same way\n                    as the request. Each material contains a \"Legislations\" array with two elements corresponding to the two\n                    legislations specified in the request.\\\n                    \\\n                    The legislation object itself contains an array of objects representing the substances contained\n                    within the material which are impacted by the specified legislation. If a legislation does not impact any\n                    substances for a particular material then it will not appear in the array of legislation objects for that\n                    material.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains two material objects, each of which reference the material in the same way as the request. Each material contains a \"Legislations\" array with two elements corresponding to the two legislations specified in the request. The legislation object itself contains an array of objects representing the substances contained within the material which are impacted by the specified legislation. If a legislation does not impact any substances for a particular material then it will not appear in the array of legislation objects for that material. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Materials:
                       - Legislations:
@@ -185,7 +185,7 @@ paths:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for specifications
-      description: "Examines the substances contained within one or more specifications by following links to\r\n            substances, materials, coatings and other specifications, and reports those that\r\n            are impacted by the specified legislations. Each substance includes the quantity of that\r\n            substance in the parent and the quantity threshold imposed on that substance by the\r\n            relevant legislation. Both the quantity and threshold are only reported if present in\r\n            Granta MI, otherwise they are null.\\\r\n            \\\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked coating, the one with the higher percentage amount\r\n            will be reported.\\\r\n            \\\r\n            A specification can be referenced by one of four different identifiers: record GUID, record\r\n            history GUID, record history identity, or specification ID. Legislations are specified by\r\n            the legislation 'Short title' attribute."
+      description: "Examines the substances contained within one or more specifications by following links to substances, materials, coatings and other specifications, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null. If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesSpecifications
       requestBody:
         description: ''
@@ -196,7 +196,7 @@ paths:
             examples:
               example1:
                 summary: Two specifications and one legislation
-                description: "This request includes two specifications. The first specifications is referenced by\n                    its \"Record History identity\", and the second by its \"Specification ID\". The legislation name\n                    will determine which substances are reported as impacted substances for both specifications."
+                description: "This request includes two specifications. The first specifications is referenced by its \"Record History identity\", and the second by its \"Specification ID\". The legislation name will determine which substances are reported as impacted substances for both specifications."
                 value:
                   Specifications:
                     - ReferenceType: MiRecordHistoryIdentity
@@ -212,7 +212,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Substances contained within each specification from the request grouped by the legislation by which\r\n                they are impacted. A legislation is only included in the response if it impacts at least one substance;\r\n                empty legislation groupings are omitted from the response.\\\r\n                \\\r\n                An 'impacted-substances' response does not include where in the specification the substance occurs,\r\n                e.g. included directly in the specification, in a referenced specification, coating, material, etc.\r\n                This information is supplied by the Compliance API functionality."
+          description: "Substances contained within each specification from the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the specification the substance occurs, e.g. included directly in the specification, in a referenced specification, coating, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
@@ -220,7 +220,7 @@ paths:
               examples:
                 example1:
                   summary: Two specifications and one legislation
-                  description: "The response contains two specification objects, each of which reference the specification in the same way\n                    as the request. Each specification contains a \"Legislations\" array with a single element corresponding to the single\n                    legislation specified in the request.\\\n                    \\\n                    The legislation object itself contains an array of objects representing the substances contained within the\n                    specification which are impacted by the specified legislation.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains two specification objects, each of which reference the specification in the same way as the request. Each specification contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the specification which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Specifications:
                       - Legislations:
@@ -261,7 +261,7 @@ paths:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for parts
-      description: "Examines the substances contained within one or more parts by following links to\r\n            substances, materials, specifications and other parts, and reports those that\r\n            are impacted by the specified legislations. Each substance includes the quantity of that\r\n            substance in the parent and the quantity threshold imposed on that substance by the\r\n            relevant legislation. Both the quantity and threshold are only reported if present in\r\n            Granta MI, otherwise they are null. \\\r\n            \\\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked coating, the one with the higher percentage amount\r\n            will be reported. \\\r\n            \\\r\n            A part can be referenced by one of four different identifiers: record GUID, record\r\n            history GUID, record history identity, or part number. Legislations are specified by\r\n            the legislation 'Short title' attribute."
+      description: "Examines the substances contained within one or more parts by following links to substances, materials, specifications and other parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesParts
       requestBody:
         description: ''
@@ -272,7 +272,7 @@ paths:
             examples:
               example1:
                 summary: Two parts and one legislation
-                description: "This request includes two parts. The first part is referenced by its\n                    \"Record History identity\", and the second by its \"Part Number\". The legislation\n                    name will determine which substances are reported as impacted substances for both\n                    parts."
+                description: "This request includes two parts. The first part is referenced by its \"Record History identity\", and the second by its \"Part Number\". The legislation name will determine which substances are reported as impacted substances for both parts."
                 value:
                   Parts:
                     - ReferenceType: MiRecordHistoryIdentity
@@ -288,7 +288,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Substances contained within each part from the request grouped by the legislation by which\r\n                they are impacted. A legislation is only included in the response if it impacts at least one\r\n                substance; empty legislation groupings are omitted from the response.\\\r\n                \\\r\n                An 'impacted-substances' response does not include where in the part the substance occurs,\r\n                e.g. included directly in the part, in a sub-component, specification, material, etc.\r\n                This information is supplied by the Compliance API functionality."
+          description: "Substances contained within each part from the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the part the substance occurs, e.g. included directly in the part, in a sub-component, specification, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
@@ -296,7 +296,7 @@ paths:
               examples:
                 example1:
                   summary: Two parts and one legislation
-                  description: "The response contains two part objects, each of which reference the part in the same way\n                    as the request. Each part contains a \"Legislations\" array with a single element corresponding to\n                    the single legislation specified in the request.\\\n                    \\\n                    The legislation object itself contains an array of objects representing the substances contained\n                    within the part which are impacted by the specified legislation.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains two part objects, each of which reference the part in the same way as the request. Each part contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the part which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Legislations:
@@ -337,7 +337,7 @@ paths:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for a Bill of Materials
-      description: "Examines the substances contained within a 17/11 Bill of Materials (BoM) by following\r\n            links to substances, materials, specifications, and parts, and reports those that\r\n            are impacted by the specified legislations. Each substance includes the quantity of that\r\n            substance in the parent and the quantity threshold imposed on that substance by the\r\n            relevant legislation. Both the quantity and threshold are only reported if present in\r\n            Granta MI, otherwise they are null. \\\r\n            \\\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked coating, the one with the higher percentage amount\r\n            will be reported. \\\r\n            \\\r\n            References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences;\r\n            see the 17/11 BoM schema for more details on how to construct a valid BoM. Legislations\r\n            are specified by the legislation 'Short title' attribute."
+      description: "Examines the substances contained within a 17/11 Bill of Materials (BoM) by following links to substances, materials, specifications, and parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesBom1711
       requestBody:
         description: ''
@@ -348,7 +348,7 @@ paths:
             examples:
               example1:
                 summary: 17/11 BoM
-                description: "The root part in this BoM includes two sub-parts; the first references\n                    a substance and the second includes a material. The legislation name will determine\n                    which substances are reported as impacted substances for the BoM."
+                description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
                 value:
                   BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   LegislationIds:
@@ -358,7 +358,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Substances contained within the BoM in the request grouped by the legislation by which\r\n                they are impacted. A legislation is only included in the response if it impacts at least\r\n                one substance; empty legislation groupings are omitted from the response.\\\r\n                \\\r\n                An 'impacted-substances' response does not include where in the BoM the substance occurs,\r\n                e.g. included in the BoM directly, in a sub-component, specification, material, etc.\r\n                This information is supplied by the Compliance API functionality."
+          description: "Substances contained within the BoM in the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the BoM the substance occurs, e.g. included in the BoM directly, in a sub-component, specification, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
@@ -366,7 +366,7 @@ paths:
               examples:
                 example1:
                   summary: 17/11 BoM
-                  description: "The response contains a \"Legislations\" array with a single element corresponding\n                    to the single legislation specified in the request. The legislation object itself contains\n                    an array of objects representing the substances contained within the BoM which are impacted\n                    by the specified legislation.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the BoM which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Legislations:
                       - LegislationId: SINList
@@ -387,7 +387,7 @@ paths:
       tags:
         - Impacted Substances
       summary: Get the impacted substances for a Bill of Materials
-      description: "Examines the substances contained within a 23/01 Bill of Materials (BoM) by following\r\n            links to substances, materials, specifications, and parts, and reports those that\r\n            are impacted by the specified legislations. Each substance includes the quantity of that\r\n            substance in the parent and the quantity threshold imposed on that substance by the\r\n            relevant legislation. Both the quantity and threshold are only reported if present in\r\n            Granta MI, otherwise they are null. \\\r\n            \\\r\n            If the same substance is impacted in more than one place, e.g. once in a linked\r\n            material and once in a linked coating, the one with the higher percentage amount\r\n            will be reported. \\\r\n            \\\r\n            References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences;\r\n            see the 23/01 BoM schema for more details on how to construct a valid BoM. Legislations\r\n            are specified by the legislation 'Short title' attribute."
+      description: "Examines the substances contained within a 23/01 Bill of Materials (BoM) by following links to substances, materials, specifications, and parts, and reports those that are impacted by the specified legislations. Each substance includes the quantity of that substance in the parent and the quantity threshold imposed on that substance by the relevant legislation. Both the quantity and threshold are only reported if present in Granta MI, otherwise they are null.  If the same substance is impacted in more than one place, e.g. once in a linked material and once in a linked coating, the one with the higher percentage amount will be reported.  References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. Legislations are specified by the legislation 'Short title' attribute."
       operationId: postImpactedsubstancesBom2301
       requestBody:
         description: ''
@@ -398,7 +398,7 @@ paths:
             examples:
               example1:
                 summary: 23/01 BoM
-                description: "The root part in this BoM includes two sub-parts; the first references\n                    a substance and the second includes a material. The legislation name will determine\n                    which substances are reported as impacted substances for the BoM."
+                description: "The root part in this BoM includes two sub-parts; the first references a substance and the second includes a material. The legislation name will determine which substances are reported as impacted substances for the BoM."
                 value:
                   BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   LegislationIds:
@@ -408,7 +408,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Substances contained within the BoM in the request grouped by the legislation by which\r\n                they are impacted. A legislation is only included in the response if it impacts at least\r\n                one substance; empty legislation groupings are omitted from the response.\\\r\n                \\\r\n                An 'impacted-substances' response does not include where in the BoM the substance occurs,\r\n                e.g. included in the BoM directly, in a sub-component, specification, material, etc.\r\n                This information is supplied by the Compliance API functionality."
+          description: "Substances contained within the BoM in the request grouped by the legislation by which they are impacted. A legislation is only included in the response if it impacts at least one substance; empty legislation groupings are omitted from the response. An 'impacted-substances' response does not include where in the BoM the substance occurs, e.g. included in the BoM directly, in a sub-component, specification, material, etc. This information is supplied by the Compliance API functionality."
           content:
             application/json:
               schema:
@@ -416,7 +416,7 @@ paths:
               examples:
                 example1:
                   summary: 23/01 BoM
-                  description: "The response contains a \"Legislations\" array with a single element corresponding\n                    to the single legislation specified in the request. The legislation object itself contains\n                    an array of objects representing the substances contained within the BoM which are impacted\n                    by the specified legislation.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Legislations\" array with a single element corresponding to the single legislation specified in the request. The legislation object itself contains an array of objects representing the substances contained within the BoM which are impacted by the specified legislation. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Legislations:
                       - LegislationId: SINList
@@ -437,7 +437,7 @@ paths:
       tags:
         - Compliance
       summary: Determine the compliance of one or more substances in the context of specified indicators
-      description: "Compliance is determined by comparing the substance quantity against the threshold\r\n            defined for that indicator. The response includes the compliance status for each\r\n            substance for each indicator.\\\r\n            \\\r\n            A substance can be referenced by one of six different identifiers: record GUID, record\r\n            history GUID, record history identity, CAS Number, EC Number, or Chemical Name. The amount\r\n            of substance is also required, since generally a substance is only non-compliant over a\r\n            certain threshold.\\\r\n            \\\r\n            Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator.\r\n            These indicators are intended to be used with RoHS-type legislations and REACH-type legislations\r\n            respectively, but this is not enforced in the API. Both indicator types are defined in\r\n            terms of one or more legislations against which compliance will be determined, and an\r\n            optional default substance threshold."
+      description: "Compliance is determined by comparing the substance quantity against the threshold defined for that indicator. The response includes the compliance status for each substance for each indicator. A substance can be referenced by one of six different identifiers: record GUID, record history GUID, record history identity, CAS Number, EC Number, or Chemical Name. The amount of substance is also required, since generally a substance is only non-compliant over a certain threshold. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold."
       operationId: postComplianceSubstances
       requestBody:
         description: ''
@@ -448,7 +448,7 @@ paths:
             examples:
               example1:
                 summary: Two substances and two indicators
-                description: "A set of substance references with their corresponding percentage amounts. The amounts will be\n                    compared to the legislation thresholds to determine whether the substance present in a quantity\n                    below or above the threshold. "
+                description: "A set of substance references with their corresponding percentage amounts. The amounts will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. "
                 value:
                   Substances:
                     - PercentageAmount: 0.05
@@ -479,7 +479,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each requested substance is returned with an array of indicators describing the compliance status\r\n                for that substance evaluated against that indicator."
+          description: "Each requested substance is returned with an array of indicators describing the compliance status for that substance evaluated against that indicator."
           content:
             application/json:
               schema:
@@ -487,7 +487,7 @@ paths:
               examples:
                 example1:
                   summary: Two substances and two indicators
-                  description: "The response contains a \"Substances\" array, with the elements corresponding\n                    to the substances specified in the request. Each substance contains the original\n                    reference from the request, along with an \"Indicators\" array.\\\n                    \\\n                    The \"Indicators\" array contains the compliance status for the substance evaluated\n                    against that indicator.\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Substances\" array, with the elements corresponding to the substances specified in the request. Each substance contains the original reference from the request, along with an \"Indicators\" array. The \"Indicators\" array contains the compliance status for the substance evaluated against that indicator.  This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Substances:
                       - Indicators:
@@ -512,7 +512,7 @@ paths:
       tags:
         - Compliance
       summary: Determine the compliance of one or more materials in the context of specified indicators
-      description: "Compliance is determined first by identifying the substances contained within the\r\n            materials, and then calculating the compliance status of those substances against the\r\n            specified indicators. The worst compliance results are then rolled-up from the\r\n            substances to the parent materials to determine material compliance. This endpoint\r\n            reports the compliance result for both the materials and substances.\\\r\n            \\\r\n            A material can be referenced by one of four different identifiers: record GUID, record\r\n            history GUID, record history identity, or material ID. The table that contains the\r\n            material of interest is not required, materials will be discovered if they are present\r\n            in either in the \"Materials in-house\" or \"MaterialUniverse\" tables.\\\r\n            \\\r\n            Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator.\r\n            These indicators are intended to be used with RoHS-type legislations and REACH-type\r\n            legislations respectively, but this is not enforced in the API. Both indicator types are\r\n            defined in terms of one or more legislations against which compliance will be determined,\r\n            and an optional default substance threshold.\\\r\n            \\\r\n            The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting\r\n            this to true will ignore any chemicals that have been set as process chemicals in Granta MI,\r\n            indicating that they are not present in the finished article. This setting defaults to false\r\n            if not set, meaning process chemicals are included in the compliance analysis. The parameter\r\n            has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS\r\n            Indicator."
+      description: "Compliance is determined first by identifying the substances contained within the materials, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances to the parent materials to determine material compliance. This endpoint reports the compliance result for both the materials and substances. A material can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or material ID. The table that contains the material of interest is not required, materials will be discovered if they are present in either in the \"Materials in-house\" or \"MaterialUniverse\" tables. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator."
       operationId: postComplianceMaterials
       requestBody:
         description: ''
@@ -523,7 +523,7 @@ paths:
             examples:
               example1:
                 summary: Two materials and two indicators
-                description: "A set of materials references and Indicator definitions. The substances contained\n                    within each material will be identified, and then the amounts of those substances will be\n                    compared to the legislation thresholds to determine whether the substance present in a\n                    quantity below or above the threshold.\\\n                    \\\n                    The substance compliance results are then rolled up to the material to determine material\n                    compliance."
+                description: "A set of materials references and Indicator definitions. The substances contained within each material will be identified, and then the amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled up to the material to determine material compliance."
                 value:
                   Materials:
                     - ReferenceType: MaterialId
@@ -551,7 +551,7 @@ paths:
                   Config: 
               example2:
                 summary: Ignore Process Chemicals
-                description: "A single material reference and two Watch List indicators, once of which has been\n                    set to ignore process chemicals. This means any substances marked as being involved in the\n                    production of the material only will be marked as Not Impacted regardless of their\n                    concentration or legislative status."
+                description: "A single material reference and two Watch List indicators, once of which has been set to ignore process chemicals. This means any substances marked as being involved in the production of the material only will be marked as Not Impacted regardless of their concentration or legislative status."
                 value:
                   Materials:
                     - ReferenceType: MaterialId
@@ -577,7 +577,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each requested material is returned with an array of indicators describing the compliance status\r\n                of each material against each indicator. Each material also contains an array of substances that\r\n                describes the compliance status of each substance contained within that material against each\r\n                indicator."
+          description: "Each requested material is returned with an array of indicators describing the compliance status of each material against each indicator. Each material also contains an array of substances that describes the compliance status of each substance contained within that material against each indicator."
           content:
             application/json:
               schema:
@@ -585,7 +585,7 @@ paths:
               examples:
                 example1:
                   summary: Two materials and two indicators
-                  description: "The response contains a \"Materials\" array, with the elements corresponding\n                    to the materials specified in the request. Each material contains the original\n                    reference from the request, along with an \"Indicators\" array and a \"Substances\" array.\\\n                    \\\n                    The \"Indicators\" array contains the compliance status for the materials evaluated\n                    against that indicator. The \"Substances\" array contains the substance compliance for the\n                    substances contained within that material.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Materials\" array, with the elements corresponding to the materials specified in the request. Each material contains the original reference from the request, along with an \"Indicators\" array and a \"Substances\" array. The \"Indicators\" array contains the compliance status for the materials evaluated against that indicator. The \"Substances\" array contains the substance compliance for the substances contained within that material. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Materials:
                       - Indicators:
@@ -633,7 +633,7 @@ paths:
                     LogMessages: [ ]
                 example2:
                   summary: Ignore Process Chemicals
-                  description: "The material contains two substances; the material with the ID '34567' is non-compliant, and the\n                    material with the ID '12345' is compliant. The indicator with the default configuration gives a non-compliant\n                    result as expected both for the non-compliant substance and the material itself.\\\n                    \\\n                    However, the non-compliant substance is a 'process chemical', and so the indicator that has been configured\n                    to ignore process chemicals identifies the substance with ID '34567' as Not Impacted, which results in the\n                    material having a compliant result.\\\n                    \\\n                    This example is for illustrative purposes only; the substances contained within this material have been\n                    modified to demonstrate the behavior described above. The real response to the corresponding request\n                    will differ to the one shown here."
+                  description: "The material contains two substances; the material with the ID '34567' is non-compliant, and the material with the ID '12345' is compliant. The indicator with the default configuration gives a non-compliant result as expected both for the non-compliant substance and the material itself. However, the non-compliant substance is a 'process chemical', and so the indicator that has been configured to ignore process chemicals identifies the substance with ID '34567' as Not Impacted, which results in the material having a compliant result. This example is for illustrative purposes only; the substances contained within this material have been modified to demonstrate the behavior described above. The real response to the corresponding request will differ to the one shown here."
                   value:
                     Materials:
                       - Indicators:
@@ -667,7 +667,7 @@ paths:
       tags:
         - Compliance
       summary: Determine the compliance of one or more specifications in the context of specified indicators
-      description: "Compliance is determined first by identifying the substances contained within the\r\n            specifications, either directly or indirectly, and then calculating the compliance status\r\n            of those substances against the specified indicators. The worst compliance results are then\r\n            rolled-up from the substances, through any intermediate coatings, materials, and\r\n            specifications, to determine the compliance of the specifications included in the request.\\\r\n            \\\r\n            This endpoint reports the compliance result at every level, and as a result the response\r\n            can be very large for complex specification hierarchies.\\\r\n            \\\r\n            A specification can be referenced by one of four different identifiers: record GUID, record\r\n            history GUID, record history identity, or specification ID.\\\r\n            \\\r\n            Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator.\r\n            These indicators are intended to be used with RoHS-type legislations and REACH-type\r\n            legislations respectively, but this is not enforced in the API. Both indicator types are\r\n            defined in terms of one or more legislations against which compliance will be determined,\r\n            and an optional default substance threshold.\\\r\n            \\\r\n            The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting\r\n            this to true will ignore any chemicals that have been set as process chemicals in Granta MI,\r\n            indicating that they are not present in the finished article. This setting defaults to false\r\n            if not set, meaning process chemicals are included in the compliance analysis. The parameter\r\n            has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS\r\n            Indicator."
+      description: "Compliance is determined first by identifying the substances contained within the specifications, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, and specifications, to determine the compliance of the specifications included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex specification hierarchies. A specification can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or specification ID. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator."
       operationId: postComplianceSpecifications
       requestBody:
         description: ''
@@ -678,7 +678,7 @@ paths:
             examples:
               example1:
                 summary: Two specifications and two indicators
-                description: "A set of specification references and Indicator definitions. The substances\n                    contained within each specification will be identified, following all links through\n                    intermediate specifications, coatings, and materials. The amounts of those substances\n                    will be compared to the legislation thresholds to determine whether the substance\n                    present in a quantity below or above the threshold.\\\n                    \\\n                    The substance compliance results are then rolled back up to the specification to\n                    determine overall specification compliance. Compliance will also be reported at each\n                    intermediate level of the specification hierarchy."
+                description: "A set of specification references and Indicator definitions. The substances contained within each specification will be identified, following all links through intermediate specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the specification to determine overall specification compliance. Compliance will also be reported at each intermediate level of the specification hierarchy."
                 value:
                   Specifications:
                     - ReferenceType: SpecificationId
@@ -707,7 +707,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each requested specification is returned with an array of indicators describing the compliance\r\n                status of each specification against each indicator. Each specification also contains arrays of\r\n                specifications, materials, coatings, and substances that describe the compliance status of each\r\n                intermediate level of the compliance analysis for each indicator.\\\r\n                \\\r\n                The size of the response and the length of time taken to generate it is dependent on the structure\r\n                of the data in the database. For example, even if only a single specification is requested, that\r\n                specification can link to multiple specifications, which each link to multiple specifications, and\r\n                so on. The response will contain the compliance status for every object referenced directly or\r\n                indirectly by the root specification."
+          description: "Each requested specification is returned with an array of indicators describing the compliance status of each specification against each indicator. Each specification also contains arrays of specifications, materials, coatings, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if only a single specification is requested, that specification can link to multiple specifications, which each link to multiple specifications, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root specification."
           content:
             application/json:
               schema:
@@ -715,7 +715,7 @@ paths:
               examples:
                 example1:
                   summary: Two specifications and two indicators
-                  description: "The response contains a \"Specifications\" array, with the elements corresponding\n                    to the specifications specified in the request. Each specification contains the original\n                    reference from the request, along with \"Indicators\", \"Specifications\", \"Materials\",\n                    \"Coatings\", and \"Substances\" arrays.\\\n                    \\\n                    The \"Indicators\" array contains the compliance status for the specifications evaluated\n                    against that indicator. The \"Specifications\", \"Materials\", \"Coatings\", and \"Substances\"\n                    arrays contains the substance compliance for the items that are contained within the current\n                    item, and follow a similar recursive structure.\\\n                    \\\n                    The example response also contains three log messages to illustrate the kind of log messages\n                    you may get when using this and other endpoints.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Specifications\" array, with the elements corresponding to the specifications specified in the request. Each specification contains the original reference from the request, along with \"Indicators\", \"Specifications\", \"Materials\", \"Coatings\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the specifications evaluated against that indicator. The \"Specifications\", \"Materials\", \"Coatings\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. The example response also contains three log messages to illustrate the kind of log messages you may get when using this and other endpoints. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Specifications:
                       - Indicators:
@@ -849,7 +849,7 @@ paths:
       tags:
         - Compliance
       summary: Determine the compliance of one or more parts in the context of specified indicators
-      description: "Compliance is determined first by identifying the substances contained within the\r\n            parts, either directly or indirectly, and then calculating the compliance status\r\n            of those substances against the specified indicators. The worst compliance results are then\r\n            rolled-up from the substances, through any intermediate coatings, materials, specifications,\r\n            and sub-parts, to determine the compliance of the parts included in the request.\\\r\n            \\\r\n            This endpoint reports the compliance result at every level, and as a result the response\r\n            can be very large for complex part hierarchies.\\\r\n            \\\r\n            A part can be referenced by one of four different identifiers: record GUID, record\r\n            history GUID, record history identity, or part number.\\\r\n            \\\r\n            Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator.\r\n            These indicators are intended to be used with RoHS-type legislations and REACH-type\r\n            legislations respectively, but this is not enforced in the API. Both indicator types are\r\n            defined in terms of one or more legislations against which compliance will be determined,\r\n            and an optional default substance threshold.\\\r\n            \\\r\n            The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting\r\n            this to true will ignore any chemicals that have been set as process chemicals in Granta MI,\r\n            indicating that they are not present in the finished article. This setting defaults to false\r\n            if not set, meaning process chemicals are included in the compliance analysis. The parameter\r\n            has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS\r\n            Indicator.\\\r\n            \\\r\n            The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true\r\n            will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain\r\n            substances over the threshold to be reported as Non-Compliant. This setting defaults to false\r\n            if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant\r\n            with Exemptions'. The parameter has no effect if used either on a non-part Compliance query\r\n            (since only parts can have RoHS exemptions), or with a Watch List Indicator."
+      description: "Compliance is determined first by identifying the substances contained within the parts, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the request. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. A part can be referenced by one of four different identifiers: record GUID, record history GUID, record history identity, or part number. Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator."
       operationId: postComplianceParts
       requestBody:
         description: ''
@@ -860,7 +860,7 @@ paths:
             examples:
               example1:
                 summary: Two parts and two indicators
-                description: "A set of part references and Indicator definitions. The substances\n                    contained within each part will be identified, following all links through\n                    intermediate parts, specifications, coatings, and materials. The amounts of those\n                    substances will be compared to the legislation thresholds to determine whether the\n                    substance present in a quantity below or above the threshold.\\\n                    \\\n                    The substance compliance results are then rolled back up to the part to\n                    determine overall part compliance. Compliance will also be reported at each\n                    intermediate level of the part hierarchy."
+                description: "A set of part references and Indicator definitions. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
                 value:
                   Parts:
                     - ReferenceType: PartNumber
@@ -888,7 +888,7 @@ paths:
                   Config: 
               example2:
                 summary: Ignore Exemptions
-                description: "A single part reference and two RoHS indicators, once of which has been\n                    set to ignore exemptions. This means any parts marked as being exempt from certain\n                    RoHS-impacted substances will instead be marked as Non Compliant if they contain\n                    such substances."
+                description: "A single part reference and two RoHS indicators, once of which has been set to ignore exemptions. This means any parts marked as being exempt from certain RoHS-impacted substances will instead be marked as Non Compliant if they contain such substances."
                 value:
                   Parts:
                     - ReferenceType: PartNumber
@@ -914,7 +914,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each requested part is returned with an array of indicators describing the compliance\r\n                status of each part against each indicator. Each part also contains arrays of\r\n                parts, specifications, materials, and substances that describe the compliance status of each\r\n                intermediate level of the compliance analysis for each indicator.\\\r\n                \\\r\n                The size of the response and the length of time taken to generate it is dependent on the structure\r\n                of the data in the database. For example, even if only a single part is requested, that part can\r\n                link to multiple parts, which each link to multiple parts, and so on. The response will contain\r\n                the compliance status for every object referenced directly or indirectly by the root part."
+          description: "Each requested part is returned with an array of indicators describing the compliance status of each part against each indicator. Each part also contains arrays of parts, specifications, materials, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if only a single part is requested, that part can link to multiple parts, which each link to multiple parts, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root part."
           content:
             application/json:
               schema:
@@ -922,7 +922,7 @@ paths:
               examples:
                 example1:
                   summary: Two parts and two indicators
-                  description: "The response contains a \"Parts\" array, with the elements corresponding\n                    to the parts specified in the request. Each part contains the original\n                    reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\",\n                    \"Materials\", and \"Substances\" arrays.\\\n                    \\\n                    The \"Indicators\" array contains the compliance status for the parts evaluated\n                    against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\"\n                    arrays contains the substance compliance for the items that are contained within the current\n                    item, and follow a similar recursive structure.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the parts evaluated against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Indicators:
@@ -1050,7 +1050,7 @@ paths:
                     LogMessages: [ ]
                 example2:
                   summary: Ignore Exemptions
-                  description: "The part 'FLRY33' has a RoHS exemption declared for lead as an alloying element. This part contains\n                    two lead, amongst other elements, in a concentration above 0.1% and would therefore normally be non-compliant\n                    under RoHS. \\\n                    \\\n                    The indicator with the default configuration gives a non-compliant result for the substance, but identifies the\n                    RoHS exemption on the part and so determines the compliance status as 'Compliant With Exemptions'.\\\n                    \\\n                    However, the indicator which is configured to ignore exemptions does not consider the exemption status of the part,\n                    and reports the compliance of both the substance and the part as 'Non Compliant'.\\\n                    \\\n                    This example is for illustrative purposes only; the substances contained within this part have been\n                    modified to demonstrate the behavior described above. The real response to the corresponding request\n                    will differ to the one shown here."
+                  description: "The part 'FLRY33' has a RoHS exemption declared for lead as an alloying element. This part contains two lead, amongst other elements, in a concentration above 0.1% and would therefore normally be non-compliant under RoHS.  The indicator with the default configuration gives a non-compliant result for the substance, but identifies the RoHS exemption on the part and so determines the compliance status as 'Compliant With Exemptions'. However, the indicator which is configured to ignore exemptions does not consider the exemption status of the part, and reports the compliance of both the substance and the part as 'Non Compliant'. This example is for illustrative purposes only; the substances contained within this part have been modified to demonstrate the behavior described above. The real response to the corresponding request will differ to the one shown here."
                   value:
                     Parts:
                       - Indicators:
@@ -1079,7 +1079,7 @@ paths:
       tags:
         - Compliance
       summary: Determine the compliance of a BoM in the context of specified indicators
-      description: "Compliance is determined first by identifying the substances contained within the\r\n            parts defined in the BoM, either directly or indirectly, and then calculating the compliance\r\n            status of those substances against the specified indicators. The worst compliance results are\r\n            then rolled-up from the substances, through any intermediate coatings, materials, specifications,\r\n            and sub-parts, to determine the compliance of the parts included in the BoM.\\\r\n            \\\r\n            This endpoint reports the compliance result at every level, and as a result the response\r\n            can be very large for complex part hierarchies.\\\r\n            \\\r\n            References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences;\r\n            see the 17/11 BoM schema for more details on how to construct a valid BoM.\r\n            \\\r\n            Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator.\r\n            These indicators are intended to be used with RoHS-type legislations and REACH-type\r\n            legislations respectively, but this is not enforced in the API. Both indicator types are\r\n            defined in terms of one or more legislations against which compliance will be determined,\r\n            and an optional default substance threshold.\\\r\n            \\\r\n            The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting\r\n            this to true will ignore any chemicals that have been set as process chemicals in Granta MI,\r\n            indicating that they are not present in the finished article. This setting defaults to false\r\n            if not set, meaning process chemicals are included in the compliance analysis. The parameter\r\n            has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS\r\n            Indicator.\\\r\n            \\\r\n            The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true\r\n            will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain\r\n            substances over the threshold to be reported as Non-Compliant. This setting defaults to false\r\n            if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant\r\n            with Exemptions'. The parameter has no effect if used either on a non-part Compliance query\r\n            (since only parts can have RoHS exemptions), or with a Watch List Indicator."
+      description: "Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 17/11 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator."
       operationId: postComplianceBom1711
       requestBody:
         description: ''
@@ -1090,7 +1090,7 @@ paths:
             examples:
               example1:
                 summary: Single-part BoM with a substance
-                description: "The root part in this BoM includes two sub-parts; the first references\n                    a substance directly, and the second references a material.\\\n                    \\\n                    The substances contained within each part will be identified, following all links\n                    through intermediate parts, specifications, coatings, and materials. The amounts of\n                    those substances will be compared to the legislation thresholds to determine whether\n                    the substance present in a quantity below or above the threshold.\\\n                    \\\n                    The substance compliance results are then rolled back up to the part to\n                    determine overall part compliance. Compliance will also be reported at each\n                    intermediate level of the part hierarchy."
+                description: "The root part in this BoM includes two sub-parts; the first references a substance directly, and the second references a material. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
                 value:
                   BomXml1711: <PartsEco xmlns="http://www.grantadesign.com/17/11/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   Indicators:
@@ -1113,7 +1113,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each part included in the BoM is returned with an array of indicators describing the compliance\r\n                status of each part against each indicator. Each part also contains arrays of\r\n                parts, specifications, materials, and substances that describe the compliance status of each\r\n                intermediate level of the compliance analysis for each indicator.\\\r\n                \\\r\n                The size of the response and the length of time taken to generate it is dependent on the structure\r\n                of the data in the database. For example, even if a BoM only contains a single part, that part can\r\n                link to multiple parts, which each link to multiple parts, and so on. The response will contain\r\n                the compliance status for every object referenced directly or indirectly by the root part."
+          description: "Each part included in the BoM is returned with an array of indicators describing the compliance status of each part against each indicator. Each part also contains arrays of parts, specifications, materials, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root part."
           content:
             application/json:
               schema:
@@ -1121,7 +1121,7 @@ paths:
               examples:
                 example1:
                   summary: Single-part BoM with a substance
-                  description: "The response contains a \"Parts\" array, with the elements corresponding\n                    to the parts specified in the request. Each part contains the original\n                    reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\",\n                    \"Materials\", and \"Substances\" arrays.\\\n                    \\\n                    The \"Indicators\" array contains the compliance status for the parts evaluated\n                    against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\"\n                    arrays contains the substance compliance for the items that are contained within the current\n                    item, and follow a similar recursive structure.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the parts evaluated against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Indicators:
@@ -1191,7 +1191,7 @@ paths:
       tags:
         - Compliance
       summary: Determine the compliance of a BoM in the context of specified indicators
-      description: "Compliance is determined first by identifying the substances contained within the\r\n            parts defined in the BoM, either directly or indirectly, and then calculating the compliance\r\n            status of those substances against the specified indicators. The worst compliance results are\r\n            then rolled-up from the substances, through any intermediate coatings, materials, specifications,\r\n            and sub-parts, to determine the compliance of the parts included in the BoM.\\\r\n            \\\r\n            This endpoint reports the compliance result at every level, and as a result the response\r\n            can be very large for complex part hierarchies.\\\r\n            \\\r\n            References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences;\r\n            see the 23/01 BoM schema for more details on how to construct a valid BoM.\r\n            \\\r\n            Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator.\r\n            These indicators are intended to be used with RoHS-type legislations and REACH-type\r\n            legislations respectively, but this is not enforced in the API. Both indicator types are\r\n            defined in terms of one or more legislations against which compliance will be determined,\r\n            and an optional default substance threshold.\\\r\n            \\\r\n            The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting\r\n            this to true will ignore any chemicals that have been set as process chemicals in Granta MI,\r\n            indicating that they are not present in the finished article. This setting defaults to false\r\n            if not set, meaning process chemicals are included in the compliance analysis. The parameter\r\n            has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS\r\n            Indicator.\\\r\n            \\\r\n            The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true\r\n            will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain\r\n            substances over the threshold to be reported as Non-Compliant. This setting defaults to false\r\n            if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant\r\n            with Exemptions'. The parameter has no effect if used either on a non-part Compliance query\r\n            (since only parts can have RoHS exemptions), or with a Watch List Indicator."
+      description: "Compliance is determined first by identifying the substances contained within the parts defined in the BoM, either directly or indirectly, and then calculating the compliance status of those substances against the specified indicators. The worst compliance results are then rolled-up from the substances, through any intermediate coatings, materials, specifications, and sub-parts, to determine the compliance of the parts included in the BoM. This endpoint reports the compliance result at every level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM.  Two indicator types are currently implemented, a RoHS Indicator and a Watch List Indicator. These indicators are intended to be used with RoHS-type legislations and REACH-type legislations respectively, but this is not enforced in the API. Both indicator types are defined in terms of one or more legislations against which compliance will be determined, and an optional default substance threshold. The Watch List Indicator includes an additional parameter 'ignoreProcessChemicals'. Setting this to true will ignore any chemicals that have been set as process chemicals in Granta MI, indicating that they are not present in the finished article. This setting defaults to false if not set, meaning process chemicals are included in the compliance analysis. The parameter has no effect if used on a Substance Compliance query, and has no effect if used with a RoHS Indicator. The RoHS Indicator includes an additional parameter 'ignoreExemptions'. Setting this to true will result in the compliance analysis ignoring RoHS exemptions, forcing all parts that contain substances over the threshold to be reported as Non-Compliant. This setting defaults to false if not set, meaning exemptions will be applied and such a part would be reported as 'Compliant with Exemptions'. The parameter has no effect if used either on a non-part Compliance query (since only parts can have RoHS exemptions), or with a Watch List Indicator."
       operationId: postComplianceBom2301
       requestBody:
         description: ''
@@ -1202,7 +1202,7 @@ paths:
             examples:
               example1:
                 summary: Single-part BoM with a substance
-                description: "The root part in this BoM includes two sub-parts; the first references\n                    a substance directly, and the second references a material.\\\n                    \\\n                    The substances contained within each part will be identified, following all links\n                    through intermediate parts, specifications, coatings, and materials. The amounts of\n                    those substances will be compared to the legislation thresholds to determine whether\n                    the substance present in a quantity below or above the threshold.\\\n                    \\\n                    The substance compliance results are then rolled back up to the part to\n                    determine overall part compliance. Compliance will also be reported at each\n                    intermediate level of the part hierarchy."
+                description: "The root part in this BoM includes two sub-parts; the first references a substance directly, and the second references a material. The substances contained within each part will be identified, following all links through intermediate parts, specifications, coatings, and materials. The amounts of those substances will be compared to the legislation thresholds to determine whether the substance present in a quantity below or above the threshold. The substance compliance results are then rolled back up to the part to determine overall part compliance. Compliance will also be reported at each intermediate level of the part hierarchy."
                 value:
                   BomXml2301: <PartsEco xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco" id="B0"><Components><Part id="A0"><Quantity Unit="Each">2</Quantity><PartNumber>123456789</PartNumber><Name>Part One</Name><Components><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>987654321</PartNumber><Name>New Part One</Name><Substances><Substance><Percentage>66</Percentage><MISubstanceReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">de44a721-14e7-4bd1-b0d1-5e1179d1f5e2</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">af1cb650-6db5-49d6-b4a2-0eee9a090207</recordHistoryGUID></MISubstanceReference><Name>Lead oxide</Name></Substance></Substances></Part><Part><Quantity Unit="Each">1</Quantity><MassPerUom Unit="kg/Part">2</MassPerUom><PartNumber>3333</PartNumber><Name>Part Two</Name><Materials><Material><Percentage>80</Percentage><MIMaterialReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">3df206df-9fc8-4859-90d4-3519764f8b55</recordGUID><recordHistoryGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b8e22139-81c5-4097-b2ec-718aa05dca04</recordHistoryGUID></MIMaterialReference></Material></Materials></Part></Components></Part></Components><Notes><Notes>Part with substance</Notes><ProductName>Part with substance</ProductName></Notes></PartsEco>
                   Indicators:
@@ -1225,7 +1225,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each part included in the BoM is returned with an array of indicators describing the compliance\r\n                status of each part against each indicator. Each part also contains arrays of\r\n                parts, specifications, materials, and substances that describe the compliance status of each\r\n                intermediate level of the compliance analysis for each indicator.\\\r\n                \\\r\n                The size of the response and the length of time taken to generate it is dependent on the structure\r\n                of the data in the database. For example, even if a BoM only contains a single part, that part can\r\n                link to multiple parts, which each link to multiple parts, and so on. The response will contain\r\n                the compliance status for every object referenced directly or indirectly by the root part."
+          description: "Each part included in the BoM is returned with an array of indicators describing the compliance status of each part against each indicator. Each part also contains arrays of parts, specifications, materials, and substances that describe the compliance status of each intermediate level of the compliance analysis for each indicator. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. The response will contain the compliance status for every object referenced directly or indirectly by the root part."
           content:
             application/json:
               schema:
@@ -1233,7 +1233,7 @@ paths:
               examples:
                 example1:
                   summary: Single-part BoM with a substance
-                  description: "The response contains a \"Parts\" array, with the elements corresponding\n                    to the parts specified in the request. Each part contains the original\n                    reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\",\n                    \"Materials\", and \"Substances\" arrays.\\\n                    \\\n                    The \"Indicators\" array contains the compliance status for the parts evaluated\n                    against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\"\n                    arrays contains the substance compliance for the items that are contained within the current\n                    item, and follow a similar recursive structure.\\\n                    \\\n                    This example is for illustrative purposes only; the real response to the corresponding request may\n                    include additional impacted substances."
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Indicators\", \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays. The \"Indicators\" array contains the compliance status for the parts evaluated against that indicator. The \"Parts\", \"Specifications\", \"Materials\", and \"Substances\" arrays contains the substance compliance for the items that are contained within the current item, and follow a similar recursive structure. This example is for illustrative purposes only; the real response to the corresponding request may include additional impacted substances."
                   value:
                     Parts:
                       - Indicators:
@@ -1306,7 +1306,7 @@ paths:
       operationId: getLicenses
       responses:
         '200':
-          description: "Returns a list of Granta MI analysis product licenses (\"Restricted Substances\", \"Sustainability\"), each\r\n                with a value of true or false depending on the availability of that license."
+          description: "Returns a list of Granta MI analysis product licenses (\"Restricted Substances\", \"Sustainability\"), each with a value of true or false depending on the availability of that license."
           content:
             application/json:
               schema:
@@ -1323,7 +1323,7 @@ paths:
       tags:
         - Sustainability
       summary: 'Provides sustainability analysis for a BoM, including embodied energy and climate change (CO2-eq) values.'
-      description: "This endpoint reports sustainability results for each applicable level, and as a result the response\r\n            can be very large for complex part hierarchies.\\\r\n            \\\r\n            References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences;\r\n            see the 23/01 BoM schema for more details on how to construct a valid BoM.\\\r\n            \\\r\n            Embodied Energy and Climate Change (CO2-eq) are rolled-up at a part level. The associated energy and\r\n            climate change values with a process are the costs of applying that process to the parent material or part.\r\n            The associated energy and climate change values with a material are the production costs of the material and\r\n            do not include the costs of any processes applied to it. However the associated values with a part are the\r\n            sum of any contained materials and parts, the processes applied to those materials as well as any processes applied\r\n            directly to the part itself."
+      description: "This endpoint reports sustainability results for each applicable level, and as a result the response can be very large for complex part hierarchies. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. Embodied Energy and Climate Change (CO2-eq) are rolled-up at a part level. The associated energy and climate change values with a process are the costs of applying that process to the parent material or part. The associated energy and climate change values with a material are the production costs of the material and do not include the costs of any processes applied to it. However the associated values with a part are the sum of any contained materials and parts, the processes applied to those materials as well as any processes applied directly to the part itself."
       operationId: postSustainabilityBom2301
       requestBody:
         description: ''
@@ -1334,7 +1334,7 @@ paths:
             examples:
               example1:
                 summary: Single-part BoM with a material and process.
-                description: "The root part in this BoM includes a sub-part; the first contains\n                    a material, and the material has a process applied to it."
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it."
                 value:
                   BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
                   PreferredUnits: 
@@ -1342,7 +1342,7 @@ paths:
                   Config: 
               example2:
                 summary: 'Single-part BoM with a material, process and transport stage with specified mass and energy units'
-                description: "The root part in this BoM includes a sub-part; the first contains\n                    a material, and the material has a process applied to it. The BoM also includes a transport stage."
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it. The BoM also includes a transport stage."
                 value:
                   BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><ExternalIdentity>1686152405220|5</ExternalIdentity><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><ExternalIdentity>1686152405220|16</ExternalIdentity><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><ExternalIdentity>1686152405220|14</ExternalIdentity><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><ExternalIdentity>1977190729730|4</ExternalIdentity><DimensionType>MassRemoved</DimensionType><Quantity Unit= "kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><TransportPhase><TransportStage><Name>Transport Stage One</Name><MITransportReference><dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">5fc9b500-d807-40a0-9138-f30dc46f0d70</recordGUID></MITransportReference><Distance Unit="km">100</Distance></TransportStage></TransportPhase><Location>  <MILocationReference>    <dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>    <recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>  </MILocationReference>  <Name></Name></Location><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
                   PreferredUnits:
@@ -1352,7 +1352,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each part included in the BoM which is applicable for sustainability analysis is returned with\r\n                an embodied energy and climate change (CO2-eq) property. Additionally materials which have end of life\r\n                data available will be returned with recyclable, functional recycle and biodegradable properties showing which\r\n                end of life options are available for the material.\\\r\n                \\\r\n                The size of the response and the length of time taken to generate it is dependent on the structure\r\n                of the data in the database. For example, even if a BoM only contains a single part, that part can\r\n                link to multiple parts, which each link to multiple parts, and so on.\\\r\n                \\\r\n                If no preferred units are specified in the Config key of the request, mass and climate change values will\r\n                be returned in 'kg' and embodied energy will be returned in 'MJ'."
+          description: "Each part included in the BoM which is applicable for sustainability analysis is returned with an embodied energy and climate change (CO2-eq) property. Additionally materials which have end of life data available will be returned with recyclable, functional recycle and biodegradable properties showing which end of life options are available for the material. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. If no preferred units are specified in the Config key of the request, mass and climate change values will be returned in 'kg' and embodied energy will be returned in 'MJ'."
           content:
             application/json:
               schema:
@@ -1360,7 +1360,7 @@ paths:
               examples:
                 example1:
                   summary: Single-part BoM with a material and process
-                  description: "The response contains a \"Parts\" array, with the elements corresponding\n                    to the parts specified in the request. Each part contains the original\n                    reference from the request, along with \"Embodied Energy\" and \"Climate Change\" properties, as well as\n                    \"Parts\", \"Specifications\", \"Materials\", \"Substances\" and \"Processes\" arrays.\\\n                    \\\n                    This example is for illustrative purposes only."
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Embodied Energy\" and \"Climate Change\" properties, as well as \"Parts\", \"Specifications\", \"Materials\", \"Substances\" and \"Processes\" arrays. This example is for illustrative purposes only."
                   value:
                     Parts:
                       - Parts:
@@ -1427,7 +1427,7 @@ paths:
                     LogMessages: [ ]
                 example2:
                   summary: 'Single-part BoM with a material, process and transport stage with specified mass and energy units'
-                  description: "The response contains a \"Parts\" array, with the elements corresponding\n                    to the parts specified in the request. Each part contains the original\n                    reference from the request, along with \"Embodied Energy\" and \"Climate Change\" properties, as well as\n                    \"Parts\", \"Specifications\", \"Materials\", \"Substances\" and \"Processes\" arrays.\\\n                    \\\n                    Mass, energy and climate change values are converted and returned to the respective preferred unit in the request.\\\n                    \\\n                    This example is for illustrative purposes only."
+                  description: "The response contains a \"Parts\" array, with the elements corresponding to the parts specified in the request. Each part contains the original reference from the request, along with \"Embodied Energy\" and \"Climate Change\" properties, as well as \"Parts\", \"Specifications\", \"Materials\", \"Substances\" and \"Processes\" arrays. Mass, energy and climate change values are converted and returned to the respective preferred unit in the request. This example is for illustrative purposes only."
                   value:
                     Parts:
                       - Parts:
@@ -1505,8 +1505,8 @@ paths:
     post:
       tags:
         - Sustainability
-      summary: "Summarises the sustainability analysis for a BoM, highlighting the most significant contributors to the\r\n            environmental impact."
-      description: "This endpoint summarises sustainability results for the material, transport and process phases. For BoMs\r\n            containing many materials and processes, this can result in the response being very large.\\\r\n            \\\r\n            References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences;\r\n            see the 23/01 BoM schema for more details on how to construct a valid BoM.\\\r\n            \\\r\n            The PhaseSummary property for each phase reports the percentage impact relative to the entire BoM\r\n            energy/climate change. Individual materials and transport entries give their percentage impact relative to\r\n            the phase, whilst individual process entries give their percentage relative to the process type. A primary\r\n            process entry with a embodied energy contribution of 50% would be 50% of the total embodied energy of primary\r\n            processes in the BoM, whereas a transport entry with the same contribution would be 50% of all transport energy\r\n            in the BoM."
+      summary: "Summarises the sustainability analysis for a BoM, highlighting the most significant contributors to the environmental impact."
+      description: "This endpoint summarises sustainability results for the material, transport and process phases. For BoMs containing many materials and processes, this can result in the response being very large. References to Granta MI records are constructed as 'GrantaBaseType' RecordReferences; see the 23/01 BoM schema for more details on how to construct a valid BoM. The PhaseSummary property for each phase reports the percentage impact relative to the entire BoM energy/climate change. Individual materials and transport entries give their percentage impact relative to the phase, whilst individual process entries give their percentage relative to the process type. A primary process entry with a embodied energy contribution of 50% would be 50% of the total embodied energy of primary processes in the BoM, whereas a transport entry with the same contribution would be 50% of all transport energy in the BoM."
       operationId: postSustainabilitysummaryBom2301
       requestBody:
         description: ''
@@ -1517,7 +1517,7 @@ paths:
             examples:
               example1:
                 summary: Single-part BoM with a material and two processes.
-                description: "The root part in this BoM includes a sub-part; the first contains\n                    a material, and the material has a primary and secondary process applied to it."
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it."
                 value:
                   BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
                   PreferredUnits: 
@@ -1525,7 +1525,7 @@ paths:
                   Config: 
               example2:
                 summary: 'Single-part BoM with a material, two processes and transport.'
-                description: "The root part in this BoM includes a sub-part; the first contains\n                    a material, and the material has a primary and secondary process applied to it. The BoM also has\n                    a transport stage defined."
+                description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it. The BoM also has a transport stage defined."
                 value:
                   BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name />          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <TransportPhase>    <TransportStage>      <Name>Transport Stage One</Name>              <MITransportReference>              <dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>              <recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">66e8fe77-9da3-4ae9-a914-c22038f1d9c9</recordGUID>          </MITransportReference>         <Distance Unit= "km">100</Distance>    </TransportStage>  </TransportPhase><Location>  <MILocationReference>    <dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>    <recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>  </MILocationReference>  <Name></Name></Location>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
                   PreferredUnits:
@@ -1537,7 +1537,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Each phase is created with a PhaseSummary, summarising the contributions of the phase as a whole. The\r\n                contribution of each process relative to its process type is returned and the contribution of each\r\n                material relative to the phase is returned, along with the components that contain the most of that\r\n                material where applicable. The contribution of each transport stage is returned relative to the phase.\\\r\n                \\\r\n                The size of the response and the length of time taken to generate it is dependent on the structure\r\n                of the data in the database. For example, even if a BoM only contains a single part, that part can\r\n                link to multiple parts, which each link to multiple parts, and so on.\\\r\n                \\\r\n                If no preferred units are specified in the PreferredUnits key of the request, mass and climate change\r\n                values will be returned in 'kg', embodied energy will be returned in 'MJ' and distance in 'km'."
+          description: "Each phase is created with a PhaseSummary, summarising the contributions of the phase as a whole. The contribution of each process relative to its process type is returned and the contribution of each material relative to the phase is returned, along with the components that contain the most of that material where applicable. The contribution of each transport stage is returned relative to the phase. The size of the response and the length of time taken to generate it is dependent on the structure of the data in the database. For example, even if a BoM only contains a single part, that part can link to multiple parts, which each link to multiple parts, and so on. If no preferred units are specified in the PreferredUnits key of the request, mass and climate change values will be returned in 'kg', embodied energy will be returned in 'MJ' and distance in 'km'."
           content:
             application/json:
               schema:
@@ -1545,7 +1545,7 @@ paths:
               examples:
                 example1:
                   summary: Single-part BoM with a material and two processes
-                  description: "The response contains a MaterialSummary, ProcessSummary and TransportSummary which each\n                    provide a summary view of the phase. The largest contributors for each phase will be returned with\n                    their embodied energy and climate change values, alongside their record reference (where applicable)\\\n                    \\\n                    This example is for illustrative purposes only."
+                  description: "The response contains a MaterialSummary, ProcessSummary and TransportSummary which each provide a summary view of the phase. The largest contributors for each phase will be returned with their embodied energy and climate change values, alongside their record reference (where applicable) This example is for illustrative purposes only."
                   value:
                     MaterialSummary:
                       Summary:
@@ -1652,7 +1652,7 @@ paths:
                     LogMessages: [ ]
                 example2:
                   summary: 'Single-part BoM with a material, two processes and transport'
-                  description: "The response contains a MaterialSummary, ProcessSummary and TransportSummary which each\n                    provide a summary view of the phase. The largest contributors for each phase will be returned with\n                    their embodied energy and climate change values, alongside their record reference (where applicable)\\\n                    \\\n                    Mass, energy, climate change and distance values are converted and returned in the respective\n                    preferred unit of the request.\\\n                    \\\n                    This example is for illustrative purposes only."
+                  description: "The response contains a MaterialSummary, ProcessSummary and TransportSummary which each provide a summary view of the phase. The largest contributors for each phase will be returned with their embodied energy and climate change values, alongside their record reference (where applicable) Mass, energy, climate change and distance values are converted and returned in the respective preferred unit of the request. This example is for illustrative purposes only."
                   value:
                     MaterialSummary:
                       Summary:
@@ -1804,17 +1804,17 @@ components:
       properties:
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.RequestConfig:
       type: object
       properties:
@@ -1878,17 +1878,17 @@ components:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.LegislationWithImpactedSubstances:
       type: object
       properties:
@@ -1954,17 +1954,17 @@ components:
       properties:
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetImpactedSubstancesForSpecifications.Response:
       type: object
       properties:
@@ -2020,17 +2020,17 @@ components:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetImpactedSubstancesForParts.Request:
       type: object
       properties:
@@ -2066,17 +2066,17 @@ components:
           description: This is set to the value of the PartNumber element in the input BoM.
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetImpactedSubstancesForParts.Response:
       type: object
       properties:
@@ -2135,17 +2135,17 @@ components:
           description: This is set to the value of the PartNumber element in the input BoM.
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetImpactedSubstancesForBom1711.Request:
       type: object
       properties:
@@ -2286,17 +2286,17 @@ components:
           format: double
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.IndicatorDefinition:
       type: object
       properties:
@@ -2354,17 +2354,17 @@ components:
             $ref: '#/components/schemas/Common.IndicatorResult'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.IndicatorResult:
       type: object
       properties:
@@ -2481,17 +2481,17 @@ components:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetComplianceForSpecifications.Request:
       type: object
       properties:
@@ -2696,17 +2696,17 @@ components:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.CoatingWithCompliance:
       type: object
       properties:
@@ -2724,7 +2724,7 @@ components:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetComplianceForParts.Request:
       type: object
       properties:
@@ -2929,17 +2929,17 @@ components:
           description: This is set to the value of the PartNumber element in the input BoM.
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetComplianceForBom1711.Request:
       type: object
       properties:
@@ -3307,17 +3307,17 @@ components:
           description: This is set to the value of the PartNumber element in the input BoM.
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.Sustainability.MaterialWithSustainability:
       type: object
       properties:
@@ -3346,17 +3346,17 @@ components:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.Sustainability.ProcessWithSustainability:
       type: object
       properties:
@@ -3366,17 +3366,17 @@ components:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.ValueWithUnit:
       type: object
       properties:
@@ -3391,17 +3391,17 @@ components:
       properties:
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.Sustainability.SpecificationWithSustainability:
       type: object
       properties:
@@ -3429,17 +3429,17 @@ components:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.CoatingReference:
       type: object
       properties:
@@ -3449,7 +3449,7 @@ components:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.Sustainability.TransportWithSustainability:
       type: object
       properties:
@@ -3463,7 +3463,7 @@ components:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     GetSustainabilitySummaryForBom2301.Request:
       type: object
       properties:
@@ -3698,17 +3698,17 @@ components:
       properties:
         ExternalIdentity:
           type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by\n            applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be\n            returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,\n            this property is omitted."
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
         Name:
           type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.\n            If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,\n            this property is omitted."
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
         ReferenceType:
           type: string
         ReferenceValue:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.Sustainability.TransportSummary:
       type: object
       properties:
@@ -3746,4 +3746,4 @@ components:
           type: string
         Id:
           type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.\n            If this was set in the input BoM, its value is returned in this property.\n            If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
