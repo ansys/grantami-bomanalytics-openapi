@@ -157,7 +157,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     @property
     def external_identity(self) -> "str":
         """Gets the external_identity of this GetImpactedSubstancesForPartsPart.
-        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by             applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be             returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,             this property is omitted.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Returns
         -------
@@ -169,7 +169,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     @external_identity.setter
     def external_identity(self, external_identity: "str") -> None:
         """Sets the external_identity of this GetImpactedSubstancesForPartsPart.
-        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by             applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be             returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,             this property is omitted.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
@@ -181,7 +181,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     @property
     def name(self) -> "str":
         """Gets the name of this GetImpactedSubstancesForPartsPart.
-        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.             If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,             this property is omitted.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Returns
         -------
@@ -193,7 +193,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     @name.setter
     def name(self, name: "str") -> None:
         """Sets the name of this GetImpactedSubstancesForPartsPart.
-        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.             If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,             this property is omitted.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
@@ -249,7 +249,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     @property
     def id(self) -> "str":
         """Gets the id of this GetImpactedSubstancesForPartsPart.
-        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
@@ -261,7 +261,7 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     @id.setter
     def id(self, id: "str") -> None:
         """Sets the id of this GetImpactedSubstancesForPartsPart.
-        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------

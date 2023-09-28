@@ -184,7 +184,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
     @property
     def id(self) -> "str":
         """Gets the id of this CommonSustainabilityTransportWithSustainability.
-        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
@@ -196,7 +196,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
     @id.setter
     def id(self, id: "str") -> None:
         """Sets the id of this CommonSustainabilityTransportWithSustainability.
-        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
