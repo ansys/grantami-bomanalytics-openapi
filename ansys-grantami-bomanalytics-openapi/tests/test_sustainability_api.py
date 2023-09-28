@@ -52,7 +52,7 @@ class TestSustainabilityApi:
 
     def test_post_sustainabilitysummary_bom2301(self, api_client):
         """Test case for post_sustainabilitysummary_bom2301
-        Summarises the sustainability analysis for a BoM, highlighting the most significant contributors to the environmental impact.  # noqa: E501
+        Summarises the sustainability analysis for a BoM, highlighting the most significant contributors to the              environmental impact.  # noqa: E501
         """
         model = generate_model(GetSustainabilitySummaryForBom2301Request)
         client = SustainabilityApi(api_client)

@@ -41,6 +41,7 @@ class CommonCoatingWithCompliance(ModelBase):
         "substances": "list[CommonSubstanceWithCompliance]",
         "reference_type": "str",
         "reference_value": "str",
+        "id": "str",
     }
 
     attribute_map = {
@@ -48,6 +49,7 @@ class CommonCoatingWithCompliance(ModelBase):
         "substances": "Substances",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "id": "Id",
     }
 
     subtype_mapping = {
@@ -58,6 +60,7 @@ class CommonCoatingWithCompliance(ModelBase):
     def __init__(
         self,
         *,
+        id: "Optional[str]" = None,
         indicators: "Optional[List[CommonIndicatorResult]]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
@@ -67,6 +70,7 @@ class CommonCoatingWithCompliance(ModelBase):
 
         Parameters
         ----------
+            id: str, optional
             indicators: List[CommonIndicatorResult], optional
             reference_type: str, optional
             reference_value: str, optional
@@ -76,6 +80,7 @@ class CommonCoatingWithCompliance(ModelBase):
         self._substances = None
         self._reference_type = None
         self._reference_value = None
+        self._id = None
         self.discriminator = None
         if indicators is not None:
             self.indicators = indicators
@@ -85,6 +90,8 @@ class CommonCoatingWithCompliance(ModelBase):
             self.reference_type = reference_type
         if reference_value is not None:
             self.reference_value = reference_value
+        if id is not None:
+            self.id = id
 
     @property
     def indicators(self) -> "list[CommonIndicatorResult]":
@@ -173,6 +180,30 @@ class CommonCoatingWithCompliance(ModelBase):
             The reference_value of this CommonCoatingWithCompliance.
         """
         self._reference_value = reference_value
+
+    @property
+    def id(self) -> "str":
+        """Gets the id of this CommonCoatingWithCompliance.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Returns
+        -------
+        str
+            The id of this CommonCoatingWithCompliance.
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: "str") -> None:
+        """Sets the id of this CommonCoatingWithCompliance.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Parameters
+        ----------
+        id: str
+            The id of this CommonCoatingWithCompliance.
+        """
+        self._id = id
 
     def get_real_child_model(self, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.

@@ -41,6 +41,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         "climate_change": "CommonValueWithUnit",
         "reference_type": "str",
         "reference_value": "str",
+        "id": "str",
     }
 
     attribute_map = {
@@ -48,6 +49,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         "climate_change": "ClimateChange",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "id": "Id",
     }
 
     subtype_mapping = {
@@ -60,6 +62,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         *,
         climate_change: "Optional[CommonValueWithUnit]" = None,
         embodied_energy: "Optional[CommonValueWithUnit]" = None,
+        id: "Optional[str]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
     ) -> None:
@@ -69,6 +72,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         ----------
             climate_change: CommonValueWithUnit, optional
             embodied_energy: CommonValueWithUnit, optional
+            id: str, optional
             reference_type: str, optional
             reference_value: str, optional
         """
@@ -76,6 +80,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         self._climate_change = None
         self._reference_type = None
         self._reference_value = None
+        self._id = None
         self.discriminator = None
         if embodied_energy is not None:
             self.embodied_energy = embodied_energy
@@ -85,6 +90,8 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             self.reference_type = reference_type
         if reference_value is not None:
             self.reference_value = reference_value
+        if id is not None:
+            self.id = id
 
     @property
     def embodied_energy(self) -> "CommonValueWithUnit":
@@ -173,6 +180,30 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             The reference_value of this CommonSustainabilityTransportWithSustainability.
         """
         self._reference_value = reference_value
+
+    @property
+    def id(self) -> "str":
+        """Gets the id of this CommonSustainabilityTransportWithSustainability.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Returns
+        -------
+        str
+            The id of this CommonSustainabilityTransportWithSustainability.
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: "str") -> None:
+        """Sets the id of this CommonSustainabilityTransportWithSustainability.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Parameters
+        ----------
+        id: str
+            The id of this CommonSustainabilityTransportWithSustainability.
+        """
+        self._id = id
 
     def get_real_child_model(self, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.

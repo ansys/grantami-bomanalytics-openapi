@@ -37,13 +37,19 @@ class CommonSpecificationReference(ModelBase):
 
     """
     swagger_types = {
+        "external_identity": "str",
+        "name": "str",
         "reference_type": "str",
         "reference_value": "str",
+        "id": "str",
     }
 
     attribute_map = {
+        "external_identity": "ExternalIdentity",
+        "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "id": "Id",
     }
 
     subtype_mapping = {}
@@ -51,6 +57,9 @@ class CommonSpecificationReference(ModelBase):
     def __init__(
         self,
         *,
+        external_identity: "Optional[str]" = None,
+        id: "Optional[str]" = None,
+        name: "Optional[str]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
     ) -> None:
@@ -58,16 +67,76 @@ class CommonSpecificationReference(ModelBase):
 
         Parameters
         ----------
+            external_identity: str, optional
+            id: str, optional
+            name: str, optional
             reference_type: str, optional
             reference_value: str, optional
         """
+        self._external_identity = None
+        self._name = None
         self._reference_type = None
         self._reference_value = None
+        self._id = None
         self.discriminator = None
+        if external_identity is not None:
+            self.external_identity = external_identity
+        if name is not None:
+            self.name = name
         if reference_type is not None:
             self.reference_type = reference_type
         if reference_value is not None:
             self.reference_value = reference_value
+        if id is not None:
+            self.id = id
+
+    @property
+    def external_identity(self) -> "str":
+        """Gets the external_identity of this CommonSpecificationReference.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by             applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be             returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,             this property is omitted.
+
+        Returns
+        -------
+        str
+            The external_identity of this CommonSpecificationReference.
+        """
+        return self._external_identity
+
+    @external_identity.setter
+    def external_identity(self, external_identity: "str") -> None:
+        """Sets the external_identity of this CommonSpecificationReference.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by             applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be             returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,             this property is omitted.
+
+        Parameters
+        ----------
+        external_identity: str
+            The external_identity of this CommonSpecificationReference.
+        """
+        self._external_identity = external_identity
+
+    @property
+    def name(self) -> "str":
+        """Gets the name of this CommonSpecificationReference.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.             If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,             this property is omitted.
+
+        Returns
+        -------
+        str
+            The name of this CommonSpecificationReference.
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: "str") -> None:
+        """Sets the name of this CommonSpecificationReference.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.             If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,             this property is omitted.
+
+        Parameters
+        ----------
+        name: str
+            The name of this CommonSpecificationReference.
+        """
+        self._name = name
 
     @property
     def reference_type(self) -> "str":
@@ -112,6 +181,30 @@ class CommonSpecificationReference(ModelBase):
             The reference_value of this CommonSpecificationReference.
         """
         self._reference_value = reference_value
+
+    @property
+    def id(self) -> "str":
+        """Gets the id of this CommonSpecificationReference.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Returns
+        -------
+        str
+            The id of this CommonSpecificationReference.
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: "str") -> None:
+        """Sets the id of this CommonSpecificationReference.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Parameters
+        ----------
+        id: str
+            The id of this CommonSpecificationReference.
+        """
+        self._id = id
 
     def get_real_child_model(self, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.

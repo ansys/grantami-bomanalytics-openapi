@@ -45,8 +45,11 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         "biodegradable": "bool",
         "functional_recycle": "bool",
         "reported_mass": "CommonValueWithUnit",
+        "external_identity": "str",
+        "name": "str",
         "reference_type": "str",
         "reference_value": "str",
+        "id": "str",
     }
 
     attribute_map = {
@@ -58,8 +61,11 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         "biodegradable": "Biodegradable",
         "functional_recycle": "FunctionalRecycle",
         "reported_mass": "ReportedMass",
+        "external_identity": "ExternalIdentity",
+        "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "id": "Id",
     }
 
     subtype_mapping = {
@@ -76,7 +82,10 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         biodegradable: "Optional[bool]" = None,
         climate_change: "Optional[CommonValueWithUnit]" = None,
         embodied_energy: "Optional[CommonValueWithUnit]" = None,
+        external_identity: "Optional[str]" = None,
         functional_recycle: "Optional[bool]" = None,
+        id: "Optional[str]" = None,
+        name: "Optional[str]" = None,
         processes: "Optional[List[CommonSustainabilityProcessWithSustainability]]" = None,
         recyclable: "Optional[bool]" = None,
         reference_type: "Optional[str]" = None,
@@ -91,7 +100,10 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             biodegradable: bool, optional
             climate_change: CommonValueWithUnit, optional
             embodied_energy: CommonValueWithUnit, optional
+            external_identity: str, optional
             functional_recycle: bool, optional
+            id: str, optional
+            name: str, optional
             processes: List[CommonSustainabilityProcessWithSustainability], optional
             recyclable: bool, optional
             reference_type: str, optional
@@ -107,8 +119,11 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._biodegradable = None
         self._functional_recycle = None
         self._reported_mass = None
+        self._external_identity = None
+        self._name = None
         self._reference_type = None
         self._reference_value = None
+        self._id = None
         self.discriminator = None
         if processes is not None:
             self.processes = processes
@@ -126,10 +141,16 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             self.functional_recycle = functional_recycle
         if reported_mass is not None:
             self.reported_mass = reported_mass
+        if external_identity is not None:
+            self.external_identity = external_identity
+        if name is not None:
+            self.name = name
         if reference_type is not None:
             self.reference_type = reference_type
         if reference_value is not None:
             self.reference_value = reference_value
+        if id is not None:
+            self.id = id
 
     @property
     def processes(self) -> "list[CommonSustainabilityProcessWithSustainability]":
@@ -310,6 +331,54 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._reported_mass = reported_mass
 
     @property
+    def external_identity(self) -> "str":
+        """Gets the external_identity of this CommonSustainabilityMaterialWithSustainability.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by             applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be             returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,             this property is omitted.
+
+        Returns
+        -------
+        str
+            The external_identity of this CommonSustainabilityMaterialWithSustainability.
+        """
+        return self._external_identity
+
+    @external_identity.setter
+    def external_identity(self, external_identity: "str") -> None:
+        """Sets the external_identity of this CommonSustainabilityMaterialWithSustainability.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by             applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be             returned back to the client in this property. If the ExternalIdentity was not present in the input BoM,             this property is omitted.
+
+        Parameters
+        ----------
+        external_identity: str
+            The external_identity of this CommonSustainabilityMaterialWithSustainability.
+        """
+        self._external_identity = external_identity
+
+    @property
+    def name(self) -> "str":
+        """Gets the name of this CommonSustainabilityMaterialWithSustainability.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.             If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,             this property is omitted.
+
+        Returns
+        -------
+        str
+            The name of this CommonSustainabilityMaterialWithSustainability.
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: "str") -> None:
+        """Sets the name of this CommonSustainabilityMaterialWithSustainability.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element.             If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM,             this property is omitted.
+
+        Parameters
+        ----------
+        name: str
+            The name of this CommonSustainabilityMaterialWithSustainability.
+        """
+        self._name = name
+
+    @property
     def reference_type(self) -> "str":
         """Gets the reference_type of this CommonSustainabilityMaterialWithSustainability.
 
@@ -352,6 +421,30 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             The reference_value of this CommonSustainabilityMaterialWithSustainability.
         """
         self._reference_value = reference_value
+
+    @property
+    def id(self) -> "str":
+        """Gets the id of this CommonSustainabilityMaterialWithSustainability.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Returns
+        -------
+        str
+            The id of this CommonSustainabilityMaterialWithSustainability.
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: "str") -> None:
+        """Sets the id of this CommonSustainabilityMaterialWithSustainability.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set.             If this was set in the input BoM, its value is returned in this property.             If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Parameters
+        ----------
+        id: str
+            The id of this CommonSustainabilityMaterialWithSustainability.
+        """
+        self._id = id
 
     def get_real_child_model(self, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
