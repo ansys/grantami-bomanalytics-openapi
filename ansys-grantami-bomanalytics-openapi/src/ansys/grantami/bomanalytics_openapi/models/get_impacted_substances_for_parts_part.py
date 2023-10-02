@@ -38,14 +38,22 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     """
     swagger_types = {
         "legislations": "list[CommonLegislationWithImpactedSubstances]",
+        "input_part_number": "str",
+        "external_identity": "str",
+        "name": "str",
         "reference_type": "str",
         "reference_value": "str",
+        "id": "str",
     }
 
     attribute_map = {
         "legislations": "Legislations",
+        "input_part_number": "InputPartNumber",
+        "external_identity": "ExternalIdentity",
+        "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "id": "Id",
     }
 
     subtype_mapping = {
@@ -55,7 +63,11 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     def __init__(
         self,
         *,
+        external_identity: "Optional[str]" = None,
+        id: "Optional[str]" = None,
+        input_part_number: "Optional[str]" = None,
         legislations: "Optional[List[CommonLegislationWithImpactedSubstances]]" = None,
+        name: "Optional[str]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
     ) -> None:
@@ -63,20 +75,36 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
 
         Parameters
         ----------
+            external_identity: str, optional
+            id: str, optional
+            input_part_number: str, optional
             legislations: List[CommonLegislationWithImpactedSubstances], optional
+            name: str, optional
             reference_type: str, optional
             reference_value: str, optional
         """
         self._legislations = None
+        self._input_part_number = None
+        self._external_identity = None
+        self._name = None
         self._reference_type = None
         self._reference_value = None
+        self._id = None
         self.discriminator = None
         if legislations is not None:
             self.legislations = legislations
+        if input_part_number is not None:
+            self.input_part_number = input_part_number
+        if external_identity is not None:
+            self.external_identity = external_identity
+        if name is not None:
+            self.name = name
         if reference_type is not None:
             self.reference_type = reference_type
         if reference_value is not None:
             self.reference_value = reference_value
+        if id is not None:
+            self.id = id
 
     @property
     def legislations(self) -> "list[CommonLegislationWithImpactedSubstances]":
@@ -101,6 +129,78 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
             The legislations of this GetImpactedSubstancesForPartsPart.
         """
         self._legislations = legislations
+
+    @property
+    def input_part_number(self) -> "str":
+        """Gets the input_part_number of this GetImpactedSubstancesForPartsPart.
+        This is set to the value of the PartNumber element in the input BoM.
+
+        Returns
+        -------
+        str
+            The input_part_number of this GetImpactedSubstancesForPartsPart.
+        """
+        return self._input_part_number
+
+    @input_part_number.setter
+    def input_part_number(self, input_part_number: "str") -> None:
+        """Sets the input_part_number of this GetImpactedSubstancesForPartsPart.
+        This is set to the value of the PartNumber element in the input BoM.
+
+        Parameters
+        ----------
+        input_part_number: str
+            The input_part_number of this GetImpactedSubstancesForPartsPart.
+        """
+        self._input_part_number = input_part_number
+
+    @property
+    def external_identity(self) -> "str":
+        """Gets the external_identity of this GetImpactedSubstancesForPartsPart.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
+
+        Returns
+        -------
+        str
+            The external_identity of this GetImpactedSubstancesForPartsPart.
+        """
+        return self._external_identity
+
+    @external_identity.setter
+    def external_identity(self, external_identity: "str") -> None:
+        """Sets the external_identity of this GetImpactedSubstancesForPartsPart.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
+
+        Parameters
+        ----------
+        external_identity: str
+            The external_identity of this GetImpactedSubstancesForPartsPart.
+        """
+        self._external_identity = external_identity
+
+    @property
+    def name(self) -> "str":
+        """Gets the name of this GetImpactedSubstancesForPartsPart.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
+
+        Returns
+        -------
+        str
+            The name of this GetImpactedSubstancesForPartsPart.
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: "str") -> None:
+        """Sets the name of this GetImpactedSubstancesForPartsPart.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
+
+        Parameters
+        ----------
+        name: str
+            The name of this GetImpactedSubstancesForPartsPart.
+        """
+        self._name = name
 
     @property
     def reference_type(self) -> "str":
@@ -145,6 +245,30 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
             The reference_value of this GetImpactedSubstancesForPartsPart.
         """
         self._reference_value = reference_value
+
+    @property
+    def id(self) -> "str":
+        """Gets the id of this GetImpactedSubstancesForPartsPart.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Returns
+        -------
+        str
+            The id of this GetImpactedSubstancesForPartsPart.
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: "str") -> None:
+        """Sets the id of this GetImpactedSubstancesForPartsPart.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Parameters
+        ----------
+        id: str
+            The id of this GetImpactedSubstancesForPartsPart.
+        """
+        self._id = id
 
     def get_real_child_model(self, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.

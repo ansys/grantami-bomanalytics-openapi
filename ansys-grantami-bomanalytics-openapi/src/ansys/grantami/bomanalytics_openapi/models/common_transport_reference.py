@@ -39,11 +39,13 @@ class CommonTransportReference(ModelBase):
     swagger_types = {
         "reference_type": "str",
         "reference_value": "str",
+        "id": "str",
     }
 
     attribute_map = {
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "id": "Id",
     }
 
     subtype_mapping = {}
@@ -51,6 +53,7 @@ class CommonTransportReference(ModelBase):
     def __init__(
         self,
         *,
+        id: "Optional[str]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
     ) -> None:
@@ -58,16 +61,20 @@ class CommonTransportReference(ModelBase):
 
         Parameters
         ----------
+            id: str, optional
             reference_type: str, optional
             reference_value: str, optional
         """
         self._reference_type = None
         self._reference_value = None
+        self._id = None
         self.discriminator = None
         if reference_type is not None:
             self.reference_type = reference_type
         if reference_value is not None:
             self.reference_value = reference_value
+        if id is not None:
+            self.id = id
 
     @property
     def reference_type(self) -> "str":
@@ -112,6 +119,30 @@ class CommonTransportReference(ModelBase):
             The reference_value of this CommonTransportReference.
         """
         self._reference_value = reference_value
+
+    @property
+    def id(self) -> "str":
+        """Gets the id of this CommonTransportReference.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Returns
+        -------
+        str
+            The id of this CommonTransportReference.
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: "str") -> None:
+        """Sets the id of this CommonTransportReference.
+        Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
+
+        Parameters
+        ----------
+        id: str
+            The id of this CommonTransportReference.
+        """
+        self._id = id
 
     def get_real_child_model(self, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
