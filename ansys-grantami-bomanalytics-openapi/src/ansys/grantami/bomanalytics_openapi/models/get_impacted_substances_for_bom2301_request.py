@@ -38,16 +38,16 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
     """
     swagger_types = {
         "bom_xml2301": "str",
-        "legislation_ids": "list[str]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "legislation_ids": "list[str]",
     }
 
     attribute_map = {
         "bom_xml2301": "BomXml2301",
-        "legislation_ids": "LegislationIds",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "legislation_ids": "LegislationIds",
     }
 
     subtype_mapping = {

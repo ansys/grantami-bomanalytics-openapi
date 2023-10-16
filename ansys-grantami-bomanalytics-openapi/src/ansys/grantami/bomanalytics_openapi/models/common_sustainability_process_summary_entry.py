@@ -37,25 +37,25 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
 
     """
     swagger_types = {
-        "process_name": "str",
-        "process_record_reference": "CommonProcessReference",
-        "material_record_reference": "CommonMaterialReference",
-        "material_identity": "str",
-        "embodied_energy": "CommonValueWithUnit",
-        "embodied_energy_percentage": "float",
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
+        "embodied_energy": "CommonValueWithUnit",
+        "embodied_energy_percentage": "float",
+        "material_identity": "str",
+        "material_record_reference": "CommonMaterialReference",
+        "process_name": "str",
+        "process_record_reference": "CommonProcessReference",
     }
 
     attribute_map = {
-        "process_name": "ProcessName",
-        "process_record_reference": "ProcessRecordReference",
-        "material_record_reference": "MaterialRecordReference",
-        "material_identity": "MaterialIdentity",
-        "embodied_energy": "EmbodiedEnergy",
-        "embodied_energy_percentage": "EmbodiedEnergyPercentage",
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
+        "embodied_energy": "EmbodiedEnergy",
+        "embodied_energy_percentage": "EmbodiedEnergyPercentage",
+        "material_identity": "MaterialIdentity",
+        "material_record_reference": "MaterialRecordReference",
+        "process_name": "ProcessName",
+        "process_record_reference": "ProcessRecordReference",
     }
 
     subtype_mapping = {

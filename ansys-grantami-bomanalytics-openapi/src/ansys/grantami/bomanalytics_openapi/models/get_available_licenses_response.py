@@ -37,15 +37,15 @@ class GetAvailableLicensesResponse(ModelBase):
 
     """
     swagger_types = {
+        "log_messages": "list[CommonLogEntry]",
         "restricted_substances": "bool",
         "sustainability": "bool",
-        "log_messages": "list[CommonLogEntry]",
     }
 
     attribute_map = {
+        "log_messages": "LogMessages",
         "restricted_substances": "RestrictedSubstances",
         "sustainability": "Sustainability",
-        "log_messages": "LogMessages",
     }
 
     subtype_mapping = {

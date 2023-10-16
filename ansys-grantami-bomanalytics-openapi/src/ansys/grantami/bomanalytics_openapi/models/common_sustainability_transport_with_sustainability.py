@@ -37,19 +37,21 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
 
     """
     swagger_types = {
-        "embodied_energy": "CommonValueWithUnit",
         "climate_change": "CommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
+        "id": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
+        "stage_name": "str",
     }
 
     attribute_map = {
-        "embodied_energy": "EmbodiedEnergy",
         "climate_change": "ClimateChange",
+        "embodied_energy": "EmbodiedEnergy",
+        "id": "Id",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
+        "stage_name": "StageName",
     }
 
     subtype_mapping = {
@@ -65,6 +67,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         id: "Optional[str]" = None,
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
+        stage_name: "Optional[str]" = None,
     ) -> None:
         """CommonSustainabilityTransportWithSustainability - a model defined in Swagger
 
@@ -75,13 +78,17 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             id: str, optional
             reference_type: str, optional
             reference_value: str, optional
+            stage_name: str, optional
         """
+        self._stage_name = None
         self._embodied_energy = None
         self._climate_change = None
         self._reference_type = None
         self._reference_value = None
         self._id = None
         self.discriminator = None
+        if stage_name is not None:
+            self.stage_name = stage_name
         if embodied_energy is not None:
             self.embodied_energy = embodied_energy
         if climate_change is not None:
@@ -92,6 +99,28 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             self.reference_value = reference_value
         if id is not None:
             self.id = id
+
+    @property
+    def stage_name(self) -> "str":
+        """Gets the stage_name of this CommonSustainabilityTransportWithSustainability.
+
+        Returns
+        -------
+        str
+            The stage_name of this CommonSustainabilityTransportWithSustainability.
+        """
+        return self._stage_name
+
+    @stage_name.setter
+    def stage_name(self, stage_name: "str") -> None:
+        """Sets the stage_name of this CommonSustainabilityTransportWithSustainability.
+
+        Parameters
+        ----------
+        stage_name: str
+            The stage_name of this CommonSustainabilityTransportWithSustainability.
+        """
+        self._stage_name = stage_name
 
     @property
     def embodied_energy(self) -> "CommonValueWithUnit":

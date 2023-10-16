@@ -37,17 +37,17 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
 
     """
     swagger_types = {
-        "parts": "list[CommonPartReference]",
-        "legislation_ids": "list[str]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "legislation_ids": "list[str]",
+        "parts": "list[CommonPartReference]",
     }
 
     attribute_map = {
-        "parts": "Parts",
-        "legislation_ids": "LegislationIds",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "legislation_ids": "LegislationIds",
+        "parts": "Parts",
     }
 
     subtype_mapping = {

@@ -37,13 +37,13 @@ class GetImpactedSubstancesForMaterialsResponse(ModelBase):
 
     """
     swagger_types = {
-        "materials": "list[GetImpactedSubstancesForMaterialsMaterial]",
         "log_messages": "list[CommonLogEntry]",
+        "materials": "list[GetImpactedSubstancesForMaterialsMaterial]",
     }
 
     attribute_map = {
-        "materials": "Materials",
         "log_messages": "LogMessages",
+        "materials": "Materials",
     }
 
     subtype_mapping = {

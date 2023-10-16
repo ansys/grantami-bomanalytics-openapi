@@ -37,21 +37,21 @@ class CommonSubstanceWithCompliance(ModelBase):
 
     """
     swagger_types = {
-        "indicators": "list[CommonIndicatorResult]",
         "external_identity": "str",
+        "id": "str",
+        "indicators": "list[CommonIndicatorResult]",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
-        "indicators": "Indicators",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
+        "indicators": "Indicators",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {

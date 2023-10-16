@@ -14,7 +14,6 @@
 from ansys.openapi.common import ModelBase
 
 # import models into model package
-from .common_coating_reference import CommonCoatingReference
 from .common_coating_with_compliance import CommonCoatingWithCompliance
 from .common_impacted_substance import CommonImpactedSubstance
 from .common_indicator_definition import CommonIndicatorDefinition
@@ -54,9 +53,6 @@ from .common_sustainability_process_summary_entry import (
 )
 from .common_sustainability_process_with_sustainability import (
     CommonSustainabilityProcessWithSustainability,
-)
-from .common_sustainability_specification_with_sustainability import (
-    CommonSustainabilitySpecificationWithSustainability,
 )
 from .common_sustainability_transport_summary import (
     CommonSustainabilityTransportSummary,

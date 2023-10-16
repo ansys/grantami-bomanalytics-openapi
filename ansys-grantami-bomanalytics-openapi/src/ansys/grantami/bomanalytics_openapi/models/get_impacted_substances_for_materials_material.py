@@ -37,21 +37,21 @@ class GetImpactedSubstancesForMaterialsMaterial(ModelBase):
 
     """
     swagger_types = {
-        "legislations": "list[CommonLegislationWithImpactedSubstances]",
         "external_identity": "str",
+        "id": "str",
+        "legislations": "list[CommonLegislationWithImpactedSubstances]",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
-        "legislations": "Legislations",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
+        "legislations": "Legislations",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {

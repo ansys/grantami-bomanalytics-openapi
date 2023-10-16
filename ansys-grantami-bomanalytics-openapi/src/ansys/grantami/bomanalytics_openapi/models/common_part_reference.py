@@ -37,21 +37,21 @@ class CommonPartReference(ModelBase):
 
     """
     swagger_types = {
-        "input_part_number": "str",
         "external_identity": "str",
+        "id": "str",
+        "input_part_number": "str",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
-        "input_part_number": "InputPartNumber",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
+        "input_part_number": "InputPartNumber",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {}

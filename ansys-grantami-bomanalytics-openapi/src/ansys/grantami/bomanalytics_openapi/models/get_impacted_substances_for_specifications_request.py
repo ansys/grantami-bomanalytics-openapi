@@ -37,17 +37,17 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
 
     """
     swagger_types = {
-        "specifications": "list[CommonSpecificationReference]",
-        "legislation_ids": "list[str]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "legislation_ids": "list[str]",
+        "specifications": "list[CommonSpecificationReference]",
     }
 
     attribute_map = {
-        "specifications": "Specifications",
-        "legislation_ids": "LegislationIds",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "legislation_ids": "LegislationIds",
+        "specifications": "Specifications",
     }
 
     subtype_mapping = {

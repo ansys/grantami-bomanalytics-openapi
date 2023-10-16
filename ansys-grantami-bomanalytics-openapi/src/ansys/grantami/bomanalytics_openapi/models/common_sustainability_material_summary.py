@@ -37,13 +37,13 @@ class CommonSustainabilityMaterialSummary(ModelBase):
 
     """
     swagger_types = {
-        "summary": "list[CommonSustainabilityMaterialSummaryEntry]",
         "phase_summary": "CommonSustainabilityPhaseSummary",
+        "summary": "list[CommonSustainabilityMaterialSummaryEntry]",
     }
 
     attribute_map = {
-        "summary": "Summary",
         "phase_summary": "PhaseSummary",
+        "summary": "Summary",
     }
 
     subtype_mapping = {

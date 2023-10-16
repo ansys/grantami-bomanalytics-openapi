@@ -38,16 +38,16 @@ class GetSustainabilitySummaryForBom2301Request(ModelBase):
     """
     swagger_types = {
         "bom_xml2301": "str",
-        "preferred_units": "CommonPreferredUnits",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "preferred_units": "CommonPreferredUnits",
     }
 
     attribute_map = {
         "bom_xml2301": "BomXml2301",
-        "preferred_units": "PreferredUnits",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "preferred_units": "PreferredUnits",
     }
 
     subtype_mapping = {

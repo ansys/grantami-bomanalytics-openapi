@@ -37,13 +37,13 @@ class GetComplianceForBom2301Response(ModelBase):
 
     """
     swagger_types = {
-        "parts": "list[CommonPartWithCompliance]",
         "log_messages": "list[CommonLogEntry]",
+        "parts": "list[CommonPartWithCompliance]",
     }
 
     attribute_map = {
-        "parts": "Parts",
         "log_messages": "LogMessages",
+        "parts": "Parts",
     }
 
     subtype_mapping = {

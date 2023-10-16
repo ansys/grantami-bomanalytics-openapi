@@ -37,17 +37,17 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
 
     """
     swagger_types = {
-        "materials": "list[CommonMaterialReference]",
-        "legislation_ids": "list[str]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "legislation_ids": "list[str]",
+        "materials": "list[CommonMaterialReference]",
     }
 
     attribute_map = {
-        "materials": "Materials",
-        "legislation_ids": "LegislationIds",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "legislation_ids": "LegislationIds",
+        "materials": "Materials",
     }
 
     subtype_mapping = {

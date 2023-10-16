@@ -37,13 +37,13 @@ class CommonValueWithUnit(ModelBase):
 
     """
     swagger_types = {
-        "value": "float",
         "unit": "str",
+        "value": "float",
     }
 
     attribute_map = {
-        "value": "Value",
         "unit": "Unit",
+        "value": "Value",
     }
 
     subtype_mapping = {}

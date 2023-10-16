@@ -37,13 +37,13 @@ class CommonLogEntry(ModelBase):
 
     """
     swagger_types = {
-        "severity": "str",
         "message": "str",
+        "severity": "str",
     }
 
     attribute_map = {
-        "severity": "Severity",
         "message": "Message",
+        "severity": "Severity",
     }
 
     subtype_mapping = {}

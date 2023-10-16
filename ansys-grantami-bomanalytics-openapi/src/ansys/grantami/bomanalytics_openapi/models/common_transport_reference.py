@@ -37,15 +37,15 @@ class CommonTransportReference(ModelBase):
 
     """
     swagger_types = {
+        "id": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
+        "id": "Id",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {}

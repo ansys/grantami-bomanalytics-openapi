@@ -37,23 +37,23 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
 
     """
     swagger_types = {
-        "embodied_energy": "CommonValueWithUnit",
         "climate_change": "CommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
         "external_identity": "str",
+        "id": "str",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
-        "embodied_energy": "EmbodiedEnergy",
         "climate_change": "ClimateChange",
+        "embodied_energy": "EmbodiedEnergy",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {

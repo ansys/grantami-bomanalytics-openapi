@@ -37,13 +37,13 @@ class GetComplianceForMaterialsResponse(ModelBase):
 
     """
     swagger_types = {
-        "materials": "list[CommonMaterialWithCompliance]",
         "log_messages": "list[CommonLogEntry]",
+        "materials": "list[CommonMaterialWithCompliance]",
     }
 
     attribute_map = {
-        "materials": "Materials",
         "log_messages": "LogMessages",
+        "materials": "Materials",
     }
 
     subtype_mapping = {

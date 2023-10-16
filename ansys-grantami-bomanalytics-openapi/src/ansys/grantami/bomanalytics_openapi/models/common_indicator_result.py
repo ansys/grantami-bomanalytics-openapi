@@ -37,13 +37,13 @@ class CommonIndicatorResult(ModelBase):
 
     """
     swagger_types = {
-        "name": "str",
         "flag": "str",
+        "name": "str",
     }
 
     attribute_map = {
-        "name": "Name",
         "flag": "Flag",
+        "name": "Name",
     }
 
     subtype_mapping = {}

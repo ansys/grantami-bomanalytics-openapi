@@ -38,18 +38,18 @@ class CommonSubstanceReference(ModelBase):
     """
     swagger_types = {
         "external_identity": "str",
+        "id": "str",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
         "external_identity": "ExternalIdentity",
+        "id": "Id",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {}

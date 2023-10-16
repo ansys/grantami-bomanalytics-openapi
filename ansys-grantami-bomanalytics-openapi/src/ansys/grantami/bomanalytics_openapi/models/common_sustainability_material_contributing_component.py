@@ -38,14 +38,14 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     """
     swagger_types = {
         "component_name": "str",
-        "record_reference": "CommonPartReference",
         "material_mass_before_processing": "CommonValueWithUnit",
+        "record_reference": "CommonPartReference",
     }
 
     attribute_map = {
         "component_name": "ComponentName",
-        "record_reference": "RecordReference",
         "material_mass_before_processing": "MaterialMassBeforeProcessing",
+        "record_reference": "RecordReference",
     }
 
     subtype_mapping = {

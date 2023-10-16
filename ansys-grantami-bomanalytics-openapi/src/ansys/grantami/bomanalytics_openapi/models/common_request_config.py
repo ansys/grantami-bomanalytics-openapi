@@ -37,29 +37,29 @@ class CommonRequestConfig(ModelBase):
 
     """
     swagger_types = {
-        "material_universe_table_name": "str",
-        "inhouse_materials_table_name": "str",
-        "specifications_table_name": "str",
-        "products_and_parts_table_name": "str",
-        "substances_table_name": "str",
         "coatings_table_name": "str",
-        "transport_table_name": "str",
-        "process_universe_table_name": "str",
+        "inhouse_materials_table_name": "str",
         "locations_table_name": "str",
+        "material_universe_table_name": "str",
         "maximum_spec_to_spec_link_depth": "int",
+        "process_universe_table_name": "str",
+        "products_and_parts_table_name": "str",
+        "specifications_table_name": "str",
+        "substances_table_name": "str",
+        "transport_table_name": "str",
     }
 
     attribute_map = {
-        "material_universe_table_name": "MaterialUniverseTableName",
-        "inhouse_materials_table_name": "InhouseMaterialsTableName",
-        "specifications_table_name": "SpecificationsTableName",
-        "products_and_parts_table_name": "ProductsAndPartsTableName",
-        "substances_table_name": "SubstancesTableName",
         "coatings_table_name": "CoatingsTableName",
-        "transport_table_name": "TransportTableName",
-        "process_universe_table_name": "ProcessUniverseTableName",
+        "inhouse_materials_table_name": "InhouseMaterialsTableName",
         "locations_table_name": "LocationsTableName",
+        "material_universe_table_name": "MaterialUniverseTableName",
         "maximum_spec_to_spec_link_depth": "MaximumSpecToSpecLinkDepth",
+        "process_universe_table_name": "ProcessUniverseTableName",
+        "products_and_parts_table_name": "ProductsAndPartsTableName",
+        "specifications_table_name": "SpecificationsTableName",
+        "substances_table_name": "SubstancesTableName",
+        "transport_table_name": "TransportTableName",
     }
 
     subtype_mapping = {}

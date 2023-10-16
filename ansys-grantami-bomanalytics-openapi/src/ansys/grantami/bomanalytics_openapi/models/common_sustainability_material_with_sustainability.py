@@ -37,40 +37,37 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
 
     """
     swagger_types = {
-        "processes": "list[CommonSustainabilityProcessWithSustainability]",
-        "substances": "list[CommonSubstanceReference]",
-        "embodied_energy": "CommonValueWithUnit",
-        "climate_change": "CommonValueWithUnit",
-        "recyclable": "bool",
         "biodegradable": "bool",
-        "functional_recycle": "bool",
-        "reported_mass": "CommonValueWithUnit",
+        "climate_change": "CommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
         "external_identity": "str",
+        "functional_recycle": "bool",
+        "id": "str",
         "name": "str",
+        "processes": "list[CommonSustainabilityProcessWithSustainability]",
+        "recyclable": "bool",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
+        "reported_mass": "CommonValueWithUnit",
     }
 
     attribute_map = {
-        "processes": "Processes",
-        "substances": "Substances",
-        "embodied_energy": "EmbodiedEnergy",
-        "climate_change": "ClimateChange",
-        "recyclable": "Recyclable",
         "biodegradable": "Biodegradable",
-        "functional_recycle": "FunctionalRecycle",
-        "reported_mass": "ReportedMass",
+        "climate_change": "ClimateChange",
+        "embodied_energy": "EmbodiedEnergy",
         "external_identity": "ExternalIdentity",
+        "functional_recycle": "FunctionalRecycle",
+        "id": "Id",
         "name": "Name",
+        "processes": "Processes",
+        "recyclable": "Recyclable",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
+        "reported_mass": "ReportedMass",
     }
 
     subtype_mapping = {
         "Processes": "CommonSustainabilityProcessWithSustainability",
-        "Substances": "CommonSubstanceReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
         "ReportedMass": "CommonValueWithUnit",
@@ -91,7 +88,6 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
         reported_mass: "Optional[CommonValueWithUnit]" = None,
-        substances: "Optional[List[CommonSubstanceReference]]" = None,
     ) -> None:
         """CommonSustainabilityMaterialWithSustainability - a model defined in Swagger
 
@@ -109,10 +105,8 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             reference_type: str, optional
             reference_value: str, optional
             reported_mass: CommonValueWithUnit, optional
-            substances: List[CommonSubstanceReference], optional
         """
         self._processes = None
-        self._substances = None
         self._embodied_energy = None
         self._climate_change = None
         self._recyclable = None
@@ -127,8 +121,6 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self.discriminator = None
         if processes is not None:
             self.processes = processes
-        if substances is not None:
-            self.substances = substances
         if embodied_energy is not None:
             self.embodied_energy = embodied_energy
         if climate_change is not None:
@@ -175,28 +167,6 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             The processes of this CommonSustainabilityMaterialWithSustainability.
         """
         self._processes = processes
-
-    @property
-    def substances(self) -> "list[CommonSubstanceReference]":
-        """Gets the substances of this CommonSustainabilityMaterialWithSustainability.
-
-        Returns
-        -------
-        list[CommonSubstanceReference]
-            The substances of this CommonSustainabilityMaterialWithSustainability.
-        """
-        return self._substances
-
-    @substances.setter
-    def substances(self, substances: "list[CommonSubstanceReference]") -> None:
-        """Sets the substances of this CommonSustainabilityMaterialWithSustainability.
-
-        Parameters
-        ----------
-        substances: list[CommonSubstanceReference]
-            The substances of this CommonSustainabilityMaterialWithSustainability.
-        """
-        self._substances = substances
 
     @property
     def embodied_energy(self) -> "CommonValueWithUnit":

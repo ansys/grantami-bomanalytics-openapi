@@ -37,23 +37,23 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
 
     """
     swagger_types = {
-        "stage_name": "str",
-        "record_reference": "CommonTransportReference",
+        "climate_change": "CommonValueWithUnit",
+        "climate_change_percentage": "float",
         "distance": "CommonValueWithUnit",
         "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
-        "climate_change": "CommonValueWithUnit",
-        "climate_change_percentage": "float",
+        "record_reference": "CommonTransportReference",
+        "stage_name": "str",
     }
 
     attribute_map = {
-        "stage_name": "StageName",
-        "record_reference": "RecordReference",
+        "climate_change": "ClimateChange",
+        "climate_change_percentage": "ClimateChangePercentage",
         "distance": "Distance",
         "embodied_energy": "EmbodiedEnergy",
         "embodied_energy_percentage": "EmbodiedEnergyPercentage",
-        "climate_change": "ClimateChange",
-        "climate_change_percentage": "ClimateChangePercentage",
+        "record_reference": "RecordReference",
+        "stage_name": "StageName",
     }
 
     subtype_mapping = {

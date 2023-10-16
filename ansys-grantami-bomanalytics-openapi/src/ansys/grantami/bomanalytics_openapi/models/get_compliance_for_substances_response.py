@@ -37,13 +37,13 @@ class GetComplianceForSubstancesResponse(ModelBase):
 
     """
     swagger_types = {
-        "substances": "list[CommonSubstanceWithCompliance]",
         "log_messages": "list[CommonLogEntry]",
+        "substances": "list[CommonSubstanceWithCompliance]",
     }
 
     attribute_map = {
-        "substances": "Substances",
         "log_messages": "LogMessages",
+        "substances": "Substances",
     }
 
     subtype_mapping = {
