@@ -37,13 +37,13 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
 
     """
     swagger_types = {
-        "parts": "list[GetImpactedSubstancesForPartsPart]",
         "log_messages": "list[CommonLogEntry]",
+        "parts": "list[GetImpactedSubstancesForPartsPart]",
     }
 
     attribute_map = {
-        "parts": "Parts",
         "log_messages": "LogMessages",
+        "parts": "Parts",
     }
 
     subtype_mapping = {

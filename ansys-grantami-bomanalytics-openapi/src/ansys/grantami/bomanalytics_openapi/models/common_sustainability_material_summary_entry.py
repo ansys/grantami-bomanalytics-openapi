@@ -37,27 +37,27 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
 
     """
     swagger_types = {
-        "identity": "str",
-        "record_reference": "CommonMaterialReference",
-        "embodied_energy": "CommonValueWithUnit",
-        "embodied_energy_percentage": "float",
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
-        "mass_before_processing": "CommonValueWithUnit",
-        "mass_after_processing": "CommonValueWithUnit",
+        "embodied_energy": "CommonValueWithUnit",
+        "embodied_energy_percentage": "float",
+        "identity": "str",
         "largest_contributors": "list[CommonSustainabilityMaterialContributingComponent]",
+        "mass_after_processing": "CommonValueWithUnit",
+        "mass_before_processing": "CommonValueWithUnit",
+        "record_reference": "CommonMaterialReference",
     }
 
     attribute_map = {
-        "identity": "Identity",
-        "record_reference": "RecordReference",
-        "embodied_energy": "EmbodiedEnergy",
-        "embodied_energy_percentage": "EmbodiedEnergyPercentage",
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
-        "mass_before_processing": "MassBeforeProcessing",
-        "mass_after_processing": "MassAfterProcessing",
+        "embodied_energy": "EmbodiedEnergy",
+        "embodied_energy_percentage": "EmbodiedEnergyPercentage",
+        "identity": "Identity",
         "largest_contributors": "LargestContributors",
+        "mass_after_processing": "MassAfterProcessing",
+        "mass_before_processing": "MassBeforeProcessing",
+        "record_reference": "RecordReference",
     }
 
     subtype_mapping = {

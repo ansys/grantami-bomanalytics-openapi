@@ -18,7 +18,6 @@ from .api.licenses_api import LicensesApi
 from .api.sustainability_api import SustainabilityApi
 
 # import models into sdk package
-from .models.common_coating_reference import CommonCoatingReference
 from .models.common_coating_with_compliance import CommonCoatingWithCompliance
 from .models.common_impacted_substance import CommonImpactedSubstance
 from .models.common_indicator_definition import CommonIndicatorDefinition
@@ -64,9 +63,6 @@ from .models.common_sustainability_process_summary_entry import (
 )
 from .models.common_sustainability_process_with_sustainability import (
     CommonSustainabilityProcessWithSustainability,
-)
-from .models.common_sustainability_specification_with_sustainability import (
-    CommonSustainabilitySpecificationWithSustainability,
 )
 from .models.common_sustainability_transport_summary import (
     CommonSustainabilityTransportSummary,

@@ -37,17 +37,17 @@ class GetComplianceForSpecificationsRequest(ModelBase):
 
     """
     swagger_types = {
-        "specifications": "list[CommonSpecificationReference]",
-        "indicators": "list[CommonIndicatorDefinition]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "indicators": "list[CommonIndicatorDefinition]",
+        "specifications": "list[CommonSpecificationReference]",
     }
 
     attribute_map = {
-        "specifications": "Specifications",
-        "indicators": "Indicators",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "indicators": "Indicators",
+        "specifications": "Specifications",
     }
 
     subtype_mapping = {

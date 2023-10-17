@@ -37,13 +37,13 @@ class GetImpactedSubstancesForSpecificationsResponse(ModelBase):
 
     """
     swagger_types = {
-        "specifications": "list[GetImpactedSubstancesForSpecificationsSpecification]",
         "log_messages": "list[CommonLogEntry]",
+        "specifications": "list[GetImpactedSubstancesForSpecificationsSpecification]",
     }
 
     attribute_map = {
-        "specifications": "Specifications",
         "log_messages": "LogMessages",
+        "specifications": "Specifications",
     }
 
     subtype_mapping = {

@@ -37,20 +37,20 @@ class CommonIndicatorDefinition(ModelBase):
 
     """
     swagger_types = {
-        "name": "str",
-        "legislation_ids": "list[str]",
         "default_threshold_percentage": "float",
         "ignore_exemptions": "bool",
         "ignore_process_chemicals": "bool",
+        "legislation_ids": "list[str]",
+        "name": "str",
         "type": "str",
     }
 
     attribute_map = {
-        "name": "Name",
-        "legislation_ids": "LegislationIds",
         "default_threshold_percentage": "DefaultThresholdPercentage",
         "ignore_exemptions": "IgnoreExemptions",
         "ignore_process_chemicals": "IgnoreProcessChemicals",
+        "legislation_ids": "LegislationIds",
+        "name": "Name",
         "type": "Type",
     }
 

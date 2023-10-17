@@ -37,17 +37,17 @@ class GetComplianceForMaterialsRequest(ModelBase):
 
     """
     swagger_types = {
-        "materials": "list[CommonMaterialReference]",
-        "indicators": "list[CommonIndicatorDefinition]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "indicators": "list[CommonIndicatorDefinition]",
+        "materials": "list[CommonMaterialReference]",
     }
 
     attribute_map = {
-        "materials": "Materials",
-        "indicators": "Indicators",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "indicators": "Indicators",
+        "materials": "Materials",
     }
 
     subtype_mapping = {

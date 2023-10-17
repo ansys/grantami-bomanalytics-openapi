@@ -37,29 +37,29 @@ class CommonSpecificationWithCompliance(ModelBase):
 
     """
     swagger_types = {
-        "indicators": "list[CommonIndicatorResult]",
-        "specifications": "list[CommonSpecificationWithCompliance]",
         "coatings": "list[CommonCoatingWithCompliance]",
-        "materials": "list[CommonMaterialWithCompliance]",
-        "substances": "list[CommonSubstanceWithCompliance]",
         "external_identity": "str",
+        "id": "str",
+        "indicators": "list[CommonIndicatorResult]",
+        "materials": "list[CommonMaterialWithCompliance]",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
+        "specifications": "list[CommonSpecificationWithCompliance]",
+        "substances": "list[CommonSubstanceWithCompliance]",
     }
 
     attribute_map = {
-        "indicators": "Indicators",
-        "specifications": "Specifications",
         "coatings": "Coatings",
-        "materials": "Materials",
-        "substances": "Substances",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
+        "indicators": "Indicators",
+        "materials": "Materials",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
+        "specifications": "Specifications",
+        "substances": "Substances",
     }
 
     subtype_mapping = {

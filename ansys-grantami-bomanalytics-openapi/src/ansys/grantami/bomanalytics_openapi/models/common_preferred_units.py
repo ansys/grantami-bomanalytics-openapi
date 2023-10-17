@@ -37,15 +37,15 @@ class CommonPreferredUnits(ModelBase):
 
     """
     swagger_types = {
-        "mass_unit": "str",
-        "energy_unit": "str",
         "distance_unit": "str",
+        "energy_unit": "str",
+        "mass_unit": "str",
     }
 
     attribute_map = {
-        "mass_unit": "MassUnit",
-        "energy_unit": "EnergyUnit",
         "distance_unit": "DistanceUnit",
+        "energy_unit": "EnergyUnit",
+        "mass_unit": "MassUnit",
     }
 
     subtype_mapping = {}

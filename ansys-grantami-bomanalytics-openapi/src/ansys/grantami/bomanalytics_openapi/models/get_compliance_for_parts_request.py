@@ -37,17 +37,17 @@ class GetComplianceForPartsRequest(ModelBase):
 
     """
     swagger_types = {
-        "parts": "list[CommonPartReference]",
-        "indicators": "list[CommonIndicatorDefinition]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "indicators": "list[CommonIndicatorDefinition]",
+        "parts": "list[CommonPartReference]",
     }
 
     attribute_map = {
-        "parts": "Parts",
-        "indicators": "Indicators",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "indicators": "Indicators",
+        "parts": "Parts",
     }
 
     subtype_mapping = {

@@ -37,23 +37,23 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
 
     """
     swagger_types = {
-        "legislations": "list[CommonLegislationWithImpactedSubstances]",
-        "input_part_number": "str",
         "external_identity": "str",
+        "id": "str",
+        "input_part_number": "str",
+        "legislations": "list[CommonLegislationWithImpactedSubstances]",
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
-        "legislations": "Legislations",
-        "input_part_number": "InputPartNumber",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
+        "input_part_number": "InputPartNumber",
+        "legislations": "Legislations",
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {

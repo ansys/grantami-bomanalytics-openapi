@@ -38,16 +38,16 @@ class GetComplianceForBom1711Request(ModelBase):
     """
     swagger_types = {
         "bom_xml1711": "str",
-        "indicators": "list[CommonIndicatorDefinition]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "indicators": "list[CommonIndicatorDefinition]",
     }
 
     attribute_map = {
         "bom_xml1711": "BomXml1711",
-        "indicators": "Indicators",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "indicators": "Indicators",
     }
 
     subtype_mapping = {

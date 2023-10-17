@@ -37,13 +37,13 @@ class GetComplianceForSpecificationsResponse(ModelBase):
 
     """
     swagger_types = {
-        "specifications": "list[CommonSpecificationWithCompliance]",
         "log_messages": "list[CommonLogEntry]",
+        "specifications": "list[CommonSpecificationWithCompliance]",
     }
 
     attribute_map = {
-        "specifications": "Specifications",
         "log_messages": "LogMessages",
+        "specifications": "Specifications",
     }
 
     subtype_mapping = {

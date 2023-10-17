@@ -37,13 +37,13 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
 
     """
     swagger_types = {
-        "legislation_id": "str",
         "impacted_substances": "list[CommonImpactedSubstance]",
+        "legislation_id": "str",
     }
 
     attribute_map = {
-        "legislation_id": "LegislationId",
         "impacted_substances": "ImpactedSubstances",
+        "legislation_id": "LegislationId",
     }
 
     subtype_mapping = {

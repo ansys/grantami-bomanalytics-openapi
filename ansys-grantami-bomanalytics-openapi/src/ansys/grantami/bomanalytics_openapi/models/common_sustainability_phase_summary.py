@@ -37,19 +37,19 @@ class CommonSustainabilityPhaseSummary(ModelBase):
 
     """
     swagger_types = {
-        "phase": "str",
-        "embodied_energy": "CommonValueWithUnit",
-        "embodied_energy_percentage": "float",
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
+        "embodied_energy": "CommonValueWithUnit",
+        "embodied_energy_percentage": "float",
+        "phase": "str",
     }
 
     attribute_map = {
-        "phase": "Phase",
-        "embodied_energy": "EmbodiedEnergy",
-        "embodied_energy_percentage": "EmbodiedEnergyPercentage",
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
+        "embodied_energy": "EmbodiedEnergy",
+        "embodied_energy_percentage": "EmbodiedEnergyPercentage",
+        "phase": "Phase",
     }
 
     subtype_mapping = {

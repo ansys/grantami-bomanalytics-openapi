@@ -37,37 +37,37 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
 
     """
     swagger_types = {
-        "parts": "list[CommonSustainabilityPartWithSustainability]",
-        "materials": "list[CommonSustainabilityMaterialWithSustainability]",
-        "processes": "list[CommonSustainabilityProcessWithSustainability]",
-        "substances": "list[CommonSubstanceReference]",
-        "specifications": "list[CommonSustainabilitySpecificationWithSustainability]",
-        "embodied_energy": "CommonValueWithUnit",
         "climate_change": "CommonValueWithUnit",
-        "reported_mass": "CommonValueWithUnit",
-        "input_part_number": "str",
+        "embodied_energy": "CommonValueWithUnit",
         "external_identity": "str",
+        "id": "str",
+        "input_part_number": "str",
+        "materials": "list[CommonSustainabilityMaterialWithSustainability]",
         "name": "str",
+        "parts": "list[CommonSustainabilityPartWithSustainability]",
+        "processes": "list[CommonSustainabilityProcessWithSustainability]",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
+        "reported_mass": "CommonValueWithUnit",
+        "specifications": "list[CommonSpecificationReference]",
+        "substances": "list[CommonSubstanceReference]",
     }
 
     attribute_map = {
-        "parts": "Parts",
-        "materials": "Materials",
-        "processes": "Processes",
-        "substances": "Substances",
-        "specifications": "Specifications",
-        "embodied_energy": "EmbodiedEnergy",
         "climate_change": "ClimateChange",
-        "reported_mass": "ReportedMass",
-        "input_part_number": "InputPartNumber",
+        "embodied_energy": "EmbodiedEnergy",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
+        "input_part_number": "InputPartNumber",
+        "materials": "Materials",
         "name": "Name",
+        "parts": "Parts",
+        "processes": "Processes",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
+        "reported_mass": "ReportedMass",
+        "specifications": "Specifications",
+        "substances": "Substances",
     }
 
     subtype_mapping = {
@@ -75,7 +75,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "Materials": "CommonSustainabilityMaterialWithSustainability",
         "Processes": "CommonSustainabilityProcessWithSustainability",
         "Substances": "CommonSubstanceReference",
-        "Specifications": "CommonSustainabilitySpecificationWithSustainability",
+        "Specifications": "CommonSpecificationReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
         "ReportedMass": "CommonValueWithUnit",
@@ -96,7 +96,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         reference_type: "Optional[str]" = None,
         reference_value: "Optional[str]" = None,
         reported_mass: "Optional[CommonValueWithUnit]" = None,
-        specifications: "Optional[List[CommonSustainabilitySpecificationWithSustainability]]" = None,
+        specifications: "Optional[List[CommonSpecificationReference]]" = None,
         substances: "Optional[List[CommonSubstanceReference]]" = None,
     ) -> None:
         """CommonSustainabilityPartWithSustainability - a model defined in Swagger
@@ -115,7 +115,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             reference_type: str, optional
             reference_value: str, optional
             reported_mass: CommonValueWithUnit, optional
-            specifications: List[CommonSustainabilitySpecificationWithSustainability], optional
+            specifications: List[CommonSpecificationReference], optional
             substances: List[CommonSubstanceReference], optional
         """
         self._parts = None
@@ -255,28 +255,25 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._substances = substances
 
     @property
-    def specifications(
-        self,
-    ) -> "list[CommonSustainabilitySpecificationWithSustainability]":
+    def specifications(self) -> "list[CommonSpecificationReference]":
         """Gets the specifications of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        list[CommonSustainabilitySpecificationWithSustainability]
+        list[CommonSpecificationReference]
             The specifications of this CommonSustainabilityPartWithSustainability.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self,
-        specifications: "list[CommonSustainabilitySpecificationWithSustainability]",
+        self, specifications: "list[CommonSpecificationReference]"
     ) -> None:
         """Sets the specifications of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        specifications: list[CommonSustainabilitySpecificationWithSustainability]
+        specifications: list[CommonSpecificationReference]
             The specifications of this CommonSustainabilityPartWithSustainability.
         """
         self._specifications = specifications

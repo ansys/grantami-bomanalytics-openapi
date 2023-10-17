@@ -37,19 +37,19 @@ class CommonImpactedSubstance(ModelBase):
 
     """
     swagger_types = {
-        "substance_name": "str",
         "cas_number": "str",
         "ec_number": "str",
-        "max_percentage_amount_in_material": "float",
         "legislation_threshold": "float",
+        "max_percentage_amount_in_material": "float",
+        "substance_name": "str",
     }
 
     attribute_map = {
-        "substance_name": "SubstanceName",
         "cas_number": "CasNumber",
         "ec_number": "EcNumber",
-        "max_percentage_amount_in_material": "MaxPercentageAmountInMaterial",
         "legislation_threshold": "LegislationThreshold",
+        "max_percentage_amount_in_material": "MaxPercentageAmountInMaterial",
+        "substance_name": "SubstanceName",
     }
 
     subtype_mapping = {}

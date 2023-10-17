@@ -37,21 +37,21 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
 
     """
     swagger_types = {
-        "percentage_amount": "float",
         "external_identity": "str",
+        "id": "str",
         "name": "str",
+        "percentage_amount": "float",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
     }
 
     attribute_map = {
-        "percentage_amount": "PercentageAmount",
         "external_identity": "ExternalIdentity",
+        "id": "Id",
         "name": "Name",
+        "percentage_amount": "PercentageAmount",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
     }
 
     subtype_mapping = {}

@@ -37,17 +37,17 @@ class GetComplianceForSubstancesRequest(ModelBase):
 
     """
     swagger_types = {
-        "substances": "list[GetComplianceForSubstancesSubstanceWithAmount]",
-        "indicators": "list[CommonIndicatorDefinition]",
-        "database_key": "str",
         "config": "CommonRequestConfig",
+        "database_key": "str",
+        "indicators": "list[CommonIndicatorDefinition]",
+        "substances": "list[GetComplianceForSubstancesSubstanceWithAmount]",
     }
 
     attribute_map = {
-        "substances": "Substances",
-        "indicators": "Indicators",
-        "database_key": "DatabaseKey",
         "config": "Config",
+        "database_key": "DatabaseKey",
+        "indicators": "Indicators",
+        "substances": "Substances",
     }
 
     subtype_mapping = {

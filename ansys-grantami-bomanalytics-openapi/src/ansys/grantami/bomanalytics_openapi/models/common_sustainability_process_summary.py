@@ -37,17 +37,17 @@ class CommonSustainabilityProcessSummary(ModelBase):
 
     """
     swagger_types = {
-        "primary_processes": "list[CommonSustainabilityProcessSummaryEntry]",
-        "secondary_processes": "list[CommonSustainabilityProcessSummaryEntry]",
         "joining_and_finishing_processes": "list[CommonSustainabilityProcessSummaryEntry]",
         "phase_summary": "CommonSustainabilityPhaseSummary",
+        "primary_processes": "list[CommonSustainabilityProcessSummaryEntry]",
+        "secondary_processes": "list[CommonSustainabilityProcessSummaryEntry]",
     }
 
     attribute_map = {
-        "primary_processes": "PrimaryProcesses",
-        "secondary_processes": "SecondaryProcesses",
         "joining_and_finishing_processes": "JoiningAndFinishingProcesses",
         "phase_summary": "PhaseSummary",
+        "primary_processes": "PrimaryProcesses",
+        "secondary_processes": "SecondaryProcesses",
     }
 
     subtype_mapping = {

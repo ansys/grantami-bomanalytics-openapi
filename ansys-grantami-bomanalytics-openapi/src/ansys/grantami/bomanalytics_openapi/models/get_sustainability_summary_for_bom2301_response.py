@@ -37,17 +37,17 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
 
     """
     swagger_types = {
+        "log_messages": "list[CommonLogEntry]",
         "material_summary": "CommonSustainabilityMaterialSummary",
         "process_summary": "CommonSustainabilityProcessSummary",
         "transport_summary": "CommonSustainabilityTransportSummary",
-        "log_messages": "list[CommonLogEntry]",
     }
 
     attribute_map = {
+        "log_messages": "LogMessages",
         "material_summary": "MaterialSummary",
         "process_summary": "ProcessSummary",
         "transport_summary": "TransportSummary",
-        "log_messages": "LogMessages",
     }
 
     subtype_mapping = {

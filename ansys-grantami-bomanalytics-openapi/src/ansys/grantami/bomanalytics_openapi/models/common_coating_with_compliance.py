@@ -37,19 +37,19 @@ class CommonCoatingWithCompliance(ModelBase):
 
     """
     swagger_types = {
+        "id": "str",
         "indicators": "list[CommonIndicatorResult]",
-        "substances": "list[CommonSubstanceWithCompliance]",
         "reference_type": "str",
         "reference_value": "str",
-        "id": "str",
+        "substances": "list[CommonSubstanceWithCompliance]",
     }
 
     attribute_map = {
+        "id": "Id",
         "indicators": "Indicators",
-        "substances": "Substances",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
-        "id": "Id",
+        "substances": "Substances",
     }
 
     subtype_mapping = {

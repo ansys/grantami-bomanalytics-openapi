@@ -37,15 +37,15 @@ class GetSustainabilityForBom2301Response(ModelBase):
 
     """
     swagger_types = {
+        "log_messages": "list[CommonLogEntry]",
         "parts": "list[CommonSustainabilityPartWithSustainability]",
         "transport_stages": "list[CommonSustainabilityTransportWithSustainability]",
-        "log_messages": "list[CommonLogEntry]",
     }
 
     attribute_map = {
+        "log_messages": "LogMessages",
         "parts": "Parts",
         "transport_stages": "TransportStages",
-        "log_messages": "LogMessages",
     }
 
     subtype_mapping = {
