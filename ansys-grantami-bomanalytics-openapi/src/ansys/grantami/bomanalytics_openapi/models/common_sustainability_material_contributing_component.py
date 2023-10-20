@@ -38,12 +38,14 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     """
     swagger_types = {
         "component_name": "str",
+        "component_part_number": "str",
         "material_mass_before_processing": "CommonValueWithUnit",
         "record_reference": "CommonPartReference",
     }
 
     attribute_map = {
         "component_name": "ComponentName",
+        "component_part_number": "ComponentPartNumber",
         "material_mass_before_processing": "MaterialMassBeforeProcessing",
         "record_reference": "RecordReference",
     }
@@ -57,6 +59,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         self,
         *,
         component_name: "Optional[str]" = None,
+        component_part_number: "Optional[str]" = None,
         material_mass_before_processing: "Optional[CommonValueWithUnit]" = None,
         record_reference: "Optional[CommonPartReference]" = None,
     ) -> None:
@@ -65,15 +68,19 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         Parameters
         ----------
             component_name: str, optional
+            component_part_number: str, optional
             material_mass_before_processing: CommonValueWithUnit, optional
             record_reference: CommonPartReference, optional
         """
         self._component_name = None
+        self._component_part_number = None
         self._record_reference = None
         self._material_mass_before_processing = None
         self.discriminator = None
         if component_name is not None:
             self.component_name = component_name
+        if component_part_number is not None:
+            self.component_part_number = component_part_number
         if record_reference is not None:
             self.record_reference = record_reference
         if material_mass_before_processing is not None:
@@ -100,6 +107,28 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
             The component_name of this CommonSustainabilityMaterialContributingComponent.
         """
         self._component_name = component_name
+
+    @property
+    def component_part_number(self) -> "str":
+        """Gets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
+
+        Returns
+        -------
+        str
+            The component_part_number of this CommonSustainabilityMaterialContributingComponent.
+        """
+        return self._component_part_number
+
+    @component_part_number.setter
+    def component_part_number(self, component_part_number: "str") -> None:
+        """Sets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
+
+        Parameters
+        ----------
+        component_part_number: str
+            The component_part_number of this CommonSustainabilityMaterialContributingComponent.
+        """
+        self._component_part_number = component_part_number
 
     @property
     def record_reference(self) -> "CommonPartReference":
