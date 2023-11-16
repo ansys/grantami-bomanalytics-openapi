@@ -35,6 +35,8 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "impacted_substances": "list[CommonImpactedSubstance]",
@@ -49,6 +51,8 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
     subtype_mapping = {
         "ImpactedSubstances": "CommonImpactedSubstance",
     }
+
+    discriminator = None
 
     def __init__(
         self,
@@ -65,7 +69,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         """
         self._legislation_id = None
         self._impacted_substances = None
-        self.discriminator = None
+
         if legislation_id is not None:
             self.legislation_id = legislation_id
         if impacted_substances is not None:
@@ -117,7 +121,8 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         """
         self._impacted_substances = impacted_substances
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

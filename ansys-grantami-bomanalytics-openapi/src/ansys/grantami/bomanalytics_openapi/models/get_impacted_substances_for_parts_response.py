@@ -35,6 +35,8 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "log_messages": "list[CommonLogEntry]",
@@ -51,6 +53,8 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
         "LogMessages": "CommonLogEntry",
     }
 
+    discriminator = None
+
     def __init__(
         self,
         *,
@@ -66,7 +70,7 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
         """
         self._parts = None
         self._log_messages = None
-        self.discriminator = None
+
         if parts is not None:
             self.parts = parts
         if log_messages is not None:
@@ -116,7 +120,8 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
         """
         self._log_messages = log_messages
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

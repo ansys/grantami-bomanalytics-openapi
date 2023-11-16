@@ -35,6 +35,8 @@ class CommonSustainabilityProcessSummary(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "joining_and_finishing_processes": "list[CommonSustainabilityProcessSummaryEntry]",
@@ -57,6 +59,8 @@ class CommonSustainabilityProcessSummary(ModelBase):
         "PhaseSummary": "CommonSustainabilityPhaseSummary",
     }
 
+    discriminator = None
+
     def __init__(
         self,
         *,
@@ -78,7 +82,7 @@ class CommonSustainabilityProcessSummary(ModelBase):
         self._secondary_processes = None
         self._joining_and_finishing_processes = None
         self._phase_summary = None
-        self.discriminator = None
+
         if primary_processes is not None:
             self.primary_processes = primary_processes
         if secondary_processes is not None:
@@ -185,7 +189,8 @@ class CommonSustainabilityProcessSummary(ModelBase):
         """
         self._phase_summary = phase_summary
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

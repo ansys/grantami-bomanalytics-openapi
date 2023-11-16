@@ -35,6 +35,8 @@ class CommonMaterialWithCompliance(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "external_identity": "str",
@@ -60,6 +62,8 @@ class CommonMaterialWithCompliance(ModelBase):
         "Indicators": "CommonIndicatorResult",
         "Substances": "CommonSubstanceWithCompliance",
     }
+
+    discriminator = None
 
     def __init__(
         self,
@@ -91,7 +95,7 @@ class CommonMaterialWithCompliance(ModelBase):
         self._reference_type = None
         self._reference_value = None
         self._id = None
-        self.discriminator = None
+
         if indicators is not None:
             self.indicators = indicators
         if substances is not None:
@@ -267,7 +271,8 @@ class CommonMaterialWithCompliance(ModelBase):
         """
         self._id = id
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

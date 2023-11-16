@@ -35,6 +35,8 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "component_name": "str",
@@ -54,6 +56,8 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         "RecordReference": "CommonPartReference",
         "MaterialMassBeforeProcessing": "CommonValueWithUnit",
     }
+
+    discriminator = None
 
     def __init__(
         self,
@@ -76,7 +80,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         self._component_part_number = None
         self._record_reference = None
         self._material_mass_before_processing = None
-        self.discriminator = None
+
         if component_name is not None:
             self.component_name = component_name
         if component_part_number is not None:
@@ -176,7 +180,8 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         """
         self._material_mass_before_processing = material_mass_before_processing
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters
