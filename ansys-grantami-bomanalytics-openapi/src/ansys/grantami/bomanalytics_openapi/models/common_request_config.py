@@ -35,6 +35,8 @@ class CommonRequestConfig(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "coatings_table_name": "str",
@@ -63,6 +65,8 @@ class CommonRequestConfig(ModelBase):
     }
 
     subtype_mapping = {}
+
+    discriminator = None
 
     def __init__(
         self,
@@ -103,7 +107,7 @@ class CommonRequestConfig(ModelBase):
         self._process_universe_table_name = None
         self._locations_table_name = None
         self._maximum_spec_to_spec_link_depth = None
-        self.discriminator = None
+
         if material_universe_table_name is not None:
             self.material_universe_table_name = material_universe_table_name
         if inhouse_materials_table_name is not None:
@@ -349,7 +353,8 @@ class CommonRequestConfig(ModelBase):
         """
         self._maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

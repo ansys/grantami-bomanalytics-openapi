@@ -35,6 +35,8 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "bom_xml2301": "str",
@@ -53,6 +55,8 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
     subtype_mapping = {
         "Config": "CommonRequestConfig",
     }
+
+    discriminator = None
 
     def __init__(
         self,
@@ -75,7 +79,7 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
         self._legislation_ids = None
         self._database_key = None
         self._config = None
-        self.discriminator = None
+
         if bom_xml2301 is not None:
             self.bom_xml2301 = bom_xml2301
         if legislation_ids is not None:
@@ -173,7 +177,8 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
         """
         self._config = config
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

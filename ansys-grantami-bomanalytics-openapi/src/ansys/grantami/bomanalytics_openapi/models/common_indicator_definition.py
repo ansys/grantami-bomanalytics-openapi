@@ -35,6 +35,8 @@ class CommonIndicatorDefinition(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "default_threshold_percentage": "float",
@@ -55,6 +57,8 @@ class CommonIndicatorDefinition(ModelBase):
     }
 
     subtype_mapping = {}
+
+    discriminator = None
 
     def __init__(
         self,
@@ -83,7 +87,7 @@ class CommonIndicatorDefinition(ModelBase):
         self._ignore_exemptions = None
         self._ignore_process_chemicals = None
         self._type = None
-        self.discriminator = None
+
         if name is not None:
             self.name = name
         if legislation_ids is not None:
@@ -231,7 +235,8 @@ class CommonIndicatorDefinition(ModelBase):
         """
         self._type = type
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

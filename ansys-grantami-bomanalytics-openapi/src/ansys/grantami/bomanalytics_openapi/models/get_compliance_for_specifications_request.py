@@ -35,6 +35,8 @@ class GetComplianceForSpecificationsRequest(ModelBase):
     subtype_mapping: Dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
 
+    discriminator: Optional[str]
+        Name of the property used as discriminator for subtypes.
     """
     swagger_types = {
         "config": "CommonRequestConfig",
@@ -55,6 +57,8 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
     }
+
+    discriminator = None
 
     def __init__(
         self,
@@ -77,7 +81,7 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         self._indicators = None
         self._database_key = None
         self._config = None
-        self.discriminator = None
+
         if specifications is not None:
             self.specifications = specifications
         if indicators is not None:
@@ -177,7 +181,8 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         """
         self._config = config
 
-    def get_real_child_model(self, data: ModelBase) -> str:
+    @classmethod
+    def get_real_child_model(cls, data: ModelBase) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters
