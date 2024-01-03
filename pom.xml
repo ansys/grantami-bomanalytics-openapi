@@ -44,7 +44,7 @@
           <dependency>
             <groupId>com.ansys</groupId>
             <artifactId>pyansys-swagger-codegen</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.0.5-RC0-SNAPSHOT</version>
             <scope>compile</scope>
           </dependency>
         </dependencies>
