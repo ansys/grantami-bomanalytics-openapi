@@ -2,12 +2,12 @@
 
 [[package]]
 name = "ansys-openapi-common"
-version = "1.3.0"
+version = "1.4.0"
 description = "Provides a helper to create sessions for use with Ansys OpenAPI clients."
 optional = false
 python-versions = ">=3.9,<4.0"
 files = [
-    {file = "ansys_openapi_common-1.3.0-py3-none-any.whl", hash = "sha256:49997b05b88c8f47e06b912dac499e44bd5593b516b2455aac168273dd08d88d"},
+    {file = "ansys_openapi_common-1.4.0-py3-none-any.whl", hash = "sha256:8ace675366cf78a5c940f67bca16194ef56cb00ae68e5a5183a96d5757861f12"},
 ]
 
 [package.dependencies]
@@ -553,4 +553,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9.0"
-content-hash = "2f22d3ec0f56907d7dc593916d4e214a1f6acb67c31c0cac8f47aac04b983058"
+content-hash = "e8fcedca6b1f8ac3346909cc479a7930bca7b34719638a5c478a209cfbd13045"
