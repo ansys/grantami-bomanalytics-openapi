@@ -49,6 +49,9 @@ def get_complex_arg_value(values, arg, model_class):
                 args[python_arg_name] = value
             obj = sub_class(**args)
             results.append(obj)
+        elif isinstance(arg_value, str):
+            # Enum: value is str
+            results.append(arg_value)
         else:
             # List of complex types
             for example_value in arg_value:
