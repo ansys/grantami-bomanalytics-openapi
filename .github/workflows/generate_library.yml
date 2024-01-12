@@ -26,13 +26,13 @@ jobs:
         application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
     
     - name: "Checkout repository"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         token: ${{ steps.get_workflow_token.outputs.token }}
         ref: ${{ github.event.pull_request.head.ref }}
     
     - name: "Set up JDK 11"
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '11'
         distribution: 'adopt'
@@ -49,7 +49,7 @@ jobs:
         SERVER_USERNAME: ${{ secrets.REPO_USER }}
         SERVER_PASSWORD: ${{ secrets.REPO_TOKEN }}
 
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: "3.11"
 
