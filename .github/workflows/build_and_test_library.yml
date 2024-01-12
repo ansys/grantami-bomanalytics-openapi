@@ -113,4 +113,4 @@ jobs:
       - name: "Release to GitHub"
         uses: softprops/action-gh-release@v1
         with:
-          files: ~/dist/*.whl
+          files: ~/dist/ansys-grantami-bomanalytics-openapi-wheel/*.whl

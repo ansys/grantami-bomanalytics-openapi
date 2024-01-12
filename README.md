@@ -19,17 +19,12 @@ the standard
 
 1. Ensure the ``main`` branch build status is green, which indicates that that the most recent run of the ``Build and Test 
    Client Library`` workflow was successful.
-2. Create a new branch from the ``main`` branch with the name ``release/MAJOR.MINOR`` (for example, release/0.2).
-3. Make the following changes in ``ansys-grantami-bomanalytics-openapi/src/setup.cfg``:
-    - Set the ``version`` to ``MAJOR.MINOR``.
-    - Set the ``Development Status`` classifier to ``Development Status :: 5 - Production/Stable``.
-4. Commit this file. Push the branch to GitHub and create a new PR for this release that merges it to ``main``.
-   While effort is focused on the release, changes should not be made to either the YAML definition
-   or the ``openapi-client-template``.
-5. Wait for the PyAnsys developers to functionally test the new release. Testers should locally install this
-   branch and use it to run the full suite of tests in the ``main`` branch of
-   [ansys-grantami-bomanalytics](https://github.com/pyansys/grantami-bomanalytics).
-6. Tag the release:
+2. Create a new branch from the ``main`` branch with the name ``release/MAJOR.MINOR`` and push the branch to GitHub.
+3. Do one of the following two steps to generate a 'release' `pyproject.toml` file:
+   * To change the version number, modify the ``<version>`` XML element in the ``pom.xml`` file and open a Pull Request.
+   * If the version number is correct, manually run the 'Generate client library' GitHub action on the release branch.
+4. Pull the branch and check that the most recent commit includes the 'release' `pyproject.toml` file
+5. Tag the release:
    ```commandline
    git tag v<MAJOR.MINOR.0>
    git push origin --tags
