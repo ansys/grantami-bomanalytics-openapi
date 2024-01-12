@@ -11,14 +11,12 @@ updates:
       interval: "weekly"
     labels:
       - "maintenance"
-      -
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
     labels:
       - "maintenance"
-      -
   - package-ecosystem: "pip" # See documentation for possible values
     directory: "/ansys-grantami-bomanalytics-openapi/" # Location of package manifests
     schedule:
