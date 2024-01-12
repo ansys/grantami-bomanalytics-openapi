@@ -33,6 +33,7 @@
                 <pythonicPackageName>ansys-grantami-bomanalytics</pythonicPackageName>
                 <pythonicPackageUrl>https://github.com/pyansys/grantami-bomanalytics</pythonicPackageUrl>
                 <homepageUrl>https://github.com/ansys/grantami-bomanalytics-openapi</homepageUrl>
+                <documentationUrl>https://grantami.docs.pyansys.com</documentationUrl>
                 <packageVersion>${project.version}</packageVersion>
                 <buildNumber>${build-id}</buildNumber>
                 <isReleaseBuild>${is-release}</isReleaseBuild>
