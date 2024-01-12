@@ -7,9 +7,11 @@ on:
       - "*"
     paths:
       - "ansys-grantami-bomanalytics-openapi/**"
+      - ".github/workflows/build_and_test_library.yml"
   pull_request:
     paths:
       - "ansys-grantami-bomanalytics-openapi/**"
+      - ".github/workflows/build_and_test_library.yml"
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
