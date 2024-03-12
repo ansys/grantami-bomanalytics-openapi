@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,90 +46,98 @@ class GetComplianceForBom2301Response(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "parts": "list[CommonPartWithCompliance]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "log_messages": "LogMessages",
         "parts": "Parts",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Parts": "CommonPartWithCompliance",
         "LogMessages": "CommonLogEntry",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
-        parts: "Optional[List[CommonPartWithCompliance]]" = None,
+        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        parts: "Union[List[CommonPartWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForBom2301Response - a model defined in Swagger
 
         Parameters
         ----------
-            log_messages: List[CommonLogEntry], optional
-            parts: List[CommonPartWithCompliance], optional
+        log_messages: List[CommonLogEntry], optional
+        parts: List[CommonPartWithCompliance], optional
         """
-        self._parts = None
-        self._log_messages = None
+        self._parts: Union[List[CommonPartWithCompliance], Unset_Type] = Unset
+        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
-        if parts is not None:
+        if parts is not Unset:
             self.parts = parts
-        if log_messages is not None:
+        if log_messages is not Unset:
             self.log_messages = log_messages
 
     @property
-    def parts(self) -> "list[CommonPartWithCompliance]":
+    def parts(self) -> "Union[List[CommonPartWithCompliance], Unset_Type]":
         """Gets the parts of this GetComplianceForBom2301Response.
 
         Returns
         -------
-        list[CommonPartWithCompliance]
+        Union[List[CommonPartWithCompliance], Unset_Type]
             The parts of this GetComplianceForBom2301Response.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "list[CommonPartWithCompliance]") -> None:
+    def parts(self, parts: "Union[List[CommonPartWithCompliance], Unset_Type]") -> None:
         """Sets the parts of this GetComplianceForBom2301Response.
 
         Parameters
         ----------
-        parts: list[CommonPartWithCompliance]
+        parts: Union[List[CommonPartWithCompliance], Unset_Type]
             The parts of this GetComplianceForBom2301Response.
         """
+        # Field is not nullable
+        if parts is None:
+            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
-    def log_messages(self) -> "list[CommonLogEntry]":
+    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetComplianceForBom2301Response.
 
         Returns
         -------
-        list[CommonLogEntry]
+        Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForBom2301Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "list[CommonLogEntry]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetComplianceForBom2301Response.
 
         Parameters
         ----------
-        log_messages: list[CommonLogEntry]
+        log_messages: Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForBom2301Response.
         """
+        # Field is not nullable
+        if log_messages is None:
+            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

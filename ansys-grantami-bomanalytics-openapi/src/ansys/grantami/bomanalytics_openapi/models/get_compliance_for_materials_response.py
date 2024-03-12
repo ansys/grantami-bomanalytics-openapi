@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,90 +46,100 @@ class GetComplianceForMaterialsResponse(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "materials": "list[CommonMaterialWithCompliance]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "log_messages": "LogMessages",
         "materials": "Materials",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Materials": "CommonMaterialWithCompliance",
         "LogMessages": "CommonLogEntry",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
-        materials: "Optional[List[CommonMaterialWithCompliance]]" = None,
+        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        materials: "Union[List[CommonMaterialWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForMaterialsResponse - a model defined in Swagger
 
         Parameters
         ----------
-            log_messages: List[CommonLogEntry], optional
-            materials: List[CommonMaterialWithCompliance], optional
+        log_messages: List[CommonLogEntry], optional
+        materials: List[CommonMaterialWithCompliance], optional
         """
-        self._materials = None
-        self._log_messages = None
+        self._materials: Union[List[CommonMaterialWithCompliance], Unset_Type] = Unset
+        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
-        if materials is not None:
+        if materials is not Unset:
             self.materials = materials
-        if log_messages is not None:
+        if log_messages is not Unset:
             self.log_messages = log_messages
 
     @property
-    def materials(self) -> "list[CommonMaterialWithCompliance]":
+    def materials(self) -> "Union[List[CommonMaterialWithCompliance], Unset_Type]":
         """Gets the materials of this GetComplianceForMaterialsResponse.
 
         Returns
         -------
-        list[CommonMaterialWithCompliance]
+        Union[List[CommonMaterialWithCompliance], Unset_Type]
             The materials of this GetComplianceForMaterialsResponse.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "list[CommonMaterialWithCompliance]") -> None:
+    def materials(
+        self, materials: "Union[List[CommonMaterialWithCompliance], Unset_Type]"
+    ) -> None:
         """Sets the materials of this GetComplianceForMaterialsResponse.
 
         Parameters
         ----------
-        materials: list[CommonMaterialWithCompliance]
+        materials: Union[List[CommonMaterialWithCompliance], Unset_Type]
             The materials of this GetComplianceForMaterialsResponse.
         """
+        # Field is not nullable
+        if materials is None:
+            raise ValueError("Invalid value for 'materials', must not be 'None'")
         self._materials = materials
 
     @property
-    def log_messages(self) -> "list[CommonLogEntry]":
+    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetComplianceForMaterialsResponse.
 
         Returns
         -------
-        list[CommonLogEntry]
+        Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForMaterialsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "list[CommonLogEntry]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetComplianceForMaterialsResponse.
 
         Parameters
         ----------
-        log_messages: list[CommonLogEntry]
+        log_messages: Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForMaterialsResponse.
         """
+        # Field is not nullable
+        if log_messages is None:
+            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

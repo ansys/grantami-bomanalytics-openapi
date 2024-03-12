@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,87 +46,93 @@ class CommonLogEntry(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "message": "str",
         "severity": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "message": "Message",
         "severity": "Severity",
     }
 
-    subtype_mapping = {}
+    subtype_mapping: Dict[str, str] = {}
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        message: "Optional[str]" = None,
-        severity: "Optional[str]" = None,
+        message: "Union[str, Unset_Type]" = Unset,
+        severity: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonLogEntry - a model defined in Swagger
 
         Parameters
         ----------
-            message: str, optional
-            severity: str, optional
+        message: str, optional
+        severity: str, optional
         """
-        self._severity = None
-        self._message = None
+        self._severity: Union[str, Unset_Type] = Unset
+        self._message: Union[str, Unset_Type] = Unset
 
-        if severity is not None:
+        if severity is not Unset:
             self.severity = severity
-        if message is not None:
+        if message is not Unset:
             self.message = message
 
     @property
-    def severity(self) -> "str":
+    def severity(self) -> "Union[str, Unset_Type]":
         """Gets the severity of this CommonLogEntry.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The severity of this CommonLogEntry.
         """
         return self._severity
 
     @severity.setter
-    def severity(self, severity: "str") -> None:
+    def severity(self, severity: "Union[str, Unset_Type]") -> None:
         """Sets the severity of this CommonLogEntry.
 
         Parameters
         ----------
-        severity: str
+        severity: Union[str, Unset_Type]
             The severity of this CommonLogEntry.
         """
+        # Field is not nullable
+        if severity is None:
+            raise ValueError("Invalid value for 'severity', must not be 'None'")
         self._severity = severity
 
     @property
-    def message(self) -> "str":
+    def message(self) -> "Union[str, Unset_Type]":
         """Gets the message of this CommonLogEntry.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The message of this CommonLogEntry.
         """
         return self._message
 
     @message.setter
-    def message(self, message: "str") -> None:
+    def message(self, message: "Union[str, Unset_Type]") -> None:
         """Sets the message of this CommonLogEntry.
 
         Parameters
         ----------
-        message: str
+        message: Union[str, Unset_Type]
             The message of this CommonLogEntry.
         """
+        # Field is not nullable
+        if message is None:
+            raise ValueError("Invalid value for 'message', must not be 'None'")
         self._message = message
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

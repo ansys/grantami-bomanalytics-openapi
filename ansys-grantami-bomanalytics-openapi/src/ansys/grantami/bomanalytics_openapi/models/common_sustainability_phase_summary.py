@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,7 +46,7 @@ class CommonSustainabilityPhaseSummary(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "embodied_energy": "CommonValueWithUnit",
@@ -44,7 +54,7 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         "phase": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "embodied_energy": "EmbodiedEnergy",
@@ -52,161 +62,188 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         "phase": "Phase",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[CommonValueWithUnit]" = None,
-        climate_change_percentage: "Optional[float]" = None,
-        embodied_energy: "Optional[CommonValueWithUnit]" = None,
-        embodied_energy_percentage: "Optional[float]" = None,
-        phase: "Optional[str]" = None,
+        climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
+        phase: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityPhaseSummary - a model defined in Swagger
 
         Parameters
         ----------
-            climate_change: CommonValueWithUnit, optional
-            climate_change_percentage: float, optional
-            embodied_energy: CommonValueWithUnit, optional
-            embodied_energy_percentage: float, optional
-            phase: str, optional
+        climate_change: CommonValueWithUnit, optional
+        climate_change_percentage: float, optional
+        embodied_energy: CommonValueWithUnit, optional
+        embodied_energy_percentage: float, optional
+        phase: str, optional
         """
-        self._phase = None
-        self._embodied_energy = None
-        self._embodied_energy_percentage = None
-        self._climate_change = None
-        self._climate_change_percentage = None
+        self._phase: Union[str, Unset_Type] = Unset
+        self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, Unset_Type] = Unset
 
-        if phase is not None:
+        if phase is not Unset:
             self.phase = phase
-        if embodied_energy is not None:
+        if embodied_energy is not Unset:
             self.embodied_energy = embodied_energy
-        if embodied_energy_percentage is not None:
+        if embodied_energy_percentage is not Unset:
             self.embodied_energy_percentage = embodied_energy_percentage
-        if climate_change is not None:
+        if climate_change is not Unset:
             self.climate_change = climate_change
-        if climate_change_percentage is not None:
+        if climate_change_percentage is not Unset:
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def phase(self) -> "str":
+    def phase(self) -> "Union[str, Unset_Type]":
         """Gets the phase of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The phase of this CommonSustainabilityPhaseSummary.
         """
         return self._phase
 
     @phase.setter
-    def phase(self, phase: "str") -> None:
+    def phase(self, phase: "Union[str, Unset_Type]") -> None:
         """Sets the phase of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        phase: str
+        phase: Union[str, Unset_Type]
             The phase of this CommonSustainabilityPhaseSummary.
         """
+        # Field is not nullable
+        if phase is None:
+            raise ValueError("Invalid value for 'phase', must not be 'None'")
         self._phase = phase
 
     @property
-    def embodied_energy(self) -> "CommonValueWithUnit":
+    def embodied_energy(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the embodied_energy of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityPhaseSummary.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
+    def embodied_energy(
+        self, embodied_energy: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        embodied_energy: CommonValueWithUnit
+        embodied_energy: Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityPhaseSummary.
         """
+        # Field is not nullable
+        if embodied_energy is None:
+            raise ValueError("Invalid value for 'embodied_energy', must not be 'None'")
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "float":
+    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
-    def embodied_energy_percentage(self, embodied_energy_percentage: "float") -> None:
+    def embodied_energy_percentage(
+        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        embodied_energy_percentage: float
+        embodied_energy_percentage: Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
         """
+        # Field is not nullable
+        if embodied_energy_percentage is None:
+            raise ValueError(
+                "Invalid value for 'embodied_energy_percentage', must not be 'None'"
+            )
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(self) -> "CommonValueWithUnit":
+    def climate_change(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the climate_change of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityPhaseSummary.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
+    def climate_change(
+        self, climate_change: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the climate_change of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        climate_change: CommonValueWithUnit
+        climate_change: Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityPhaseSummary.
         """
+        # Field is not nullable
+        if climate_change is None:
+            raise ValueError("Invalid value for 'climate_change', must not be 'None'")
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "float":
+    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityPhaseSummary.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
-    def climate_change_percentage(self, climate_change_percentage: "float") -> None:
+    def climate_change_percentage(
+        self, climate_change_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        climate_change_percentage: float
+        climate_change_percentage: Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityPhaseSummary.
         """
+        # Field is not nullable
+        if climate_change_percentage is None:
+            raise ValueError(
+                "Invalid value for 'climate_change_percentage', must not be 'None'"
+            )
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

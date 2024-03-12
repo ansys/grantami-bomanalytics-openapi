@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,7 +46,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "embodied_energy": "CommonValueWithUnit",
@@ -47,7 +57,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "process_record_reference": "CommonProcessReference",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "embodied_energy": "EmbodiedEnergy",
@@ -58,248 +68,294 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "process_record_reference": "ProcessRecordReference",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "ProcessRecordReference": "CommonProcessReference",
         "MaterialRecordReference": "CommonMaterialReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[CommonValueWithUnit]" = None,
-        climate_change_percentage: "Optional[float]" = None,
-        embodied_energy: "Optional[CommonValueWithUnit]" = None,
-        embodied_energy_percentage: "Optional[float]" = None,
-        material_identity: "Optional[str]" = None,
-        material_record_reference: "Optional[CommonMaterialReference]" = None,
-        process_name: "Optional[str]" = None,
-        process_record_reference: "Optional[CommonProcessReference]" = None,
+        climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
+        material_identity: "Union[str, Unset_Type]" = Unset,
+        material_record_reference: "Union[CommonMaterialReference, Unset_Type]" = Unset,
+        process_name: "Union[str, Unset_Type]" = Unset,
+        process_record_reference: "Union[CommonProcessReference, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityProcessSummaryEntry - a model defined in Swagger
 
         Parameters
         ----------
-            climate_change: CommonValueWithUnit, optional
-            climate_change_percentage: float, optional
-            embodied_energy: CommonValueWithUnit, optional
-            embodied_energy_percentage: float, optional
-            material_identity: str, optional
-            material_record_reference: CommonMaterialReference, optional
-            process_name: str, optional
-            process_record_reference: CommonProcessReference, optional
+        climate_change: CommonValueWithUnit, optional
+        climate_change_percentage: float, optional
+        embodied_energy: CommonValueWithUnit, optional
+        embodied_energy_percentage: float, optional
+        material_identity: str, optional
+        material_record_reference: CommonMaterialReference, optional
+        process_name: str, optional
+        process_record_reference: CommonProcessReference, optional
         """
-        self._process_name = None
-        self._process_record_reference = None
-        self._material_record_reference = None
-        self._material_identity = None
-        self._embodied_energy = None
-        self._embodied_energy_percentage = None
-        self._climate_change = None
-        self._climate_change_percentage = None
+        self._process_name: Union[str, Unset_Type] = Unset
+        self._process_record_reference: Union[CommonProcessReference, Unset_Type] = (
+            Unset
+        )
+        self._material_record_reference: Union[CommonMaterialReference, Unset_Type] = (
+            Unset
+        )
+        self._material_identity: Union[str, Unset_Type] = Unset
+        self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, Unset_Type] = Unset
 
-        if process_name is not None:
+        if process_name is not Unset:
             self.process_name = process_name
-        if process_record_reference is not None:
+        if process_record_reference is not Unset:
             self.process_record_reference = process_record_reference
-        if material_record_reference is not None:
+        if material_record_reference is not Unset:
             self.material_record_reference = material_record_reference
-        if material_identity is not None:
+        if material_identity is not Unset:
             self.material_identity = material_identity
-        if embodied_energy is not None:
+        if embodied_energy is not Unset:
             self.embodied_energy = embodied_energy
-        if embodied_energy_percentage is not None:
+        if embodied_energy_percentage is not Unset:
             self.embodied_energy_percentage = embodied_energy_percentage
-        if climate_change is not None:
+        if climate_change is not Unset:
             self.climate_change = climate_change
-        if climate_change_percentage is not None:
+        if climate_change_percentage is not Unset:
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def process_name(self) -> "str":
+    def process_name(self) -> "Union[str, Unset_Type]":
         """Gets the process_name of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The process_name of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._process_name
 
     @process_name.setter
-    def process_name(self, process_name: "str") -> None:
+    def process_name(self, process_name: "Union[str, Unset_Type]") -> None:
         """Sets the process_name of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        process_name: str
+        process_name: Union[str, Unset_Type]
             The process_name of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if process_name is None:
+            raise ValueError("Invalid value for 'process_name', must not be 'None'")
         self._process_name = process_name
 
     @property
-    def process_record_reference(self) -> "CommonProcessReference":
+    def process_record_reference(self) -> "Union[CommonProcessReference, Unset_Type]":
         """Gets the process_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        CommonProcessReference
+        Union[CommonProcessReference, Unset_Type]
             The process_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._process_record_reference
 
     @process_record_reference.setter
     def process_record_reference(
-        self, process_record_reference: "CommonProcessReference"
+        self, process_record_reference: "Union[CommonProcessReference, Unset_Type]"
     ) -> None:
         """Sets the process_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        process_record_reference: CommonProcessReference
+        process_record_reference: Union[CommonProcessReference, Unset_Type]
             The process_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if process_record_reference is None:
+            raise ValueError(
+                "Invalid value for 'process_record_reference', must not be 'None'"
+            )
         self._process_record_reference = process_record_reference
 
     @property
-    def material_record_reference(self) -> "CommonMaterialReference":
+    def material_record_reference(self) -> "Union[CommonMaterialReference, Unset_Type]":
         """Gets the material_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        CommonMaterialReference
+        Union[CommonMaterialReference, Unset_Type]
             The material_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._material_record_reference
 
     @material_record_reference.setter
     def material_record_reference(
-        self, material_record_reference: "CommonMaterialReference"
+        self, material_record_reference: "Union[CommonMaterialReference, Unset_Type]"
     ) -> None:
         """Sets the material_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        material_record_reference: CommonMaterialReference
+        material_record_reference: Union[CommonMaterialReference, Unset_Type]
             The material_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if material_record_reference is None:
+            raise ValueError(
+                "Invalid value for 'material_record_reference', must not be 'None'"
+            )
         self._material_record_reference = material_record_reference
 
     @property
-    def material_identity(self) -> "str":
+    def material_identity(self) -> "Union[str, Unset_Type]":
         """Gets the material_identity of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The material_identity of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._material_identity
 
     @material_identity.setter
-    def material_identity(self, material_identity: "str") -> None:
+    def material_identity(self, material_identity: "Union[str, Unset_Type]") -> None:
         """Sets the material_identity of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        material_identity: str
+        material_identity: Union[str, Unset_Type]
             The material_identity of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if material_identity is None:
+            raise ValueError(
+                "Invalid value for 'material_identity', must not be 'None'"
+            )
         self._material_identity = material_identity
 
     @property
-    def embodied_energy(self) -> "CommonValueWithUnit":
+    def embodied_energy(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the embodied_energy of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
+    def embodied_energy(
+        self, embodied_energy: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy: CommonValueWithUnit
+        embodied_energy: Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if embodied_energy is None:
+            raise ValueError("Invalid value for 'embodied_energy', must not be 'None'")
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "float":
+    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
-    def embodied_energy_percentage(self, embodied_energy_percentage: "float") -> None:
+    def embodied_energy_percentage(
+        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy_percentage: float
+        embodied_energy_percentage: Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if embodied_energy_percentage is None:
+            raise ValueError(
+                "Invalid value for 'embodied_energy_percentage', must not be 'None'"
+            )
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(self) -> "CommonValueWithUnit":
+    def climate_change(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the climate_change of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
+    def climate_change(
+        self, climate_change: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the climate_change of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        climate_change: CommonValueWithUnit
+        climate_change: Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if climate_change is None:
+            raise ValueError("Invalid value for 'climate_change', must not be 'None'")
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "float":
+    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
-    def climate_change_percentage(self, climate_change_percentage: "float") -> None:
+    def climate_change_percentage(
+        self, climate_change_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        climate_change_percentage: float
+        climate_change_percentage: Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
+        # Field is not nullable
+        if climate_change_percentage is None:
+            raise ValueError(
+                "Invalid value for 'climate_change_percentage', must not be 'None'"
+            )
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

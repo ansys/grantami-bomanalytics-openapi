@@ -11,7 +11,7 @@
 """
 
 # import Model ABC
-from ansys.openapi.common import ModelBase
+from ansys.openapi.common import ModelBase, Unset, Unset_Type
 
 # import models into model package
 from .common_coating_with_compliance import CommonCoatingWithCompliance
@@ -130,3 +130,72 @@ from .get_sustainability_summary_for_bom2301_request import (
 from .get_sustainability_summary_for_bom2301_response import (
     GetSustainabilitySummaryForBom2301Response,
 )
+
+
+__all__ = [
+    "ModelBase",
+    "Unset",
+    "Unset_Type",
+    "CommonCoatingWithCompliance",
+    "CommonImpactedSubstance",
+    "CommonIndicatorDefinition",
+    "CommonIndicatorResult",
+    "CommonLegislationWithImpactedSubstances",
+    "CommonLogEntry",
+    "CommonMaterialReference",
+    "CommonMaterialWithCompliance",
+    "CommonPartReference",
+    "CommonPartWithCompliance",
+    "CommonPreferredUnits",
+    "CommonProcessReference",
+    "CommonRequestConfig",
+    "CommonSpecificationReference",
+    "CommonSpecificationWithCompliance",
+    "CommonSubstanceReference",
+    "CommonSubstanceWithCompliance",
+    "CommonSustainabilityMaterialContributingComponent",
+    "CommonSustainabilityMaterialSummary",
+    "CommonSustainabilityMaterialSummaryEntry",
+    "CommonSustainabilityMaterialWithSustainability",
+    "CommonSustainabilityPartWithSustainability",
+    "CommonSustainabilityPhaseSummary",
+    "CommonSustainabilityProcessSummary",
+    "CommonSustainabilityProcessSummaryEntry",
+    "CommonSustainabilityProcessWithSustainability",
+    "CommonSustainabilityTransportSummary",
+    "CommonSustainabilityTransportSummaryEntry",
+    "CommonSustainabilityTransportWithSustainability",
+    "CommonTransportReference",
+    "CommonValueWithUnit",
+    "GetAvailableLicensesResponse",
+    "GetComplianceForBom1711Request",
+    "GetComplianceForBom1711Response",
+    "GetComplianceForBom2301Request",
+    "GetComplianceForBom2301Response",
+    "GetComplianceForMaterialsRequest",
+    "GetComplianceForMaterialsResponse",
+    "GetComplianceForPartsRequest",
+    "GetComplianceForPartsResponse",
+    "GetComplianceForSpecificationsRequest",
+    "GetComplianceForSpecificationsResponse",
+    "GetComplianceForSubstancesRequest",
+    "GetComplianceForSubstancesResponse",
+    "GetComplianceForSubstancesSubstanceWithAmount",
+    "GetImpactedSubstancesForBom1711Request",
+    "GetImpactedSubstancesForBom1711Response",
+    "GetImpactedSubstancesForBom2301Request",
+    "GetImpactedSubstancesForBom2301Response",
+    "GetImpactedSubstancesForMaterialsMaterial",
+    "GetImpactedSubstancesForMaterialsRequest",
+    "GetImpactedSubstancesForMaterialsResponse",
+    "GetImpactedSubstancesForPartsPart",
+    "GetImpactedSubstancesForPartsRequest",
+    "GetImpactedSubstancesForPartsResponse",
+    "GetImpactedSubstancesForSpecificationsRequest",
+    "GetImpactedSubstancesForSpecificationsResponse",
+    "GetImpactedSubstancesForSpecificationsSpecification",
+    "GetSustainabilityForBom2301Request",
+    "GetSustainabilityForBom2301Response",
+    "GetSustainabilitySummaryForBom2301Request",
+    "GetSustainabilitySummaryForBom2301Response",
+]
