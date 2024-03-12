@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,87 +46,93 @@ class CommonIndicatorResult(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "flag": "str",
         "name": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "flag": "Flag",
         "name": "Name",
     }
 
-    subtype_mapping = {}
+    subtype_mapping: Dict[str, str] = {}
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        flag: "Optional[str]" = None,
-        name: "Optional[str]" = None,
+        flag: "Union[str, Unset_Type]" = Unset,
+        name: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonIndicatorResult - a model defined in Swagger
 
         Parameters
         ----------
-            flag: str, optional
-            name: str, optional
+        flag: str, optional
+        name: str, optional
         """
-        self._name = None
-        self._flag = None
+        self._name: Union[str, Unset_Type] = Unset
+        self._flag: Union[str, Unset_Type] = Unset
 
-        if name is not None:
+        if name is not Unset:
             self.name = name
-        if flag is not None:
+        if flag is not Unset:
             self.flag = flag
 
     @property
-    def name(self) -> "str":
+    def name(self) -> "Union[str, Unset_Type]":
         """Gets the name of this CommonIndicatorResult.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The name of this CommonIndicatorResult.
         """
         return self._name
 
     @name.setter
-    def name(self, name: "str") -> None:
+    def name(self, name: "Union[str, Unset_Type]") -> None:
         """Sets the name of this CommonIndicatorResult.
 
         Parameters
         ----------
-        name: str
+        name: Union[str, Unset_Type]
             The name of this CommonIndicatorResult.
         """
+        # Field is not nullable
+        if name is None:
+            raise ValueError("Invalid value for 'name', must not be 'None'")
         self._name = name
 
     @property
-    def flag(self) -> "str":
+    def flag(self) -> "Union[str, Unset_Type]":
         """Gets the flag of this CommonIndicatorResult.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The flag of this CommonIndicatorResult.
         """
         return self._flag
 
     @flag.setter
-    def flag(self, flag: "str") -> None:
+    def flag(self, flag: "Union[str, Unset_Type]") -> None:
         """Sets the flag of this CommonIndicatorResult.
 
         Parameters
         ----------
-        flag: str
+        flag: Union[str, Unset_Type]
             The flag of this CommonIndicatorResult.
         """
+        # Field is not nullable
+        if flag is None:
+            raise ValueError("Invalid value for 'flag', must not be 'None'")
         self._flag = flag
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

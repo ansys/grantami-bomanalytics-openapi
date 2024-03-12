@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,7 +46,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "embodied_energy": "CommonValueWithUnit",
@@ -48,7 +58,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         "record_reference": "CommonMaterialReference",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "embodied_energy": "EmbodiedEnergy",
@@ -60,7 +70,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         "record_reference": "RecordReference",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "RecordReference": "CommonMaterialReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
@@ -69,253 +79,297 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         "LargestContributors": "CommonSustainabilityMaterialContributingComponent",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[CommonValueWithUnit]" = None,
-        climate_change_percentage: "Optional[float]" = None,
-        embodied_energy: "Optional[CommonValueWithUnit]" = None,
-        embodied_energy_percentage: "Optional[float]" = None,
-        identity: "Optional[str]" = None,
-        largest_contributors: "Optional[List[CommonSustainabilityMaterialContributingComponent]]" = None,
-        mass_after_processing: "Optional[CommonValueWithUnit]" = None,
-        mass_before_processing: "Optional[CommonValueWithUnit]" = None,
-        record_reference: "Optional[CommonMaterialReference]" = None,
+        climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
+        identity: "Union[str, Unset_Type]" = Unset,
+        largest_contributors: "Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]" = Unset,
+        mass_after_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        record_reference: "Union[CommonMaterialReference, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialSummaryEntry - a model defined in Swagger
 
         Parameters
         ----------
-            climate_change: CommonValueWithUnit, optional
-            climate_change_percentage: float, optional
-            embodied_energy: CommonValueWithUnit, optional
-            embodied_energy_percentage: float, optional
-            identity: str, optional
-            largest_contributors: List[CommonSustainabilityMaterialContributingComponent], optional
-            mass_after_processing: CommonValueWithUnit, optional
-            mass_before_processing: CommonValueWithUnit, optional
-            record_reference: CommonMaterialReference, optional
+        climate_change: CommonValueWithUnit, optional
+        climate_change_percentage: float, optional
+        embodied_energy: CommonValueWithUnit, optional
+        embodied_energy_percentage: float, optional
+        identity: str, optional
+        largest_contributors: List[CommonSustainabilityMaterialContributingComponent], optional
+        mass_after_processing: CommonValueWithUnit, optional
+        mass_before_processing: CommonValueWithUnit, optional
+        record_reference: CommonMaterialReference, optional
         """
-        self._identity = None
-        self._record_reference = None
-        self._embodied_energy = None
-        self._embodied_energy_percentage = None
-        self._climate_change = None
-        self._climate_change_percentage = None
-        self._mass_before_processing = None
-        self._mass_after_processing = None
-        self._largest_contributors = None
+        self._identity: Union[str, Unset_Type] = Unset
+        self._record_reference: Union[CommonMaterialReference, Unset_Type] = Unset
+        self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, Unset_Type] = Unset
+        self._mass_before_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._mass_after_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._largest_contributors: Union[
+            List[CommonSustainabilityMaterialContributingComponent], Unset_Type
+        ] = Unset
 
-        if identity is not None:
+        if identity is not Unset:
             self.identity = identity
-        if record_reference is not None:
+        if record_reference is not Unset:
             self.record_reference = record_reference
-        if embodied_energy is not None:
+        if embodied_energy is not Unset:
             self.embodied_energy = embodied_energy
-        if embodied_energy_percentage is not None:
+        if embodied_energy_percentage is not Unset:
             self.embodied_energy_percentage = embodied_energy_percentage
-        if climate_change is not None:
+        if climate_change is not Unset:
             self.climate_change = climate_change
-        if climate_change_percentage is not None:
+        if climate_change_percentage is not Unset:
             self.climate_change_percentage = climate_change_percentage
-        if mass_before_processing is not None:
+        if mass_before_processing is not Unset:
             self.mass_before_processing = mass_before_processing
-        if mass_after_processing is not None:
+        if mass_after_processing is not Unset:
             self.mass_after_processing = mass_after_processing
-        if largest_contributors is not None:
+        if largest_contributors is not Unset:
             self.largest_contributors = largest_contributors
 
     @property
-    def identity(self) -> "str":
+    def identity(self) -> "Union[str, Unset_Type]":
         """Gets the identity of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The identity of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._identity
 
     @identity.setter
-    def identity(self, identity: "str") -> None:
+    def identity(self, identity: "Union[str, Unset_Type]") -> None:
         """Sets the identity of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        identity: str
+        identity: Union[str, Unset_Type]
             The identity of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if identity is None:
+            raise ValueError("Invalid value for 'identity', must not be 'None'")
         self._identity = identity
 
     @property
-    def record_reference(self) -> "CommonMaterialReference":
+    def record_reference(self) -> "Union[CommonMaterialReference, Unset_Type]":
         """Gets the record_reference of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        CommonMaterialReference
+        Union[CommonMaterialReference, Unset_Type]
             The record_reference of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "CommonMaterialReference") -> None:
+    def record_reference(
+        self, record_reference: "Union[CommonMaterialReference, Unset_Type]"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        record_reference: CommonMaterialReference
+        record_reference: Union[CommonMaterialReference, Unset_Type]
             The record_reference of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if record_reference is None:
+            raise ValueError("Invalid value for 'record_reference', must not be 'None'")
         self._record_reference = record_reference
 
     @property
-    def embodied_energy(self) -> "CommonValueWithUnit":
+    def embodied_energy(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
+    def embodied_energy(
+        self, embodied_energy: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy: CommonValueWithUnit
+        embodied_energy: Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if embodied_energy is None:
+            raise ValueError("Invalid value for 'embodied_energy', must not be 'None'")
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "float":
+    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
-    def embodied_energy_percentage(self, embodied_energy_percentage: "float") -> None:
+    def embodied_energy_percentage(
+        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy_percentage: float
+        embodied_energy_percentage: Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if embodied_energy_percentage is None:
+            raise ValueError(
+                "Invalid value for 'embodied_energy_percentage', must not be 'None'"
+            )
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(self) -> "CommonValueWithUnit":
+    def climate_change(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the climate_change of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
+    def climate_change(
+        self, climate_change: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the climate_change of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        climate_change: CommonValueWithUnit
+        climate_change: Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if climate_change is None:
+            raise ValueError("Invalid value for 'climate_change', must not be 'None'")
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "float":
+    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
-    def climate_change_percentage(self, climate_change_percentage: "float") -> None:
+    def climate_change_percentage(
+        self, climate_change_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        climate_change_percentage: float
+        climate_change_percentage: Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if climate_change_percentage is None:
+            raise ValueError(
+                "Invalid value for 'climate_change_percentage', must not be 'None'"
+            )
         self._climate_change_percentage = climate_change_percentage
 
     @property
-    def mass_before_processing(self) -> "CommonValueWithUnit":
+    def mass_before_processing(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._mass_before_processing
 
     @mass_before_processing.setter
     def mass_before_processing(
-        self, mass_before_processing: "CommonValueWithUnit"
+        self, mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]"
     ) -> None:
         """Sets the mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        mass_before_processing: CommonValueWithUnit
+        mass_before_processing: Union[CommonValueWithUnit, Unset_Type]
             The mass_before_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if mass_before_processing is None:
+            raise ValueError(
+                "Invalid value for 'mass_before_processing', must not be 'None'"
+            )
         self._mass_before_processing = mass_before_processing
 
     @property
-    def mass_after_processing(self) -> "CommonValueWithUnit":
+    def mass_after_processing(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._mass_after_processing
 
     @mass_after_processing.setter
     def mass_after_processing(
-        self, mass_after_processing: "CommonValueWithUnit"
+        self, mass_after_processing: "Union[CommonValueWithUnit, Unset_Type]"
     ) -> None:
         """Sets the mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        mass_after_processing: CommonValueWithUnit
+        mass_after_processing: Union[CommonValueWithUnit, Unset_Type]
             The mass_after_processing of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if mass_after_processing is None:
+            raise ValueError(
+                "Invalid value for 'mass_after_processing', must not be 'None'"
+            )
         self._mass_after_processing = mass_after_processing
 
     @property
     def largest_contributors(
         self,
-    ) -> "list[CommonSustainabilityMaterialContributingComponent]":
+    ) -> "Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]":
         """Gets the largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        list[CommonSustainabilityMaterialContributingComponent]
+        Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]
             The largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._largest_contributors
@@ -323,19 +377,24 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     @largest_contributors.setter
     def largest_contributors(
         self,
-        largest_contributors: "list[CommonSustainabilityMaterialContributingComponent]",
+        largest_contributors: "Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]",
     ) -> None:
         """Sets the largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        largest_contributors: list[CommonSustainabilityMaterialContributingComponent]
+        largest_contributors: Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]
             The largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
         """
+        # Field is not nullable
+        if largest_contributors is None:
+            raise ValueError(
+                "Invalid value for 'largest_contributors', must not be 'None'"
+            )
         self._largest_contributors = largest_contributors
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

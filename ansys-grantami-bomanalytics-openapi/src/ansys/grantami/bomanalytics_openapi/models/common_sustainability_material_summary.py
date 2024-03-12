@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,92 +46,105 @@ class CommonSustainabilityMaterialSummary(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "phase_summary": "CommonSustainabilityPhaseSummary",
         "summary": "list[CommonSustainabilityMaterialSummaryEntry]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "phase_summary": "PhaseSummary",
         "summary": "Summary",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Summary": "CommonSustainabilityMaterialSummaryEntry",
         "PhaseSummary": "CommonSustainabilityPhaseSummary",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        phase_summary: "Optional[CommonSustainabilityPhaseSummary]" = None,
-        summary: "Optional[List[CommonSustainabilityMaterialSummaryEntry]]" = None,
+        phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]" = Unset,
+        summary: "Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialSummary - a model defined in Swagger
 
         Parameters
         ----------
-            phase_summary: CommonSustainabilityPhaseSummary, optional
-            summary: List[CommonSustainabilityMaterialSummaryEntry], optional
+        phase_summary: CommonSustainabilityPhaseSummary, optional
+        summary: List[CommonSustainabilityMaterialSummaryEntry], optional
         """
-        self._summary = None
-        self._phase_summary = None
+        self._summary: Union[
+            List[CommonSustainabilityMaterialSummaryEntry], Unset_Type
+        ] = Unset
+        self._phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type] = Unset
 
-        if summary is not None:
+        if summary is not Unset:
             self.summary = summary
-        if phase_summary is not None:
+        if phase_summary is not Unset:
             self.phase_summary = phase_summary
 
     @property
-    def summary(self) -> "list[CommonSustainabilityMaterialSummaryEntry]":
+    def summary(
+        self,
+    ) -> "Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]":
         """Gets the summary of this CommonSustainabilityMaterialSummary.
 
         Returns
         -------
-        list[CommonSustainabilityMaterialSummaryEntry]
+        Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]
             The summary of this CommonSustainabilityMaterialSummary.
         """
         return self._summary
 
     @summary.setter
     def summary(
-        self, summary: "list[CommonSustainabilityMaterialSummaryEntry]"
+        self,
+        summary: "Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]",
     ) -> None:
         """Sets the summary of this CommonSustainabilityMaterialSummary.
 
         Parameters
         ----------
-        summary: list[CommonSustainabilityMaterialSummaryEntry]
+        summary: Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]
             The summary of this CommonSustainabilityMaterialSummary.
         """
+        # Field is not nullable
+        if summary is None:
+            raise ValueError("Invalid value for 'summary', must not be 'None'")
         self._summary = summary
 
     @property
-    def phase_summary(self) -> "CommonSustainabilityPhaseSummary":
+    def phase_summary(self) -> "Union[CommonSustainabilityPhaseSummary, Unset_Type]":
         """Gets the phase_summary of this CommonSustainabilityMaterialSummary.
 
         Returns
         -------
-        CommonSustainabilityPhaseSummary
+        Union[CommonSustainabilityPhaseSummary, Unset_Type]
             The phase_summary of this CommonSustainabilityMaterialSummary.
         """
         return self._phase_summary
 
     @phase_summary.setter
-    def phase_summary(self, phase_summary: "CommonSustainabilityPhaseSummary") -> None:
+    def phase_summary(
+        self, phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]"
+    ) -> None:
         """Sets the phase_summary of this CommonSustainabilityMaterialSummary.
 
         Parameters
         ----------
-        phase_summary: CommonSustainabilityPhaseSummary
+        phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type]
             The phase_summary of this CommonSustainabilityMaterialSummary.
         """
+        # Field is not nullable
+        if phase_summary is None:
+            raise ValueError("Invalid value for 'phase_summary', must not be 'None'")
         self._phase_summary = phase_summary
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

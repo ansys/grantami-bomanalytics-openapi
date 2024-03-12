@@ -9,11 +9,20 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Dict, List, Optional, Union  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    BinaryIO,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 from . import ApiBase
 
 
 if TYPE_CHECKING:
+    import pathlib
     from ..models import *
 
 
@@ -43,11 +52,11 @@ class ImpactedSubstancesApi(ApiBase):
         data = self._post_impactedsubstances_bom1711_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_impactedsubstances_bom1711_with_http_info(
-        self, body: "GetImpactedSubstancesForBom1711Request", **kwargs
-    ):
+        self, body: "GetImpactedSubstancesForBom1711Request", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -69,16 +78,16 @@ class ImpactedSubstancesApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_impactedsubstances_bom1711'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -93,7 +102,7 @@ class ImpactedSubstancesApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetImpactedSubstancesForBom1711Response",
         }
 
@@ -132,11 +141,11 @@ class ImpactedSubstancesApi(ApiBase):
         data = self._post_impactedsubstances_bom2301_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_impactedsubstances_bom2301_with_http_info(
-        self, body: "GetImpactedSubstancesForBom2301Request", **kwargs
-    ):
+        self, body: "GetImpactedSubstancesForBom2301Request", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -158,16 +167,16 @@ class ImpactedSubstancesApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_impactedsubstances_bom2301'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -182,7 +191,7 @@ class ImpactedSubstancesApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetImpactedSubstancesForBom2301Response",
         }
 
@@ -221,11 +230,11 @@ class ImpactedSubstancesApi(ApiBase):
         data = self._post_impactedsubstances_materials_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_impactedsubstances_materials_with_http_info(
-        self, body: "GetImpactedSubstancesForMaterialsRequest", **kwargs
-    ):
+        self, body: "GetImpactedSubstancesForMaterialsRequest", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -247,16 +256,16 @@ class ImpactedSubstancesApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_impactedsubstances_materials'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -271,7 +280,7 @@ class ImpactedSubstancesApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetImpactedSubstancesForMaterialsResponse",
         }
 
@@ -310,11 +319,11 @@ class ImpactedSubstancesApi(ApiBase):
         data = self._post_impactedsubstances_parts_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_impactedsubstances_parts_with_http_info(
-        self, body: "GetImpactedSubstancesForPartsRequest", **kwargs
-    ):
+        self, body: "GetImpactedSubstancesForPartsRequest", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -336,16 +345,16 @@ class ImpactedSubstancesApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_impactedsubstances_parts'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -360,7 +369,7 @@ class ImpactedSubstancesApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetImpactedSubstancesForPartsResponse",
         }
 
@@ -399,11 +408,11 @@ class ImpactedSubstancesApi(ApiBase):
         data = self._post_impactedsubstances_specifications_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_impactedsubstances_specifications_with_http_info(
-        self, body: "GetImpactedSubstancesForSpecificationsRequest", **kwargs
-    ):
+        self, body: "GetImpactedSubstancesForSpecificationsRequest", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -425,16 +434,16 @@ class ImpactedSubstancesApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_impactedsubstances_specifications'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -449,7 +458,7 @@ class ImpactedSubstancesApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetImpactedSubstancesForSpecificationsResponse",
         }
 

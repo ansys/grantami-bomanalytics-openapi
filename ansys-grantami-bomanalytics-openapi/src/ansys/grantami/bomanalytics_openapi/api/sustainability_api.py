@@ -9,11 +9,20 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Dict, List, Optional, Union  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    BinaryIO,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 from . import ApiBase
 
 
 if TYPE_CHECKING:
+    import pathlib
     from ..models import *
 
 
@@ -43,11 +52,11 @@ class SustainabilityApi(ApiBase):
         data = self._post_sustainability_bom2301_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_sustainability_bom2301_with_http_info(
-        self, body: "GetSustainabilityForBom2301Request", **kwargs
-    ):
+        self, body: "GetSustainabilityForBom2301Request", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -69,16 +78,16 @@ class SustainabilityApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_sustainability_bom2301'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -93,7 +102,7 @@ class SustainabilityApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetSustainabilityForBom2301Response",
         }
 
@@ -132,11 +141,11 @@ class SustainabilityApi(ApiBase):
         data = self._post_sustainabilitysummary_bom2301_with_http_info(
             body, _return_http_data_only=True
         )
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
     def _post_sustainabilitysummary_bom2301_with_http_info(
-        self, body: "GetSustainabilitySummaryForBom2301Request", **kwargs
-    ):
+        self, body: "GetSustainabilitySummaryForBom2301Request", **kwargs: Any
+    ) -> Any:
         all_params = [
             "body",
             "_return_http_data_only",
@@ -158,16 +167,16 @@ class SustainabilityApi(ApiBase):
                 "Missing the required parameter 'body' when calling 'post_sustainabilitysummary_bom2301'"
             )
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         if "body" in params and body is not None:
@@ -182,7 +191,7 @@ class SustainabilityApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "GetSustainabilitySummaryForBom2301Response",
         }
 

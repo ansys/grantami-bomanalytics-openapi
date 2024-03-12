@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,117 +46,139 @@ class CommonSustainabilityProcessSummary(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "joining_and_finishing_processes": "list[CommonSustainabilityProcessSummaryEntry]",
         "phase_summary": "CommonSustainabilityPhaseSummary",
         "primary_processes": "list[CommonSustainabilityProcessSummaryEntry]",
         "secondary_processes": "list[CommonSustainabilityProcessSummaryEntry]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "joining_and_finishing_processes": "JoiningAndFinishingProcesses",
         "phase_summary": "PhaseSummary",
         "primary_processes": "PrimaryProcesses",
         "secondary_processes": "SecondaryProcesses",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "PrimaryProcesses": "CommonSustainabilityProcessSummaryEntry",
         "SecondaryProcesses": "CommonSustainabilityProcessSummaryEntry",
         "JoiningAndFinishingProcesses": "CommonSustainabilityProcessSummaryEntry",
         "PhaseSummary": "CommonSustainabilityPhaseSummary",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        joining_and_finishing_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None,
-        phase_summary: "Optional[CommonSustainabilityPhaseSummary]" = None,
-        primary_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None,
-        secondary_processes: "Optional[List[CommonSustainabilityProcessSummaryEntry]]" = None,
+        joining_and_finishing_processes: "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]" = Unset,
+        phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]" = Unset,
+        primary_processes: "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]" = Unset,
+        secondary_processes: "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityProcessSummary - a model defined in Swagger
 
         Parameters
         ----------
-            joining_and_finishing_processes: List[CommonSustainabilityProcessSummaryEntry], optional
-            phase_summary: CommonSustainabilityPhaseSummary, optional
-            primary_processes: List[CommonSustainabilityProcessSummaryEntry], optional
-            secondary_processes: List[CommonSustainabilityProcessSummaryEntry], optional
+        joining_and_finishing_processes: List[CommonSustainabilityProcessSummaryEntry], optional
+        phase_summary: CommonSustainabilityPhaseSummary, optional
+        primary_processes: List[CommonSustainabilityProcessSummaryEntry], optional
+        secondary_processes: List[CommonSustainabilityProcessSummaryEntry], optional
         """
-        self._primary_processes = None
-        self._secondary_processes = None
-        self._joining_and_finishing_processes = None
-        self._phase_summary = None
+        self._primary_processes: Union[
+            List[CommonSustainabilityProcessSummaryEntry], Unset_Type
+        ] = Unset
+        self._secondary_processes: Union[
+            List[CommonSustainabilityProcessSummaryEntry], Unset_Type
+        ] = Unset
+        self._joining_and_finishing_processes: Union[
+            List[CommonSustainabilityProcessSummaryEntry], Unset_Type
+        ] = Unset
+        self._phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type] = Unset
 
-        if primary_processes is not None:
+        if primary_processes is not Unset:
             self.primary_processes = primary_processes
-        if secondary_processes is not None:
+        if secondary_processes is not Unset:
             self.secondary_processes = secondary_processes
-        if joining_and_finishing_processes is not None:
+        if joining_and_finishing_processes is not Unset:
             self.joining_and_finishing_processes = joining_and_finishing_processes
-        if phase_summary is not None:
+        if phase_summary is not Unset:
             self.phase_summary = phase_summary
 
     @property
-    def primary_processes(self) -> "list[CommonSustainabilityProcessSummaryEntry]":
+    def primary_processes(
+        self,
+    ) -> "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]":
         """Gets the primary_processes of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        list[CommonSustainabilityProcessSummaryEntry]
+        Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]
             The primary_processes of this CommonSustainabilityProcessSummary.
         """
         return self._primary_processes
 
     @primary_processes.setter
     def primary_processes(
-        self, primary_processes: "list[CommonSustainabilityProcessSummaryEntry]"
+        self,
+        primary_processes: "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]",
     ) -> None:
         """Sets the primary_processes of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        primary_processes: list[CommonSustainabilityProcessSummaryEntry]
+        primary_processes: Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]
             The primary_processes of this CommonSustainabilityProcessSummary.
         """
+        # Field is not nullable
+        if primary_processes is None:
+            raise ValueError(
+                "Invalid value for 'primary_processes', must not be 'None'"
+            )
         self._primary_processes = primary_processes
 
     @property
-    def secondary_processes(self) -> "list[CommonSustainabilityProcessSummaryEntry]":
+    def secondary_processes(
+        self,
+    ) -> "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]":
         """Gets the secondary_processes of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        list[CommonSustainabilityProcessSummaryEntry]
+        Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]
             The secondary_processes of this CommonSustainabilityProcessSummary.
         """
         return self._secondary_processes
 
     @secondary_processes.setter
     def secondary_processes(
-        self, secondary_processes: "list[CommonSustainabilityProcessSummaryEntry]"
+        self,
+        secondary_processes: "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]",
     ) -> None:
         """Sets the secondary_processes of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        secondary_processes: list[CommonSustainabilityProcessSummaryEntry]
+        secondary_processes: Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]
             The secondary_processes of this CommonSustainabilityProcessSummary.
         """
+        # Field is not nullable
+        if secondary_processes is None:
+            raise ValueError(
+                "Invalid value for 'secondary_processes', must not be 'None'"
+            )
         self._secondary_processes = secondary_processes
 
     @property
     def joining_and_finishing_processes(
         self,
-    ) -> "list[CommonSustainabilityProcessSummaryEntry]":
+    ) -> "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]":
         """Gets the joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        list[CommonSustainabilityProcessSummaryEntry]
+        Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]
             The joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
         """
         return self._joining_and_finishing_processes
@@ -154,41 +186,51 @@ class CommonSustainabilityProcessSummary(ModelBase):
     @joining_and_finishing_processes.setter
     def joining_and_finishing_processes(
         self,
-        joining_and_finishing_processes: "list[CommonSustainabilityProcessSummaryEntry]",
+        joining_and_finishing_processes: "Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]",
     ) -> None:
         """Sets the joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        joining_and_finishing_processes: list[CommonSustainabilityProcessSummaryEntry]
+        joining_and_finishing_processes: Union[List[CommonSustainabilityProcessSummaryEntry], Unset_Type]
             The joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
         """
+        # Field is not nullable
+        if joining_and_finishing_processes is None:
+            raise ValueError(
+                "Invalid value for 'joining_and_finishing_processes', must not be 'None'"
+            )
         self._joining_and_finishing_processes = joining_and_finishing_processes
 
     @property
-    def phase_summary(self) -> "CommonSustainabilityPhaseSummary":
+    def phase_summary(self) -> "Union[CommonSustainabilityPhaseSummary, Unset_Type]":
         """Gets the phase_summary of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        CommonSustainabilityPhaseSummary
+        Union[CommonSustainabilityPhaseSummary, Unset_Type]
             The phase_summary of this CommonSustainabilityProcessSummary.
         """
         return self._phase_summary
 
     @phase_summary.setter
-    def phase_summary(self, phase_summary: "CommonSustainabilityPhaseSummary") -> None:
+    def phase_summary(
+        self, phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]"
+    ) -> None:
         """Sets the phase_summary of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        phase_summary: CommonSustainabilityPhaseSummary
+        phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type]
             The phase_summary of this CommonSustainabilityProcessSummary.
         """
+        # Field is not nullable
+        if phase_summary is None:
+            raise ValueError("Invalid value for 'phase_summary', must not be 'None'")
         self._phase_summary = phase_summary
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

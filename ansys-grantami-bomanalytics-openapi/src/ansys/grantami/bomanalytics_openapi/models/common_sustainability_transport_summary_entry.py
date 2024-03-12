@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,7 +46,7 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "distance": "CommonValueWithUnit",
@@ -46,7 +56,7 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         "stage_name": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "distance": "Distance",
@@ -56,217 +66,252 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         "stage_name": "StageName",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "RecordReference": "CommonTransportReference",
         "Distance": "CommonValueWithUnit",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        climate_change: "Optional[CommonValueWithUnit]" = None,
-        climate_change_percentage: "Optional[float]" = None,
-        distance: "Optional[CommonValueWithUnit]" = None,
-        embodied_energy: "Optional[CommonValueWithUnit]" = None,
-        embodied_energy_percentage: "Optional[float]" = None,
-        record_reference: "Optional[CommonTransportReference]" = None,
-        stage_name: "Optional[str]" = None,
+        climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        distance: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
+        record_reference: "Union[CommonTransportReference, Unset_Type]" = Unset,
+        stage_name: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityTransportSummaryEntry - a model defined in Swagger
 
         Parameters
         ----------
-            climate_change: CommonValueWithUnit, optional
-            climate_change_percentage: float, optional
-            distance: CommonValueWithUnit, optional
-            embodied_energy: CommonValueWithUnit, optional
-            embodied_energy_percentage: float, optional
-            record_reference: CommonTransportReference, optional
-            stage_name: str, optional
+        climate_change: CommonValueWithUnit, optional
+        climate_change_percentage: float, optional
+        distance: CommonValueWithUnit, optional
+        embodied_energy: CommonValueWithUnit, optional
+        embodied_energy_percentage: float, optional
+        record_reference: CommonTransportReference, optional
+        stage_name: str, optional
         """
-        self._stage_name = None
-        self._record_reference = None
-        self._distance = None
-        self._embodied_energy = None
-        self._embodied_energy_percentage = None
-        self._climate_change = None
-        self._climate_change_percentage = None
+        self._stage_name: Union[str, Unset_Type] = Unset
+        self._record_reference: Union[CommonTransportReference, Unset_Type] = Unset
+        self._distance: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, Unset_Type] = Unset
 
-        if stage_name is not None:
+        if stage_name is not Unset:
             self.stage_name = stage_name
-        if record_reference is not None:
+        if record_reference is not Unset:
             self.record_reference = record_reference
-        if distance is not None:
+        if distance is not Unset:
             self.distance = distance
-        if embodied_energy is not None:
+        if embodied_energy is not Unset:
             self.embodied_energy = embodied_energy
-        if embodied_energy_percentage is not None:
+        if embodied_energy_percentage is not Unset:
             self.embodied_energy_percentage = embodied_energy_percentage
-        if climate_change is not None:
+        if climate_change is not Unset:
             self.climate_change = climate_change
-        if climate_change_percentage is not None:
+        if climate_change_percentage is not Unset:
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def stage_name(self) -> "str":
+    def stage_name(self) -> "Union[str, Unset_Type]":
         """Gets the stage_name of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The stage_name of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._stage_name
 
     @stage_name.setter
-    def stage_name(self, stage_name: "str") -> None:
+    def stage_name(self, stage_name: "Union[str, Unset_Type]") -> None:
         """Sets the stage_name of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        stage_name: str
+        stage_name: Union[str, Unset_Type]
             The stage_name of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if stage_name is None:
+            raise ValueError("Invalid value for 'stage_name', must not be 'None'")
         self._stage_name = stage_name
 
     @property
-    def record_reference(self) -> "CommonTransportReference":
+    def record_reference(self) -> "Union[CommonTransportReference, Unset_Type]":
         """Gets the record_reference of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        CommonTransportReference
+        Union[CommonTransportReference, Unset_Type]
             The record_reference of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "CommonTransportReference") -> None:
+    def record_reference(
+        self, record_reference: "Union[CommonTransportReference, Unset_Type]"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        record_reference: CommonTransportReference
+        record_reference: Union[CommonTransportReference, Unset_Type]
             The record_reference of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if record_reference is None:
+            raise ValueError("Invalid value for 'record_reference', must not be 'None'")
         self._record_reference = record_reference
 
     @property
-    def distance(self) -> "CommonValueWithUnit":
+    def distance(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the distance of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The distance of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._distance
 
     @distance.setter
-    def distance(self, distance: "CommonValueWithUnit") -> None:
+    def distance(self, distance: "Union[CommonValueWithUnit, Unset_Type]") -> None:
         """Sets the distance of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        distance: CommonValueWithUnit
+        distance: Union[CommonValueWithUnit, Unset_Type]
             The distance of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if distance is None:
+            raise ValueError("Invalid value for 'distance', must not be 'None'")
         self._distance = distance
 
     @property
-    def embodied_energy(self) -> "CommonValueWithUnit":
+    def embodied_energy(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the embodied_energy of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(self, embodied_energy: "CommonValueWithUnit") -> None:
+    def embodied_energy(
+        self, embodied_energy: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy: CommonValueWithUnit
+        embodied_energy: Union[CommonValueWithUnit, Unset_Type]
             The embodied_energy of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if embodied_energy is None:
+            raise ValueError("Invalid value for 'embodied_energy', must not be 'None'")
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "float":
+    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
-    def embodied_energy_percentage(self, embodied_energy_percentage: "float") -> None:
+    def embodied_energy_percentage(
+        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy_percentage: float
+        embodied_energy_percentage: Union[float, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if embodied_energy_percentage is None:
+            raise ValueError(
+                "Invalid value for 'embodied_energy_percentage', must not be 'None'"
+            )
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
-    def climate_change(self) -> "CommonValueWithUnit":
+    def climate_change(self) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the climate_change of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(self, climate_change: "CommonValueWithUnit") -> None:
+    def climate_change(
+        self, climate_change: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the climate_change of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        climate_change: CommonValueWithUnit
+        climate_change: Union[CommonValueWithUnit, Unset_Type]
             The climate_change of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if climate_change is None:
+            raise ValueError("Invalid value for 'climate_change', must not be 'None'")
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "float":
+    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        float
+        Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
-    def climate_change_percentage(self, climate_change_percentage: "float") -> None:
+    def climate_change_percentage(
+        self, climate_change_percentage: "Union[float, Unset_Type]"
+    ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        climate_change_percentage: float
+        climate_change_percentage: Union[float, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityTransportSummaryEntry.
         """
+        # Field is not nullable
+        if climate_change_percentage is None:
+            raise ValueError(
+                "Invalid value for 'climate_change_percentage', must not be 'None'"
+            )
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

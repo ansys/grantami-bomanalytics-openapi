@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,118 +46,133 @@ class GetAvailableLicensesResponse(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "restricted_substances": "bool",
         "sustainability": "bool",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "log_messages": "LogMessages",
         "restricted_substances": "RestrictedSubstances",
         "sustainability": "Sustainability",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "LogMessages": "CommonLogEntry",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
-        restricted_substances: "Optional[bool]" = None,
-        sustainability: "Optional[bool]" = None,
+        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        restricted_substances: "Union[bool, Unset_Type]" = Unset,
+        sustainability: "Union[bool, Unset_Type]" = Unset,
     ) -> None:
         """GetAvailableLicensesResponse - a model defined in Swagger
 
         Parameters
         ----------
-            log_messages: List[CommonLogEntry], optional
-            restricted_substances: bool, optional
-            sustainability: bool, optional
+        log_messages: List[CommonLogEntry], optional
+        restricted_substances: bool, optional
+        sustainability: bool, optional
         """
-        self._restricted_substances = None
-        self._sustainability = None
-        self._log_messages = None
+        self._restricted_substances: Union[bool, Unset_Type] = Unset
+        self._sustainability: Union[bool, Unset_Type] = Unset
+        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
-        if restricted_substances is not None:
+        if restricted_substances is not Unset:
             self.restricted_substances = restricted_substances
-        if sustainability is not None:
+        if sustainability is not Unset:
             self.sustainability = sustainability
-        if log_messages is not None:
+        if log_messages is not Unset:
             self.log_messages = log_messages
 
     @property
-    def restricted_substances(self) -> "bool":
+    def restricted_substances(self) -> "Union[bool, Unset_Type]":
         """Gets the restricted_substances of this GetAvailableLicensesResponse.
 
         Returns
         -------
-        bool
+        Union[bool, Unset_Type]
             The restricted_substances of this GetAvailableLicensesResponse.
         """
         return self._restricted_substances
 
     @restricted_substances.setter
-    def restricted_substances(self, restricted_substances: "bool") -> None:
+    def restricted_substances(
+        self, restricted_substances: "Union[bool, Unset_Type]"
+    ) -> None:
         """Sets the restricted_substances of this GetAvailableLicensesResponse.
 
         Parameters
         ----------
-        restricted_substances: bool
+        restricted_substances: Union[bool, Unset_Type]
             The restricted_substances of this GetAvailableLicensesResponse.
         """
+        # Field is not nullable
+        if restricted_substances is None:
+            raise ValueError(
+                "Invalid value for 'restricted_substances', must not be 'None'"
+            )
         self._restricted_substances = restricted_substances
 
     @property
-    def sustainability(self) -> "bool":
+    def sustainability(self) -> "Union[bool, Unset_Type]":
         """Gets the sustainability of this GetAvailableLicensesResponse.
 
         Returns
         -------
-        bool
+        Union[bool, Unset_Type]
             The sustainability of this GetAvailableLicensesResponse.
         """
         return self._sustainability
 
     @sustainability.setter
-    def sustainability(self, sustainability: "bool") -> None:
+    def sustainability(self, sustainability: "Union[bool, Unset_Type]") -> None:
         """Sets the sustainability of this GetAvailableLicensesResponse.
 
         Parameters
         ----------
-        sustainability: bool
+        sustainability: Union[bool, Unset_Type]
             The sustainability of this GetAvailableLicensesResponse.
         """
+        # Field is not nullable
+        if sustainability is None:
+            raise ValueError("Invalid value for 'sustainability', must not be 'None'")
         self._sustainability = sustainability
 
     @property
-    def log_messages(self) -> "list[CommonLogEntry]":
+    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetAvailableLicensesResponse.
 
         Returns
         -------
-        list[CommonLogEntry]
+        Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetAvailableLicensesResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "list[CommonLogEntry]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetAvailableLicensesResponse.
 
         Parameters
         ----------
-        log_messages: list[CommonLogEntry]
+        log_messages: Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetAvailableLicensesResponse.
         """
+        # Field is not nullable
+        if log_messages is None:
+            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

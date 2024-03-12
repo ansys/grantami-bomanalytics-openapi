@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,150 +46,174 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "component_name": "str",
         "component_part_number": "str",
         "material_mass_before_processing": "CommonValueWithUnit",
         "record_reference": "CommonPartReference",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "component_name": "ComponentName",
         "component_part_number": "ComponentPartNumber",
         "material_mass_before_processing": "MaterialMassBeforeProcessing",
         "record_reference": "RecordReference",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "RecordReference": "CommonPartReference",
         "MaterialMassBeforeProcessing": "CommonValueWithUnit",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        component_name: "Optional[str]" = None,
-        component_part_number: "Optional[str]" = None,
-        material_mass_before_processing: "Optional[CommonValueWithUnit]" = None,
-        record_reference: "Optional[CommonPartReference]" = None,
+        component_name: "Union[str, Unset_Type]" = Unset,
+        component_part_number: "Union[str, Unset_Type]" = Unset,
+        material_mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        record_reference: "Union[CommonPartReference, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialContributingComponent - a model defined in Swagger
 
         Parameters
         ----------
-            component_name: str, optional
-            component_part_number: str, optional
-            material_mass_before_processing: CommonValueWithUnit, optional
-            record_reference: CommonPartReference, optional
+        component_name: str, optional
+        component_part_number: str, optional
+        material_mass_before_processing: CommonValueWithUnit, optional
+        record_reference: CommonPartReference, optional
         """
-        self._component_name = None
-        self._component_part_number = None
-        self._record_reference = None
-        self._material_mass_before_processing = None
+        self._component_name: Union[str, Unset_Type] = Unset
+        self._component_part_number: Union[str, Unset_Type] = Unset
+        self._record_reference: Union[CommonPartReference, Unset_Type] = Unset
+        self._material_mass_before_processing: Union[
+            CommonValueWithUnit, Unset_Type
+        ] = Unset
 
-        if component_name is not None:
+        if component_name is not Unset:
             self.component_name = component_name
-        if component_part_number is not None:
+        if component_part_number is not Unset:
             self.component_part_number = component_part_number
-        if record_reference is not None:
+        if record_reference is not Unset:
             self.record_reference = record_reference
-        if material_mass_before_processing is not None:
+        if material_mass_before_processing is not Unset:
             self.material_mass_before_processing = material_mass_before_processing
 
     @property
-    def component_name(self) -> "str":
+    def component_name(self) -> "Union[str, Unset_Type]":
         """Gets the component_name of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The component_name of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._component_name
 
     @component_name.setter
-    def component_name(self, component_name: "str") -> None:
+    def component_name(self, component_name: "Union[str, Unset_Type]") -> None:
         """Sets the component_name of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        component_name: str
+        component_name: Union[str, Unset_Type]
             The component_name of this CommonSustainabilityMaterialContributingComponent.
         """
+        # Field is not nullable
+        if component_name is None:
+            raise ValueError("Invalid value for 'component_name', must not be 'None'")
         self._component_name = component_name
 
     @property
-    def component_part_number(self) -> "str":
+    def component_part_number(self) -> "Union[str, Unset_Type]":
         """Gets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The component_part_number of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._component_part_number
 
     @component_part_number.setter
-    def component_part_number(self, component_part_number: "str") -> None:
+    def component_part_number(
+        self, component_part_number: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        component_part_number: str
+        component_part_number: Union[str, Unset_Type]
             The component_part_number of this CommonSustainabilityMaterialContributingComponent.
         """
+        # Field is not nullable
+        if component_part_number is None:
+            raise ValueError(
+                "Invalid value for 'component_part_number', must not be 'None'"
+            )
         self._component_part_number = component_part_number
 
     @property
-    def record_reference(self) -> "CommonPartReference":
+    def record_reference(self) -> "Union[CommonPartReference, Unset_Type]":
         """Gets the record_reference of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        CommonPartReference
+        Union[CommonPartReference, Unset_Type]
             The record_reference of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "CommonPartReference") -> None:
+    def record_reference(
+        self, record_reference: "Union[CommonPartReference, Unset_Type]"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        record_reference: CommonPartReference
+        record_reference: Union[CommonPartReference, Unset_Type]
             The record_reference of this CommonSustainabilityMaterialContributingComponent.
         """
+        # Field is not nullable
+        if record_reference is None:
+            raise ValueError("Invalid value for 'record_reference', must not be 'None'")
         self._record_reference = record_reference
 
     @property
-    def material_mass_before_processing(self) -> "CommonValueWithUnit":
+    def material_mass_before_processing(
+        self,
+    ) -> "Union[CommonValueWithUnit, Unset_Type]":
         """Gets the material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        CommonValueWithUnit
+        Union[CommonValueWithUnit, Unset_Type]
             The material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._material_mass_before_processing
 
     @material_mass_before_processing.setter
     def material_mass_before_processing(
-        self, material_mass_before_processing: "CommonValueWithUnit"
+        self, material_mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]"
     ) -> None:
         """Sets the material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        material_mass_before_processing: CommonValueWithUnit
+        material_mass_before_processing: Union[CommonValueWithUnit, Unset_Type]
             The material_mass_before_processing of this CommonSustainabilityMaterialContributingComponent.
         """
+        # Field is not nullable
+        if material_mass_before_processing is None:
+            raise ValueError(
+                "Invalid value for 'material_mass_before_processing', must not be 'None'"
+            )
         self._material_mass_before_processing = material_mass_before_processing
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters
