@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,90 +46,100 @@ class GetComplianceForSubstancesResponse(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "substances": "list[CommonSubstanceWithCompliance]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "log_messages": "LogMessages",
         "substances": "Substances",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Substances": "CommonSubstanceWithCompliance",
         "LogMessages": "CommonLogEntry",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
-        substances: "Optional[List[CommonSubstanceWithCompliance]]" = None,
+        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        substances: "Union[List[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSubstancesResponse - a model defined in Swagger
 
         Parameters
         ----------
-            log_messages: List[CommonLogEntry], optional
-            substances: List[CommonSubstanceWithCompliance], optional
+        log_messages: List[CommonLogEntry], optional
+        substances: List[CommonSubstanceWithCompliance], optional
         """
-        self._substances = None
-        self._log_messages = None
+        self._substances: Union[List[CommonSubstanceWithCompliance], Unset_Type] = Unset
+        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
-        if substances is not None:
+        if substances is not Unset:
             self.substances = substances
-        if log_messages is not None:
+        if log_messages is not Unset:
             self.log_messages = log_messages
 
     @property
-    def substances(self) -> "list[CommonSubstanceWithCompliance]":
+    def substances(self) -> "Union[List[CommonSubstanceWithCompliance], Unset_Type]":
         """Gets the substances of this GetComplianceForSubstancesResponse.
 
         Returns
         -------
-        list[CommonSubstanceWithCompliance]
+        Union[List[CommonSubstanceWithCompliance], Unset_Type]
             The substances of this GetComplianceForSubstancesResponse.
         """
         return self._substances
 
     @substances.setter
-    def substances(self, substances: "list[CommonSubstanceWithCompliance]") -> None:
+    def substances(
+        self, substances: "Union[List[CommonSubstanceWithCompliance], Unset_Type]"
+    ) -> None:
         """Sets the substances of this GetComplianceForSubstancesResponse.
 
         Parameters
         ----------
-        substances: list[CommonSubstanceWithCompliance]
+        substances: Union[List[CommonSubstanceWithCompliance], Unset_Type]
             The substances of this GetComplianceForSubstancesResponse.
         """
+        # Field is not nullable
+        if substances is None:
+            raise ValueError("Invalid value for 'substances', must not be 'None'")
         self._substances = substances
 
     @property
-    def log_messages(self) -> "list[CommonLogEntry]":
+    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetComplianceForSubstancesResponse.
 
         Returns
         -------
-        list[CommonLogEntry]
+        Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForSubstancesResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "list[CommonLogEntry]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetComplianceForSubstancesResponse.
 
         Parameters
         ----------
-        log_messages: list[CommonLogEntry]
+        log_messages: Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForSubstancesResponse.
         """
+        # Field is not nullable
+        if log_messages is None:
+            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

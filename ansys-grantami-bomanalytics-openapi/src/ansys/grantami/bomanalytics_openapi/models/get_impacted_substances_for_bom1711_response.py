@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,92 +46,105 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "legislations": "list[CommonLegislationWithImpactedSubstances]",
         "log_messages": "list[CommonLogEntry]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "legislations": "Legislations",
         "log_messages": "LogMessages",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Legislations": "CommonLegislationWithImpactedSubstances",
         "LogMessages": "CommonLogEntry",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        legislations: "Optional[List[CommonLegislationWithImpactedSubstances]]" = None,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
+        legislations: "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
+        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForBom1711Response - a model defined in Swagger
 
         Parameters
         ----------
-            legislations: List[CommonLegislationWithImpactedSubstances], optional
-            log_messages: List[CommonLogEntry], optional
+        legislations: List[CommonLegislationWithImpactedSubstances], optional
+        log_messages: List[CommonLogEntry], optional
         """
-        self._legislations = None
-        self._log_messages = None
+        self._legislations: Union[
+            List[CommonLegislationWithImpactedSubstances], Unset_Type
+        ] = Unset
+        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
-        if legislations is not None:
+        if legislations is not Unset:
             self.legislations = legislations
-        if log_messages is not None:
+        if log_messages is not Unset:
             self.log_messages = log_messages
 
     @property
-    def legislations(self) -> "list[CommonLegislationWithImpactedSubstances]":
+    def legislations(
+        self,
+    ) -> "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]":
         """Gets the legislations of this GetImpactedSubstancesForBom1711Response.
 
         Returns
         -------
-        list[CommonLegislationWithImpactedSubstances]
+        Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]
             The legislations of this GetImpactedSubstancesForBom1711Response.
         """
         return self._legislations
 
     @legislations.setter
     def legislations(
-        self, legislations: "list[CommonLegislationWithImpactedSubstances]"
+        self,
+        legislations: "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]",
     ) -> None:
         """Sets the legislations of this GetImpactedSubstancesForBom1711Response.
 
         Parameters
         ----------
-        legislations: list[CommonLegislationWithImpactedSubstances]
+        legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]
             The legislations of this GetImpactedSubstancesForBom1711Response.
         """
+        # Field is not nullable
+        if legislations is None:
+            raise ValueError("Invalid value for 'legislations', must not be 'None'")
         self._legislations = legislations
 
     @property
-    def log_messages(self) -> "list[CommonLogEntry]":
+    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetImpactedSubstancesForBom1711Response.
 
         Returns
         -------
-        list[CommonLogEntry]
+        Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetImpactedSubstancesForBom1711Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "list[CommonLogEntry]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetImpactedSubstancesForBom1711Response.
 
         Parameters
         ----------
-        log_messages: list[CommonLogEntry]
+        log_messages: Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetImpactedSubstancesForBom1711Response.
         """
+        # Field is not nullable
+        if log_messages is None:
+            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

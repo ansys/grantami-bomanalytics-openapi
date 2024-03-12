@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,116 +46,125 @@ class CommonPreferredUnits(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "distance_unit": "str",
         "energy_unit": "str",
         "mass_unit": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "distance_unit": "DistanceUnit",
         "energy_unit": "EnergyUnit",
         "mass_unit": "MassUnit",
     }
 
-    subtype_mapping = {}
+    subtype_mapping: Dict[str, str] = {}
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        distance_unit: "Optional[str]" = None,
-        energy_unit: "Optional[str]" = None,
-        mass_unit: "Optional[str]" = None,
+        distance_unit: "Union[str, Unset_Type]" = Unset,
+        energy_unit: "Union[str, Unset_Type]" = Unset,
+        mass_unit: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonPreferredUnits - a model defined in Swagger
 
         Parameters
         ----------
-            distance_unit: str, optional
-            energy_unit: str, optional
-            mass_unit: str, optional
+        distance_unit: str, optional
+        energy_unit: str, optional
+        mass_unit: str, optional
         """
-        self._mass_unit = None
-        self._energy_unit = None
-        self._distance_unit = None
+        self._mass_unit: Union[str, Unset_Type] = Unset
+        self._energy_unit: Union[str, Unset_Type] = Unset
+        self._distance_unit: Union[str, Unset_Type] = Unset
 
-        if mass_unit is not None:
+        if mass_unit is not Unset:
             self.mass_unit = mass_unit
-        if energy_unit is not None:
+        if energy_unit is not Unset:
             self.energy_unit = energy_unit
-        if distance_unit is not None:
+        if distance_unit is not Unset:
             self.distance_unit = distance_unit
 
     @property
-    def mass_unit(self) -> "str":
+    def mass_unit(self) -> "Union[str, Unset_Type]":
         """Gets the mass_unit of this CommonPreferredUnits.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The mass_unit of this CommonPreferredUnits.
         """
         return self._mass_unit
 
     @mass_unit.setter
-    def mass_unit(self, mass_unit: "str") -> None:
+    def mass_unit(self, mass_unit: "Union[str, Unset_Type]") -> None:
         """Sets the mass_unit of this CommonPreferredUnits.
 
         Parameters
         ----------
-        mass_unit: str
+        mass_unit: Union[str, Unset_Type]
             The mass_unit of this CommonPreferredUnits.
         """
+        # Field is not nullable
+        if mass_unit is None:
+            raise ValueError("Invalid value for 'mass_unit', must not be 'None'")
         self._mass_unit = mass_unit
 
     @property
-    def energy_unit(self) -> "str":
+    def energy_unit(self) -> "Union[str, Unset_Type]":
         """Gets the energy_unit of this CommonPreferredUnits.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The energy_unit of this CommonPreferredUnits.
         """
         return self._energy_unit
 
     @energy_unit.setter
-    def energy_unit(self, energy_unit: "str") -> None:
+    def energy_unit(self, energy_unit: "Union[str, Unset_Type]") -> None:
         """Sets the energy_unit of this CommonPreferredUnits.
 
         Parameters
         ----------
-        energy_unit: str
+        energy_unit: Union[str, Unset_Type]
             The energy_unit of this CommonPreferredUnits.
         """
+        # Field is not nullable
+        if energy_unit is None:
+            raise ValueError("Invalid value for 'energy_unit', must not be 'None'")
         self._energy_unit = energy_unit
 
     @property
-    def distance_unit(self) -> "str":
+    def distance_unit(self) -> "Union[str, Unset_Type]":
         """Gets the distance_unit of this CommonPreferredUnits.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The distance_unit of this CommonPreferredUnits.
         """
         return self._distance_unit
 
     @distance_unit.setter
-    def distance_unit(self, distance_unit: "str") -> None:
+    def distance_unit(self, distance_unit: "Union[str, Unset_Type]") -> None:
         """Sets the distance_unit of this CommonPreferredUnits.
 
         Parameters
         ----------
-        distance_unit: str
+        distance_unit: Union[str, Unset_Type]
             The distance_unit of this CommonPreferredUnits.
         """
+        # Field is not nullable
+        if distance_unit is None:
+            raise ValueError("Invalid value for 'distance_unit', must not be 'None'")
         self._distance_unit = distance_unit
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

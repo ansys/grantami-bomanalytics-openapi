@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,87 +46,90 @@ class CommonValueWithUnit(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "unit": "str",
         "value": "float",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "unit": "Unit",
         "value": "Value",
     }
 
-    subtype_mapping = {}
+    subtype_mapping: Dict[str, str] = {}
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        unit: "Optional[str]" = None,
-        value: "Optional[float]" = None,
+        unit: "Union[str, Unset_Type]" = Unset,
+        value: "Union[float, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonValueWithUnit - a model defined in Swagger
 
         Parameters
         ----------
-            unit: str, optional
-            value: float, optional
+        unit: str, optional
+        value: float, optional
         """
-        self._value = None
-        self._unit = None
+        self._value: Union[float, None, Unset_Type] = Unset
+        self._unit: Union[str, Unset_Type] = Unset
 
-        if value is not None:
+        if value is not Unset:
             self.value = value
-        if unit is not None:
+        if unit is not Unset:
             self.unit = unit
 
     @property
-    def value(self) -> "float":
+    def value(self) -> "Union[float, None, Unset_Type]":
         """Gets the value of this CommonValueWithUnit.
 
         Returns
         -------
-        float
+        Union[float, None, Unset_Type]
             The value of this CommonValueWithUnit.
         """
         return self._value
 
     @value.setter
-    def value(self, value: "float") -> None:
+    def value(self, value: "Union[float, None, Unset_Type]") -> None:
         """Sets the value of this CommonValueWithUnit.
 
         Parameters
         ----------
-        value: float
+        value: Union[float, None, Unset_Type]
             The value of this CommonValueWithUnit.
         """
         self._value = value
 
     @property
-    def unit(self) -> "str":
+    def unit(self) -> "Union[str, Unset_Type]":
         """Gets the unit of this CommonValueWithUnit.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The unit of this CommonValueWithUnit.
         """
         return self._unit
 
     @unit.setter
-    def unit(self, unit: "str") -> None:
+    def unit(self, unit: "Union[str, Unset_Type]") -> None:
         """Sets the unit of this CommonValueWithUnit.
 
         Parameters
         ----------
-        unit: str
+        unit: Union[str, Unset_Type]
             The unit of this CommonValueWithUnit.
         """
+        # Field is not nullable
+        if unit is None:
+            raise ValueError("Invalid value for 'unit', must not be 'None'")
         self._unit = unit
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

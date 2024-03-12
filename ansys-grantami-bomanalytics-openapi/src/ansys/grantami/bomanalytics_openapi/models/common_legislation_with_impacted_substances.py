@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,91 +46,101 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "impacted_substances": "list[CommonImpactedSubstance]",
         "legislation_id": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "impacted_substances": "ImpactedSubstances",
         "legislation_id": "LegislationId",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "ImpactedSubstances": "CommonImpactedSubstance",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        impacted_substances: "Optional[List[CommonImpactedSubstance]]" = None,
-        legislation_id: "Optional[str]" = None,
+        impacted_substances: "Union[List[CommonImpactedSubstance], Unset_Type]" = Unset,
+        legislation_id: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonLegislationWithImpactedSubstances - a model defined in Swagger
 
         Parameters
         ----------
-            impacted_substances: List[CommonImpactedSubstance], optional
-            legislation_id: str, optional
+        impacted_substances: List[CommonImpactedSubstance], optional
+        legislation_id: str, optional
         """
-        self._legislation_id = None
-        self._impacted_substances = None
+        self._legislation_id: Union[str, Unset_Type] = Unset
+        self._impacted_substances: Union[List[CommonImpactedSubstance], Unset_Type] = (
+            Unset
+        )
 
-        if legislation_id is not None:
+        if legislation_id is not Unset:
             self.legislation_id = legislation_id
-        if impacted_substances is not None:
+        if impacted_substances is not Unset:
             self.impacted_substances = impacted_substances
 
     @property
-    def legislation_id(self) -> "str":
+    def legislation_id(self) -> "Union[str, Unset_Type]":
         """Gets the legislation_id of this CommonLegislationWithImpactedSubstances.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The legislation_id of this CommonLegislationWithImpactedSubstances.
         """
         return self._legislation_id
 
     @legislation_id.setter
-    def legislation_id(self, legislation_id: "str") -> None:
+    def legislation_id(self, legislation_id: "Union[str, Unset_Type]") -> None:
         """Sets the legislation_id of this CommonLegislationWithImpactedSubstances.
 
         Parameters
         ----------
-        legislation_id: str
+        legislation_id: Union[str, Unset_Type]
             The legislation_id of this CommonLegislationWithImpactedSubstances.
         """
+        # Field is not nullable
+        if legislation_id is None:
+            raise ValueError("Invalid value for 'legislation_id', must not be 'None'")
         self._legislation_id = legislation_id
 
     @property
-    def impacted_substances(self) -> "list[CommonImpactedSubstance]":
+    def impacted_substances(self) -> "Union[List[CommonImpactedSubstance], Unset_Type]":
         """Gets the impacted_substances of this CommonLegislationWithImpactedSubstances.
 
         Returns
         -------
-        list[CommonImpactedSubstance]
+        Union[List[CommonImpactedSubstance], Unset_Type]
             The impacted_substances of this CommonLegislationWithImpactedSubstances.
         """
         return self._impacted_substances
 
     @impacted_substances.setter
     def impacted_substances(
-        self, impacted_substances: "list[CommonImpactedSubstance]"
+        self, impacted_substances: "Union[List[CommonImpactedSubstance], Unset_Type]"
     ) -> None:
         """Sets the impacted_substances of this CommonLegislationWithImpactedSubstances.
 
         Parameters
         ----------
-        impacted_substances: list[CommonImpactedSubstance]
+        impacted_substances: Union[List[CommonImpactedSubstance], Unset_Type]
             The impacted_substances of this CommonLegislationWithImpactedSubstances.
         """
+        # Field is not nullable
+        if impacted_substances is None:
+            raise ValueError(
+                "Invalid value for 'impacted_substances', must not be 'None'"
+            )
         self._impacted_substances = impacted_substances
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

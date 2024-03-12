@@ -9,11 +9,20 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Dict, List, Optional, Union  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    BinaryIO,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 from . import ApiBase
 
 
 if TYPE_CHECKING:
+    import pathlib
     from ..models import *
 
 
@@ -34,9 +43,9 @@ class DocumentationApi(ApiBase):
         str
         """
         data = self._get_yaml_with_http_info(_return_http_data_only=True)
-        return data  # type: ignore[return-value]
+        return data  # type: ignore[no-any-return]
 
-    def _get_yaml_with_http_info(self, **kwargs):
+    def _get_yaml_with_http_info(self, **kwargs: Any) -> Any:
         all_params = ["_return_http_data_only", "_preload_content", "_request_timeout"]
 
         params = locals()
@@ -48,16 +57,16 @@ class DocumentationApi(ApiBase):
             params[key] = val
         del params["kwargs"]
 
-        collection_formats = {}
+        collection_formats: Dict[str, Any] = {}
 
-        path_params = {}
+        path_params: Dict[str, Any] = {}
 
-        query_params = []
+        query_params: List[Any] = []
 
-        header_params = {}
+        header_params: Dict[str, Any] = {}
 
-        form_params = []
-        local_var_files = {}
+        form_params: List[Any] = []
+        local_var_files: Dict[str, Any] = {}
 
         body_params = None
         # HTTP header 'Accept'
@@ -65,7 +74,7 @@ class DocumentationApi(ApiBase):
             ["application/json"]
         )
 
-        response_type_map = {
+        response_type_map: Dict[int, Optional[str]] = {
             200: "str",
         }
 

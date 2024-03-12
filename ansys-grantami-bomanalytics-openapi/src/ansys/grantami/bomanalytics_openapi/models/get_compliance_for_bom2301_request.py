@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,148 +46,162 @@ class GetComplianceForBom2301Request(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "bom_xml2301": "str",
         "config": "CommonRequestConfig",
         "database_key": "str",
         "indicators": "list[CommonIndicatorDefinition]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "bom_xml2301": "BomXml2301",
         "config": "Config",
         "database_key": "DatabaseKey",
         "indicators": "Indicators",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        bom_xml2301: "Optional[str]" = None,
-        config: "Optional[CommonRequestConfig]" = None,
-        database_key: "Optional[str]" = None,
-        indicators: "Optional[List[CommonIndicatorDefinition]]" = None,
+        bom_xml2301: "Union[str, Unset_Type]" = Unset,
+        config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
+        database_key: "Union[str, Unset_Type]" = Unset,
+        indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForBom2301Request - a model defined in Swagger
 
         Parameters
         ----------
-            bom_xml2301: str, optional
-            config: CommonRequestConfig, optional
-            database_key: str, optional
-            indicators: List[CommonIndicatorDefinition], optional
+        bom_xml2301: str, optional
+        config: CommonRequestConfig, optional
+        database_key: str, optional
+        indicators: List[CommonIndicatorDefinition], optional
         """
-        self._bom_xml2301 = None
-        self._indicators = None
-        self._database_key = None
-        self._config = None
+        self._bom_xml2301: Union[str, Unset_Type] = Unset
+        self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._database_key: Union[str, Unset_Type] = Unset
+        self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
-        if bom_xml2301 is not None:
+        if bom_xml2301 is not Unset:
             self.bom_xml2301 = bom_xml2301
-        if indicators is not None:
+        if indicators is not Unset:
             self.indicators = indicators
-        if database_key is not None:
+        if database_key is not Unset:
             self.database_key = database_key
-        if config is not None:
+        if config is not Unset:
             self.config = config
 
     @property
-    def bom_xml2301(self) -> "str":
+    def bom_xml2301(self) -> "Union[str, Unset_Type]":
         """Gets the bom_xml2301 of this GetComplianceForBom2301Request.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The bom_xml2301 of this GetComplianceForBom2301Request.
         """
         return self._bom_xml2301
 
     @bom_xml2301.setter
-    def bom_xml2301(self, bom_xml2301: "str") -> None:
+    def bom_xml2301(self, bom_xml2301: "Union[str, Unset_Type]") -> None:
         """Sets the bom_xml2301 of this GetComplianceForBom2301Request.
 
         Parameters
         ----------
-        bom_xml2301: str
+        bom_xml2301: Union[str, Unset_Type]
             The bom_xml2301 of this GetComplianceForBom2301Request.
         """
+        # Field is not nullable
+        if bom_xml2301 is None:
+            raise ValueError("Invalid value for 'bom_xml2301', must not be 'None'")
         self._bom_xml2301 = bom_xml2301
 
     @property
-    def indicators(self) -> "list[CommonIndicatorDefinition]":
+    def indicators(self) -> "Union[List[CommonIndicatorDefinition], Unset_Type]":
         """Gets the indicators of this GetComplianceForBom2301Request.
 
         Returns
         -------
-        list[CommonIndicatorDefinition]
+        Union[List[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForBom2301Request.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "list[CommonIndicatorDefinition]") -> None:
+    def indicators(
+        self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]"
+    ) -> None:
         """Sets the indicators of this GetComplianceForBom2301Request.
 
         Parameters
         ----------
-        indicators: list[CommonIndicatorDefinition]
+        indicators: Union[List[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForBom2301Request.
         """
+        # Field is not nullable
+        if indicators is None:
+            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property
-    def database_key(self) -> "str":
+    def database_key(self) -> "Union[str, Unset_Type]":
         """Gets the database_key of this GetComplianceForBom2301Request.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The database_key of this GetComplianceForBom2301Request.
         """
         return self._database_key
 
     @database_key.setter
-    def database_key(self, database_key: "str") -> None:
+    def database_key(self, database_key: "Union[str, Unset_Type]") -> None:
         """Sets the database_key of this GetComplianceForBom2301Request.
 
         Parameters
         ----------
-        database_key: str
+        database_key: Union[str, Unset_Type]
             The database_key of this GetComplianceForBom2301Request.
         """
+        # Field is not nullable
+        if database_key is None:
+            raise ValueError("Invalid value for 'database_key', must not be 'None'")
         self._database_key = database_key
 
     @property
-    def config(self) -> "CommonRequestConfig":
+    def config(self) -> "Union[CommonRequestConfig, Unset_Type]":
         """Gets the config of this GetComplianceForBom2301Request.
 
         Returns
         -------
-        CommonRequestConfig
+        Union[CommonRequestConfig, Unset_Type]
             The config of this GetComplianceForBom2301Request.
         """
         return self._config
 
     @config.setter
-    def config(self, config: "CommonRequestConfig") -> None:
+    def config(self, config: "Union[CommonRequestConfig, Unset_Type]") -> None:
         """Sets the config of this GetComplianceForBom2301Request.
 
         Parameters
         ----------
-        config: CommonRequestConfig
+        config: Union[CommonRequestConfig, Unset_Type]
             The config of this GetComplianceForBom2301Request.
         """
+        # Field is not nullable
+        if config is None:
+            raise ValueError("Invalid value for 'config', must not be 'None'")
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

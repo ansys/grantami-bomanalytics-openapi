@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,124 +46,145 @@ class GetSustainabilityForBom2301Response(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "parts": "list[CommonSustainabilityPartWithSustainability]",
         "transport_stages": "list[CommonSustainabilityTransportWithSustainability]",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "log_messages": "LogMessages",
         "parts": "Parts",
         "transport_stages": "TransportStages",
     }
 
-    subtype_mapping = {
+    subtype_mapping: Dict[str, str] = {
         "Parts": "CommonSustainabilityPartWithSustainability",
         "TransportStages": "CommonSustainabilityTransportWithSustainability",
         "LogMessages": "CommonLogEntry",
     }
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        log_messages: "Optional[List[CommonLogEntry]]" = None,
-        parts: "Optional[List[CommonSustainabilityPartWithSustainability]]" = None,
-        transport_stages: "Optional[List[CommonSustainabilityTransportWithSustainability]]" = None,
+        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        parts: "Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]" = Unset,
+        transport_stages: "Union[List[CommonSustainabilityTransportWithSustainability], Unset_Type]" = Unset,
     ) -> None:
         """GetSustainabilityForBom2301Response - a model defined in Swagger
 
         Parameters
         ----------
-            log_messages: List[CommonLogEntry], optional
-            parts: List[CommonSustainabilityPartWithSustainability], optional
-            transport_stages: List[CommonSustainabilityTransportWithSustainability], optional
+        log_messages: List[CommonLogEntry], optional
+        parts: List[CommonSustainabilityPartWithSustainability], optional
+        transport_stages: List[CommonSustainabilityTransportWithSustainability], optional
         """
-        self._parts = None
-        self._transport_stages = None
-        self._log_messages = None
+        self._parts: Union[
+            List[CommonSustainabilityPartWithSustainability], Unset_Type
+        ] = Unset
+        self._transport_stages: Union[
+            List[CommonSustainabilityTransportWithSustainability], Unset_Type
+        ] = Unset
+        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
-        if parts is not None:
+        if parts is not Unset:
             self.parts = parts
-        if transport_stages is not None:
+        if transport_stages is not Unset:
             self.transport_stages = transport_stages
-        if log_messages is not None:
+        if log_messages is not Unset:
             self.log_messages = log_messages
 
     @property
-    def parts(self) -> "list[CommonSustainabilityPartWithSustainability]":
+    def parts(
+        self,
+    ) -> "Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]":
         """Gets the parts of this GetSustainabilityForBom2301Response.
 
         Returns
         -------
-        list[CommonSustainabilityPartWithSustainability]
+        Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]
             The parts of this GetSustainabilityForBom2301Response.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "list[CommonSustainabilityPartWithSustainability]") -> None:
+    def parts(
+        self,
+        parts: "Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]",
+    ) -> None:
         """Sets the parts of this GetSustainabilityForBom2301Response.
 
         Parameters
         ----------
-        parts: list[CommonSustainabilityPartWithSustainability]
+        parts: Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]
             The parts of this GetSustainabilityForBom2301Response.
         """
+        # Field is not nullable
+        if parts is None:
+            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
     def transport_stages(
         self,
-    ) -> "list[CommonSustainabilityTransportWithSustainability]":
+    ) -> "Union[List[CommonSustainabilityTransportWithSustainability], Unset_Type]":
         """Gets the transport_stages of this GetSustainabilityForBom2301Response.
 
         Returns
         -------
-        list[CommonSustainabilityTransportWithSustainability]
+        Union[List[CommonSustainabilityTransportWithSustainability], Unset_Type]
             The transport_stages of this GetSustainabilityForBom2301Response.
         """
         return self._transport_stages
 
     @transport_stages.setter
     def transport_stages(
-        self, transport_stages: "list[CommonSustainabilityTransportWithSustainability]"
+        self,
+        transport_stages: "Union[List[CommonSustainabilityTransportWithSustainability], Unset_Type]",
     ) -> None:
         """Sets the transport_stages of this GetSustainabilityForBom2301Response.
 
         Parameters
         ----------
-        transport_stages: list[CommonSustainabilityTransportWithSustainability]
+        transport_stages: Union[List[CommonSustainabilityTransportWithSustainability], Unset_Type]
             The transport_stages of this GetSustainabilityForBom2301Response.
         """
+        # Field is not nullable
+        if transport_stages is None:
+            raise ValueError("Invalid value for 'transport_stages', must not be 'None'")
         self._transport_stages = transport_stages
 
     @property
-    def log_messages(self) -> "list[CommonLogEntry]":
+    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetSustainabilityForBom2301Response.
 
         Returns
         -------
-        list[CommonLogEntry]
+        Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetSustainabilityForBom2301Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "list[CommonLogEntry]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetSustainabilityForBom2301Response.
 
         Parameters
         ----------
-        log_messages: list[CommonLogEntry]
+        log_messages: Union[List[CommonLogEntry], Unset_Type]
             The log_messages of this GetSustainabilityForBom2301Response.
         """
+        # Field is not nullable
+        if log_messages is None:
+            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

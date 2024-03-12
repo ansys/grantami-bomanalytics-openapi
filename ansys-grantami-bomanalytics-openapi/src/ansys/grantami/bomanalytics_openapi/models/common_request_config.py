@@ -9,12 +9,22 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, Dict, List, Optional  # noqa: F401
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    BinaryIO,
+    Dict,
+    List,
+    Optional,
+    Union,
+)  # noqa: F401
 
-from . import ModelBase
+from . import ModelBase, Unset, Unset_Type
 
 
 if TYPE_CHECKING:
+    from datetime import datetime
+    import pathlib
     from . import *
 
 
@@ -36,7 +46,7 @@ class CommonRequestConfig(ModelBase):
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types = {
+    swagger_types: Dict[str, str] = {
         "coatings_table_name": "str",
         "inhouse_materials_table_name": "str",
         "locations_table_name": "str",
@@ -49,7 +59,7 @@ class CommonRequestConfig(ModelBase):
         "transport_table_name": "str",
     }
 
-    attribute_map = {
+    attribute_map: Dict[str, str] = {
         "coatings_table_name": "CoatingsTableName",
         "inhouse_materials_table_name": "InhouseMaterialsTableName",
         "locations_table_name": "LocationsTableName",
@@ -62,297 +72,363 @@ class CommonRequestConfig(ModelBase):
         "transport_table_name": "TransportTableName",
     }
 
-    subtype_mapping = {}
+    subtype_mapping: Dict[str, str] = {}
 
-    discriminator = None
+    discriminator: Optional[str] = None
 
     def __init__(
         self,
         *,
-        coatings_table_name: "Optional[str]" = None,
-        inhouse_materials_table_name: "Optional[str]" = None,
-        locations_table_name: "Optional[str]" = None,
-        material_universe_table_name: "Optional[str]" = None,
-        maximum_spec_to_spec_link_depth: "Optional[int]" = None,
-        process_universe_table_name: "Optional[str]" = None,
-        products_and_parts_table_name: "Optional[str]" = None,
-        specifications_table_name: "Optional[str]" = None,
-        substances_table_name: "Optional[str]" = None,
-        transport_table_name: "Optional[str]" = None,
+        coatings_table_name: "Union[str, Unset_Type]" = Unset,
+        inhouse_materials_table_name: "Union[str, Unset_Type]" = Unset,
+        locations_table_name: "Union[str, Unset_Type]" = Unset,
+        material_universe_table_name: "Union[str, Unset_Type]" = Unset,
+        maximum_spec_to_spec_link_depth: "Union[int, Unset_Type]" = Unset,
+        process_universe_table_name: "Union[str, Unset_Type]" = Unset,
+        products_and_parts_table_name: "Union[str, Unset_Type]" = Unset,
+        specifications_table_name: "Union[str, Unset_Type]" = Unset,
+        substances_table_name: "Union[str, Unset_Type]" = Unset,
+        transport_table_name: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonRequestConfig - a model defined in Swagger
 
         Parameters
         ----------
-            coatings_table_name: str, optional
-            inhouse_materials_table_name: str, optional
-            locations_table_name: str, optional
-            material_universe_table_name: str, optional
-            maximum_spec_to_spec_link_depth: int, optional
-            process_universe_table_name: str, optional
-            products_and_parts_table_name: str, optional
-            specifications_table_name: str, optional
-            substances_table_name: str, optional
-            transport_table_name: str, optional
+        coatings_table_name: str, optional
+        inhouse_materials_table_name: str, optional
+        locations_table_name: str, optional
+        material_universe_table_name: str, optional
+        maximum_spec_to_spec_link_depth: int, optional
+        process_universe_table_name: str, optional
+        products_and_parts_table_name: str, optional
+        specifications_table_name: str, optional
+        substances_table_name: str, optional
+        transport_table_name: str, optional
         """
-        self._material_universe_table_name = None
-        self._inhouse_materials_table_name = None
-        self._specifications_table_name = None
-        self._products_and_parts_table_name = None
-        self._substances_table_name = None
-        self._coatings_table_name = None
-        self._transport_table_name = None
-        self._process_universe_table_name = None
-        self._locations_table_name = None
-        self._maximum_spec_to_spec_link_depth = None
+        self._material_universe_table_name: Union[str, Unset_Type] = Unset
+        self._inhouse_materials_table_name: Union[str, Unset_Type] = Unset
+        self._specifications_table_name: Union[str, Unset_Type] = Unset
+        self._products_and_parts_table_name: Union[str, Unset_Type] = Unset
+        self._substances_table_name: Union[str, Unset_Type] = Unset
+        self._coatings_table_name: Union[str, Unset_Type] = Unset
+        self._transport_table_name: Union[str, Unset_Type] = Unset
+        self._process_universe_table_name: Union[str, Unset_Type] = Unset
+        self._locations_table_name: Union[str, Unset_Type] = Unset
+        self._maximum_spec_to_spec_link_depth: Union[int, Unset_Type] = Unset
 
-        if material_universe_table_name is not None:
+        if material_universe_table_name is not Unset:
             self.material_universe_table_name = material_universe_table_name
-        if inhouse_materials_table_name is not None:
+        if inhouse_materials_table_name is not Unset:
             self.inhouse_materials_table_name = inhouse_materials_table_name
-        if specifications_table_name is not None:
+        if specifications_table_name is not Unset:
             self.specifications_table_name = specifications_table_name
-        if products_and_parts_table_name is not None:
+        if products_and_parts_table_name is not Unset:
             self.products_and_parts_table_name = products_and_parts_table_name
-        if substances_table_name is not None:
+        if substances_table_name is not Unset:
             self.substances_table_name = substances_table_name
-        if coatings_table_name is not None:
+        if coatings_table_name is not Unset:
             self.coatings_table_name = coatings_table_name
-        if transport_table_name is not None:
+        if transport_table_name is not Unset:
             self.transport_table_name = transport_table_name
-        if process_universe_table_name is not None:
+        if process_universe_table_name is not Unset:
             self.process_universe_table_name = process_universe_table_name
-        if locations_table_name is not None:
+        if locations_table_name is not Unset:
             self.locations_table_name = locations_table_name
-        if maximum_spec_to_spec_link_depth is not None:
+        if maximum_spec_to_spec_link_depth is not Unset:
             self.maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
     @property
-    def material_universe_table_name(self) -> "str":
+    def material_universe_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the material_universe_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The material_universe_table_name of this CommonRequestConfig.
         """
         return self._material_universe_table_name
 
     @material_universe_table_name.setter
-    def material_universe_table_name(self, material_universe_table_name: "str") -> None:
+    def material_universe_table_name(
+        self, material_universe_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the material_universe_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        material_universe_table_name: str
+        material_universe_table_name: Union[str, Unset_Type]
             The material_universe_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if material_universe_table_name is None:
+            raise ValueError(
+                "Invalid value for 'material_universe_table_name', must not be 'None'"
+            )
         self._material_universe_table_name = material_universe_table_name
 
     @property
-    def inhouse_materials_table_name(self) -> "str":
+    def inhouse_materials_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the inhouse_materials_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The inhouse_materials_table_name of this CommonRequestConfig.
         """
         return self._inhouse_materials_table_name
 
     @inhouse_materials_table_name.setter
-    def inhouse_materials_table_name(self, inhouse_materials_table_name: "str") -> None:
+    def inhouse_materials_table_name(
+        self, inhouse_materials_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the inhouse_materials_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        inhouse_materials_table_name: str
+        inhouse_materials_table_name: Union[str, Unset_Type]
             The inhouse_materials_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if inhouse_materials_table_name is None:
+            raise ValueError(
+                "Invalid value for 'inhouse_materials_table_name', must not be 'None'"
+            )
         self._inhouse_materials_table_name = inhouse_materials_table_name
 
     @property
-    def specifications_table_name(self) -> "str":
+    def specifications_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the specifications_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The specifications_table_name of this CommonRequestConfig.
         """
         return self._specifications_table_name
 
     @specifications_table_name.setter
-    def specifications_table_name(self, specifications_table_name: "str") -> None:
+    def specifications_table_name(
+        self, specifications_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the specifications_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        specifications_table_name: str
+        specifications_table_name: Union[str, Unset_Type]
             The specifications_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if specifications_table_name is None:
+            raise ValueError(
+                "Invalid value for 'specifications_table_name', must not be 'None'"
+            )
         self._specifications_table_name = specifications_table_name
 
     @property
-    def products_and_parts_table_name(self) -> "str":
+    def products_and_parts_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the products_and_parts_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The products_and_parts_table_name of this CommonRequestConfig.
         """
         return self._products_and_parts_table_name
 
     @products_and_parts_table_name.setter
     def products_and_parts_table_name(
-        self, products_and_parts_table_name: "str"
+        self, products_and_parts_table_name: "Union[str, Unset_Type]"
     ) -> None:
         """Sets the products_and_parts_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        products_and_parts_table_name: str
+        products_and_parts_table_name: Union[str, Unset_Type]
             The products_and_parts_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if products_and_parts_table_name is None:
+            raise ValueError(
+                "Invalid value for 'products_and_parts_table_name', must not be 'None'"
+            )
         self._products_and_parts_table_name = products_and_parts_table_name
 
     @property
-    def substances_table_name(self) -> "str":
+    def substances_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the substances_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The substances_table_name of this CommonRequestConfig.
         """
         return self._substances_table_name
 
     @substances_table_name.setter
-    def substances_table_name(self, substances_table_name: "str") -> None:
+    def substances_table_name(
+        self, substances_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the substances_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        substances_table_name: str
+        substances_table_name: Union[str, Unset_Type]
             The substances_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if substances_table_name is None:
+            raise ValueError(
+                "Invalid value for 'substances_table_name', must not be 'None'"
+            )
         self._substances_table_name = substances_table_name
 
     @property
-    def coatings_table_name(self) -> "str":
+    def coatings_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the coatings_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The coatings_table_name of this CommonRequestConfig.
         """
         return self._coatings_table_name
 
     @coatings_table_name.setter
-    def coatings_table_name(self, coatings_table_name: "str") -> None:
+    def coatings_table_name(
+        self, coatings_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the coatings_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        coatings_table_name: str
+        coatings_table_name: Union[str, Unset_Type]
             The coatings_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if coatings_table_name is None:
+            raise ValueError(
+                "Invalid value for 'coatings_table_name', must not be 'None'"
+            )
         self._coatings_table_name = coatings_table_name
 
     @property
-    def transport_table_name(self) -> "str":
+    def transport_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the transport_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The transport_table_name of this CommonRequestConfig.
         """
         return self._transport_table_name
 
     @transport_table_name.setter
-    def transport_table_name(self, transport_table_name: "str") -> None:
+    def transport_table_name(
+        self, transport_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the transport_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        transport_table_name: str
+        transport_table_name: Union[str, Unset_Type]
             The transport_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if transport_table_name is None:
+            raise ValueError(
+                "Invalid value for 'transport_table_name', must not be 'None'"
+            )
         self._transport_table_name = transport_table_name
 
     @property
-    def process_universe_table_name(self) -> "str":
+    def process_universe_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the process_universe_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The process_universe_table_name of this CommonRequestConfig.
         """
         return self._process_universe_table_name
 
     @process_universe_table_name.setter
-    def process_universe_table_name(self, process_universe_table_name: "str") -> None:
+    def process_universe_table_name(
+        self, process_universe_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the process_universe_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        process_universe_table_name: str
+        process_universe_table_name: Union[str, Unset_Type]
             The process_universe_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if process_universe_table_name is None:
+            raise ValueError(
+                "Invalid value for 'process_universe_table_name', must not be 'None'"
+            )
         self._process_universe_table_name = process_universe_table_name
 
     @property
-    def locations_table_name(self) -> "str":
+    def locations_table_name(self) -> "Union[str, Unset_Type]":
         """Gets the locations_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        str
+        Union[str, Unset_Type]
             The locations_table_name of this CommonRequestConfig.
         """
         return self._locations_table_name
 
     @locations_table_name.setter
-    def locations_table_name(self, locations_table_name: "str") -> None:
+    def locations_table_name(
+        self, locations_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the locations_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        locations_table_name: str
+        locations_table_name: Union[str, Unset_Type]
             The locations_table_name of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if locations_table_name is None:
+            raise ValueError(
+                "Invalid value for 'locations_table_name', must not be 'None'"
+            )
         self._locations_table_name = locations_table_name
 
     @property
-    def maximum_spec_to_spec_link_depth(self) -> "int":
+    def maximum_spec_to_spec_link_depth(self) -> "Union[int, Unset_Type]":
         """Gets the maximum_spec_to_spec_link_depth of this CommonRequestConfig.
 
         Returns
         -------
-        int
+        Union[int, Unset_Type]
             The maximum_spec_to_spec_link_depth of this CommonRequestConfig.
         """
         return self._maximum_spec_to_spec_link_depth
 
     @maximum_spec_to_spec_link_depth.setter
     def maximum_spec_to_spec_link_depth(
-        self, maximum_spec_to_spec_link_depth: "int"
+        self, maximum_spec_to_spec_link_depth: "Union[int, Unset_Type]"
     ) -> None:
         """Sets the maximum_spec_to_spec_link_depth of this CommonRequestConfig.
 
         Parameters
         ----------
-        maximum_spec_to_spec_link_depth: int
+        maximum_spec_to_spec_link_depth: Union[int, Unset_Type]
             The maximum_spec_to_spec_link_depth of this CommonRequestConfig.
         """
+        # Field is not nullable
+        if maximum_spec_to_spec_link_depth is None:
+            raise ValueError(
+                "Invalid value for 'maximum_spec_to_spec_link_depth', must not be 'None'"
+            )
         self._maximum_spec_to_spec_link_depth = maximum_spec_to_spec_link_depth
 
     @classmethod
-    def get_real_child_model(cls, data: ModelBase) -> str:
+    def get_real_child_model(cls, data: Dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters
