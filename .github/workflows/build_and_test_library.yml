@@ -43,7 +43,11 @@ jobs:
 
       - name: "Test with pytest"
         working-directory: ansys-grantami-bomanalytics-openapi
-        run: poetry run -- pytest
+        run: poetry run pytest
+
+      - name: "Run mypy"
+        working-directory: ansys-grantami-bomanalytics-openapi
+        run: poetry run mypy
 
   build-library:
     name: "Build library"
@@ -103,6 +107,14 @@ jobs:
       - name: "Install Python dependencies"
         run: |
           python -m pip install --upgrade pip twine
+
+      - name: "Release to private PyPI"
+        run: |
+          python -m twine upload --verbose --skip-existing --non-interactive ~/dist/*.whl
+        env:
+          TWINE_USERNAME: "__token__"
+          TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
+          TWINE_REPOSITORY_URL: "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
 
       - name: "Release to public PyPI"
         run: |
