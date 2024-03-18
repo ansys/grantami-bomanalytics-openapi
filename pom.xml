@@ -9,7 +9,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven-plugin-version>1.0.0</maven-plugin-version>
-    <yaml-filename>Granta.BomAnalyticsServices.yaml</yaml-filename>
+    <yaml-filename>Granta.BomAnalyticsServices.V1.yaml</yaml-filename>
     <swagger-template-version>3.0.0-SNAPSHOT</swagger-template-version>
     <package-name>ansys-grantami-bomanalytics-openapi</package-name>
     <package-import-path>ansys.grantami.bomanalytics_openapi</package-import-path>
