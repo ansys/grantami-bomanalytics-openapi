@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Granta.BomAnalyticsServices
+  title: Granta.BomAnalyticsServices.V1
   version: V1
 servers:
   - url: http://localhost/mi_servicelayer/BomAnalytics/v1.svc
@@ -40,11 +40,10 @@ paths:
                   Materials:
                     - ReferenceType: MaterialId
                       ReferenceValue: elastomer-butadienerubber
-                      Id:
                   LegislationIds:
                     - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
               example2:
                 summary: Materials with different reference types
                 description: "This request includes two materials. The first material is referenced by its \"Record History GUID\", and the second by its \"Material ID\". Both materials correspond to MaterialUniverse records, but they could equally correspond to \"Materials in-house\" materials. The legislation name will determine which substances are reported as impacted substances for both materials."
@@ -52,14 +51,12 @@ paths:
                   Materials:
                     - ReferenceType: MiRecordHistoryGuid
                       ReferenceValue: 92f368c9-be68-481a-86a0-7a16a8265f77
-                      Id:
                     - ReferenceType: MaterialId
                       ReferenceValue: stainless-316-annealed
-                      Id:
                   LegislationIds:
                     - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
               example3:
                 summary: Multiple materials and legislations
                 description: "This request includes two materials and two legislations of interest. Both materials are referenced by their \"Material ID\", but could be referenced by different reference types. Both legislation names will determine which substances are reported as impacted substances for both materials."
@@ -67,15 +64,13 @@ paths:
                   Materials:
                     - ReferenceType: MaterialId
                       ReferenceValue: plastic-pc-10-15ptfe-lubricated
-                      Id:
                     - ReferenceType: MaterialId
                       ReferenceValue: stainless-316-annealed
-                      Id:
                   LegislationIds:
                     - SINList
                     - RoHS
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -96,16 +91,15 @@ paths:
                               - SubstanceName: '1,3-Butadiene'
                                 CasNumber: 106-99-0
                                 EcNumber: 203-450-8
-                                MaxPercentageAmountInMaterial:
+                                MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                                 CasNumber: 128-37-0
                                 EcNumber: 204-881-4
-                                MaxPercentageAmountInMaterial:
+                                MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                         ReferenceType: MaterialId
                         ReferenceValue: elastomer-butadienerubber
-                        Id:
                     LogMessages: [ ]
                 example2:
                   summary: Materials with different reference types
@@ -119,15 +113,14 @@ paths:
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold:
+                                LegislationThreshold: 
                               - SubstanceName: PFOA
                                 CasNumber: 335-67-1
                                 EcNumber: 206-397-9
-                                MaxPercentageAmountInMaterial:
-                                LegislationThreshold:
+                                MaxPercentageAmountInMaterial: 
+                                LegislationThreshold: 
                         ReferenceType: MiRecordHistoryGuid
                         ReferenceValue: 92f368c9-be68-481a-86a0-7a16a8265f77
-                        Id:
                       - Legislations:
                           - LegislationId: SINList
                             ImpactedSubstances:
@@ -135,10 +128,9 @@ paths:
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold:
+                                LegislationThreshold: 
                         ReferenceType: MaterialId
                         ReferenceValue: stainless-316-annealed
-                        Id:
                     LogMessages: [ ]
                 example3:
                   summary: Multiple materials and legislations
@@ -152,12 +144,12 @@ paths:
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold:
+                                LegislationThreshold: 
                               - SubstanceName: PFOA
                                 CasNumber: 335-67-1
                                 EcNumber: 206-397-9
-                                MaxPercentageAmountInMaterial:
-                                LegislationThreshold:
+                                MaxPercentageAmountInMaterial: 
+                                LegislationThreshold: 
                           - LegislationId: RoHS
                             ImpactedSubstances:
                               - SubstanceName: 'Nitric acid, cadmium salt'
@@ -167,7 +159,6 @@ paths:
                                 LegislationThreshold: 0.01
                         ReferenceType: MaterialId
                         ReferenceValue: plastic-pc-10-15ptfe-lubricated
-                        Id:
                       - Legislations:
                           - LegislationId: SINList
                             ImpactedSubstances:
@@ -175,10 +166,9 @@ paths:
                                 CasNumber: 10325-94-7
                                 EcNumber: 233-710-6
                                 MaxPercentageAmountInMaterial: 0.7
-                                LegislationThreshold:
+                                LegislationThreshold: 
                         ReferenceType: MaterialId
                         ReferenceValue: stainless-316-annealed
-                        Id:
                     LogMessages: [ ]
   /impacted-substances/specifications:
     post:
@@ -201,14 +191,12 @@ paths:
                   Specifications:
                     - ReferenceType: MiRecordHistoryIdentity
                       ReferenceValue: 545019
-                      Id:
                     - ReferenceType: SpecificationId
                       ReferenceValue: AMS03-27
-                      Id:
                   LegislationIds:
                     - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -229,16 +217,15 @@ paths:
                               - SubstanceName: '1,3-Butadiene'
                                 CasNumber: 106-99-0
                                 EcNumber: 203-450-8
-                                MaxPercentageAmountInMaterial:
+                                MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                                 CasNumber: 128-37-0
                                 EcNumber: 204-881-4
-                                MaxPercentageAmountInMaterial:
+                                MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
                         ReferenceValue: 545019
-                        Id:
                       - Legislations:
                           - LegislationId: SINList
                             ImpactedSubstances:
@@ -254,7 +241,6 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: SpecificationId
                         ReferenceValue: AMS03-27
-                        Id:
                     LogMessages: [ ]
   /impacted-substances/parts:
     post:
@@ -277,14 +263,12 @@ paths:
                   Parts:
                     - ReferenceType: MiRecordHistoryIdentity
                       ReferenceValue: 565024
-                      Id:
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
-                      Id:
                   LegislationIds:
                     - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -305,16 +289,15 @@ paths:
                               - SubstanceName: '1,3-Butadiene'
                                 CasNumber: 106-99-0
                                 EcNumber: 203-450-8
-                                MaxPercentageAmountInMaterial:
+                                MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                                 CasNumber: 128-37-0
                                 EcNumber: 204-881-4
-                                MaxPercentageAmountInMaterial:
+                                MaxPercentageAmountInMaterial: 
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
                         ReferenceValue: 565024
-                        Id:
                       - Legislations:
                           - LegislationId: SINList
                             ImpactedSubstances:
@@ -330,7 +313,6 @@ paths:
                                 LegislationThreshold: 0.1
                         ReferenceType: PartNumber
                         ReferenceValue: FLRY33
-                        Id:
                     LogMessages: [ ]
   /impacted-substances/bom1711:
     post:
@@ -354,7 +336,7 @@ paths:
                   LegislationIds:
                     - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -374,12 +356,12 @@ paths:
                           - SubstanceName: '1,3-Butadiene'
                             CasNumber: 106-99-0
                             EcNumber: 203-450-8
-                            MaxPercentageAmountInMaterial:
+                            MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
                           - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                             CasNumber: 128-37-0
                             EcNumber: 204-881-4
-                            MaxPercentageAmountInMaterial:
+                            MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
                     LogMessages: [ ]
   /impacted-substances/bom2301:
@@ -404,7 +386,7 @@ paths:
                   LegislationIds:
                     - SINList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -424,12 +406,12 @@ paths:
                           - SubstanceName: '1,3-Butadiene'
                             CasNumber: 106-99-0
                             EcNumber: 203-450-8
-                            MaxPercentageAmountInMaterial:
+                            MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
                           - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                             CasNumber: 128-37-0
                             EcNumber: 204-881-4
-                            MaxPercentageAmountInMaterial:
+                            MaxPercentageAmountInMaterial: 
                             LegislationThreshold: 0.1
                     LogMessages: [ ]
   /compliance/substances:
@@ -454,11 +436,9 @@ paths:
                     - PercentageAmount: 0.05
                       ReferenceType: CasNumber
                       ReferenceValue: 50-00-0
-                      Id:
                     - PercentageAmount: 20
                       ReferenceType: ChemicalName
                       ReferenceValue: '1,3-Butadiene'
-                      Id:
                   Indicators:
                     - Name: Indicator 1
                       LegislationIds:
@@ -475,7 +455,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -497,7 +477,6 @@ paths:
                             Flag: RohsBelowThreshold
                         ReferenceType: CasNumber
                         ReferenceValue: 50-00-0
-                        Id:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListAboveThreshold
@@ -505,7 +484,6 @@ paths:
                             Flag: RohsAboveThreshold
                         ReferenceType: ChemicalName
                         ReferenceValue: '1,3-Butadiene'
-                        Id:
                     LogMessages: [ ]
   /compliance/materials:
     post:
@@ -528,10 +506,8 @@ paths:
                   Materials:
                     - ReferenceType: MaterialId
                       ReferenceValue: S200
-                      Id:
                     - ReferenceType: MiRecordGuid
                       ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-                      Id:
                   Indicators:
                     - Name: Indicator 1
                       LegislationIds:
@@ -548,7 +524,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
               example2:
                 summary: Ignore Process Chemicals
                 description: "A single material reference and two Watch List indicators, once of which has been set to ignore process chemicals. This means any substances marked as being involved in the production of the material only will be marked as Not Impacted regardless of their concentration or legislative status."
@@ -556,7 +532,6 @@ paths:
                   Materials:
                     - ReferenceType: MaterialId
                       ReferenceValue: plastic-pc-20carbonfiber
-                      Id:
                   Indicators:
                     - Name: Ignore Process Chemicals
                       LegislationIds:
@@ -573,7 +548,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: WatchList
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -601,10 +576,8 @@ paths:
                                 Flag: RohsBelowThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 12345
-                            Id:
                         ReferenceType: MaterialId
                         ReferenceValue: S200
-                        Id:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -618,7 +591,6 @@ paths:
                                 Flag: RohsBelowThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 12345
-                            Id:
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListAboveThreshold
@@ -626,10 +598,8 @@ paths:
                                 Flag: RohsAboveThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 34567
-                            Id:
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-                        Id:
                     LogMessages: [ ]
                 example2:
                   summary: Ignore Process Chemicals
@@ -649,7 +619,6 @@ paths:
                                 Flag: WatchListBelowThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 12345
-                            Id:
                           - Indicators:
                               - Name: Ignore Process Chemicals
                                 Flag: WatchListNotImpacted
@@ -657,10 +626,8 @@ paths:
                                 Flag: WatchListAboveThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 34567
-                            Id:
                         ReferenceType: MaterialId
                         ReferenceValue: plastic-pc-20carbonfiber
-                        Id:
                     LogMessages: [ ]
   /compliance/specifications:
     post:
@@ -683,10 +650,8 @@ paths:
                   Specifications:
                     - ReferenceType: SpecificationId
                       ReferenceValue: 'MSP89,TypeI'
-                      Id:
                     - ReferenceType: MiRecordGuid
                       ReferenceValue: e0f41223-4b6b-40be-8982-39999c68f471
-                      Id:
                   Indicators:
                     - Name: Indicator 1
                       LegislationIds:
@@ -703,7 +668,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -740,10 +705,8 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 987654
-                            Id:
                         Coatings:
                           - Indicators:
                               - Name: Indicator 1
@@ -758,15 +721,12 @@ paths:
                                     Flag: RohsNotImpacted
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 62345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 987654
-                            Id:
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: SpecificationId
                         ReferenceValue: 'MSP89,TypeI'
-                        Id:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -788,10 +748,8 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 111111
-                            Id:
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListHasSubstanceAboveThreshold
@@ -805,7 +763,6 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                               - Indicators:
                                   - Name: Indicator 1
                                     Flag: WatchListAboveThreshold
@@ -813,10 +770,8 @@ paths:
                                     Flag: RohsAboveThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 34567
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 222222
-                            Id:
                         Substances:
                           - Indicators:
                               - Name: Indicator 1
@@ -825,7 +780,6 @@ paths:
                                 Flag: RohsBelowThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 12345
-                            Id:
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListAboveThreshold
@@ -833,10 +787,8 @@ paths:
                                 Flag: RohsAboveThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 34567
-                            Id:
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-                        Id:
                     LogMessages:
                       - Severity: warning
                         Message: 'Could not determine declaration type for record ''MSP89,TypeI - Vapor Degrease'' from table ''Specifications''.'
@@ -865,10 +817,8 @@ paths:
                   Parts:
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
-                      Id:
                     - ReferenceType: MiRecordGuid
                       ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
-                      Id:
                   Indicators:
                     - Name: Indicator 1
                       LegislationIds:
@@ -885,7 +835,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
               example2:
                 summary: Ignore Exemptions
                 description: "A single part reference and two RoHS indicators, once of which has been set to ignore exemptions. This means any parts marked as being exempt from certain RoHS-impacted substances will instead be marked as Non Compliant if they contain such substances."
@@ -893,7 +843,6 @@ paths:
                   Parts:
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
-                      Id:
                   Indicators:
                     - Name: Ignore Exemptions
                       LegislationIds:
@@ -910,7 +859,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -947,10 +896,8 @@ paths:
                                     Flag: RohsNotImpacted
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 62345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 987654
-                            Id:
                         Specifications:
                           - Indicators:
                               - Name: Indicator 1
@@ -968,15 +915,12 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 987654
-                            Id:
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: PartNumber
                         ReferenceValue: FLRY33
-                        Id:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -998,10 +942,8 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 111111
-                            Id:
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListHasSubstanceAboveThreshold
@@ -1015,7 +957,6 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                               - Indicators:
                                   - Name: Indicator 1
                                     Flag: WatchListAboveThreshold
@@ -1023,10 +964,8 @@ paths:
                                     Flag: RohsAboveThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 34567
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 222222
-                            Id:
                         Substances:
                           - Indicators:
                               - Name: Indicator 1
@@ -1035,7 +974,6 @@ paths:
                                 Flag: RohsBelowThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 12345
-                            Id:
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListAboveThreshold
@@ -1043,10 +981,8 @@ paths:
                                 Flag: RohsAboveThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 34567
-                            Id:
                         ReferenceType: MiRecordGuid
                         ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
-                        Id:
                     LogMessages: [ ]
                 example2:
                   summary: Ignore Exemptions
@@ -1058,7 +994,6 @@ paths:
                             Flag: RohsNonCompliant
                           - Name: Default Configuration
                             Flag: RohsCompliantWithExemptions
-                        Parts:
                         Specifications: [ ]
                         Materials: [ ]
                         Substances:
@@ -1069,10 +1004,8 @@ paths:
                                 Flag: RohsAboveThreshold
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 72969
-                            Id:
                         ReferenceType: PartNumber
                         ReferenceValue: FLRY33
-                        Id:
                     LogMessages: [ ]
   /compliance/bom1711:
     post:
@@ -1109,7 +1042,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -1146,16 +1079,9 @@ paths:
                                     Flag: RohsNotImpacted
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 62345
-                                Id:
-                            ReferenceType:
-                            ReferenceValue:
-                            Id:
                         Specifications: [ ]
                         Materials: [ ]
                         Substances: [ ]
-                        ReferenceType:
-                        ReferenceValue:
-                        Id:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -1177,14 +1103,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 111111
-                            Id:
                         Substances: [ ]
-                        ReferenceType:
-                        ReferenceValue:
-                        Id:
                     LogMessages: [ ]
   /compliance/bom2301:
     post:
@@ -1221,7 +1142,7 @@ paths:
                       IgnoreProcessChemicals: false
                       Type: Rohs
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -1258,16 +1179,9 @@ paths:
                                     Flag: RohsNotImpacted
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 62345
-                                Id:
-                            ReferenceType:
-                            ReferenceValue:
-                            Id:
                         Specifications: [ ]
                         Materials: [ ]
                         Substances: [ ]
-                        ReferenceType:
-                        ReferenceValue:
-                        Id:
                       - Indicators:
                           - Name: Indicator 1
                             Flag: WatchListHasSubstanceAboveThreshold
@@ -1289,14 +1203,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 ReferenceType: MiRecordHistoryIdentity
                                 ReferenceValue: 12345
-                                Id:
                             ReferenceType: MiRecordHistoryIdentity
                             ReferenceValue: 111111
-                            Id:
                         Substances: [ ]
-                        ReferenceType:
-                        ReferenceValue:
-                        Id:
                     LogMessages: [ ]
   /licenses:
     get:
@@ -1337,9 +1246,9 @@ paths:
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it."
                 value:
                   BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><DimensionType>MassRemoved</DimensionType><Quantity Unit="kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
-                  PreferredUnits:
+                  PreferredUnits: 
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
               example2:
                 summary: 'Single-part BoM with a material, process and transport stage with specified mass and energy units'
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a process applied to it. The BoM also includes a transport stage."
@@ -1394,8 +1303,6 @@ paths:
                                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
                                 Id: P3
                             Processes: [ ]
-                            Substances: [ ]
-                            Specifications: [ ]
                             EmbodiedEnergy:
                               Value: 490.224264340779
                               Unit: MJ
@@ -1406,13 +1313,9 @@ paths:
                               Value: 2
                               Unit: kg
                             Name: PartTwo
-                            ReferenceType:
-                            ReferenceValue:
                             Id: P2
                         Materials: [ ]
                         Processes: [ ]
-                        Substances: [ ]
-                        Specifications: [ ]
                         EmbodiedEnergy:
                           Value: 490.224264340779
                           Unit: MJ
@@ -1423,8 +1326,6 @@ paths:
                           Value: 2
                           Unit: kg
                         Name: PartOne
-                        ReferenceType:
-                        ReferenceValue:
                         Id: P1
                     TransportStages: [ ]
                     LogMessages:
@@ -1466,8 +1367,6 @@ paths:
                                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
                                 Id: P3
                             Processes: [ ]
-                            Substances: [ ]
-                            Specifications: [ ]
                             EmbodiedEnergy:
                               Value: 117035.822612605
                               Unit: kcal
@@ -1478,13 +1377,9 @@ paths:
                               Value: 4.40924524369755
                               Unit: lb
                             Name: PartTwo
-                            ReferenceType:
-                            ReferenceValue:
                             Id: P2
                         Materials: [ ]
                         Processes: [ ]
-                        Substances: [ ]
-                        Specifications: [ ]
                         EmbodiedEnergy:
                           Value: 117448.046656906
                           Unit: kcal
@@ -1495,8 +1390,6 @@ paths:
                           Value: 4.40924524369755
                           Unit: lb
                         Name: PartOne
-                        ReferenceType:
-                        ReferenceValue:
                         Id: P1
                     TransportStages:
                       - StageName: Transport Stage One
@@ -1529,9 +1422,9 @@ paths:
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it."
                 value:
                   BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name>PartTwo</Name>          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
-                  PreferredUnits:
+                  PreferredUnits: 
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
               example2:
                 summary: 'Single-part BoM with a material, two processes and transport.'
                 description: "The root part in this BoM includes a sub-part; the first contains a material, and the material has a primary and secondary process applied to it. The BoM also has a transport stage defined."
@@ -1542,7 +1435,7 @@ paths:
                     EnergyUnit: kcal
                     DistanceUnit: ft
                   DatabaseKey: MI_Restricted_Substances
-                  Config:
+                  Config: 
         required: true
       responses:
         '200':
@@ -1562,7 +1455,6 @@ paths:
                           RecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                            Id:
                           EmbodiedEnergy:
                             Value: 149.186596666725
                             Unit: MJ
@@ -1580,7 +1472,6 @@ paths:
                           LargestContributors:
                             - ComponentName: PartTwo
                               ComponentPartNumber: PartTwo
-                              RecordReference:
                               MaterialMassBeforeProcessing:
                                 Value: 0.625
                                 Unit: kg
@@ -1600,11 +1491,9 @@ paths:
                           ProcessRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: baa6c95b-ff0e-4811-9120-92717ee15bda
-                            Id:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                            Id:
                           MaterialIdentity: steel-kovar-annealed
                           EmbodiedEnergy:
                             Value: 120.110900684605
@@ -1619,11 +1508,9 @@ paths:
                           ProcessRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 907bda29-e800-44f6-b7ea-4eb8e7cff375
-                            Id:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                            Id:
                           MaterialIdentity: steel-kovar-annealed
                           EmbodiedEnergy:
                             Value: 2.23056818480611
@@ -1667,7 +1554,6 @@ paths:
                           RecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                            Id:
                           EmbodiedEnergy:
                             Value: 35632.6064456685
                             Unit: kcal
@@ -1685,7 +1571,6 @@ paths:
                           LargestContributors:
                             - ComponentName: ''
                               ComponentPartNumber: PartTwo
-                              RecordReference:
                               MaterialMassBeforeProcessing:
                                 Value: 1.37788913865548
                                 Unit: lb
@@ -1705,11 +1590,9 @@ paths:
                           ProcessRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: baa6c95b-ff0e-4811-9120-92717ee15bda
-                            Id:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                            Id:
                           MaterialIdentity: steel-kovar-annealed
                           EmbodiedEnergy:
                             Value: 23024.8211625642
@@ -1724,11 +1607,9 @@ paths:
                           ProcessRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 907bda29-e800-44f6-b7ea-4eb8e7cff375
-                            Id:
                           MaterialRecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                            Id:
                           MaterialIdentity: steel-kovar-annealed
                           EmbodiedEnergy:
                             Value: 402.183677031682
@@ -1755,7 +1636,6 @@ paths:
                           RecordReference:
                             ReferenceType: MiRecordGuid
                             ReferenceValue: 66e8fe77-9da3-4ae9-a914-c22038f1d9c9
-                            Id:
                           Distance:
                             Value: 328083.9895
                             Unit: ft
@@ -1799,11 +1679,10 @@ components:
         Materials:
           - ReferenceType: MaterialId
             ReferenceValue: elastomer-butadienerubber
-            Id:
         LegislationIds:
           - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     Common.MaterialReference:
       type: object
       properties:
@@ -1843,6 +1722,7 @@ components:
           type: string
         MaximumSpecToSpecLinkDepth:
           type: integer
+          description: "This value is the maximum number of nodes specification link chains should be expanded to contain. The default value of 0 represents the unlimited case."
           format: int32
     GetImpactedSubstancesForMaterials.Response:
       type: object
@@ -1863,16 +1743,15 @@ components:
                   - SubstanceName: '1,3-Butadiene'
                     CasNumber: 106-99-0
                     EcNumber: 203-450-8
-                    MaxPercentageAmountInMaterial:
+                    MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
                   - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                     CasNumber: 128-37-0
                     EcNumber: 204-881-4
-                    MaxPercentageAmountInMaterial:
+                    MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
             ReferenceType: MaterialId
             ReferenceValue: elastomer-butadienerubber
-            Id:
         LogMessages: [ ]
     GetImpactedSubstancesForMaterials.Material:
       type: object
@@ -1946,14 +1825,12 @@ components:
         Specifications:
           - ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 545019
-            Id:
           - ReferenceType: SpecificationId
             ReferenceValue: AMS03-27
-            Id:
         LegislationIds:
           - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     Common.SpecificationReference:
       type: object
       properties:
@@ -1989,16 +1866,15 @@ components:
                   - SubstanceName: '1,3-Butadiene'
                     CasNumber: 106-99-0
                     EcNumber: 203-450-8
-                    MaxPercentageAmountInMaterial:
+                    MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
                   - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                     CasNumber: 128-37-0
                     EcNumber: 204-881-4
-                    MaxPercentageAmountInMaterial:
+                    MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 545019
-            Id:
           - Legislations:
               - LegislationId: SINList
                 ImpactedSubstances:
@@ -2014,7 +1890,6 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: SpecificationId
             ReferenceValue: AMS03-27
-            Id:
         LogMessages: [ ]
     GetImpactedSubstancesForSpecifications.Specification:
       type: object
@@ -2055,14 +1930,12 @@ components:
         Parts:
           - ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 565024
-            Id:
           - ReferenceType: PartNumber
             ReferenceValue: FLRY33
-            Id:
         LegislationIds:
           - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     Common.PartReference:
       type: object
       properties:
@@ -2101,16 +1974,15 @@ components:
                   - SubstanceName: '1,3-Butadiene'
                     CasNumber: 106-99-0
                     EcNumber: 203-450-8
-                    MaxPercentageAmountInMaterial:
+                    MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
                   - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                     CasNumber: 128-37-0
                     EcNumber: 204-881-4
-                    MaxPercentageAmountInMaterial:
+                    MaxPercentageAmountInMaterial: 
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
             ReferenceValue: 565024
-            Id:
           - Legislations:
               - LegislationId: SINList
                 ImpactedSubstances:
@@ -2126,7 +1998,6 @@ components:
                     LegislationThreshold: 0.1
             ReferenceType: PartNumber
             ReferenceValue: FLRY33
-            Id:
         LogMessages: [ ]
     GetImpactedSubstancesForParts.Part:
       type: object
@@ -2169,7 +2040,7 @@ components:
         LegislationIds:
           - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetImpactedSubstancesForBom1711.Response:
       type: object
       properties:
@@ -2188,12 +2059,12 @@ components:
               - SubstanceName: '1,3-Butadiene'
                 CasNumber: 106-99-0
                 EcNumber: 203-450-8
-                MaxPercentageAmountInMaterial:
+                MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                 CasNumber: 128-37-0
                 EcNumber: 204-881-4
-                MaxPercentageAmountInMaterial:
+                MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
         LogMessages: [ ]
     GetImpactedSubstancesForBom2301.Request:
@@ -2214,7 +2085,7 @@ components:
         LegislationIds:
           - SINList
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetImpactedSubstancesForBom2301.Response:
       type: object
       properties:
@@ -2233,12 +2104,12 @@ components:
               - SubstanceName: '1,3-Butadiene'
                 CasNumber: 106-99-0
                 EcNumber: 203-450-8
-                MaxPercentageAmountInMaterial:
+                MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
               - SubstanceName: 'Butylated hydroxytoluene [BAN:NF]'
                 CasNumber: 128-37-0
                 EcNumber: 204-881-4
-                MaxPercentageAmountInMaterial:
+                MaxPercentageAmountInMaterial: 
                 LegislationThreshold: 0.1
         LogMessages: [ ]
     GetComplianceForSubstances.Request:
@@ -2261,11 +2132,9 @@ components:
           - PercentageAmount: 0.05
             ReferenceType: CasNumber
             ReferenceValue: 50-00-0
-            Id:
           - PercentageAmount: 20
             ReferenceType: ChemicalName
             ReferenceValue: '1,3-Butadiene'
-            Id:
         Indicators:
           - Name: Indicator 1
             LegislationIds:
@@ -2282,7 +2151,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetComplianceForSubstances.SubstanceWithAmount:
       type: object
       properties:
@@ -2340,7 +2209,6 @@ components:
                 Flag: RohsBelowThreshold
             ReferenceType: CasNumber
             ReferenceValue: 50-00-0
-            Id:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListAboveThreshold
@@ -2348,7 +2216,6 @@ components:
                 Flag: RohsAboveThreshold
             ReferenceType: ChemicalName
             ReferenceValue: '1,3-Butadiene'
-            Id:
         LogMessages: [ ]
     Common.SubstanceWithCompliance:
       type: object
@@ -2396,10 +2263,8 @@ components:
         Materials:
           - ReferenceType: MaterialId
             ReferenceValue: S200
-            Id:
           - ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-            Id:
         Indicators:
           - Name: Indicator 1
             LegislationIds:
@@ -2416,7 +2281,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetComplianceForMaterials.Response:
       type: object
       properties:
@@ -2443,10 +2308,8 @@ components:
                     Flag: RohsBelowThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 12345
-                Id:
             ReferenceType: MaterialId
             ReferenceValue: S200
-            Id:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -2460,7 +2323,6 @@ components:
                     Flag: RohsBelowThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 12345
-                Id:
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListAboveThreshold
@@ -2468,10 +2330,8 @@ components:
                     Flag: RohsAboveThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 34567
-                Id:
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-            Id:
         LogMessages: [ ]
     Common.MaterialWithCompliance:
       type: object
@@ -2516,10 +2376,8 @@ components:
         Specifications:
           - ReferenceType: SpecificationId
             ReferenceValue: 'MSP89,TypeI'
-            Id:
           - ReferenceType: MiRecordGuid
             ReferenceValue: e0f41223-4b6b-40be-8982-39999c68f471
-            Id:
         Indicators:
           - Name: Indicator 1
             LegislationIds:
@@ -2536,7 +2394,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetComplianceForSpecifications.Response:
       type: object
       properties:
@@ -2572,10 +2430,8 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 987654
-                Id:
             Coatings:
               - Indicators:
                   - Name: Indicator 1
@@ -2590,15 +2446,12 @@ components:
                         Flag: RohsNotImpacted
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 62345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 987654
-                Id:
             Materials: [ ]
             Substances: [ ]
             ReferenceType: SpecificationId
             ReferenceValue: 'MSP89,TypeI'
-            Id:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -2620,10 +2473,8 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 111111
-                Id:
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListHasSubstanceAboveThreshold
@@ -2637,7 +2488,6 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                   - Indicators:
                       - Name: Indicator 1
                         Flag: WatchListAboveThreshold
@@ -2645,10 +2495,8 @@ components:
                         Flag: RohsAboveThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 34567
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 222222
-                Id:
             Substances:
               - Indicators:
                   - Name: Indicator 1
@@ -2657,7 +2505,6 @@ components:
                     Flag: RohsBelowThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 12345
-                Id:
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListAboveThreshold
@@ -2665,10 +2512,8 @@ components:
                     Flag: RohsAboveThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 34567
-                Id:
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
-            Id:
         LogMessages:
           - Severity: warning
             Message: 'Could not determine declaration type for record ''MSP89,TypeI - Vapor Degrease'' from table ''Specifications''.'
@@ -2749,10 +2594,8 @@ components:
         Parts:
           - ReferenceType: PartNumber
             ReferenceValue: FLRY33
-            Id:
           - ReferenceType: MiRecordGuid
             ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
-            Id:
         Indicators:
           - Name: Indicator 1
             LegislationIds:
@@ -2769,7 +2612,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetComplianceForParts.Response:
       type: object
       properties:
@@ -2805,10 +2648,8 @@ components:
                         Flag: RohsNotImpacted
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 62345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 987654
-                Id:
             Specifications:
               - Indicators:
                   - Name: Indicator 1
@@ -2826,15 +2667,12 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 987654
-                Id:
             Materials: [ ]
             Substances: [ ]
             ReferenceType: PartNumber
             ReferenceValue: FLRY33
-            Id:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -2856,10 +2694,8 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 111111
-                Id:
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListHasSubstanceAboveThreshold
@@ -2873,7 +2709,6 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                   - Indicators:
                       - Name: Indicator 1
                         Flag: WatchListAboveThreshold
@@ -2881,10 +2716,8 @@ components:
                         Flag: RohsAboveThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 34567
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 222222
-                Id:
             Substances:
               - Indicators:
                   - Name: Indicator 1
@@ -2893,7 +2726,6 @@ components:
                     Flag: RohsBelowThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 12345
-                Id:
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListAboveThreshold
@@ -2901,10 +2733,8 @@ components:
                     Flag: RohsAboveThreshold
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 34567
-                Id:
             ReferenceType: MiRecordGuid
             ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
-            Id:
         LogMessages: [ ]
     Common.PartWithCompliance:
       type: object
@@ -2976,7 +2806,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetComplianceForBom1711.Response:
       type: object
       properties:
@@ -3012,16 +2842,9 @@ components:
                         Flag: RohsNotImpacted
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 62345
-                    Id:
-                ReferenceType:
-                ReferenceValue:
-                Id:
             Specifications: [ ]
             Materials: [ ]
             Substances: [ ]
-            ReferenceType:
-            ReferenceValue:
-            Id:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -3043,14 +2866,9 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 111111
-                Id:
             Substances: [ ]
-            ReferenceType:
-            ReferenceValue:
-            Id:
         LogMessages: [ ]
     GetComplianceForBom2301.Request:
       type: object
@@ -3083,7 +2901,7 @@ components:
             IgnoreProcessChemicals: false
             Type: Rohs
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetComplianceForBom2301.Response:
       type: object
       properties:
@@ -3119,16 +2937,9 @@ components:
                         Flag: RohsNotImpacted
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 62345
-                    Id:
-                ReferenceType:
-                ReferenceValue:
-                Id:
             Specifications: [ ]
             Materials: [ ]
             Substances: [ ]
-            ReferenceType:
-            ReferenceValue:
-            Id:
           - Indicators:
               - Name: Indicator 1
                 Flag: WatchListHasSubstanceAboveThreshold
@@ -3150,14 +2961,9 @@ components:
                         Flag: RohsBelowThreshold
                     ReferenceType: MiRecordHistoryIdentity
                     ReferenceValue: 12345
-                    Id:
                 ReferenceType: MiRecordHistoryIdentity
                 ReferenceValue: 111111
-                Id:
             Substances: [ ]
-            ReferenceType:
-            ReferenceValue:
-            Id:
         LogMessages: [ ]
     GetAvailableLicenses.Response:
       type: object
@@ -3187,9 +2993,9 @@ components:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml2301: '<?xml version= "1.0"?><PartsEco xmlns:xsd= "http://www.w3.org/2001/XMLSchema" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://www.grantadesign.com/23/01/BillOfMaterialsEco"><Components><Part><Quantity Unit= "Each">1</Quantity><PartNumber>PartOne</PartNumber><Name>PartOne</Name><Components><Part><Quantity Unit= "Each">1</Quantity><MassPerUom Unit= "kg/Part">2</MassPerUom><PartNumber>PartTwo</PartNumber><Name>PartTwo</Name><Materials><Material><Mass Unit= "kg">2</Mass><MIMaterialReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID></MIMaterialReference><Identity>steel-kovar-annealed</Identity><Name>High alloy steel, Kovar, annealed</Name><Processes><Process><MIProcessReference><dbKey xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey><recordHistoryGUID xmlns= "http://www.grantadesign.com/12/05/GrantaBaseTypes">d986c90a-2835-45f3-8b69-d6d662dcf53a</recordHistoryGUID></MIProcessReference><Identity>Coarse Machining</Identity><Name>Coarse Machining</Name><DimensionType>MassRemoved</DimensionType><Quantity Unit="kg">0.05</Quantity></Process></Processes></Material></Materials></Part></Components></Part></Components><Notes><ProductName>Example</ProductName></Notes></PartsEco>'
-        PreferredUnits:
+        PreferredUnits: 
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     Common.PreferredUnits:
       type: object
       properties:
@@ -3247,8 +3053,6 @@ components:
                     ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
                     Id: P3
                 Processes: [ ]
-                Substances: [ ]
-                Specifications: [ ]
                 EmbodiedEnergy:
                   Value: 490.224264340779
                   Unit: MJ
@@ -3259,13 +3063,9 @@ components:
                   Value: 2
                   Unit: kg
                 Name: PartTwo
-                ReferenceType:
-                ReferenceValue:
                 Id: P2
             Materials: [ ]
             Processes: [ ]
-            Substances: [ ]
-            Specifications: [ ]
             EmbodiedEnergy:
               Value: 490.224264340779
               Unit: MJ
@@ -3276,8 +3076,6 @@ components:
               Value: 2
               Unit: kg
             Name: PartOne
-            ReferenceType:
-            ReferenceValue:
             Id: P1
         TransportStages: [ ]
         LogMessages:
@@ -3298,14 +3096,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.ProcessWithSustainability'
-        Substances:
-          type: array
-          items:
-            $ref: '#/components/schemas/Common.SubstanceReference'
-        Specifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/Common.SpecificationReference'
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
@@ -3392,22 +3182,6 @@ components:
           nullable: true
         Unit:
           type: string
-    Common.SubstanceReference:
-      type: object
-      properties:
-        ExternalIdentity:
-          type: string
-          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
-        Name:
-          type: string
-          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
-        ReferenceType:
-          type: string
-        ReferenceValue:
-          type: string
-        Id:
-          type: string
-          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
     Common.Sustainability.TransportWithSustainability:
       type: object
       properties:
@@ -3437,9 +3211,9 @@ components:
           $ref: '#/components/schemas/Common.RequestConfig'
       example:
         BomXml2301: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/23/01/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>PartOne</PartNumber>      <ExternalIdentity>47</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <PartNumber>PartTwo</PartNumber>          <Name>PartTwo</Name>          <ExternalIdentity>50</ExternalIdentity>          <Materials>            <Material>              <Mass Unit="kg">0.5</Mass>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8dc38bb5-eff9-4c60-9233-271a3c8f6270</recordGUID>              </MIMaterialReference>              <Identity>steel-kovar-annealed</Identity>              <Name>High alloy steel, Kovar, annealed</Name>              <ExternalIdentity>5777</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">baa6c95b-ff0e-4811-9120-92717ee15bda</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Metal casting</Name>                  <ExternalIdentity>5821</ExternalIdentity>                  <DimensionType>Mass</DimensionType>                  <Percentage>100</Percentage>                </Process>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">907bda29-e800-44f6-b7ea-4eb8e7cff375</recordGUID>                  </MIProcessReference>                  <Identity />                  <Name>Machining, coarse</Name>                  <ExternalIdentity>5801</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Percentage>20</Percentage>                </Process>              </Processes>            </Material>          </Materials>        </Part>      </Components>    </Part>  </Components>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
-        PreferredUnits:
+        PreferredUnits: 
         DatabaseKey: MI_Restricted_Substances
-        Config:
+        Config: 
     GetSustainabilitySummaryForBom2301.Response:
       type: object
       properties:
@@ -3460,7 +3234,6 @@ components:
               RecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                Id:
               EmbodiedEnergy:
                 Value: 149.186596666725
                 Unit: MJ
@@ -3478,7 +3251,6 @@ components:
               LargestContributors:
                 - ComponentName: PartTwo
                   ComponentPartNumber: PartTwo
-                  RecordReference:
                   MaterialMassBeforeProcessing:
                     Value: 0.625
                     Unit: kg
@@ -3498,11 +3270,9 @@ components:
               ProcessRecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: baa6c95b-ff0e-4811-9120-92717ee15bda
-                Id:
               MaterialRecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                Id:
               MaterialIdentity: steel-kovar-annealed
               EmbodiedEnergy:
                 Value: 120.110900684605
@@ -3517,11 +3287,9 @@ components:
               ProcessRecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 907bda29-e800-44f6-b7ea-4eb8e7cff375
-                Id:
               MaterialRecordReference:
                 ReferenceType: MiRecordGuid
                 ReferenceValue: 8dc38bb5-eff9-4c60-9233-271a3c8f6270
-                Id:
               MaterialIdentity: steel-kovar-annealed
               EmbodiedEnergy:
                 Value: 2.23056818480611
