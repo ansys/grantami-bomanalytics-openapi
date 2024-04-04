@@ -51,6 +51,7 @@ class CommonSubstanceWithCompliance(ModelBase):
         "id": "str",
         "indicators": "list[CommonIndicatorResult]",
         "name": "str",
+        "percentage_amount": "float",
         "reference_type": "str",
         "reference_value": "str",
     }
@@ -60,6 +61,7 @@ class CommonSubstanceWithCompliance(ModelBase):
         "id": "Id",
         "indicators": "Indicators",
         "name": "Name",
+        "percentage_amount": "PercentageAmount",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
     }
@@ -77,6 +79,7 @@ class CommonSubstanceWithCompliance(ModelBase):
         id: "Union[str, Unset_Type]" = Unset,
         indicators: "Union[List[CommonIndicatorResult], Unset_Type]" = Unset,
         name: "Union[str, Unset_Type]" = Unset,
+        percentage_amount: "Union[float, None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
     ) -> None:
@@ -88,10 +91,12 @@ class CommonSubstanceWithCompliance(ModelBase):
         id: str, optional
         indicators: List[CommonIndicatorResult], optional
         name: str, optional
+        percentage_amount: float, optional
         reference_type: str, optional
         reference_value: str, optional
         """
         self._indicators: Union[List[CommonIndicatorResult], Unset_Type] = Unset
+        self._percentage_amount: Union[float, None, Unset_Type] = Unset
         self._external_identity: Union[str, Unset_Type] = Unset
         self._name: Union[str, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
@@ -100,6 +105,8 @@ class CommonSubstanceWithCompliance(ModelBase):
 
         if indicators is not Unset:
             self.indicators = indicators
+        if percentage_amount is not Unset:
+            self.percentage_amount = percentage_amount
         if external_identity is not Unset:
             self.external_identity = external_identity
         if name is not Unset:
@@ -137,6 +144,30 @@ class CommonSubstanceWithCompliance(ModelBase):
         if indicators is None:
             raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
+
+    @property
+    def percentage_amount(self) -> "Union[float, None, Unset_Type]":
+        """Gets the percentage_amount of this CommonSubstanceWithCompliance.
+
+        Returns
+        -------
+        Union[float, None, Unset_Type]
+            The percentage_amount of this CommonSubstanceWithCompliance.
+        """
+        return self._percentage_amount
+
+    @percentage_amount.setter
+    def percentage_amount(
+        self, percentage_amount: "Union[float, None, Unset_Type]"
+    ) -> None:
+        """Sets the percentage_amount of this CommonSubstanceWithCompliance.
+
+        Parameters
+        ----------
+        percentage_amount: Union[float, None, Unset_Type]
+            The percentage_amount of this CommonSubstanceWithCompliance.
+        """
+        self._percentage_amount = percentage_amount
 
     @property
     def external_identity(self) -> "Union[str, Unset_Type]":
