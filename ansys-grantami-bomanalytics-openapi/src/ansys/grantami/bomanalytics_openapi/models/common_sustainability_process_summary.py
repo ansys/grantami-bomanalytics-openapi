@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -148,9 +147,7 @@ class CommonSustainabilityProcessSummary(ModelBase):
         """
         # Field is not nullable
         if primary_processes is None:
-            raise ValueError(
-                "Invalid value for 'primary_processes', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'primary_processes', must not be 'None'")
         self._primary_processes = primary_processes
 
     @property
@@ -180,9 +177,7 @@ class CommonSustainabilityProcessSummary(ModelBase):
         """
         # Field is not nullable
         if secondary_processes is None:
-            raise ValueError(
-                "Invalid value for 'secondary_processes', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'secondary_processes', must not be 'None'")
         self._secondary_processes = secondary_processes
 
     @property

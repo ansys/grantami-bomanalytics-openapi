@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -91,9 +90,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         legislation_id: str, optional
         """
         self._legislation_id: Union[str, Unset_Type] = Unset
-        self._impacted_substances: Union[List[CommonImpactedSubstance], Unset_Type] = (
-            Unset
-        )
+        self._impacted_substances: Union[List[CommonImpactedSubstance], Unset_Type] = Unset
 
         if legislation_id is not Unset:
             self.legislation_id = legislation_id
@@ -149,9 +146,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         """
         # Field is not nullable
         if impacted_substances is None:
-            raise ValueError(
-                "Invalid value for 'impacted_substances', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'impacted_substances', must not be 'None'")
         self._impacted_substances = impacted_substances
 
     @classmethod

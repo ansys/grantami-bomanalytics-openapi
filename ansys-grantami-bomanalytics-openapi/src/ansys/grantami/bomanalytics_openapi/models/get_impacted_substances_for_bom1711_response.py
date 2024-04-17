@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -91,9 +90,7 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
         legislations: List[CommonLegislationWithImpactedSubstances], optional
         log_messages: List[CommonLogEntry], optional
         """
-        self._legislations: Union[
-            List[CommonLegislationWithImpactedSubstances], Unset_Type
-        ] = Unset
+        self._legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
         self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
         if legislations is not Unset:
@@ -143,9 +140,7 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(
-        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
-    ) -> None:
+    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetImpactedSubstancesForBom1711Response.
 
         Parameters

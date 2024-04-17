@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -117,9 +116,7 @@ class GetAvailableLicensesResponse(ModelBase):
         return self._restricted_substances
 
     @restricted_substances.setter
-    def restricted_substances(
-        self, restricted_substances: "Union[bool, Unset_Type]"
-    ) -> None:
+    def restricted_substances(self, restricted_substances: "Union[bool, Unset_Type]") -> None:
         """Sets the restricted_substances of this GetAvailableLicensesResponse.
 
         Parameters
@@ -129,9 +126,7 @@ class GetAvailableLicensesResponse(ModelBase):
         """
         # Field is not nullable
         if restricted_substances is None:
-            raise ValueError(
-                "Invalid value for 'restricted_substances', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'restricted_substances', must not be 'None'")
         self._restricted_substances = restricted_substances
 
     @property
@@ -171,9 +166,7 @@ class GetAvailableLicensesResponse(ModelBase):
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(
-        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
-    ) -> None:
+    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetAvailableLicensesResponse.
 
         Parameters

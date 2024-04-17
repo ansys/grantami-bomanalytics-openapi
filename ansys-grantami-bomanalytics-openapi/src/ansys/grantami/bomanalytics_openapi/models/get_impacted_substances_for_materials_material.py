@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -106,9 +105,7 @@ class GetImpactedSubstancesForMaterialsMaterial(ModelBase):
         reference_type: str, optional
         reference_value: str, optional
         """
-        self._legislations: Union[
-            List[CommonLegislationWithImpactedSubstances], Unset_Type
-        ] = Unset
+        self._legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
         self._external_identity: Union[str, Unset_Type] = Unset
         self._name: Union[str, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
@@ -182,9 +179,7 @@ class GetImpactedSubstancesForMaterialsMaterial(ModelBase):
         """
         # Field is not nullable
         if external_identity is None:
-            raise ValueError(
-                "Invalid value for 'external_identity', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
         self._external_identity = external_identity
 
     @property

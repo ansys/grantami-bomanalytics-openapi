@@ -31,8 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ApiBase
 
@@ -65,9 +64,7 @@ class SustainabilityApi(ApiBase):
         -------
         GetSustainabilityForBom2301Response
         """
-        data = self._post_sustainability_bom2301_with_http_info(
-            body, _return_http_data_only=True
-        )
+        data = self._post_sustainability_bom2301_with_http_info(body, _return_http_data_only=True)
         return data  # type: ignore[no-any-return]
 
     def _post_sustainability_bom2301_with_http_info(
@@ -109,9 +106,7 @@ class SustainabilityApi(ApiBase):
         if "body" in params and body is not None:
             body_params = params["body"]
         # HTTP header 'Accept'
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
+        header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
         # HTTP header 'Content-Type'
         header_params["Content-Type"] = self.api_client.select_header_content_type(
@@ -198,9 +193,7 @@ class SustainabilityApi(ApiBase):
         if "body" in params and body is not None:
             body_params = params["body"]
         # HTTP header 'Accept'
-        header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
-        )
+        header_params["Accept"] = self.api_client.select_header_accept(["application/json"])
 
         # HTTP header 'Content-Type'
         header_params["Content-Type"] = self.api_client.select_header_content_type(

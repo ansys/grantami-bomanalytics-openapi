@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -198,9 +197,7 @@ class CommonIndicatorDefinition(ModelBase):
         """
         # Field is not nullable
         if default_threshold_percentage is None:
-            raise ValueError(
-                "Invalid value for 'default_threshold_percentage', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'default_threshold_percentage', must not be 'None'")
         self._default_threshold_percentage = default_threshold_percentage
 
     @property
@@ -225,9 +222,7 @@ class CommonIndicatorDefinition(ModelBase):
         """
         # Field is not nullable
         if ignore_exemptions is None:
-            raise ValueError(
-                "Invalid value for 'ignore_exemptions', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'ignore_exemptions', must not be 'None'")
         self._ignore_exemptions = ignore_exemptions
 
     @property
@@ -242,9 +237,7 @@ class CommonIndicatorDefinition(ModelBase):
         return self._ignore_process_chemicals
 
     @ignore_process_chemicals.setter
-    def ignore_process_chemicals(
-        self, ignore_process_chemicals: "Union[bool, Unset_Type]"
-    ) -> None:
+    def ignore_process_chemicals(self, ignore_process_chemicals: "Union[bool, Unset_Type]") -> None:
         """Sets the ignore_process_chemicals of this CommonIndicatorDefinition.
 
         Parameters
@@ -254,9 +247,7 @@ class CommonIndicatorDefinition(ModelBase):
         """
         # Field is not nullable
         if ignore_process_chemicals is None:
-            raise ValueError(
-                "Invalid value for 'ignore_process_chemicals', must not be 'None'"
-            )
+            raise ValueError("Invalid value for 'ignore_process_chemicals', must not be 'None'")
         self._ignore_process_chemicals = ignore_process_chemicals
 
     @property

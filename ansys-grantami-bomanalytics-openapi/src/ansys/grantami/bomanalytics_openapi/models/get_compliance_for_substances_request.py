@@ -31,14 +31,13 @@
 """
 
 import re  # noqa: F401
-from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
-                    Optional, Union)
+from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    import pathlib
     from datetime import datetime
+    import pathlib
 
     from . import *
 
@@ -100,9 +99,9 @@ class GetComplianceForSubstancesRequest(ModelBase):
         indicators: List[CommonIndicatorDefinition], optional
         substances: List[GetComplianceForSubstancesSubstanceWithAmount], optional
         """
-        self._substances: Union[
-            List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type
-        ] = Unset
+        self._substances: Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type] = (
+            Unset
+        )
         self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
@@ -158,9 +157,7 @@ class GetComplianceForSubstancesRequest(ModelBase):
         return self._indicators
 
     @indicators.setter
-    def indicators(
-        self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]"
-    ) -> None:
+    def indicators(self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]") -> None:
         """Sets the indicators of this GetComplianceForSubstancesRequest.
 
         Parameters
