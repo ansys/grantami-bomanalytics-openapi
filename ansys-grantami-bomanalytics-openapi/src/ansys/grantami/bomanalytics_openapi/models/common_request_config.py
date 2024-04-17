@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -176,7 +176,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if material_universe_table_name is None:
-            raise ValueError("Invalid value for 'material_universe_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'material_universe_table_name', must not be 'None'"
+            )
         self._material_universe_table_name = material_universe_table_name
 
     @property
@@ -203,7 +205,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if inhouse_materials_table_name is None:
-            raise ValueError("Invalid value for 'inhouse_materials_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'inhouse_materials_table_name', must not be 'None'"
+            )
         self._inhouse_materials_table_name = inhouse_materials_table_name
 
     @property
@@ -230,7 +234,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if specifications_table_name is None:
-            raise ValueError("Invalid value for 'specifications_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'specifications_table_name', must not be 'None'"
+            )
         self._specifications_table_name = specifications_table_name
 
     @property
@@ -274,7 +280,9 @@ class CommonRequestConfig(ModelBase):
         return self._substances_table_name
 
     @substances_table_name.setter
-    def substances_table_name(self, substances_table_name: "Union[str, Unset_Type]") -> None:
+    def substances_table_name(
+        self, substances_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the substances_table_name of this CommonRequestConfig.
 
         Parameters
@@ -284,7 +292,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if substances_table_name is None:
-            raise ValueError("Invalid value for 'substances_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'substances_table_name', must not be 'None'"
+            )
         self._substances_table_name = substances_table_name
 
     @property
@@ -299,7 +309,9 @@ class CommonRequestConfig(ModelBase):
         return self._coatings_table_name
 
     @coatings_table_name.setter
-    def coatings_table_name(self, coatings_table_name: "Union[str, Unset_Type]") -> None:
+    def coatings_table_name(
+        self, coatings_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the coatings_table_name of this CommonRequestConfig.
 
         Parameters
@@ -309,7 +321,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if coatings_table_name is None:
-            raise ValueError("Invalid value for 'coatings_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'coatings_table_name', must not be 'None'"
+            )
         self._coatings_table_name = coatings_table_name
 
     @property
@@ -324,7 +338,9 @@ class CommonRequestConfig(ModelBase):
         return self._transport_table_name
 
     @transport_table_name.setter
-    def transport_table_name(self, transport_table_name: "Union[str, Unset_Type]") -> None:
+    def transport_table_name(
+        self, transport_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the transport_table_name of this CommonRequestConfig.
 
         Parameters
@@ -334,7 +350,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if transport_table_name is None:
-            raise ValueError("Invalid value for 'transport_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'transport_table_name', must not be 'None'"
+            )
         self._transport_table_name = transport_table_name
 
     @property
@@ -361,7 +379,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if process_universe_table_name is None:
-            raise ValueError("Invalid value for 'process_universe_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'process_universe_table_name', must not be 'None'"
+            )
         self._process_universe_table_name = process_universe_table_name
 
     @property
@@ -376,7 +396,9 @@ class CommonRequestConfig(ModelBase):
         return self._locations_table_name
 
     @locations_table_name.setter
-    def locations_table_name(self, locations_table_name: "Union[str, Unset_Type]") -> None:
+    def locations_table_name(
+        self, locations_table_name: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the locations_table_name of this CommonRequestConfig.
 
         Parameters
@@ -386,7 +408,9 @@ class CommonRequestConfig(ModelBase):
         """
         # Field is not nullable
         if locations_table_name is None:
-            raise ValueError("Invalid value for 'locations_table_name', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'locations_table_name', must not be 'None'"
+            )
         self._locations_table_name = locations_table_name
 
     @property

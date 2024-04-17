@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -132,7 +132,9 @@ class CommonCoatingWithCompliance(ModelBase):
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorResult], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[List[CommonIndicatorResult], Unset_Type]"
+    ) -> None:
         """Sets the indicators of this CommonCoatingWithCompliance.
 
         Parameters

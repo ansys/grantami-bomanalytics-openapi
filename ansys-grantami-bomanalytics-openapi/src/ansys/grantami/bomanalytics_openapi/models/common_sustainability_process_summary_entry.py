@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -118,8 +118,12 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         process_record_reference: CommonProcessReference, optional
         """
         self._process_name: Union[str, Unset_Type] = Unset
-        self._process_record_reference: Union[CommonProcessReference, Unset_Type] = Unset
-        self._material_record_reference: Union[CommonMaterialReference, Unset_Type] = Unset
+        self._process_record_reference: Union[CommonProcessReference, Unset_Type] = (
+            Unset
+        )
+        self._material_record_reference: Union[CommonMaterialReference, Unset_Type] = (
+            Unset
+        )
         self._material_identity: Union[str, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
@@ -192,7 +196,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         """
         # Field is not nullable
         if process_record_reference is None:
-            raise ValueError("Invalid value for 'process_record_reference', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'process_record_reference', must not be 'None'"
+            )
         self._process_record_reference = process_record_reference
 
     @property
@@ -219,7 +225,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         """
         # Field is not nullable
         if material_record_reference is None:
-            raise ValueError("Invalid value for 'material_record_reference', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'material_record_reference', must not be 'None'"
+            )
         self._material_record_reference = material_record_reference
 
     @property
@@ -244,7 +252,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         """
         # Field is not nullable
         if material_identity is None:
-            raise ValueError("Invalid value for 'material_identity', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'material_identity', must not be 'None'"
+            )
         self._material_identity = material_identity
 
     @property
@@ -259,7 +269,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         return self._embodied_energy
 
     @embodied_energy.setter
-    def embodied_energy(self, embodied_energy: "Union[CommonValueWithUnit, Unset_Type]") -> None:
+    def embodied_energy(
+        self, embodied_energy: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the embodied_energy of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
@@ -296,7 +308,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         """
         # Field is not nullable
         if embodied_energy_percentage is None:
-            raise ValueError("Invalid value for 'embodied_energy_percentage', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'embodied_energy_percentage', must not be 'None'"
+            )
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
@@ -311,7 +325,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         return self._climate_change
 
     @climate_change.setter
-    def climate_change(self, climate_change: "Union[CommonValueWithUnit, Unset_Type]") -> None:
+    def climate_change(
+        self, climate_change: "Union[CommonValueWithUnit, Unset_Type]"
+    ) -> None:
         """Sets the climate_change of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
@@ -348,7 +364,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         """
         # Field is not nullable
         if climate_change_percentage is None:
-            raise ValueError("Invalid value for 'climate_change_percentage', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'climate_change_percentage', must not be 'None'"
+            )
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod

@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -102,7 +102,9 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         self._component_name: Union[str, Unset_Type] = Unset
         self._component_part_number: Union[str, Unset_Type] = Unset
         self._record_reference: Union[CommonPartReference, Unset_Type] = Unset
-        self._material_mass_before_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._material_mass_before_processing: Union[
+            CommonValueWithUnit, Unset_Type
+        ] = Unset
 
         if component_name is not Unset:
             self.component_name = component_name
@@ -150,7 +152,9 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         return self._component_part_number
 
     @component_part_number.setter
-    def component_part_number(self, component_part_number: "Union[str, Unset_Type]") -> None:
+    def component_part_number(
+        self, component_part_number: "Union[str, Unset_Type]"
+    ) -> None:
         """Sets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
@@ -160,7 +164,9 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         """
         # Field is not nullable
         if component_part_number is None:
-            raise ValueError("Invalid value for 'component_part_number', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'component_part_number', must not be 'None'"
+            )
         self._component_part_number = component_part_number
 
     @property
@@ -175,7 +181,9 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "Union[CommonPartReference, Unset_Type]") -> None:
+    def record_reference(
+        self, record_reference: "Union[CommonPartReference, Unset_Type]"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters

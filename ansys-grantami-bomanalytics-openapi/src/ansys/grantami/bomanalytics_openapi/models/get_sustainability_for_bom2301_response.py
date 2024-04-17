@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -96,7 +96,9 @@ class GetSustainabilityForBom2301Response(ModelBase):
         parts: List[CommonSustainabilityPartWithSustainability], optional
         transport_stages: List[CommonSustainabilityTransportWithSustainability], optional
         """
-        self._parts: Union[List[CommonSustainabilityPartWithSustainability], Unset_Type] = Unset
+        self._parts: Union[
+            List[CommonSustainabilityPartWithSustainability], Unset_Type
+        ] = Unset
         self._transport_stages: Union[
             List[CommonSustainabilityTransportWithSustainability], Unset_Type
         ] = Unset
@@ -181,7 +183,9 @@ class GetSustainabilityForBom2301Response(ModelBase):
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetSustainabilityForBom2301Response.
 
         Parameters

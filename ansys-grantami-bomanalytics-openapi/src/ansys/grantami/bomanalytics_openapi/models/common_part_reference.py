@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -148,7 +148,9 @@ class CommonPartReference(ModelBase):
         """
         # Field is not nullable
         if input_part_number is None:
-            raise ValueError("Invalid value for 'input_part_number', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'input_part_number', must not be 'None'"
+            )
         self._input_part_number = input_part_number
 
     @property
@@ -175,7 +177,9 @@ class CommonPartReference(ModelBase):
         """
         # Field is not nullable
         if external_identity is None:
-            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'external_identity', must not be 'None'"
+            )
         self._external_identity = external_identity
 
     @property

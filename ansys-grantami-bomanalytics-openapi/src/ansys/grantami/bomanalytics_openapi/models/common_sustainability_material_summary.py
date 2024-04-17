@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -91,7 +91,9 @@ class CommonSustainabilityMaterialSummary(ModelBase):
         phase_summary: CommonSustainabilityPhaseSummary, optional
         summary: List[CommonSustainabilityMaterialSummaryEntry], optional
         """
-        self._summary: Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type] = Unset
+        self._summary: Union[
+            List[CommonSustainabilityMaterialSummaryEntry], Unset_Type
+        ] = Unset
         self._phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type] = Unset
 
         if summary is not Unset:

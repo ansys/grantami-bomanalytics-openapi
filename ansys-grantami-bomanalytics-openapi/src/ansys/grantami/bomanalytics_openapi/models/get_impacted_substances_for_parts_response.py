@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -111,7 +111,9 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "Union[List[GetImpactedSubstancesForPartsPart], Unset_Type]") -> None:
+    def parts(
+        self, parts: "Union[List[GetImpactedSubstancesForPartsPart], Unset_Type]"
+    ) -> None:
         """Sets the parts of this GetImpactedSubstancesForPartsResponse.
 
         Parameters
@@ -136,7 +138,9 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetImpactedSubstancesForPartsResponse.
 
         Parameters
