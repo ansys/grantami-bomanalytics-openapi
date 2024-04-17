@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -99,7 +99,9 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         legislation_ids: List[str], optional
         specifications: List[CommonSpecificationReference], optional
         """
-        self._specifications: Union[List[CommonSpecificationReference], Unset_Type] = Unset
+        self._specifications: Union[List[CommonSpecificationReference], Unset_Type] = (
+            Unset
+        )
         self._legislation_ids: Union[List[str], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset

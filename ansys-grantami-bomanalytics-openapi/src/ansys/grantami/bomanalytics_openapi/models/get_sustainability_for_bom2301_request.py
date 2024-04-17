@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -150,7 +150,9 @@ class GetSustainabilityForBom2301Request(ModelBase):
         return self._preferred_units
 
     @preferred_units.setter
-    def preferred_units(self, preferred_units: "Union[CommonPreferredUnits, Unset_Type]") -> None:
+    def preferred_units(
+        self, preferred_units: "Union[CommonPreferredUnits, Unset_Type]"
+    ) -> None:
         """Sets the preferred_units of this GetSustainabilityForBom2301Request.
 
         Parameters

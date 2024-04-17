@@ -31,14 +31,14 @@
 """
 
 import re  # noqa: F401
-from typing import List  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, Optional, Union
+from typing import (TYPE_CHECKING, Any, BinaryIO, Dict, List,  # noqa: F401
+                    Optional, Union)
 
 from . import ModelBase, Unset, Unset_Type
 
 if TYPE_CHECKING:
-    from datetime import datetime
     import pathlib
+    from datetime import datetime
 
     from . import *
 
@@ -101,9 +101,15 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         process_summary: CommonSustainabilityProcessSummary, optional
         transport_summary: CommonSustainabilityTransportSummary, optional
         """
-        self._material_summary: Union[CommonSustainabilityMaterialSummary, Unset_Type] = Unset
-        self._process_summary: Union[CommonSustainabilityProcessSummary, Unset_Type] = Unset
-        self._transport_summary: Union[CommonSustainabilityTransportSummary, Unset_Type] = Unset
+        self._material_summary: Union[
+            CommonSustainabilityMaterialSummary, Unset_Type
+        ] = Unset
+        self._process_summary: Union[CommonSustainabilityProcessSummary, Unset_Type] = (
+            Unset
+        )
+        self._transport_summary: Union[
+            CommonSustainabilityTransportSummary, Unset_Type
+        ] = Unset
         self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
 
         if material_summary is not Unset:
@@ -200,7 +206,9 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         """
         # Field is not nullable
         if transport_summary is None:
-            raise ValueError("Invalid value for 'transport_summary', must not be 'None'")
+            raise ValueError(
+                "Invalid value for 'transport_summary', must not be 'None'"
+            )
         self._transport_summary = transport_summary
 
     @property
@@ -215,7 +223,9 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(
+        self, log_messages: "Union[List[CommonLogEntry], Unset_Type]"
+    ) -> None:
         """Sets the log_messages of this GetSustainabilitySummaryForBom2301Response.
 
         Parameters
