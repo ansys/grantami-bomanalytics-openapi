@@ -25,8 +25,6 @@ import types
 
 import ansys.grantami.bomanalytics_openapi.models as models
 import pytest
-import ansys.grantami.bomanalytics_openapi.models as models
-
 
 ALL_MODELS = {
     k: v
