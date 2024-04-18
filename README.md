@@ -17,7 +17,7 @@ Since the `grantami-bomanalytics-openapi` package is auto-generated, the release
 the standard
 [PyAnsys release procedure](https://dev.docs.pyansys.com/guidelines/dev_practices.html#release-procedures).
 
-1. Ensure the ``main`` branch build status is green, which indicates that that the most recent run of the ``Build and Test 
+1. Ensure the ``main`` branch build status is green, which indicates that that the most recent run of the ``Build and Test
    Client Library`` workflow was successful.
 2. Create a new branch from the ``main`` branch with the name ``release/MAJOR.MINOR`` and push the branch to GitHub.
 3. Do one of the following two steps to generate a 'release' `pyproject.toml` file:
