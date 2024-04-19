@@ -62,6 +62,7 @@ jobs:
     - name: "Install and run pre-commit"
       run: |
         pip install pre-commit
+        git add ansys-grantami-bomanalytics-openapi/
         ! pre-commit run --all-files
 
     - name: "Commit changes to library code"
