@@ -128,3 +128,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ~/dist/ansys-grantami-bomanalytics-openapi-wheel/*.whl
+          generate_release_notes: true
