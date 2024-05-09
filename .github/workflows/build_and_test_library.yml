@@ -89,23 +89,21 @@ jobs:
     name: "Release"
     runs-on: ubuntu-latest
     needs: [build-library]
-#    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
     steps:
       - name: "Release to public PyPI"
         uses: ansys/actions/release-pypi-public@v6
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
-          twine-token: "fake token"
-          dry-run: true
+          twine-token: ${{ secrets.PYPI_TOKEN }}
 
       - name: "Release to private PyPI"
         uses: ansys/actions/release-pypi-private@v6
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
-          twine-token: "fake token"
-          dry-run: true
+          twine-token: ${{ secrets.PYPI_TOKEN }}
 
       - name: "Download distribution artifacts"
         uses: actions/download-artifact@v4
@@ -113,8 +111,8 @@ jobs:
           name: ${{ env.LIBRARY_NAME }}-artifacts
           path: ${{ env.LIBRARY_NAME }}-artifacts
 
-#      - name: "Release to GitHub"
-#        uses: softprops/action-gh-release@v2
-#        with:
-#          files: ${{ env.LIBRARY_NAME }}-artifacts/*.whl
-#          generate_release_notes: true
+      - name: "Release to GitHub"
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.LIBRARY_NAME }}-artifacts/*.whl
+          generate_release_notes: true
