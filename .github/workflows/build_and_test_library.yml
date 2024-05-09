@@ -94,7 +94,7 @@ jobs:
       - name: "Release to public PyPI"
         uses: ansys/actions/release-pypi-public@v6
         with:
-          library-name: "fake name"
+          library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
           twine-token: "fake token"
           dry-run: true
@@ -102,7 +102,7 @@ jobs:
       - name: "Release to private PyPI"
         uses: ansys/actions/release-pypi-private@v6
         with:
-          library-name: "fake name"
+          library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
           twine-token: "fake token"
           dry-run: true
