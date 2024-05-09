@@ -3,6 +3,8 @@ on:
   pull_request:
   push:
     branches: [ main ]
+    paths:
+      - '../labels.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -10,14 +12,23 @@ concurrency:
 
 jobs:
 
+  label-syncer:
+    name: Syncer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: micnncim/action-label-syncer@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   labeler:
     name: Set labels
     permissions:
       contents: read
       pull-requests: write
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
-
     - name: Label based on changed files
       uses: actions/labeler@v5
       with:
