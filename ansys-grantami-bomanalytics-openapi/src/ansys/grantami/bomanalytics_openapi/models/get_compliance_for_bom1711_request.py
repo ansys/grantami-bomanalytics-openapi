@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetComplianceForBom1711Request(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "bom_xml1711": "str",
         "config": "CommonRequestConfig",
         "database_key": "str",
         "indicators": "list[CommonIndicatorDefinition]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "bom_xml1711": "BomXml1711",
         "config": "Config",
         "database_key": "DatabaseKey",
         "indicators": "Indicators",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
     }
@@ -87,7 +87,7 @@ class GetComplianceForBom1711Request(ModelBase):
         bom_xml1711: "Union[str, Unset_Type]" = Unset,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForBom1711Request - a model defined in Swagger
 
@@ -96,10 +96,10 @@ class GetComplianceForBom1711Request(ModelBase):
         bom_xml1711: str, optional
         config: CommonRequestConfig, optional
         database_key: str, optional
-        indicators: List[CommonIndicatorDefinition], optional
+        indicators: list[CommonIndicatorDefinition], optional
         """
         self._bom_xml1711: Union[str, Unset_Type] = Unset
-        self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -138,23 +138,23 @@ class GetComplianceForBom1711Request(ModelBase):
         self._bom_xml1711 = bom_xml1711
 
     @property
-    def indicators(self) -> "Union[List[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
         """Gets the indicators of this GetComplianceForBom1711Request.
 
         Returns
         -------
-        Union[List[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForBom1711Request.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
         """Sets the indicators of this GetComplianceForBom1711Request.
 
         Parameters
         ----------
-        indicators: Union[List[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForBom1711Request.
         """
         # Field is not nullable
@@ -213,7 +213,7 @@ class GetComplianceForBom1711Request(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

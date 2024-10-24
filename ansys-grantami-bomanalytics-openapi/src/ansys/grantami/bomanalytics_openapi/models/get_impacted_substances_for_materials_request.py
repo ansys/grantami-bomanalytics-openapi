@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "config": "CommonRequestConfig",
         "database_key": "str",
         "legislation_ids": "list[str]",
         "materials": "list[CommonMaterialReference]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "config": "Config",
         "database_key": "DatabaseKey",
         "legislation_ids": "LegislationIds",
         "materials": "Materials",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Materials": "CommonMaterialReference",
         "Config": "CommonRequestConfig",
     }
@@ -86,8 +86,8 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[List[str], Unset_Type]" = Unset,
-        materials: "Union[List[CommonMaterialReference], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
+        materials: "Union[list[CommonMaterialReference], Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForMaterialsRequest - a model defined in Swagger
 
@@ -95,11 +95,11 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         ----------
         config: CommonRequestConfig, optional
         database_key: str, optional
-        legislation_ids: List[str], optional
-        materials: List[CommonMaterialReference], optional
+        legislation_ids: list[str], optional
+        materials: list[CommonMaterialReference], optional
         """
-        self._materials: Union[List[CommonMaterialReference], Unset_Type] = Unset
-        self._legislation_ids: Union[List[str], Unset_Type] = Unset
+        self._materials: Union[list[CommonMaterialReference], Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -113,23 +113,23 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
             self.config = config
 
     @property
-    def materials(self) -> "Union[List[CommonMaterialReference], Unset_Type]":
+    def materials(self) -> "Union[list[CommonMaterialReference], Unset_Type]":
         """Gets the materials of this GetImpactedSubstancesForMaterialsRequest.
 
         Returns
         -------
-        Union[List[CommonMaterialReference], Unset_Type]
+        Union[list[CommonMaterialReference], Unset_Type]
             The materials of this GetImpactedSubstancesForMaterialsRequest.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "Union[List[CommonMaterialReference], Unset_Type]") -> None:
+    def materials(self, materials: "Union[list[CommonMaterialReference], Unset_Type]") -> None:
         """Sets the materials of this GetImpactedSubstancesForMaterialsRequest.
 
         Parameters
         ----------
-        materials: Union[List[CommonMaterialReference], Unset_Type]
+        materials: Union[list[CommonMaterialReference], Unset_Type]
             The materials of this GetImpactedSubstancesForMaterialsRequest.
         """
         # Field is not nullable
@@ -138,23 +138,23 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         self._materials = materials
 
     @property
-    def legislation_ids(self) -> "Union[List[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
 
         Returns
         -------
-        Union[List[str], Unset_Type]
+        Union[list[str], Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[List[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
 
         Parameters
         ----------
-        legislation_ids: Union[List[str], Unset_Type]
+        legislation_ids: Union[list[str], Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
         """
         # Field is not nullable
@@ -213,7 +213,7 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,16 +51,16 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "embodied_energy": "CommonValueWithUnit",
@@ -71,7 +71,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "process_record_reference": "CommonProcessReference",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "embodied_energy": "EmbodiedEnergy",
@@ -82,7 +82,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "process_record_reference": "ProcessRecordReference",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "ProcessRecordReference": "CommonProcessReference",
         "MaterialRecordReference": "CommonMaterialReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
@@ -351,7 +351,7 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,16 +51,16 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "external_identity": "str",
         "id": "str",
         "legislations": "list[CommonLegislationWithImpactedSubstances]",
@@ -69,7 +69,7 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
         "reference_value": "str",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "external_identity": "ExternalIdentity",
         "id": "Id",
         "legislations": "Legislations",
@@ -78,7 +78,7 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
         "reference_value": "ReferenceValue",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Legislations": "CommonLegislationWithImpactedSubstances",
     }
 
@@ -89,7 +89,7 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
         *,
         external_identity: "Union[str, Unset_Type]" = Unset,
         id: "Union[str, Unset_Type]" = Unset,
-        legislations: "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
+        legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
         name: "Union[str, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
@@ -100,12 +100,12 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
         ----------
         external_identity: str, optional
         id: str, optional
-        legislations: List[CommonLegislationWithImpactedSubstances], optional
+        legislations: list[CommonLegislationWithImpactedSubstances], optional
         name: str, optional
         reference_type: str, optional
         reference_value: str, optional
         """
-        self._legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
+        self._legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
         self._external_identity: Union[str, Unset_Type] = Unset
         self._name: Union[str, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
@@ -126,25 +126,25 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
             self.id = id
 
     @property
-    def legislations(self) -> "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]":
+    def legislations(self) -> "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]":
         """Gets the legislations of this GetImpactedSubstancesForSpecificationsSpecification.
 
         Returns
         -------
-        Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]
+        Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
             The legislations of this GetImpactedSubstancesForSpecificationsSpecification.
         """
         return self._legislations
 
     @legislations.setter
     def legislations(
-        self, legislations: "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]"
+        self, legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]"
     ) -> None:
         """Sets the legislations of this GetImpactedSubstancesForSpecificationsSpecification.
 
         Parameters
         ----------
-        legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]
+        legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
             The legislations of this GetImpactedSubstancesForSpecificationsSpecification.
         """
         # Field is not nullable
@@ -284,7 +284,7 @@ class GetImpactedSubstancesForSpecificationsSpecification(ModelBase):
         self._id = id
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

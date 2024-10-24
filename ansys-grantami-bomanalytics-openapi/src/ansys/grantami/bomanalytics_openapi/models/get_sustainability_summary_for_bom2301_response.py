@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "material_summary": "CommonSustainabilityMaterialSummary",
         "process_summary": "CommonSustainabilityProcessSummary",
         "transport_summary": "CommonSustainabilityTransportSummary",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "log_messages": "LogMessages",
         "material_summary": "MaterialSummary",
         "process_summary": "ProcessSummary",
         "transport_summary": "TransportSummary",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "MaterialSummary": "CommonSustainabilityMaterialSummary",
         "ProcessSummary": "CommonSustainabilityProcessSummary",
         "TransportSummary": "CommonSustainabilityTransportSummary",
@@ -86,7 +86,7 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
         material_summary: "Union[CommonSustainabilityMaterialSummary, Unset_Type]" = Unset,
         process_summary: "Union[CommonSustainabilityProcessSummary, Unset_Type]" = Unset,
         transport_summary: "Union[CommonSustainabilityTransportSummary, Unset_Type]" = Unset,
@@ -95,7 +95,7 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
 
         Parameters
         ----------
-        log_messages: List[CommonLogEntry], optional
+        log_messages: list[CommonLogEntry], optional
         material_summary: CommonSustainabilityMaterialSummary, optional
         process_summary: CommonSustainabilityProcessSummary, optional
         transport_summary: CommonSustainabilityTransportSummary, optional
@@ -103,7 +103,7 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         self._material_summary: Union[CommonSustainabilityMaterialSummary, Unset_Type] = Unset
         self._process_summary: Union[CommonSustainabilityProcessSummary, Unset_Type] = Unset
         self._transport_summary: Union[CommonSustainabilityTransportSummary, Unset_Type] = Unset
-        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
 
         if material_summary is not Unset:
             self.material_summary = material_summary
@@ -196,23 +196,23 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         self._transport_summary = transport_summary
 
     @property
-    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetSustainabilitySummaryForBom2301Response.
 
         Returns
         -------
-        Union[List[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetSustainabilitySummaryForBom2301Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetSustainabilitySummaryForBom2301Response.
 
         Parameters
         ----------
-        log_messages: Union[List[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetSustainabilitySummaryForBom2301Response.
         """
         # Field is not nullable
@@ -221,7 +221,7 @@ class GetSustainabilitySummaryForBom2301Response(ModelBase):
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

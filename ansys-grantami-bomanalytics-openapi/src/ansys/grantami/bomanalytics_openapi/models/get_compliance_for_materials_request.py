@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetComplianceForMaterialsRequest(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "config": "CommonRequestConfig",
         "database_key": "str",
         "indicators": "list[CommonIndicatorDefinition]",
         "materials": "list[CommonMaterialReference]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "config": "Config",
         "database_key": "DatabaseKey",
         "indicators": "Indicators",
         "materials": "Materials",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Materials": "CommonMaterialReference",
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
@@ -87,8 +87,8 @@ class GetComplianceForMaterialsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        materials: "Union[List[CommonMaterialReference], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
+        materials: "Union[list[CommonMaterialReference], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForMaterialsRequest - a model defined in Swagger
 
@@ -96,11 +96,11 @@ class GetComplianceForMaterialsRequest(ModelBase):
         ----------
         config: CommonRequestConfig, optional
         database_key: str, optional
-        indicators: List[CommonIndicatorDefinition], optional
-        materials: List[CommonMaterialReference], optional
+        indicators: list[CommonIndicatorDefinition], optional
+        materials: list[CommonMaterialReference], optional
         """
-        self._materials: Union[List[CommonMaterialReference], Unset_Type] = Unset
-        self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._materials: Union[list[CommonMaterialReference], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -114,23 +114,23 @@ class GetComplianceForMaterialsRequest(ModelBase):
             self.config = config
 
     @property
-    def materials(self) -> "Union[List[CommonMaterialReference], Unset_Type]":
+    def materials(self) -> "Union[list[CommonMaterialReference], Unset_Type]":
         """Gets the materials of this GetComplianceForMaterialsRequest.
 
         Returns
         -------
-        Union[List[CommonMaterialReference], Unset_Type]
+        Union[list[CommonMaterialReference], Unset_Type]
             The materials of this GetComplianceForMaterialsRequest.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "Union[List[CommonMaterialReference], Unset_Type]") -> None:
+    def materials(self, materials: "Union[list[CommonMaterialReference], Unset_Type]") -> None:
         """Sets the materials of this GetComplianceForMaterialsRequest.
 
         Parameters
         ----------
-        materials: Union[List[CommonMaterialReference], Unset_Type]
+        materials: Union[list[CommonMaterialReference], Unset_Type]
             The materials of this GetComplianceForMaterialsRequest.
         """
         # Field is not nullable
@@ -139,23 +139,23 @@ class GetComplianceForMaterialsRequest(ModelBase):
         self._materials = materials
 
     @property
-    def indicators(self) -> "Union[List[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
         """Gets the indicators of this GetComplianceForMaterialsRequest.
 
         Returns
         -------
-        Union[List[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForMaterialsRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
         """Sets the indicators of this GetComplianceForMaterialsRequest.
 
         Parameters
         ----------
-        indicators: Union[List[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForMaterialsRequest.
         """
         # Field is not nullable
@@ -214,7 +214,7 @@ class GetComplianceForMaterialsRequest(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

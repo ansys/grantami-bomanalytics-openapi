@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "bom_xml2301": "str",
         "config": "CommonRequestConfig",
         "database_key": "str",
         "legislation_ids": "list[str]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "bom_xml2301": "BomXml2301",
         "config": "Config",
         "database_key": "DatabaseKey",
         "legislation_ids": "LegislationIds",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Config": "CommonRequestConfig",
     }
 
@@ -86,7 +86,7 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
         bom_xml2301: "Union[str, Unset_Type]" = Unset,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[List[str], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForBom2301Request - a model defined in Swagger
 
@@ -95,10 +95,10 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
         bom_xml2301: str, optional
         config: CommonRequestConfig, optional
         database_key: str, optional
-        legislation_ids: List[str], optional
+        legislation_ids: list[str], optional
         """
         self._bom_xml2301: Union[str, Unset_Type] = Unset
-        self._legislation_ids: Union[List[str], Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -137,23 +137,23 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
         self._bom_xml2301 = bom_xml2301
 
     @property
-    def legislation_ids(self) -> "Union[List[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForBom2301Request.
 
         Returns
         -------
-        Union[List[str], Unset_Type]
+        Union[list[str], Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForBom2301Request.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[List[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForBom2301Request.
 
         Parameters
         ----------
-        legislation_ids: Union[List[str], Unset_Type]
+        legislation_ids: Union[list[str], Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForBom2301Request.
         """
         # Field is not nullable
@@ -212,7 +212,7 @@ class GetImpactedSubstancesForBom2301Request(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

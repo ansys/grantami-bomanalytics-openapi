@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class CommonSustainabilityMaterialSummary(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "phase_summary": "CommonSustainabilityPhaseSummary",
         "summary": "list[CommonSustainabilityMaterialSummaryEntry]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "phase_summary": "PhaseSummary",
         "summary": "Summary",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Summary": "CommonSustainabilityMaterialSummaryEntry",
         "PhaseSummary": "CommonSustainabilityPhaseSummary",
     }
@@ -81,16 +81,16 @@ class CommonSustainabilityMaterialSummary(ModelBase):
         self,
         *,
         phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]" = Unset,
-        summary: "Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]" = Unset,
+        summary: "Union[list[CommonSustainabilityMaterialSummaryEntry], Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialSummary - a model defined in Swagger
 
         Parameters
         ----------
         phase_summary: CommonSustainabilityPhaseSummary, optional
-        summary: List[CommonSustainabilityMaterialSummaryEntry], optional
+        summary: list[CommonSustainabilityMaterialSummaryEntry], optional
         """
-        self._summary: Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type] = Unset
+        self._summary: Union[list[CommonSustainabilityMaterialSummaryEntry], Unset_Type] = Unset
         self._phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type] = Unset
 
         if summary is not Unset:
@@ -99,25 +99,25 @@ class CommonSustainabilityMaterialSummary(ModelBase):
             self.phase_summary = phase_summary
 
     @property
-    def summary(self) -> "Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]":
+    def summary(self) -> "Union[list[CommonSustainabilityMaterialSummaryEntry], Unset_Type]":
         """Gets the summary of this CommonSustainabilityMaterialSummary.
 
         Returns
         -------
-        Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityMaterialSummaryEntry], Unset_Type]
             The summary of this CommonSustainabilityMaterialSummary.
         """
         return self._summary
 
     @summary.setter
     def summary(
-        self, summary: "Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]"
+        self, summary: "Union[list[CommonSustainabilityMaterialSummaryEntry], Unset_Type]"
     ) -> None:
         """Sets the summary of this CommonSustainabilityMaterialSummary.
 
         Parameters
         ----------
-        summary: Union[List[CommonSustainabilityMaterialSummaryEntry], Unset_Type]
+        summary: Union[list[CommonSustainabilityMaterialSummaryEntry], Unset_Type]
             The summary of this CommonSustainabilityMaterialSummary.
         """
         # Field is not nullable
@@ -153,7 +153,7 @@ class CommonSustainabilityMaterialSummary(ModelBase):
         self._phase_summary = phase_summary
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

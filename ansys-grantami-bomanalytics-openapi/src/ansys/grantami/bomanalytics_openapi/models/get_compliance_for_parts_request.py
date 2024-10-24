@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetComplianceForPartsRequest(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "config": "CommonRequestConfig",
         "database_key": "str",
         "indicators": "list[CommonIndicatorDefinition]",
         "parts": "list[CommonPartReference]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "config": "Config",
         "database_key": "DatabaseKey",
         "indicators": "Indicators",
         "parts": "Parts",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Parts": "CommonPartReference",
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
@@ -87,8 +87,8 @@ class GetComplianceForPartsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        parts: "Union[List[CommonPartReference], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
+        parts: "Union[list[CommonPartReference], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForPartsRequest - a model defined in Swagger
 
@@ -96,11 +96,11 @@ class GetComplianceForPartsRequest(ModelBase):
         ----------
         config: CommonRequestConfig, optional
         database_key: str, optional
-        indicators: List[CommonIndicatorDefinition], optional
-        parts: List[CommonPartReference], optional
+        indicators: list[CommonIndicatorDefinition], optional
+        parts: list[CommonPartReference], optional
         """
-        self._parts: Union[List[CommonPartReference], Unset_Type] = Unset
-        self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._parts: Union[list[CommonPartReference], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -114,23 +114,23 @@ class GetComplianceForPartsRequest(ModelBase):
             self.config = config
 
     @property
-    def parts(self) -> "Union[List[CommonPartReference], Unset_Type]":
+    def parts(self) -> "Union[list[CommonPartReference], Unset_Type]":
         """Gets the parts of this GetComplianceForPartsRequest.
 
         Returns
         -------
-        Union[List[CommonPartReference], Unset_Type]
+        Union[list[CommonPartReference], Unset_Type]
             The parts of this GetComplianceForPartsRequest.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "Union[List[CommonPartReference], Unset_Type]") -> None:
+    def parts(self, parts: "Union[list[CommonPartReference], Unset_Type]") -> None:
         """Sets the parts of this GetComplianceForPartsRequest.
 
         Parameters
         ----------
-        parts: Union[List[CommonPartReference], Unset_Type]
+        parts: Union[list[CommonPartReference], Unset_Type]
             The parts of this GetComplianceForPartsRequest.
         """
         # Field is not nullable
@@ -139,23 +139,23 @@ class GetComplianceForPartsRequest(ModelBase):
         self._parts = parts
 
     @property
-    def indicators(self) -> "Union[List[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
         """Gets the indicators of this GetComplianceForPartsRequest.
 
         Returns
         -------
-        Union[List[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForPartsRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
         """Sets the indicators of this GetComplianceForPartsRequest.
 
         Parameters
         ----------
-        indicators: Union[List[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForPartsRequest.
         """
         # Field is not nullable
@@ -214,7 +214,7 @@ class GetComplianceForPartsRequest(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

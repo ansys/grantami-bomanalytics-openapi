@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "impacted_substances": "list[CommonImpactedSubstance]",
         "legislation_id": "str",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "impacted_substances": "ImpactedSubstances",
         "legislation_id": "LegislationId",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "ImpactedSubstances": "CommonImpactedSubstance",
     }
 
@@ -79,18 +79,18 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
     def __init__(
         self,
         *,
-        impacted_substances: "Union[List[CommonImpactedSubstance], Unset_Type]" = Unset,
+        impacted_substances: "Union[list[CommonImpactedSubstance], Unset_Type]" = Unset,
         legislation_id: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonLegislationWithImpactedSubstances - a model defined in Swagger
 
         Parameters
         ----------
-        impacted_substances: List[CommonImpactedSubstance], optional
+        impacted_substances: list[CommonImpactedSubstance], optional
         legislation_id: str, optional
         """
         self._legislation_id: Union[str, Unset_Type] = Unset
-        self._impacted_substances: Union[List[CommonImpactedSubstance], Unset_Type] = Unset
+        self._impacted_substances: Union[list[CommonImpactedSubstance], Unset_Type] = Unset
 
         if legislation_id is not Unset:
             self.legislation_id = legislation_id
@@ -123,25 +123,25 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         self._legislation_id = legislation_id
 
     @property
-    def impacted_substances(self) -> "Union[List[CommonImpactedSubstance], Unset_Type]":
+    def impacted_substances(self) -> "Union[list[CommonImpactedSubstance], Unset_Type]":
         """Gets the impacted_substances of this CommonLegislationWithImpactedSubstances.
 
         Returns
         -------
-        Union[List[CommonImpactedSubstance], Unset_Type]
+        Union[list[CommonImpactedSubstance], Unset_Type]
             The impacted_substances of this CommonLegislationWithImpactedSubstances.
         """
         return self._impacted_substances
 
     @impacted_substances.setter
     def impacted_substances(
-        self, impacted_substances: "Union[List[CommonImpactedSubstance], Unset_Type]"
+        self, impacted_substances: "Union[list[CommonImpactedSubstance], Unset_Type]"
     ) -> None:
         """Sets the impacted_substances of this CommonLegislationWithImpactedSubstances.
 
         Parameters
         ----------
-        impacted_substances: Union[List[CommonImpactedSubstance], Unset_Type]
+        impacted_substances: Union[list[CommonImpactedSubstance], Unset_Type]
             The impacted_substances of this CommonLegislationWithImpactedSubstances.
         """
         # Field is not nullable
@@ -150,7 +150,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         self._impacted_substances = impacted_substances
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

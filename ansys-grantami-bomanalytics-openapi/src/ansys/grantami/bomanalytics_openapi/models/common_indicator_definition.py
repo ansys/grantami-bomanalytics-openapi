@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,16 +51,16 @@ class CommonIndicatorDefinition(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "default_threshold_percentage": "float",
         "ignore_exemptions": "bool",
         "ignore_process_chemicals": "bool",
@@ -69,7 +69,7 @@ class CommonIndicatorDefinition(ModelBase):
         "type": "str",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "default_threshold_percentage": "DefaultThresholdPercentage",
         "ignore_exemptions": "IgnoreExemptions",
         "ignore_process_chemicals": "IgnoreProcessChemicals",
@@ -78,7 +78,7 @@ class CommonIndicatorDefinition(ModelBase):
         "type": "Type",
     }
 
-    subtype_mapping: Dict[str, str] = {}
+    subtype_mapping: dict[str, str] = {}
 
     discriminator: Optional[str] = None
 
@@ -88,7 +88,7 @@ class CommonIndicatorDefinition(ModelBase):
         default_threshold_percentage: "Union[float, Unset_Type]" = Unset,
         ignore_exemptions: "Union[bool, Unset_Type]" = Unset,
         ignore_process_chemicals: "Union[bool, Unset_Type]" = Unset,
-        legislation_ids: "Union[List[str], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
         name: "Union[str, Unset_Type]" = Unset,
         type: "Union[str, Unset_Type]" = Unset,
     ) -> None:
@@ -99,12 +99,12 @@ class CommonIndicatorDefinition(ModelBase):
         default_threshold_percentage: float, optional
         ignore_exemptions: bool, optional
         ignore_process_chemicals: bool, optional
-        legislation_ids: List[str], optional
+        legislation_ids: list[str], optional
         name: str, optional
         type: str, optional
         """
         self._name: Union[str, Unset_Type] = Unset
-        self._legislation_ids: Union[List[str], Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], Unset_Type] = Unset
         self._default_threshold_percentage: Union[float, Unset_Type] = Unset
         self._ignore_exemptions: Union[bool, Unset_Type] = Unset
         self._ignore_process_chemicals: Union[bool, Unset_Type] = Unset
@@ -149,23 +149,23 @@ class CommonIndicatorDefinition(ModelBase):
         self._name = name
 
     @property
-    def legislation_ids(self) -> "Union[List[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
         """Gets the legislation_ids of this CommonIndicatorDefinition.
 
         Returns
         -------
-        Union[List[str], Unset_Type]
+        Union[list[str], Unset_Type]
             The legislation_ids of this CommonIndicatorDefinition.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[List[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
         """Sets the legislation_ids of this CommonIndicatorDefinition.
 
         Parameters
         ----------
-        legislation_ids: Union[List[str], Unset_Type]
+        legislation_ids: Union[list[str], Unset_Type]
             The legislation_ids of this CommonIndicatorDefinition.
         """
         # Field is not nullable
@@ -276,7 +276,7 @@ class CommonIndicatorDefinition(ModelBase):
         self._type = type
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class GetImpactedSubstancesForMaterialsResponse(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "materials": "list[GetImpactedSubstancesForMaterialsMaterial]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "log_messages": "LogMessages",
         "materials": "Materials",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Materials": "GetImpactedSubstancesForMaterialsMaterial",
         "LogMessages": "CommonLogEntry",
     }
@@ -80,18 +80,18 @@ class GetImpactedSubstancesForMaterialsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
-        materials: "Union[List[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
+        materials: "Union[list[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForMaterialsResponse - a model defined in Swagger
 
         Parameters
         ----------
-        log_messages: List[CommonLogEntry], optional
-        materials: List[GetImpactedSubstancesForMaterialsMaterial], optional
+        log_messages: list[CommonLogEntry], optional
+        materials: list[GetImpactedSubstancesForMaterialsMaterial], optional
         """
-        self._materials: Union[List[GetImpactedSubstancesForMaterialsMaterial], Unset_Type] = Unset
-        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
+        self._materials: Union[list[GetImpactedSubstancesForMaterialsMaterial], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
 
         if materials is not Unset:
             self.materials = materials
@@ -99,25 +99,25 @@ class GetImpactedSubstancesForMaterialsResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def materials(self) -> "Union[List[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]":
+    def materials(self) -> "Union[list[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]":
         """Gets the materials of this GetImpactedSubstancesForMaterialsResponse.
 
         Returns
         -------
-        Union[List[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]
+        Union[list[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]
             The materials of this GetImpactedSubstancesForMaterialsResponse.
         """
         return self._materials
 
     @materials.setter
     def materials(
-        self, materials: "Union[List[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]"
+        self, materials: "Union[list[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]"
     ) -> None:
         """Sets the materials of this GetImpactedSubstancesForMaterialsResponse.
 
         Parameters
         ----------
-        materials: Union[List[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]
+        materials: Union[list[GetImpactedSubstancesForMaterialsMaterial], Unset_Type]
             The materials of this GetImpactedSubstancesForMaterialsResponse.
         """
         # Field is not nullable
@@ -126,23 +126,23 @@ class GetImpactedSubstancesForMaterialsResponse(ModelBase):
         self._materials = materials
 
     @property
-    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetImpactedSubstancesForMaterialsResponse.
 
         Returns
         -------
-        Union[List[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetImpactedSubstancesForMaterialsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetImpactedSubstancesForMaterialsResponse.
 
         Parameters
         ----------
-        log_messages: Union[List[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetImpactedSubstancesForMaterialsResponse.
         """
         # Field is not nullable
@@ -151,7 +151,7 @@ class GetImpactedSubstancesForMaterialsResponse(ModelBase):
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

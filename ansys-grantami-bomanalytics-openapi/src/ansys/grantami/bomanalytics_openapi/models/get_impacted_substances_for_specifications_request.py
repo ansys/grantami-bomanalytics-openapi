@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "config": "CommonRequestConfig",
         "database_key": "str",
         "legislation_ids": "list[str]",
         "specifications": "list[CommonSpecificationReference]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "config": "Config",
         "database_key": "DatabaseKey",
         "legislation_ids": "LegislationIds",
         "specifications": "Specifications",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Specifications": "CommonSpecificationReference",
         "Config": "CommonRequestConfig",
     }
@@ -86,8 +86,8 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[List[str], Unset_Type]" = Unset,
-        specifications: "Union[List[CommonSpecificationReference], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationReference], Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForSpecificationsRequest - a model defined in Swagger
 
@@ -95,11 +95,11 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         ----------
         config: CommonRequestConfig, optional
         database_key: str, optional
-        legislation_ids: List[str], optional
-        specifications: List[CommonSpecificationReference], optional
+        legislation_ids: list[str], optional
+        specifications: list[CommonSpecificationReference], optional
         """
-        self._specifications: Union[List[CommonSpecificationReference], Unset_Type] = Unset
-        self._legislation_ids: Union[List[str], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationReference], Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -113,25 +113,25 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
             self.config = config
 
     @property
-    def specifications(self) -> "Union[List[CommonSpecificationReference], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationReference], Unset_Type]":
         """Gets the specifications of this GetImpactedSubstancesForSpecificationsRequest.
 
         Returns
         -------
-        Union[List[CommonSpecificationReference], Unset_Type]
+        Union[list[CommonSpecificationReference], Unset_Type]
             The specifications of this GetImpactedSubstancesForSpecificationsRequest.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[List[CommonSpecificationReference], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationReference], Unset_Type]"
     ) -> None:
         """Sets the specifications of this GetImpactedSubstancesForSpecificationsRequest.
 
         Parameters
         ----------
-        specifications: Union[List[CommonSpecificationReference], Unset_Type]
+        specifications: Union[list[CommonSpecificationReference], Unset_Type]
             The specifications of this GetImpactedSubstancesForSpecificationsRequest.
         """
         # Field is not nullable
@@ -140,23 +140,23 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         self._specifications = specifications
 
     @property
-    def legislation_ids(self) -> "Union[List[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
 
         Returns
         -------
-        Union[List[str], Unset_Type]
+        Union[list[str], Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[List[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
 
         Parameters
         ----------
-        legislation_ids: Union[List[str], Unset_Type]
+        legislation_ids: Union[list[str], Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
         """
         # Field is not nullable
@@ -215,7 +215,7 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

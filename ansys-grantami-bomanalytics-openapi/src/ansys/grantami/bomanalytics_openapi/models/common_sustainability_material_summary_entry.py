@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,16 +51,16 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "embodied_energy": "CommonValueWithUnit",
@@ -72,7 +72,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         "record_reference": "CommonMaterialReference",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "embodied_energy": "EmbodiedEnergy",
@@ -84,7 +84,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         "record_reference": "RecordReference",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "RecordReference": "CommonMaterialReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
@@ -103,7 +103,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
         identity: "Union[str, Unset_Type]" = Unset,
-        largest_contributors: "Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]" = Unset,
+        largest_contributors: "Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]" = Unset,
         mass_after_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         record_reference: "Union[CommonMaterialReference, Unset_Type]" = Unset,
@@ -117,7 +117,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         embodied_energy: CommonValueWithUnit, optional
         embodied_energy_percentage: float, optional
         identity: str, optional
-        largest_contributors: List[CommonSustainabilityMaterialContributingComponent], optional
+        largest_contributors: list[CommonSustainabilityMaterialContributingComponent], optional
         mass_after_processing: CommonValueWithUnit, optional
         mass_before_processing: CommonValueWithUnit, optional
         record_reference: CommonMaterialReference, optional
@@ -131,7 +131,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._mass_before_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._mass_after_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._largest_contributors: Union[
-            List[CommonSustainabilityMaterialContributingComponent], Unset_Type
+            list[CommonSustainabilityMaterialContributingComponent], Unset_Type
         ] = Unset
 
         if identity is not Unset:
@@ -366,12 +366,12 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     @property
     def largest_contributors(
         self,
-    ) -> "Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]":
         """Gets the largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]
+        Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]
             The largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._largest_contributors
@@ -379,13 +379,13 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     @largest_contributors.setter
     def largest_contributors(
         self,
-        largest_contributors: "Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]",
+        largest_contributors: "Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]",
     ) -> None:
         """Sets the largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        largest_contributors: Union[List[CommonSustainabilityMaterialContributingComponent], Unset_Type]
+        largest_contributors: Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]
             The largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
         """
         # Field is not nullable
@@ -394,7 +394,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._largest_contributors = largest_contributors
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetComplianceForSpecificationsRequest(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "config": "CommonRequestConfig",
         "database_key": "str",
         "indicators": "list[CommonIndicatorDefinition]",
         "specifications": "list[CommonSpecificationReference]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "config": "Config",
         "database_key": "DatabaseKey",
         "indicators": "Indicators",
         "specifications": "Specifications",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Specifications": "CommonSpecificationReference",
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
@@ -87,8 +87,8 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        specifications: "Union[List[CommonSpecificationReference], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationReference], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSpecificationsRequest - a model defined in Swagger
 
@@ -96,11 +96,11 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         ----------
         config: CommonRequestConfig, optional
         database_key: str, optional
-        indicators: List[CommonIndicatorDefinition], optional
-        specifications: List[CommonSpecificationReference], optional
+        indicators: list[CommonIndicatorDefinition], optional
+        specifications: list[CommonSpecificationReference], optional
         """
-        self._specifications: Union[List[CommonSpecificationReference], Unset_Type] = Unset
-        self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationReference], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -114,25 +114,25 @@ class GetComplianceForSpecificationsRequest(ModelBase):
             self.config = config
 
     @property
-    def specifications(self) -> "Union[List[CommonSpecificationReference], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationReference], Unset_Type]":
         """Gets the specifications of this GetComplianceForSpecificationsRequest.
 
         Returns
         -------
-        Union[List[CommonSpecificationReference], Unset_Type]
+        Union[list[CommonSpecificationReference], Unset_Type]
             The specifications of this GetComplianceForSpecificationsRequest.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[List[CommonSpecificationReference], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationReference], Unset_Type]"
     ) -> None:
         """Sets the specifications of this GetComplianceForSpecificationsRequest.
 
         Parameters
         ----------
-        specifications: Union[List[CommonSpecificationReference], Unset_Type]
+        specifications: Union[list[CommonSpecificationReference], Unset_Type]
             The specifications of this GetComplianceForSpecificationsRequest.
         """
         # Field is not nullable
@@ -141,23 +141,23 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         self._specifications = specifications
 
     @property
-    def indicators(self) -> "Union[List[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
         """Gets the indicators of this GetComplianceForSpecificationsRequest.
 
         Returns
         -------
-        Union[List[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForSpecificationsRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
         """Sets the indicators of this GetComplianceForSpecificationsRequest.
 
         Parameters
         ----------
-        indicators: Union[List[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForSpecificationsRequest.
         """
         # Field is not nullable
@@ -216,7 +216,7 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

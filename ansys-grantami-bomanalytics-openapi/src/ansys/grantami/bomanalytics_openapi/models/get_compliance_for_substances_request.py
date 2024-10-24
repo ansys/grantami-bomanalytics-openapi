@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,30 +51,30 @@ class GetComplianceForSubstancesRequest(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "config": "CommonRequestConfig",
         "database_key": "str",
         "indicators": "list[CommonIndicatorDefinition]",
         "substances": "list[GetComplianceForSubstancesSubstanceWithAmount]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "config": "Config",
         "database_key": "DatabaseKey",
         "indicators": "Indicators",
         "substances": "Substances",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Substances": "GetComplianceForSubstancesSubstanceWithAmount",
         "Indicators": "CommonIndicatorDefinition",
         "Config": "CommonRequestConfig",
@@ -87,8 +87,8 @@ class GetComplianceForSubstancesRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        substances: "Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
+        substances: "Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSubstancesRequest - a model defined in Swagger
 
@@ -96,13 +96,13 @@ class GetComplianceForSubstancesRequest(ModelBase):
         ----------
         config: CommonRequestConfig, optional
         database_key: str, optional
-        indicators: List[CommonIndicatorDefinition], optional
-        substances: List[GetComplianceForSubstancesSubstanceWithAmount], optional
+        indicators: list[CommonIndicatorDefinition], optional
+        substances: list[GetComplianceForSubstancesSubstanceWithAmount], optional
         """
-        self._substances: Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type] = (
+        self._substances: Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type] = (
             Unset
         )
-        self._indicators: Union[List[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -118,25 +118,25 @@ class GetComplianceForSubstancesRequest(ModelBase):
     @property
     def substances(
         self,
-    ) -> "Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]":
+    ) -> "Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]":
         """Gets the substances of this GetComplianceForSubstancesRequest.
 
         Returns
         -------
-        Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]
+        Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]
             The substances of this GetComplianceForSubstancesRequest.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]"
+        self, substances: "Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]"
     ) -> None:
         """Sets the substances of this GetComplianceForSubstancesRequest.
 
         Parameters
         ----------
-        substances: Union[List[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]
+        substances: Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]
             The substances of this GetComplianceForSubstancesRequest.
         """
         # Field is not nullable
@@ -145,23 +145,23 @@ class GetComplianceForSubstancesRequest(ModelBase):
         self._substances = substances
 
     @property
-    def indicators(self) -> "Union[List[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
         """Gets the indicators of this GetComplianceForSubstancesRequest.
 
         Returns
         -------
-        Union[List[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForSubstancesRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
         """Sets the indicators of this GetComplianceForSubstancesRequest.
 
         Parameters
         ----------
-        indicators: Union[List[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
             The indicators of this GetComplianceForSubstancesRequest.
         """
         # Field is not nullable
@@ -220,7 +220,7 @@ class GetComplianceForSubstancesRequest(ModelBase):
         self._config = config
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters
