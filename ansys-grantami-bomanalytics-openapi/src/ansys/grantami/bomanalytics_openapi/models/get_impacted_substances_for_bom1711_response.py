@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "legislations": "list[CommonLegislationWithImpactedSubstances]",
         "log_messages": "list[CommonLogEntry]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "legislations": "Legislations",
         "log_messages": "LogMessages",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Legislations": "CommonLegislationWithImpactedSubstances",
         "LogMessages": "CommonLogEntry",
     }
@@ -80,18 +80,18 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
     def __init__(
         self,
         *,
-        legislations: "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
-        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
+        legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForBom1711Response - a model defined in Swagger
 
         Parameters
         ----------
-        legislations: List[CommonLegislationWithImpactedSubstances], optional
-        log_messages: List[CommonLogEntry], optional
+        legislations: list[CommonLegislationWithImpactedSubstances], optional
+        log_messages: list[CommonLogEntry], optional
         """
-        self._legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
-        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
+        self._legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
 
         if legislations is not Unset:
             self.legislations = legislations
@@ -99,25 +99,25 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def legislations(self) -> "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]":
+    def legislations(self) -> "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]":
         """Gets the legislations of this GetImpactedSubstancesForBom1711Response.
 
         Returns
         -------
-        Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]
+        Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
             The legislations of this GetImpactedSubstancesForBom1711Response.
         """
         return self._legislations
 
     @legislations.setter
     def legislations(
-        self, legislations: "Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]"
+        self, legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]"
     ) -> None:
         """Sets the legislations of this GetImpactedSubstancesForBom1711Response.
 
         Parameters
         ----------
-        legislations: Union[List[CommonLegislationWithImpactedSubstances], Unset_Type]
+        legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
             The legislations of this GetImpactedSubstancesForBom1711Response.
         """
         # Field is not nullable
@@ -126,23 +126,23 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
         self._legislations = legislations
 
     @property
-    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetImpactedSubstancesForBom1711Response.
 
         Returns
         -------
-        Union[List[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetImpactedSubstancesForBom1711Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetImpactedSubstancesForBom1711Response.
 
         Parameters
         ----------
-        log_messages: Union[List[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetImpactedSubstancesForBom1711Response.
         """
         # Field is not nullable
@@ -151,7 +151,7 @@ class GetImpactedSubstancesForBom1711Response(ModelBase):
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

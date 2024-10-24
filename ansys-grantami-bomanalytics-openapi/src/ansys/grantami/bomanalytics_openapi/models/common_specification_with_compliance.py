@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,16 +51,16 @@ class CommonSpecificationWithCompliance(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "coatings": "list[CommonCoatingWithCompliance]",
         "external_identity": "str",
         "id": "str",
@@ -73,7 +73,7 @@ class CommonSpecificationWithCompliance(ModelBase):
         "substances": "list[CommonSubstanceWithCompliance]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "coatings": "Coatings",
         "external_identity": "ExternalIdentity",
         "id": "Id",
@@ -86,7 +86,7 @@ class CommonSpecificationWithCompliance(ModelBase):
         "substances": "Substances",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Indicators": "CommonIndicatorResult",
         "Specifications": "CommonSpecificationWithCompliance",
         "Coatings": "CommonCoatingWithCompliance",
@@ -99,37 +99,37 @@ class CommonSpecificationWithCompliance(ModelBase):
     def __init__(
         self,
         *,
-        coatings: "Union[List[CommonCoatingWithCompliance], Unset_Type]" = Unset,
+        coatings: "Union[list[CommonCoatingWithCompliance], Unset_Type]" = Unset,
         external_identity: "Union[str, Unset_Type]" = Unset,
         id: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[List[CommonIndicatorResult], Unset_Type]" = Unset,
-        materials: "Union[List[CommonMaterialWithCompliance], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorResult], Unset_Type]" = Unset,
+        materials: "Union[list[CommonMaterialWithCompliance], Unset_Type]" = Unset,
         name: "Union[str, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
-        specifications: "Union[List[CommonSpecificationWithCompliance], Unset_Type]" = Unset,
-        substances: "Union[List[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationWithCompliance], Unset_Type]" = Unset,
+        substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """CommonSpecificationWithCompliance - a model defined in Swagger
 
         Parameters
         ----------
-        coatings: List[CommonCoatingWithCompliance], optional
+        coatings: list[CommonCoatingWithCompliance], optional
         external_identity: str, optional
         id: str, optional
-        indicators: List[CommonIndicatorResult], optional
-        materials: List[CommonMaterialWithCompliance], optional
+        indicators: list[CommonIndicatorResult], optional
+        materials: list[CommonMaterialWithCompliance], optional
         name: str, optional
         reference_type: str, optional
         reference_value: str, optional
-        specifications: List[CommonSpecificationWithCompliance], optional
-        substances: List[CommonSubstanceWithCompliance], optional
+        specifications: list[CommonSpecificationWithCompliance], optional
+        substances: list[CommonSubstanceWithCompliance], optional
         """
-        self._indicators: Union[List[CommonIndicatorResult], Unset_Type] = Unset
-        self._specifications: Union[List[CommonSpecificationWithCompliance], Unset_Type] = Unset
-        self._coatings: Union[List[CommonCoatingWithCompliance], Unset_Type] = Unset
-        self._materials: Union[List[CommonMaterialWithCompliance], Unset_Type] = Unset
-        self._substances: Union[List[CommonSubstanceWithCompliance], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorResult], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationWithCompliance], Unset_Type] = Unset
+        self._coatings: Union[list[CommonCoatingWithCompliance], Unset_Type] = Unset
+        self._materials: Union[list[CommonMaterialWithCompliance], Unset_Type] = Unset
+        self._substances: Union[list[CommonSubstanceWithCompliance], Unset_Type] = Unset
         self._external_identity: Union[str, Unset_Type] = Unset
         self._name: Union[str, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
@@ -158,23 +158,23 @@ class CommonSpecificationWithCompliance(ModelBase):
             self.id = id
 
     @property
-    def indicators(self) -> "Union[List[CommonIndicatorResult], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorResult], Unset_Type]":
         """Gets the indicators of this CommonSpecificationWithCompliance.
 
         Returns
         -------
-        Union[List[CommonIndicatorResult], Unset_Type]
+        Union[list[CommonIndicatorResult], Unset_Type]
             The indicators of this CommonSpecificationWithCompliance.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[List[CommonIndicatorResult], Unset_Type]") -> None:
+    def indicators(self, indicators: "Union[list[CommonIndicatorResult], Unset_Type]") -> None:
         """Sets the indicators of this CommonSpecificationWithCompliance.
 
         Parameters
         ----------
-        indicators: Union[List[CommonIndicatorResult], Unset_Type]
+        indicators: Union[list[CommonIndicatorResult], Unset_Type]
             The indicators of this CommonSpecificationWithCompliance.
         """
         # Field is not nullable
@@ -183,25 +183,25 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._indicators = indicators
 
     @property
-    def specifications(self) -> "Union[List[CommonSpecificationWithCompliance], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationWithCompliance], Unset_Type]":
         """Gets the specifications of this CommonSpecificationWithCompliance.
 
         Returns
         -------
-        Union[List[CommonSpecificationWithCompliance], Unset_Type]
+        Union[list[CommonSpecificationWithCompliance], Unset_Type]
             The specifications of this CommonSpecificationWithCompliance.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[List[CommonSpecificationWithCompliance], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationWithCompliance], Unset_Type]"
     ) -> None:
         """Sets the specifications of this CommonSpecificationWithCompliance.
 
         Parameters
         ----------
-        specifications: Union[List[CommonSpecificationWithCompliance], Unset_Type]
+        specifications: Union[list[CommonSpecificationWithCompliance], Unset_Type]
             The specifications of this CommonSpecificationWithCompliance.
         """
         # Field is not nullable
@@ -210,23 +210,23 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._specifications = specifications
 
     @property
-    def coatings(self) -> "Union[List[CommonCoatingWithCompliance], Unset_Type]":
+    def coatings(self) -> "Union[list[CommonCoatingWithCompliance], Unset_Type]":
         """Gets the coatings of this CommonSpecificationWithCompliance.
 
         Returns
         -------
-        Union[List[CommonCoatingWithCompliance], Unset_Type]
+        Union[list[CommonCoatingWithCompliance], Unset_Type]
             The coatings of this CommonSpecificationWithCompliance.
         """
         return self._coatings
 
     @coatings.setter
-    def coatings(self, coatings: "Union[List[CommonCoatingWithCompliance], Unset_Type]") -> None:
+    def coatings(self, coatings: "Union[list[CommonCoatingWithCompliance], Unset_Type]") -> None:
         """Sets the coatings of this CommonSpecificationWithCompliance.
 
         Parameters
         ----------
-        coatings: Union[List[CommonCoatingWithCompliance], Unset_Type]
+        coatings: Union[list[CommonCoatingWithCompliance], Unset_Type]
             The coatings of this CommonSpecificationWithCompliance.
         """
         # Field is not nullable
@@ -235,23 +235,23 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._coatings = coatings
 
     @property
-    def materials(self) -> "Union[List[CommonMaterialWithCompliance], Unset_Type]":
+    def materials(self) -> "Union[list[CommonMaterialWithCompliance], Unset_Type]":
         """Gets the materials of this CommonSpecificationWithCompliance.
 
         Returns
         -------
-        Union[List[CommonMaterialWithCompliance], Unset_Type]
+        Union[list[CommonMaterialWithCompliance], Unset_Type]
             The materials of this CommonSpecificationWithCompliance.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "Union[List[CommonMaterialWithCompliance], Unset_Type]") -> None:
+    def materials(self, materials: "Union[list[CommonMaterialWithCompliance], Unset_Type]") -> None:
         """Sets the materials of this CommonSpecificationWithCompliance.
 
         Parameters
         ----------
-        materials: Union[List[CommonMaterialWithCompliance], Unset_Type]
+        materials: Union[list[CommonMaterialWithCompliance], Unset_Type]
             The materials of this CommonSpecificationWithCompliance.
         """
         # Field is not nullable
@@ -260,25 +260,25 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._materials = materials
 
     @property
-    def substances(self) -> "Union[List[CommonSubstanceWithCompliance], Unset_Type]":
+    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], Unset_Type]":
         """Gets the substances of this CommonSpecificationWithCompliance.
 
         Returns
         -------
-        Union[List[CommonSubstanceWithCompliance], Unset_Type]
+        Union[list[CommonSubstanceWithCompliance], Unset_Type]
             The substances of this CommonSpecificationWithCompliance.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[List[CommonSubstanceWithCompliance], Unset_Type]"
+        self, substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]"
     ) -> None:
         """Sets the substances of this CommonSpecificationWithCompliance.
 
         Parameters
         ----------
-        substances: Union[List[CommonSubstanceWithCompliance], Unset_Type]
+        substances: Union[list[CommonSubstanceWithCompliance], Unset_Type]
             The substances of this CommonSpecificationWithCompliance.
         """
         # Field is not nullable
@@ -418,7 +418,7 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._id = id
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

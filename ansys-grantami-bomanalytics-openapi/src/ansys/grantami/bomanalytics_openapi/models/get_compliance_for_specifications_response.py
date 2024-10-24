@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class GetComplianceForSpecificationsResponse(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "specifications": "list[CommonSpecificationWithCompliance]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "log_messages": "LogMessages",
         "specifications": "Specifications",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Specifications": "CommonSpecificationWithCompliance",
         "LogMessages": "CommonLogEntry",
     }
@@ -80,18 +80,18 @@ class GetComplianceForSpecificationsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
-        specifications: "Union[List[CommonSpecificationWithCompliance], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSpecificationsResponse - a model defined in Swagger
 
         Parameters
         ----------
-        log_messages: List[CommonLogEntry], optional
-        specifications: List[CommonSpecificationWithCompliance], optional
+        log_messages: list[CommonLogEntry], optional
+        specifications: list[CommonSpecificationWithCompliance], optional
         """
-        self._specifications: Union[List[CommonSpecificationWithCompliance], Unset_Type] = Unset
-        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationWithCompliance], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
 
         if specifications is not Unset:
             self.specifications = specifications
@@ -99,25 +99,25 @@ class GetComplianceForSpecificationsResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def specifications(self) -> "Union[List[CommonSpecificationWithCompliance], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationWithCompliance], Unset_Type]":
         """Gets the specifications of this GetComplianceForSpecificationsResponse.
 
         Returns
         -------
-        Union[List[CommonSpecificationWithCompliance], Unset_Type]
+        Union[list[CommonSpecificationWithCompliance], Unset_Type]
             The specifications of this GetComplianceForSpecificationsResponse.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[List[CommonSpecificationWithCompliance], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationWithCompliance], Unset_Type]"
     ) -> None:
         """Sets the specifications of this GetComplianceForSpecificationsResponse.
 
         Parameters
         ----------
-        specifications: Union[List[CommonSpecificationWithCompliance], Unset_Type]
+        specifications: Union[list[CommonSpecificationWithCompliance], Unset_Type]
             The specifications of this GetComplianceForSpecificationsResponse.
         """
         # Field is not nullable
@@ -126,23 +126,23 @@ class GetComplianceForSpecificationsResponse(ModelBase):
         self._specifications = specifications
 
     @property
-    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetComplianceForSpecificationsResponse.
 
         Returns
         -------
-        Union[List[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForSpecificationsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetComplianceForSpecificationsResponse.
 
         Parameters
         ----------
-        log_messages: Union[List[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForSpecificationsResponse.
         """
         # Field is not nullable
@@ -151,7 +151,7 @@ class GetComplianceForSpecificationsResponse(ModelBase):
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

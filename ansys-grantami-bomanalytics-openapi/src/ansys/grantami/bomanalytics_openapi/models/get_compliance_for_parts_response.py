@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class GetComplianceForPartsResponse(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "parts": "list[CommonPartWithCompliance]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "log_messages": "LogMessages",
         "parts": "Parts",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Parts": "CommonPartWithCompliance",
         "LogMessages": "CommonLogEntry",
     }
@@ -80,18 +80,18 @@ class GetComplianceForPartsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
-        parts: "Union[List[CommonPartWithCompliance], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
+        parts: "Union[list[CommonPartWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForPartsResponse - a model defined in Swagger
 
         Parameters
         ----------
-        log_messages: List[CommonLogEntry], optional
-        parts: List[CommonPartWithCompliance], optional
+        log_messages: list[CommonLogEntry], optional
+        parts: list[CommonPartWithCompliance], optional
         """
-        self._parts: Union[List[CommonPartWithCompliance], Unset_Type] = Unset
-        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
+        self._parts: Union[list[CommonPartWithCompliance], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
 
         if parts is not Unset:
             self.parts = parts
@@ -99,23 +99,23 @@ class GetComplianceForPartsResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def parts(self) -> "Union[List[CommonPartWithCompliance], Unset_Type]":
+    def parts(self) -> "Union[list[CommonPartWithCompliance], Unset_Type]":
         """Gets the parts of this GetComplianceForPartsResponse.
 
         Returns
         -------
-        Union[List[CommonPartWithCompliance], Unset_Type]
+        Union[list[CommonPartWithCompliance], Unset_Type]
             The parts of this GetComplianceForPartsResponse.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "Union[List[CommonPartWithCompliance], Unset_Type]") -> None:
+    def parts(self, parts: "Union[list[CommonPartWithCompliance], Unset_Type]") -> None:
         """Sets the parts of this GetComplianceForPartsResponse.
 
         Parameters
         ----------
-        parts: Union[List[CommonPartWithCompliance], Unset_Type]
+        parts: Union[list[CommonPartWithCompliance], Unset_Type]
             The parts of this GetComplianceForPartsResponse.
         """
         # Field is not nullable
@@ -124,23 +124,23 @@ class GetComplianceForPartsResponse(ModelBase):
         self._parts = parts
 
     @property
-    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetComplianceForPartsResponse.
 
         Returns
         -------
-        Union[List[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForPartsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetComplianceForPartsResponse.
 
         Parameters
         ----------
-        log_messages: Union[List[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForPartsResponse.
         """
         # Field is not nullable
@@ -149,7 +149,7 @@ class GetComplianceForPartsResponse(ModelBase):
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

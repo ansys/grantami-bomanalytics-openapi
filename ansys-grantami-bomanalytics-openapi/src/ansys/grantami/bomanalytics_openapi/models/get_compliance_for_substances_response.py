@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,26 +51,26 @@ class GetComplianceForSubstancesResponse(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "log_messages": "list[CommonLogEntry]",
         "substances": "list[CommonSubstanceWithCompliance]",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "log_messages": "LogMessages",
         "substances": "Substances",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Substances": "CommonSubstanceWithCompliance",
         "LogMessages": "CommonLogEntry",
     }
@@ -80,18 +80,18 @@ class GetComplianceForSubstancesResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[List[CommonLogEntry], Unset_Type]" = Unset,
-        substances: "Union[List[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
+        substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSubstancesResponse - a model defined in Swagger
 
         Parameters
         ----------
-        log_messages: List[CommonLogEntry], optional
-        substances: List[CommonSubstanceWithCompliance], optional
+        log_messages: list[CommonLogEntry], optional
+        substances: list[CommonSubstanceWithCompliance], optional
         """
-        self._substances: Union[List[CommonSubstanceWithCompliance], Unset_Type] = Unset
-        self._log_messages: Union[List[CommonLogEntry], Unset_Type] = Unset
+        self._substances: Union[list[CommonSubstanceWithCompliance], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
 
         if substances is not Unset:
             self.substances = substances
@@ -99,25 +99,25 @@ class GetComplianceForSubstancesResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def substances(self) -> "Union[List[CommonSubstanceWithCompliance], Unset_Type]":
+    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], Unset_Type]":
         """Gets the substances of this GetComplianceForSubstancesResponse.
 
         Returns
         -------
-        Union[List[CommonSubstanceWithCompliance], Unset_Type]
+        Union[list[CommonSubstanceWithCompliance], Unset_Type]
             The substances of this GetComplianceForSubstancesResponse.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[List[CommonSubstanceWithCompliance], Unset_Type]"
+        self, substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]"
     ) -> None:
         """Sets the substances of this GetComplianceForSubstancesResponse.
 
         Parameters
         ----------
-        substances: Union[List[CommonSubstanceWithCompliance], Unset_Type]
+        substances: Union[list[CommonSubstanceWithCompliance], Unset_Type]
             The substances of this GetComplianceForSubstancesResponse.
         """
         # Field is not nullable
@@ -126,23 +126,23 @@ class GetComplianceForSubstancesResponse(ModelBase):
         self._substances = substances
 
     @property
-    def log_messages(self) -> "Union[List[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
         """Gets the log_messages of this GetComplianceForSubstancesResponse.
 
         Returns
         -------
-        Union[List[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForSubstancesResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[List[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
         """Sets the log_messages of this GetComplianceForSubstancesResponse.
 
         Parameters
         ----------
-        log_messages: Union[List[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], Unset_Type]
             The log_messages of this GetComplianceForSubstancesResponse.
         """
         # Field is not nullable
@@ -151,7 +151,7 @@ class GetComplianceForSubstancesResponse(ModelBase):
         self._log_messages = log_messages
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters

@@ -31,7 +31,7 @@
 """
 
 import re  # noqa: F401
-from typing import TYPE_CHECKING, Any, BinaryIO, Dict, List, Optional, Union  # noqa: F401
+from typing import TYPE_CHECKING, Any, BinaryIO, Optional, Union  # noqa: F401
 
 from . import ModelBase, Unset, Unset_Type
 
@@ -51,16 +51,16 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
     """
     Attributes
     ----------
-    swagger_types: Dict[str, str]
+    swagger_types: dict[str, str]
         The key is attribute name and the value is attribute type.
-    attribute_map: Dict[str, str]
+    attribute_map: dict[str, str]
         The key is attribute name and the value is json key in definition.
-    subtype_mapping: Dict[str, str]
+    subtype_mapping: dict[str, str]
         The key is the unmangled property name and the value is the corresponding type.
     discriminator: Optional[str]
         Name of the property used as discriminator for subtypes.
     """
-    swagger_types: Dict[str, str] = {
+    swagger_types: dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
         "embodied_energy": "CommonValueWithUnit",
         "external_identity": "str",
@@ -75,7 +75,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "reported_mass": "CommonValueWithUnit",
     }
 
-    attribute_map: Dict[str, str] = {
+    attribute_map: dict[str, str] = {
         "climate_change": "ClimateChange",
         "embodied_energy": "EmbodiedEnergy",
         "external_identity": "ExternalIdentity",
@@ -90,7 +90,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "reported_mass": "ReportedMass",
     }
 
-    subtype_mapping: Dict[str, str] = {
+    subtype_mapping: dict[str, str] = {
         "Parts": "CommonSustainabilityPartWithSustainability",
         "Materials": "CommonSustainabilityMaterialWithSustainability",
         "Processes": "CommonSustainabilityProcessWithSustainability",
@@ -109,10 +109,10 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         external_identity: "Union[str, Unset_Type]" = Unset,
         id: "Union[str, Unset_Type]" = Unset,
         input_part_number: "Union[str, Unset_Type]" = Unset,
-        materials: "Union[List[CommonSustainabilityMaterialWithSustainability], Unset_Type]" = Unset,
+        materials: "Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]" = Unset,
         name: "Union[str, Unset_Type]" = Unset,
-        parts: "Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]" = Unset,
-        processes: "Union[List[CommonSustainabilityProcessWithSustainability], Unset_Type]" = Unset,
+        parts: "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]" = Unset,
+        processes: "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
         reported_mass: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
@@ -126,19 +126,19 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         external_identity: str, optional
         id: str, optional
         input_part_number: str, optional
-        materials: List[CommonSustainabilityMaterialWithSustainability], optional
+        materials: list[CommonSustainabilityMaterialWithSustainability], optional
         name: str, optional
-        parts: List[CommonSustainabilityPartWithSustainability], optional
-        processes: List[CommonSustainabilityProcessWithSustainability], optional
+        parts: list[CommonSustainabilityPartWithSustainability], optional
+        processes: list[CommonSustainabilityProcessWithSustainability], optional
         reference_type: str, optional
         reference_value: str, optional
         reported_mass: CommonValueWithUnit, optional
         """
-        self._parts: Union[List[CommonSustainabilityPartWithSustainability], Unset_Type] = Unset
-        self._materials: Union[List[CommonSustainabilityMaterialWithSustainability], Unset_Type] = (
+        self._parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type] = Unset
+        self._materials: Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type] = (
             Unset
         )
-        self._processes: Union[List[CommonSustainabilityProcessWithSustainability], Unset_Type] = (
+        self._processes: Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type] = (
             Unset
         )
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
@@ -177,25 +177,25 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             self.id = id
 
     @property
-    def parts(self) -> "Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]":
+    def parts(self) -> "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]":
         """Gets the parts of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]
             The parts of this CommonSustainabilityPartWithSustainability.
         """
         return self._parts
 
     @parts.setter
     def parts(
-        self, parts: "Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]"
+        self, parts: "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]"
     ) -> None:
         """Sets the parts of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        parts: Union[List[CommonSustainabilityPartWithSustainability], Unset_Type]
+        parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]
             The parts of this CommonSustainabilityPartWithSustainability.
         """
         # Field is not nullable
@@ -206,25 +206,25 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
     @property
     def materials(
         self,
-    ) -> "Union[List[CommonSustainabilityMaterialWithSustainability], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]":
         """Gets the materials of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[List[CommonSustainabilityMaterialWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]
             The materials of this CommonSustainabilityPartWithSustainability.
         """
         return self._materials
 
     @materials.setter
     def materials(
-        self, materials: "Union[List[CommonSustainabilityMaterialWithSustainability], Unset_Type]"
+        self, materials: "Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]"
     ) -> None:
         """Sets the materials of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        materials: Union[List[CommonSustainabilityMaterialWithSustainability], Unset_Type]
+        materials: Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]
             The materials of this CommonSustainabilityPartWithSustainability.
         """
         # Field is not nullable
@@ -233,25 +233,25 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._materials = materials
 
     @property
-    def processes(self) -> "Union[List[CommonSustainabilityProcessWithSustainability], Unset_Type]":
+    def processes(self) -> "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]":
         """Gets the processes of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[List[CommonSustainabilityProcessWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]
             The processes of this CommonSustainabilityPartWithSustainability.
         """
         return self._processes
 
     @processes.setter
     def processes(
-        self, processes: "Union[List[CommonSustainabilityProcessWithSustainability], Unset_Type]"
+        self, processes: "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]"
     ) -> None:
         """Sets the processes of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        processes: Union[List[CommonSustainabilityProcessWithSustainability], Unset_Type]
+        processes: Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]
             The processes of this CommonSustainabilityPartWithSustainability.
         """
         # Field is not nullable
@@ -493,7 +493,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._id = id
 
     @classmethod
-    def get_real_child_model(cls, data: Dict[str, str]) -> str:
+    def get_real_child_model(cls, data: dict[str, str]) -> str:
         """Raises a NotImplementedError for a type without a discriminator defined.
 
         Parameters
