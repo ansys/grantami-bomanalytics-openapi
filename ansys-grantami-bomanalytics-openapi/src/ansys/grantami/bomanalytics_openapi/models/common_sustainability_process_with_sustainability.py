@@ -68,6 +68,7 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
         "name": "str",
         "reference_type": "str",
         "reference_value": "str",
+        "transport_stages": "list[CommonSustainabilityTransportWithSustainability]",
     }
 
     attribute_map: dict[str, str] = {
@@ -78,11 +79,13 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
         "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
+        "transport_stages": "TransportStages",
     }
 
     subtype_mapping: dict[str, str] = {
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
+        "TransportStages": "CommonSustainabilityTransportWithSustainability",
     }
 
     discriminator: Optional[str] = None
@@ -97,6 +100,7 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
         name: "Union[str, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityProcessWithSustainability - a model defined in Swagger
 
@@ -109,9 +113,13 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
         name: str, optional
         reference_type: str, optional
         reference_value: str, optional
+        transport_stages: list[CommonSustainabilityTransportWithSustainability], optional
         """
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._transport_stages: Union[
+            list[CommonSustainabilityTransportWithSustainability], Unset_Type
+        ] = Unset
         self._external_identity: Union[str, Unset_Type] = Unset
         self._name: Union[str, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
@@ -122,6 +130,8 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
             self.embodied_energy = embodied_energy
         if climate_change is not Unset:
             self.climate_change = climate_change
+        if transport_stages is not Unset:
+            self.transport_stages = transport_stages
         if external_identity is not Unset:
             self.external_identity = external_identity
         if name is not Unset:
@@ -182,6 +192,36 @@ class CommonSustainabilityProcessWithSustainability(ModelBase):
         if climate_change is None:
             raise ValueError("Invalid value for 'climate_change', must not be 'None'")
         self._climate_change = climate_change
+
+    @property
+    def transport_stages(
+        self,
+    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]":
+        """Gets the transport_stages of this CommonSustainabilityProcessWithSustainability.
+
+        Returns
+        -------
+        Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+            The transport_stages of this CommonSustainabilityProcessWithSustainability.
+        """
+        return self._transport_stages
+
+    @transport_stages.setter
+    def transport_stages(
+        self,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]",
+    ) -> None:
+        """Sets the transport_stages of this CommonSustainabilityProcessWithSustainability.
+
+        Parameters
+        ----------
+        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+            The transport_stages of this CommonSustainabilityProcessWithSustainability.
+        """
+        # Field is not nullable
+        if transport_stages is None:
+            raise ValueError("Invalid value for 'transport_stages', must not be 'None'")
+        self._transport_stages = transport_stages
 
     @property
     def external_identity(self) -> "Union[str, Unset_Type]":

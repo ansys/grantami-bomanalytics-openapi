@@ -73,6 +73,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "reference_type": "str",
         "reference_value": "str",
         "reported_mass": "CommonValueWithUnit",
+        "transport_stages": "list[CommonSustainabilityTransportWithSustainability]",
     }
 
     attribute_map: dict[str, str] = {
@@ -88,6 +89,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
         "reported_mass": "ReportedMass",
+        "transport_stages": "TransportStages",
     }
 
     subtype_mapping: dict[str, str] = {
@@ -97,6 +99,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
         "ReportedMass": "CommonValueWithUnit",
+        "TransportStages": "CommonSustainabilityTransportWithSustainability",
     }
 
     discriminator: Optional[str] = None
@@ -116,6 +119,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
         reported_mass: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityPartWithSustainability - a model defined in Swagger
 
@@ -133,6 +137,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         reference_type: str, optional
         reference_value: str, optional
         reported_mass: CommonValueWithUnit, optional
+        transport_stages: list[CommonSustainabilityTransportWithSustainability], optional
         """
         self._parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type] = Unset
         self._materials: Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type] = (
@@ -144,6 +149,9 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._reported_mass: Union[CommonValueWithUnit, Unset_Type] = Unset
+        self._transport_stages: Union[
+            list[CommonSustainabilityTransportWithSustainability], Unset_Type
+        ] = Unset
         self._input_part_number: Union[str, Unset_Type] = Unset
         self._external_identity: Union[str, Unset_Type] = Unset
         self._name: Union[str, Unset_Type] = Unset
@@ -163,6 +171,8 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             self.climate_change = climate_change
         if reported_mass is not Unset:
             self.reported_mass = reported_mass
+        if transport_stages is not Unset:
+            self.transport_stages = transport_stages
         if input_part_number is not Unset:
             self.input_part_number = input_part_number
         if external_identity is not Unset:
@@ -333,6 +343,36 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         if reported_mass is None:
             raise ValueError("Invalid value for 'reported_mass', must not be 'None'")
         self._reported_mass = reported_mass
+
+    @property
+    def transport_stages(
+        self,
+    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]":
+        """Gets the transport_stages of this CommonSustainabilityPartWithSustainability.
+
+        Returns
+        -------
+        Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+            The transport_stages of this CommonSustainabilityPartWithSustainability.
+        """
+        return self._transport_stages
+
+    @transport_stages.setter
+    def transport_stages(
+        self,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]",
+    ) -> None:
+        """Sets the transport_stages of this CommonSustainabilityPartWithSustainability.
+
+        Parameters
+        ----------
+        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+            The transport_stages of this CommonSustainabilityPartWithSustainability.
+        """
+        # Field is not nullable
+        if transport_stages is None:
+            raise ValueError("Invalid value for 'transport_stages', must not be 'None'")
+        self._transport_stages = transport_stages
 
     @property
     def input_part_number(self) -> "Union[str, Unset_Type]":

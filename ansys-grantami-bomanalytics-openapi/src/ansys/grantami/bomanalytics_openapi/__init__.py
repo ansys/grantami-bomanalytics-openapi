@@ -79,6 +79,12 @@ from .models.common_sustainability_process_summary_entry import (
 from .models.common_sustainability_process_with_sustainability import (
     CommonSustainabilityProcessWithSustainability,
 )
+from .models.common_sustainability_transport_by_category_summary_entry import (
+    CommonSustainabilityTransportByCategorySummaryEntry,
+)
+from .models.common_sustainability_transport_by_part_summary_entry import (
+    CommonSustainabilityTransportByPartSummaryEntry,
+)
 from .models.common_sustainability_transport_summary import CommonSustainabilityTransportSummary
 from .models.common_sustainability_transport_summary_entry import (
     CommonSustainabilityTransportSummaryEntry,
@@ -179,6 +185,8 @@ __all__ = [
     "CommonSustainabilityProcessSummary",
     "CommonSustainabilityProcessSummaryEntry",
     "CommonSustainabilityProcessWithSustainability",
+    "CommonSustainabilityTransportByCategorySummaryEntry",
+    "CommonSustainabilityTransportByPartSummaryEntry",
     "CommonSustainabilityTransportSummary",
     "CommonSustainabilityTransportSummaryEntry",
     "CommonSustainabilityTransportWithSustainability",
