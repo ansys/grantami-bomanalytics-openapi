@@ -69,6 +69,12 @@ from .common_sustainability_process_summary_entry import CommonSustainabilityPro
 from .common_sustainability_process_with_sustainability import (
     CommonSustainabilityProcessWithSustainability,
 )
+from .common_sustainability_transport_by_category_summary_entry import (
+    CommonSustainabilityTransportByCategorySummaryEntry,
+)
+from .common_sustainability_transport_by_part_summary_entry import (
+    CommonSustainabilityTransportByPartSummaryEntry,
+)
 from .common_sustainability_transport_summary import CommonSustainabilityTransportSummary
 from .common_sustainability_transport_summary_entry import CommonSustainabilityTransportSummaryEntry
 from .common_sustainability_transport_with_sustainability import (
@@ -153,6 +159,8 @@ __all__ = [
     "CommonSustainabilityProcessSummary",
     "CommonSustainabilityProcessSummaryEntry",
     "CommonSustainabilityProcessWithSustainability",
+    "CommonSustainabilityTransportByCategorySummaryEntry",
+    "CommonSustainabilityTransportByPartSummaryEntry",
     "CommonSustainabilityTransportSummary",
     "CommonSustainabilityTransportSummaryEntry",
     "CommonSustainabilityTransportWithSustainability",
