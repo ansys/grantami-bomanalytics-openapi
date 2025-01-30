@@ -55,7 +55,7 @@ jobs:
 
     - name: "Ensure poetry.lock file is up to date"
       run: |
-        pip install poetry
+        pip install poetry~=2.0
         poetry lock
       working-directory: ansys-grantami-bomanalytics-openapi
 
