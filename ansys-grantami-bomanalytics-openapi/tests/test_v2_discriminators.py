@@ -23,7 +23,7 @@
 from enum import Enum
 import types
 
-import ansys.grantami.bomanalytics_openapi.models as models
+import ansys.grantami.bomanalytics_openapi.v2.models as models
 import pytest
 
 ALL_MODELS = {
