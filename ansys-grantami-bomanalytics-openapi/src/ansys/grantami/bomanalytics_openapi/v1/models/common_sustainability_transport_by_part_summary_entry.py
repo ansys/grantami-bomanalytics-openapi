@@ -67,7 +67,6 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
         "distance": "CommonValueWithUnit",
         "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
-        "name": "str",
         "parent_part_name": "str",
         "part_name": "str",
         "transport_types": "list[str]",
@@ -80,7 +79,6 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
         "distance": "Distance",
         "embodied_energy": "EmbodiedEnergy",
         "embodied_energy_percentage": "EmbodiedEnergyPercentage",
-        "name": "Name",
         "parent_part_name": "ParentPartName",
         "part_name": "PartName",
         "transport_types": "TransportTypes",
@@ -97,13 +95,12 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
     def __init__(
         self,
         *,
-        category: "Union[str, None, Unset_Type]" = Unset,
+        category: "Union[str, Unset_Type]" = Unset,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         climate_change_percentage: "Union[float, Unset_Type]" = Unset,
         distance: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
-        name: "Union[str, Unset_Type]" = Unset,
         parent_part_name: "Union[str, Unset_Type]" = Unset,
         part_name: "Union[str, Unset_Type]" = Unset,
         transport_types: "Union[list[str], Unset_Type]" = Unset,
@@ -118,15 +115,13 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
         distance: CommonValueWithUnit, optional
         embodied_energy: CommonValueWithUnit, optional
         embodied_energy_percentage: float, optional
-        name: str, optional
         parent_part_name: str, optional
         part_name: str, optional
         transport_types: list[str], optional
         """
         self._parent_part_name: Union[str, Unset_Type] = Unset
         self._part_name: Union[str, Unset_Type] = Unset
-        self._name: Union[str, Unset_Type] = Unset
-        self._category: Union[str, None, Unset_Type] = Unset
+        self._category: Union[str, Unset_Type] = Unset
         self._transport_types: Union[list[str], Unset_Type] = Unset
         self._distance: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
@@ -138,8 +133,6 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
             self.parent_part_name = parent_part_name
         if part_name is not Unset:
             self.part_name = part_name
-        if name is not Unset:
-            self.name = name
         if category is not Unset:
             self.category = category
         if transport_types is not Unset:
@@ -206,57 +199,28 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
         self._part_name = part_name
 
     @property
-    def name(self) -> "Union[str, Unset_Type]":
-        """Gets the name of this CommonSustainabilityTransportByPartSummaryEntry.
-
-        Returns
-        -------
-        Union[str, Unset_Type]
-            The name of this CommonSustainabilityTransportByPartSummaryEntry.
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name: "Union[str, Unset_Type]") -> None:
-        """Sets the name of this CommonSustainabilityTransportByPartSummaryEntry.
-
-        Parameters
-        ----------
-        name: Union[str, Unset_Type]
-            The name of this CommonSustainabilityTransportByPartSummaryEntry.
-        """
-        # Field is not nullable
-        if name is None:
-            raise ValueError("Invalid value for 'name', must not be 'None'")
-        self._name = name
-
-    @property
-    def category(self) -> "Union[str, None, Unset_Type]":
+    def category(self) -> "Union[str, Unset_Type]":
         """Gets the category of this CommonSustainabilityTransportByPartSummaryEntry.
 
         Returns
         -------
-        Union[str, None, Unset_Type]
+        Union[str, Unset_Type]
             The category of this CommonSustainabilityTransportByPartSummaryEntry.
         """
         return self._category
 
     @category.setter
-    def category(self, category: "Union[str, None, Unset_Type]") -> None:
+    def category(self, category: "Union[str, Unset_Type]") -> None:
         """Sets the category of this CommonSustainabilityTransportByPartSummaryEntry.
 
         Parameters
         ----------
-        category: Union[str, None, Unset_Type]
+        category: Union[str, Unset_Type]
             The category of this CommonSustainabilityTransportByPartSummaryEntry.
         """
-        # Field is nullable and is not required
-        if category is not None and category is not Unset:
-            allowed_values = ["Distribution", "Manufacturing"]
-            if category not in allowed_values:
-                raise ValueError(
-                    f"Invalid value for 'category' ({category}), must be one of {allowed_values}"
-                )
+        # Field is not nullable
+        if category is None:
+            raise ValueError("Invalid value for 'category', must not be 'None'")
         self._category = category
 
     @property
