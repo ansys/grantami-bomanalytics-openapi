@@ -64,6 +64,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         "component_name": "str",
         "component_part_number": "str",
         "material_mass_before_processing": "CommonValueWithUnit",
+        "parent_name": "str",
         "record_reference": "CommonPartReference",
     }
 
@@ -71,6 +72,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         "component_name": "ComponentName",
         "component_part_number": "ComponentPartNumber",
         "material_mass_before_processing": "MaterialMassBeforeProcessing",
+        "parent_name": "ParentName",
         "record_reference": "RecordReference",
     }
 
@@ -87,6 +89,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         component_name: "Union[str, Unset_Type]" = Unset,
         component_part_number: "Union[str, Unset_Type]" = Unset,
         material_mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
+        parent_name: "Union[str, Unset_Type]" = Unset,
         record_reference: "Union[CommonPartReference, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialContributingComponent - a model defined in Swagger
@@ -96,13 +99,17 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         component_name: str, optional
         component_part_number: str, optional
         material_mass_before_processing: CommonValueWithUnit, optional
+        parent_name: str, optional
         record_reference: CommonPartReference, optional
         """
+        self._parent_name: Union[str, Unset_Type] = Unset
         self._component_name: Union[str, Unset_Type] = Unset
         self._component_part_number: Union[str, Unset_Type] = Unset
         self._record_reference: Union[CommonPartReference, Unset_Type] = Unset
         self._material_mass_before_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
 
+        if parent_name is not Unset:
+            self.parent_name = parent_name
         if component_name is not Unset:
             self.component_name = component_name
         if component_part_number is not Unset:
@@ -111,6 +118,31 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
             self.record_reference = record_reference
         if material_mass_before_processing is not Unset:
             self.material_mass_before_processing = material_mass_before_processing
+
+    @property
+    def parent_name(self) -> "Union[str, Unset_Type]":
+        """Gets the parent_name of this CommonSustainabilityMaterialContributingComponent.
+
+        Returns
+        -------
+        Union[str, Unset_Type]
+            The parent_name of this CommonSustainabilityMaterialContributingComponent.
+        """
+        return self._parent_name
+
+    @parent_name.setter
+    def parent_name(self, parent_name: "Union[str, Unset_Type]") -> None:
+        """Sets the parent_name of this CommonSustainabilityMaterialContributingComponent.
+
+        Parameters
+        ----------
+        parent_name: Union[str, Unset_Type]
+            The parent_name of this CommonSustainabilityMaterialContributingComponent.
+        """
+        # Field is not nullable
+        if parent_name is None:
+            raise ValueError("Invalid value for 'parent_name', must not be 'None'")
+        self._parent_name = parent_name
 
     @property
     def component_name(self) -> "Union[str, Unset_Type]":

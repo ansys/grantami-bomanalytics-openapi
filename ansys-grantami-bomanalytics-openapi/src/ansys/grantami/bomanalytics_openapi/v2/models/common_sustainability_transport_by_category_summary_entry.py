@@ -62,7 +62,6 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
     """
     swagger_types: dict[str, str] = {
         "category": "str",
-        "category_name": "str",
         "climate_change": "CommonValueWithUnit",
         "climate_change_percentage": "float",
         "distance": "CommonValueWithUnit",
@@ -72,7 +71,6 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
 
     attribute_map: dict[str, str] = {
         "category": "Category",
-        "category_name": "CategoryName",
         "climate_change": "ClimateChange",
         "climate_change_percentage": "ClimateChangePercentage",
         "distance": "Distance",
@@ -91,8 +89,7 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
     def __init__(
         self,
         *,
-        category: "Union[str, None, Unset_Type]" = Unset,
-        category_name: "Union[str, Unset_Type]" = Unset,
+        category: "Union[str, Unset_Type]" = Unset,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         climate_change_percentage: "Union[float, Unset_Type]" = Unset,
         distance: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
@@ -104,15 +101,13 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
         Parameters
         ----------
         category: str, optional
-        category_name: str, optional
         climate_change: CommonValueWithUnit, optional
         climate_change_percentage: float, optional
         distance: CommonValueWithUnit, optional
         embodied_energy: CommonValueWithUnit, optional
         embodied_energy_percentage: float, optional
         """
-        self._category: Union[str, None, Unset_Type] = Unset
-        self._category_name: Union[str, Unset_Type] = Unset
+        self._category: Union[str, Unset_Type] = Unset
         self._distance: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
@@ -121,8 +116,6 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
 
         if category is not Unset:
             self.category = category
-        if category_name is not Unset:
-            self.category_name = category_name
         if distance is not Unset:
             self.distance = distance
         if embodied_energy is not Unset:
@@ -135,58 +128,29 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def category(self) -> "Union[str, None, Unset_Type]":
+    def category(self) -> "Union[str, Unset_Type]":
         """Gets the category of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Returns
         -------
-        Union[str, None, Unset_Type]
+        Union[str, Unset_Type]
             The category of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
         return self._category
 
     @category.setter
-    def category(self, category: "Union[str, None, Unset_Type]") -> None:
+    def category(self, category: "Union[str, Unset_Type]") -> None:
         """Sets the category of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Parameters
         ----------
-        category: Union[str, None, Unset_Type]
+        category: Union[str, Unset_Type]
             The category of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
-        # Field is nullable and is not required
-        if category is not None and category is not Unset:
-            allowed_values = ["Distribution", "Manufacturing"]
-            if category not in allowed_values:
-                raise ValueError(
-                    f"Invalid value for 'category' ({category}), must be one of {allowed_values}"
-                )
-        self._category = category
-
-    @property
-    def category_name(self) -> "Union[str, Unset_Type]":
-        """Gets the category_name of this CommonSustainabilityTransportByCategorySummaryEntry.
-
-        Returns
-        -------
-        Union[str, Unset_Type]
-            The category_name of this CommonSustainabilityTransportByCategorySummaryEntry.
-        """
-        return self._category_name
-
-    @category_name.setter
-    def category_name(self, category_name: "Union[str, Unset_Type]") -> None:
-        """Sets the category_name of this CommonSustainabilityTransportByCategorySummaryEntry.
-
-        Parameters
-        ----------
-        category_name: Union[str, Unset_Type]
-            The category_name of this CommonSustainabilityTransportByCategorySummaryEntry.
-        """
         # Field is not nullable
-        if category_name is None:
-            raise ValueError("Invalid value for 'category_name', must not be 'None'")
-        self._category_name = category_name
+        if category is None:
+            raise ValueError("Invalid value for 'category', must not be 'None'")
+        self._category = category
 
     @property
     def distance(self) -> "Union[CommonValueWithUnit, Unset_Type]":

@@ -95,7 +95,7 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
     def __init__(
         self,
         *,
-        category: "Union[str, None, Unset_Type]" = Unset,
+        category: "Union[str, Unset_Type]" = Unset,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         climate_change_percentage: "Union[float, Unset_Type]" = Unset,
         distance: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
@@ -121,7 +121,7 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
         """
         self._parent_part_name: Union[str, Unset_Type] = Unset
         self._part_name: Union[str, Unset_Type] = Unset
-        self._category: Union[str, None, Unset_Type] = Unset
+        self._category: Union[str, Unset_Type] = Unset
         self._transport_types: Union[list[str], Unset_Type] = Unset
         self._distance: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
@@ -199,32 +199,28 @@ class CommonSustainabilityTransportByPartSummaryEntry(ModelBase):
         self._part_name = part_name
 
     @property
-    def category(self) -> "Union[str, None, Unset_Type]":
+    def category(self) -> "Union[str, Unset_Type]":
         """Gets the category of this CommonSustainabilityTransportByPartSummaryEntry.
 
         Returns
         -------
-        Union[str, None, Unset_Type]
+        Union[str, Unset_Type]
             The category of this CommonSustainabilityTransportByPartSummaryEntry.
         """
         return self._category
 
     @category.setter
-    def category(self, category: "Union[str, None, Unset_Type]") -> None:
+    def category(self, category: "Union[str, Unset_Type]") -> None:
         """Sets the category of this CommonSustainabilityTransportByPartSummaryEntry.
 
         Parameters
         ----------
-        category: Union[str, None, Unset_Type]
+        category: Union[str, Unset_Type]
             The category of this CommonSustainabilityTransportByPartSummaryEntry.
         """
-        # Field is nullable and is not required
-        if category is not None and category is not Unset:
-            allowed_values = ["Distribution", "Manufacturing"]
-            if category not in allowed_values:
-                raise ValueError(
-                    f"Invalid value for 'category' ({category}), must be one of {allowed_values}"
-                )
+        # Field is not nullable
+        if category is None:
+            raise ValueError("Invalid value for 'category', must not be 'None'")
         self._category = category
 
     @property
