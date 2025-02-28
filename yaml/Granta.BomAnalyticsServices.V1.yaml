@@ -3421,6 +3421,8 @@ components:
     Common.Sustainability.MaterialContributingComponent:
       type: object
       properties:
+        ParentName:
+          type: string
         ComponentName:
           type: string
         ComponentPartNumber:
@@ -3551,14 +3553,8 @@ components:
           type: string
         PartName:
           type: string
-        Name:
-          type: string
         Category:
-          enum:
-            - Distribution
-            - Manufacturing
           type: string
-          nullable: true
         TransportTypes:
           type: array
           items:
@@ -3578,14 +3574,8 @@ components:
     Common.Sustainability.TransportByCategorySummaryEntry:
       type: object
       properties:
-        CategoryName:
-          type: string
         Category:
-          enum:
-            - Distribution
-            - Manufacturing
           type: string
-          nullable: true
         Distance:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergy:
