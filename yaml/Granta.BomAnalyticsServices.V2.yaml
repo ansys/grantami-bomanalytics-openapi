@@ -1716,7 +1716,7 @@ paths:
                             Unit: kg
                           ClimateChangePercentage: 100
                       PartSummary:
-                        - ParentPartName:
+                        - ParentPartName: ''
                           PartName: ''
                           Category: Manufacturing
                           TransportTypes:
