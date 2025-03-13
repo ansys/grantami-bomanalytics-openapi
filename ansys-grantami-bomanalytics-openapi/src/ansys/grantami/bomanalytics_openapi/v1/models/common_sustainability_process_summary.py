@@ -86,10 +86,10 @@ class CommonSustainabilityProcessSummary(ModelBase):
     def __init__(
         self,
         *,
-        joining_and_finishing_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]" = Unset,
+        joining_and_finishing_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]" = Unset,
         phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]" = Unset,
-        primary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]" = Unset,
-        secondary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]" = Unset,
+        primary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]" = Unset,
+        secondary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityProcessSummary - a model defined in Swagger
 
@@ -101,13 +101,13 @@ class CommonSustainabilityProcessSummary(ModelBase):
         secondary_processes: list[CommonSustainabilityProcessSummaryEntry], optional
         """
         self._primary_processes: Union[
-            list[CommonSustainabilityProcessSummaryEntry], Unset_Type
+            list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type
         ] = Unset
         self._secondary_processes: Union[
-            list[CommonSustainabilityProcessSummaryEntry], Unset_Type
+            list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type
         ] = Unset
         self._joining_and_finishing_processes: Union[
-            list[CommonSustainabilityProcessSummaryEntry], Unset_Type
+            list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type
         ] = Unset
         self._phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type] = Unset
 
@@ -123,41 +123,39 @@ class CommonSustainabilityProcessSummary(ModelBase):
     @property
     def primary_processes(
         self,
-    ) -> "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]":
         """Gets the primary_processes of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]
             The primary_processes of this CommonSustainabilityProcessSummary.
         """
         return self._primary_processes
 
     @primary_processes.setter
     def primary_processes(
-        self, primary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]"
+        self,
+        primary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]",
     ) -> None:
         """Sets the primary_processes of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        primary_processes: Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]
+        primary_processes: Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]
             The primary_processes of this CommonSustainabilityProcessSummary.
         """
-        # Field is not nullable
-        if primary_processes is None:
-            raise ValueError("Invalid value for 'primary_processes', must not be 'None'")
         self._primary_processes = primary_processes
 
     @property
     def secondary_processes(
         self,
-    ) -> "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]":
         """Gets the secondary_processes of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]
             The secondary_processes of this CommonSustainabilityProcessSummary.
         """
         return self._secondary_processes
@@ -165,29 +163,26 @@ class CommonSustainabilityProcessSummary(ModelBase):
     @secondary_processes.setter
     def secondary_processes(
         self,
-        secondary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]",
+        secondary_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]",
     ) -> None:
         """Sets the secondary_processes of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        secondary_processes: Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]
+        secondary_processes: Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]
             The secondary_processes of this CommonSustainabilityProcessSummary.
         """
-        # Field is not nullable
-        if secondary_processes is None:
-            raise ValueError("Invalid value for 'secondary_processes', must not be 'None'")
         self._secondary_processes = secondary_processes
 
     @property
     def joining_and_finishing_processes(
         self,
-    ) -> "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]":
         """Gets the joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
 
         Returns
         -------
-        Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]
             The joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
         """
         return self._joining_and_finishing_processes
@@ -195,20 +190,15 @@ class CommonSustainabilityProcessSummary(ModelBase):
     @joining_and_finishing_processes.setter
     def joining_and_finishing_processes(
         self,
-        joining_and_finishing_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]",
+        joining_and_finishing_processes: "Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]",
     ) -> None:
         """Sets the joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
 
         Parameters
         ----------
-        joining_and_finishing_processes: Union[list[CommonSustainabilityProcessSummaryEntry], Unset_Type]
+        joining_and_finishing_processes: Union[list[CommonSustainabilityProcessSummaryEntry], None, Unset_Type]
             The joining_and_finishing_processes of this CommonSustainabilityProcessSummary.
         """
-        # Field is not nullable
-        if joining_and_finishing_processes is None:
-            raise ValueError(
-                "Invalid value for 'joining_and_finishing_processes', must not be 'None'"
-            )
         self._joining_and_finishing_processes = joining_and_finishing_processes
 
     @property

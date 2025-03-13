@@ -89,11 +89,11 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
     def __init__(
         self,
         *,
-        external_identity: "Union[str, Unset_Type]" = Unset,
-        id: "Union[str, Unset_Type]" = Unset,
-        input_part_number: "Union[str, Unset_Type]" = Unset,
-        legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
-        name: "Union[str, Unset_Type]" = Unset,
+        external_identity: "Union[str, None, Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
+        input_part_number: "Union[str, None, Unset_Type]" = Unset,
+        legislations: "Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]" = Unset,
+        name: "Union[str, None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
     ) -> None:
@@ -109,13 +109,15 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
         reference_type: str, optional
         reference_value: str, optional
         """
-        self._legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
-        self._input_part_number: Union[str, Unset_Type] = Unset
-        self._external_identity: Union[str, Unset_Type] = Unset
-        self._name: Union[str, Unset_Type] = Unset
+        self._legislations: Union[
+            list[CommonLegislationWithImpactedSubstances], None, Unset_Type
+        ] = Unset
+        self._input_part_number: Union[str, None, Unset_Type] = Unset
+        self._external_identity: Union[str, None, Unset_Type] = Unset
+        self._name: Union[str, None, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if legislations is not Unset:
             self.legislations = legislations
@@ -133,111 +135,101 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
             self.id = id
 
     @property
-    def legislations(self) -> "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]":
+    def legislations(
+        self,
+    ) -> "Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]":
         """Gets the legislations of this GetImpactedSubstancesForPartsPart.
 
         Returns
         -------
-        Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
+        Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]
             The legislations of this GetImpactedSubstancesForPartsPart.
         """
         return self._legislations
 
     @legislations.setter
     def legislations(
-        self, legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]"
+        self, legislations: "Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]"
     ) -> None:
         """Sets the legislations of this GetImpactedSubstancesForPartsPart.
 
         Parameters
         ----------
-        legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
+        legislations: Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]
             The legislations of this GetImpactedSubstancesForPartsPart.
         """
-        # Field is not nullable
-        if legislations is None:
-            raise ValueError("Invalid value for 'legislations', must not be 'None'")
         self._legislations = legislations
 
     @property
-    def input_part_number(self) -> "Union[str, Unset_Type]":
+    def input_part_number(self) -> "Union[str, None, Unset_Type]":
         """Gets the input_part_number of this GetImpactedSubstancesForPartsPart.
         This is set to the value of the PartNumber element in the input BoM.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The input_part_number of this GetImpactedSubstancesForPartsPart.
         """
         return self._input_part_number
 
     @input_part_number.setter
-    def input_part_number(self, input_part_number: "Union[str, Unset_Type]") -> None:
+    def input_part_number(self, input_part_number: "Union[str, None, Unset_Type]") -> None:
         """Sets the input_part_number of this GetImpactedSubstancesForPartsPart.
         This is set to the value of the PartNumber element in the input BoM.
 
         Parameters
         ----------
-        input_part_number: Union[str, Unset_Type]
+        input_part_number: Union[str, None, Unset_Type]
             The input_part_number of this GetImpactedSubstancesForPartsPart.
         """
-        # Field is not nullable
-        if input_part_number is None:
-            raise ValueError("Invalid value for 'input_part_number', must not be 'None'")
         self._input_part_number = input_part_number
 
     @property
-    def external_identity(self) -> "Union[str, Unset_Type]":
+    def external_identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the external_identity of this GetImpactedSubstancesForPartsPart.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The external_identity of this GetImpactedSubstancesForPartsPart.
         """
         return self._external_identity
 
     @external_identity.setter
-    def external_identity(self, external_identity: "Union[str, Unset_Type]") -> None:
+    def external_identity(self, external_identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the external_identity of this GetImpactedSubstancesForPartsPart.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        external_identity: Union[str, Unset_Type]
+        external_identity: Union[str, None, Unset_Type]
             The external_identity of this GetImpactedSubstancesForPartsPart.
         """
-        # Field is not nullable
-        if external_identity is None:
-            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
         self._external_identity = external_identity
 
     @property
-    def name(self) -> "Union[str, Unset_Type]":
+    def name(self) -> "Union[str, None, Unset_Type]":
         """Gets the name of this GetImpactedSubstancesForPartsPart.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The name of this GetImpactedSubstancesForPartsPart.
         """
         return self._name
 
     @name.setter
-    def name(self, name: "Union[str, Unset_Type]") -> None:
+    def name(self, name: "Union[str, None, Unset_Type]") -> None:
         """Sets the name of this GetImpactedSubstancesForPartsPart.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        name: Union[str, Unset_Type]
+        name: Union[str, None, Unset_Type]
             The name of this GetImpactedSubstancesForPartsPart.
         """
-        # Field is not nullable
-        if name is None:
-            raise ValueError("Invalid value for 'name', must not be 'None'")
         self._name = name
 
     @property
@@ -291,30 +283,27 @@ class GetImpactedSubstancesForPartsPart(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this GetImpactedSubstancesForPartsPart.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this GetImpactedSubstancesForPartsPart.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this GetImpactedSubstancesForPartsPart.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this GetImpactedSubstancesForPartsPart.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

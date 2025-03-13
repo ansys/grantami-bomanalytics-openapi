@@ -83,11 +83,11 @@ class CommonImpactedSubstance(ModelBase):
     def __init__(
         self,
         *,
-        cas_number: "Union[str, Unset_Type]" = Unset,
-        ec_number: "Union[str, Unset_Type]" = Unset,
+        cas_number: "Union[str, None, Unset_Type]" = Unset,
+        ec_number: "Union[str, None, Unset_Type]" = Unset,
         legislation_threshold: "Union[float, None, Unset_Type]" = Unset,
         max_percentage_amount_in_material: "Union[float, None, Unset_Type]" = Unset,
-        substance_name: "Union[str, Unset_Type]" = Unset,
+        substance_name: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonImpactedSubstance - a model defined in Swagger
 
@@ -99,9 +99,9 @@ class CommonImpactedSubstance(ModelBase):
         max_percentage_amount_in_material: float, optional
         substance_name: str, optional
         """
-        self._substance_name: Union[str, Unset_Type] = Unset
-        self._cas_number: Union[str, Unset_Type] = Unset
-        self._ec_number: Union[str, Unset_Type] = Unset
+        self._substance_name: Union[str, None, Unset_Type] = Unset
+        self._cas_number: Union[str, None, Unset_Type] = Unset
+        self._ec_number: Union[str, None, Unset_Type] = Unset
         self._max_percentage_amount_in_material: Union[float, None, Unset_Type] = Unset
         self._legislation_threshold: Union[float, None, Unset_Type] = Unset
 
@@ -117,78 +117,69 @@ class CommonImpactedSubstance(ModelBase):
             self.legislation_threshold = legislation_threshold
 
     @property
-    def substance_name(self) -> "Union[str, Unset_Type]":
+    def substance_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the substance_name of this CommonImpactedSubstance.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The substance_name of this CommonImpactedSubstance.
         """
         return self._substance_name
 
     @substance_name.setter
-    def substance_name(self, substance_name: "Union[str, Unset_Type]") -> None:
+    def substance_name(self, substance_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the substance_name of this CommonImpactedSubstance.
 
         Parameters
         ----------
-        substance_name: Union[str, Unset_Type]
+        substance_name: Union[str, None, Unset_Type]
             The substance_name of this CommonImpactedSubstance.
         """
-        # Field is not nullable
-        if substance_name is None:
-            raise ValueError("Invalid value for 'substance_name', must not be 'None'")
         self._substance_name = substance_name
 
     @property
-    def cas_number(self) -> "Union[str, Unset_Type]":
+    def cas_number(self) -> "Union[str, None, Unset_Type]":
         """Gets the cas_number of this CommonImpactedSubstance.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The cas_number of this CommonImpactedSubstance.
         """
         return self._cas_number
 
     @cas_number.setter
-    def cas_number(self, cas_number: "Union[str, Unset_Type]") -> None:
+    def cas_number(self, cas_number: "Union[str, None, Unset_Type]") -> None:
         """Sets the cas_number of this CommonImpactedSubstance.
 
         Parameters
         ----------
-        cas_number: Union[str, Unset_Type]
+        cas_number: Union[str, None, Unset_Type]
             The cas_number of this CommonImpactedSubstance.
         """
-        # Field is not nullable
-        if cas_number is None:
-            raise ValueError("Invalid value for 'cas_number', must not be 'None'")
         self._cas_number = cas_number
 
     @property
-    def ec_number(self) -> "Union[str, Unset_Type]":
+    def ec_number(self) -> "Union[str, None, Unset_Type]":
         """Gets the ec_number of this CommonImpactedSubstance.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The ec_number of this CommonImpactedSubstance.
         """
         return self._ec_number
 
     @ec_number.setter
-    def ec_number(self, ec_number: "Union[str, Unset_Type]") -> None:
+    def ec_number(self, ec_number: "Union[str, None, Unset_Type]") -> None:
         """Sets the ec_number of this CommonImpactedSubstance.
 
         Parameters
         ----------
-        ec_number: Union[str, Unset_Type]
+        ec_number: Union[str, None, Unset_Type]
             The ec_number of this CommonImpactedSubstance.
         """
-        # Field is not nullable
-        if ec_number is None:
-            raise ValueError("Invalid value for 'ec_number', must not be 'None'")
         self._ec_number = ec_number
 
     @property

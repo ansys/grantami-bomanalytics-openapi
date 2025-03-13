@@ -79,7 +79,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
     def __init__(
         self,
         *,
-        impacted_substances: "Union[list[CommonImpactedSubstance], Unset_Type]" = Unset,
+        impacted_substances: "Union[list[CommonImpactedSubstance], None, Unset_Type]" = Unset,
         legislation_id: "Union[str, Unset_Type]" = Unset,
     ) -> None:
         """CommonLegislationWithImpactedSubstances - a model defined in Swagger
@@ -90,7 +90,7 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         legislation_id: str, optional
         """
         self._legislation_id: Union[str, Unset_Type] = Unset
-        self._impacted_substances: Union[list[CommonImpactedSubstance], Unset_Type] = Unset
+        self._impacted_substances: Union[list[CommonImpactedSubstance], None, Unset_Type] = Unset
 
         if legislation_id is not Unset:
             self.legislation_id = legislation_id
@@ -123,30 +123,27 @@ class CommonLegislationWithImpactedSubstances(ModelBase):
         self._legislation_id = legislation_id
 
     @property
-    def impacted_substances(self) -> "Union[list[CommonImpactedSubstance], Unset_Type]":
+    def impacted_substances(self) -> "Union[list[CommonImpactedSubstance], None, Unset_Type]":
         """Gets the impacted_substances of this CommonLegislationWithImpactedSubstances.
 
         Returns
         -------
-        Union[list[CommonImpactedSubstance], Unset_Type]
+        Union[list[CommonImpactedSubstance], None, Unset_Type]
             The impacted_substances of this CommonLegislationWithImpactedSubstances.
         """
         return self._impacted_substances
 
     @impacted_substances.setter
     def impacted_substances(
-        self, impacted_substances: "Union[list[CommonImpactedSubstance], Unset_Type]"
+        self, impacted_substances: "Union[list[CommonImpactedSubstance], None, Unset_Type]"
     ) -> None:
         """Sets the impacted_substances of this CommonLegislationWithImpactedSubstances.
 
         Parameters
         ----------
-        impacted_substances: Union[list[CommonImpactedSubstance], Unset_Type]
+        impacted_substances: Union[list[CommonImpactedSubstance], None, Unset_Type]
             The impacted_substances of this CommonLegislationWithImpactedSubstances.
         """
-        # Field is not nullable
-        if impacted_substances is None:
-            raise ValueError("Invalid value for 'impacted_substances', must not be 'None'")
         self._impacted_substances = impacted_substances
 
     @classmethod

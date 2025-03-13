@@ -86,11 +86,11 @@ class CommonCoatingWithCompliance(ModelBase):
     def __init__(
         self,
         *,
-        id: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorResult], Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorResult], None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
-        substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
+        substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]" = Unset,
     ) -> None:
         """CommonCoatingWithCompliance - a model defined in Swagger
 
@@ -102,11 +102,11 @@ class CommonCoatingWithCompliance(ModelBase):
         reference_value: str, optional
         substances: list[CommonSubstanceWithCompliance], optional
         """
-        self._indicators: Union[list[CommonIndicatorResult], Unset_Type] = Unset
-        self._substances: Union[list[CommonSubstanceWithCompliance], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorResult], None, Unset_Type] = Unset
+        self._substances: Union[list[CommonSubstanceWithCompliance], None, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if indicators is not Unset:
             self.indicators = indicators
@@ -120,55 +120,51 @@ class CommonCoatingWithCompliance(ModelBase):
             self.id = id
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorResult], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorResult], None, Unset_Type]":
         """Gets the indicators of this CommonCoatingWithCompliance.
 
         Returns
         -------
-        Union[list[CommonIndicatorResult], Unset_Type]
+        Union[list[CommonIndicatorResult], None, Unset_Type]
             The indicators of this CommonCoatingWithCompliance.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorResult], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorResult], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this CommonCoatingWithCompliance.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorResult], Unset_Type]
+        indicators: Union[list[CommonIndicatorResult], None, Unset_Type]
             The indicators of this CommonCoatingWithCompliance.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property
-    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], Unset_Type]":
+    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]":
         """Gets the substances of this CommonCoatingWithCompliance.
 
         Returns
         -------
-        Union[list[CommonSubstanceWithCompliance], Unset_Type]
+        Union[list[CommonSubstanceWithCompliance], None, Unset_Type]
             The substances of this CommonCoatingWithCompliance.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]"
+        self, substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]"
     ) -> None:
         """Sets the substances of this CommonCoatingWithCompliance.
 
         Parameters
         ----------
-        substances: Union[list[CommonSubstanceWithCompliance], Unset_Type]
+        substances: Union[list[CommonSubstanceWithCompliance], None, Unset_Type]
             The substances of this CommonCoatingWithCompliance.
         """
-        # Field is not nullable
-        if substances is None:
-            raise ValueError("Invalid value for 'substances', must not be 'None'")
         self._substances = substances
 
     @property
@@ -222,30 +218,27 @@ class CommonCoatingWithCompliance(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this CommonCoatingWithCompliance.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this CommonCoatingWithCompliance.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this CommonCoatingWithCompliance.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this CommonCoatingWithCompliance.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

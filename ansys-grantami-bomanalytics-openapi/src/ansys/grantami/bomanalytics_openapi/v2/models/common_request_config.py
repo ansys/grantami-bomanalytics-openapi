@@ -93,16 +93,16 @@ class CommonRequestConfig(ModelBase):
     def __init__(
         self,
         *,
-        coatings_table_name: "Union[str, Unset_Type]" = Unset,
-        inhouse_materials_table_name: "Union[str, Unset_Type]" = Unset,
-        locations_table_name: "Union[str, Unset_Type]" = Unset,
-        material_universe_table_name: "Union[str, Unset_Type]" = Unset,
-        maximum_spec_chain_node_count: "Union[int, Unset_Type]" = Unset,
-        process_universe_table_name: "Union[str, Unset_Type]" = Unset,
-        products_and_parts_table_name: "Union[str, Unset_Type]" = Unset,
-        specifications_table_name: "Union[str, Unset_Type]" = Unset,
-        substances_table_name: "Union[str, Unset_Type]" = Unset,
-        transport_table_name: "Union[str, Unset_Type]" = Unset,
+        coatings_table_name: "Union[str, None, Unset_Type]" = Unset,
+        inhouse_materials_table_name: "Union[str, None, Unset_Type]" = Unset,
+        locations_table_name: "Union[str, None, Unset_Type]" = Unset,
+        material_universe_table_name: "Union[str, None, Unset_Type]" = Unset,
+        maximum_spec_chain_node_count: "Union[int, None, Unset_Type]" = Unset,
+        process_universe_table_name: "Union[str, None, Unset_Type]" = Unset,
+        products_and_parts_table_name: "Union[str, None, Unset_Type]" = Unset,
+        specifications_table_name: "Union[str, None, Unset_Type]" = Unset,
+        substances_table_name: "Union[str, None, Unset_Type]" = Unset,
+        transport_table_name: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonRequestConfig - a model defined in Swagger
 
@@ -119,16 +119,16 @@ class CommonRequestConfig(ModelBase):
         substances_table_name: str, optional
         transport_table_name: str, optional
         """
-        self._material_universe_table_name: Union[str, Unset_Type] = Unset
-        self._inhouse_materials_table_name: Union[str, Unset_Type] = Unset
-        self._specifications_table_name: Union[str, Unset_Type] = Unset
-        self._products_and_parts_table_name: Union[str, Unset_Type] = Unset
-        self._substances_table_name: Union[str, Unset_Type] = Unset
-        self._coatings_table_name: Union[str, Unset_Type] = Unset
-        self._transport_table_name: Union[str, Unset_Type] = Unset
-        self._process_universe_table_name: Union[str, Unset_Type] = Unset
-        self._locations_table_name: Union[str, Unset_Type] = Unset
-        self._maximum_spec_chain_node_count: Union[int, Unset_Type] = Unset
+        self._material_universe_table_name: Union[str, None, Unset_Type] = Unset
+        self._inhouse_materials_table_name: Union[str, None, Unset_Type] = Unset
+        self._specifications_table_name: Union[str, None, Unset_Type] = Unset
+        self._products_and_parts_table_name: Union[str, None, Unset_Type] = Unset
+        self._substances_table_name: Union[str, None, Unset_Type] = Unset
+        self._coatings_table_name: Union[str, None, Unset_Type] = Unset
+        self._transport_table_name: Union[str, None, Unset_Type] = Unset
+        self._process_universe_table_name: Union[str, None, Unset_Type] = Unset
+        self._locations_table_name: Union[str, None, Unset_Type] = Unset
+        self._maximum_spec_chain_node_count: Union[int, None, Unset_Type] = Unset
 
         if material_universe_table_name is not Unset:
             self.material_universe_table_name = material_universe_table_name
@@ -152,271 +152,237 @@ class CommonRequestConfig(ModelBase):
             self.maximum_spec_chain_node_count = maximum_spec_chain_node_count
 
     @property
-    def material_universe_table_name(self) -> "Union[str, Unset_Type]":
+    def material_universe_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the material_universe_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The material_universe_table_name of this CommonRequestConfig.
         """
         return self._material_universe_table_name
 
     @material_universe_table_name.setter
     def material_universe_table_name(
-        self, material_universe_table_name: "Union[str, Unset_Type]"
+        self, material_universe_table_name: "Union[str, None, Unset_Type]"
     ) -> None:
         """Sets the material_universe_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        material_universe_table_name: Union[str, Unset_Type]
+        material_universe_table_name: Union[str, None, Unset_Type]
             The material_universe_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if material_universe_table_name is None:
-            raise ValueError("Invalid value for 'material_universe_table_name', must not be 'None'")
         self._material_universe_table_name = material_universe_table_name
 
     @property
-    def inhouse_materials_table_name(self) -> "Union[str, Unset_Type]":
+    def inhouse_materials_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the inhouse_materials_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The inhouse_materials_table_name of this CommonRequestConfig.
         """
         return self._inhouse_materials_table_name
 
     @inhouse_materials_table_name.setter
     def inhouse_materials_table_name(
-        self, inhouse_materials_table_name: "Union[str, Unset_Type]"
+        self, inhouse_materials_table_name: "Union[str, None, Unset_Type]"
     ) -> None:
         """Sets the inhouse_materials_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        inhouse_materials_table_name: Union[str, Unset_Type]
+        inhouse_materials_table_name: Union[str, None, Unset_Type]
             The inhouse_materials_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if inhouse_materials_table_name is None:
-            raise ValueError("Invalid value for 'inhouse_materials_table_name', must not be 'None'")
         self._inhouse_materials_table_name = inhouse_materials_table_name
 
     @property
-    def specifications_table_name(self) -> "Union[str, Unset_Type]":
+    def specifications_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the specifications_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The specifications_table_name of this CommonRequestConfig.
         """
         return self._specifications_table_name
 
     @specifications_table_name.setter
     def specifications_table_name(
-        self, specifications_table_name: "Union[str, Unset_Type]"
+        self, specifications_table_name: "Union[str, None, Unset_Type]"
     ) -> None:
         """Sets the specifications_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        specifications_table_name: Union[str, Unset_Type]
+        specifications_table_name: Union[str, None, Unset_Type]
             The specifications_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if specifications_table_name is None:
-            raise ValueError("Invalid value for 'specifications_table_name', must not be 'None'")
         self._specifications_table_name = specifications_table_name
 
     @property
-    def products_and_parts_table_name(self) -> "Union[str, Unset_Type]":
+    def products_and_parts_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the products_and_parts_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The products_and_parts_table_name of this CommonRequestConfig.
         """
         return self._products_and_parts_table_name
 
     @products_and_parts_table_name.setter
     def products_and_parts_table_name(
-        self, products_and_parts_table_name: "Union[str, Unset_Type]"
+        self, products_and_parts_table_name: "Union[str, None, Unset_Type]"
     ) -> None:
         """Sets the products_and_parts_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        products_and_parts_table_name: Union[str, Unset_Type]
+        products_and_parts_table_name: Union[str, None, Unset_Type]
             The products_and_parts_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if products_and_parts_table_name is None:
-            raise ValueError(
-                "Invalid value for 'products_and_parts_table_name', must not be 'None'"
-            )
         self._products_and_parts_table_name = products_and_parts_table_name
 
     @property
-    def substances_table_name(self) -> "Union[str, Unset_Type]":
+    def substances_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the substances_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The substances_table_name of this CommonRequestConfig.
         """
         return self._substances_table_name
 
     @substances_table_name.setter
-    def substances_table_name(self, substances_table_name: "Union[str, Unset_Type]") -> None:
+    def substances_table_name(self, substances_table_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the substances_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        substances_table_name: Union[str, Unset_Type]
+        substances_table_name: Union[str, None, Unset_Type]
             The substances_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if substances_table_name is None:
-            raise ValueError("Invalid value for 'substances_table_name', must not be 'None'")
         self._substances_table_name = substances_table_name
 
     @property
-    def coatings_table_name(self) -> "Union[str, Unset_Type]":
+    def coatings_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the coatings_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The coatings_table_name of this CommonRequestConfig.
         """
         return self._coatings_table_name
 
     @coatings_table_name.setter
-    def coatings_table_name(self, coatings_table_name: "Union[str, Unset_Type]") -> None:
+    def coatings_table_name(self, coatings_table_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the coatings_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        coatings_table_name: Union[str, Unset_Type]
+        coatings_table_name: Union[str, None, Unset_Type]
             The coatings_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if coatings_table_name is None:
-            raise ValueError("Invalid value for 'coatings_table_name', must not be 'None'")
         self._coatings_table_name = coatings_table_name
 
     @property
-    def transport_table_name(self) -> "Union[str, Unset_Type]":
+    def transport_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the transport_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The transport_table_name of this CommonRequestConfig.
         """
         return self._transport_table_name
 
     @transport_table_name.setter
-    def transport_table_name(self, transport_table_name: "Union[str, Unset_Type]") -> None:
+    def transport_table_name(self, transport_table_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the transport_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        transport_table_name: Union[str, Unset_Type]
+        transport_table_name: Union[str, None, Unset_Type]
             The transport_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if transport_table_name is None:
-            raise ValueError("Invalid value for 'transport_table_name', must not be 'None'")
         self._transport_table_name = transport_table_name
 
     @property
-    def process_universe_table_name(self) -> "Union[str, Unset_Type]":
+    def process_universe_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the process_universe_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The process_universe_table_name of this CommonRequestConfig.
         """
         return self._process_universe_table_name
 
     @process_universe_table_name.setter
     def process_universe_table_name(
-        self, process_universe_table_name: "Union[str, Unset_Type]"
+        self, process_universe_table_name: "Union[str, None, Unset_Type]"
     ) -> None:
         """Sets the process_universe_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        process_universe_table_name: Union[str, Unset_Type]
+        process_universe_table_name: Union[str, None, Unset_Type]
             The process_universe_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if process_universe_table_name is None:
-            raise ValueError("Invalid value for 'process_universe_table_name', must not be 'None'")
         self._process_universe_table_name = process_universe_table_name
 
     @property
-    def locations_table_name(self) -> "Union[str, Unset_Type]":
+    def locations_table_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the locations_table_name of this CommonRequestConfig.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The locations_table_name of this CommonRequestConfig.
         """
         return self._locations_table_name
 
     @locations_table_name.setter
-    def locations_table_name(self, locations_table_name: "Union[str, Unset_Type]") -> None:
+    def locations_table_name(self, locations_table_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the locations_table_name of this CommonRequestConfig.
 
         Parameters
         ----------
-        locations_table_name: Union[str, Unset_Type]
+        locations_table_name: Union[str, None, Unset_Type]
             The locations_table_name of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if locations_table_name is None:
-            raise ValueError("Invalid value for 'locations_table_name', must not be 'None'")
         self._locations_table_name = locations_table_name
 
     @property
-    def maximum_spec_chain_node_count(self) -> "Union[int, Unset_Type]":
+    def maximum_spec_chain_node_count(self) -> "Union[int, None, Unset_Type]":
         """Gets the maximum_spec_chain_node_count of this CommonRequestConfig.
         This value is the maximum number of nodes specification link chains should be expanded to contain. The default value of 0 represents the unlimited case.
 
         Returns
         -------
-        Union[int, Unset_Type]
+        Union[int, None, Unset_Type]
             The maximum_spec_chain_node_count of this CommonRequestConfig.
         """
         return self._maximum_spec_chain_node_count
 
     @maximum_spec_chain_node_count.setter
     def maximum_spec_chain_node_count(
-        self, maximum_spec_chain_node_count: "Union[int, Unset_Type]"
+        self, maximum_spec_chain_node_count: "Union[int, None, Unset_Type]"
     ) -> None:
         """Sets the maximum_spec_chain_node_count of this CommonRequestConfig.
         This value is the maximum number of nodes specification link chains should be expanded to contain. The default value of 0 represents the unlimited case.
 
         Parameters
         ----------
-        maximum_spec_chain_node_count: Union[int, Unset_Type]
+        maximum_spec_chain_node_count: Union[int, None, Unset_Type]
             The maximum_spec_chain_node_count of this CommonRequestConfig.
         """
-        # Field is not nullable
-        if maximum_spec_chain_node_count is None:
-            raise ValueError(
-                "Invalid value for 'maximum_spec_chain_node_count', must not be 'None'"
-            )
         self._maximum_spec_chain_node_count = maximum_spec_chain_node_count
 
     @classmethod

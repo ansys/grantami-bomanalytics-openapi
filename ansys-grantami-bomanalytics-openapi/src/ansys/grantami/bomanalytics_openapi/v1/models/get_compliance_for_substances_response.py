@@ -80,8 +80,8 @@ class GetComplianceForSubstancesResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSubstancesResponse - a model defined in Swagger
 
@@ -90,8 +90,8 @@ class GetComplianceForSubstancesResponse(ModelBase):
         log_messages: list[CommonLogEntry], optional
         substances: list[CommonSubstanceWithCompliance], optional
         """
-        self._substances: Union[list[CommonSubstanceWithCompliance], Unset_Type] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._substances: Union[list[CommonSubstanceWithCompliance], None, Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if substances is not Unset:
             self.substances = substances
@@ -99,55 +99,49 @@ class GetComplianceForSubstancesResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], Unset_Type]":
+    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]":
         """Gets the substances of this GetComplianceForSubstancesResponse.
 
         Returns
         -------
-        Union[list[CommonSubstanceWithCompliance], Unset_Type]
+        Union[list[CommonSubstanceWithCompliance], None, Unset_Type]
             The substances of this GetComplianceForSubstancesResponse.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]"
+        self, substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]"
     ) -> None:
         """Sets the substances of this GetComplianceForSubstancesResponse.
 
         Parameters
         ----------
-        substances: Union[list[CommonSubstanceWithCompliance], Unset_Type]
+        substances: Union[list[CommonSubstanceWithCompliance], None, Unset_Type]
             The substances of this GetComplianceForSubstancesResponse.
         """
-        # Field is not nullable
-        if substances is None:
-            raise ValueError("Invalid value for 'substances', must not be 'None'")
         self._substances = substances
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetComplianceForSubstancesResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetComplianceForSubstancesResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetComplianceForSubstancesResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetComplianceForSubstancesResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

@@ -87,8 +87,8 @@ class GetComplianceForSubstancesRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        substances: "Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]" = Unset,
+        substances: "Union[list[GetComplianceForSubstancesSubstanceWithAmount], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSubstancesRequest - a model defined in Swagger
 
@@ -99,10 +99,10 @@ class GetComplianceForSubstancesRequest(ModelBase):
         indicators: list[CommonIndicatorDefinition], optional
         substances: list[GetComplianceForSubstancesSubstanceWithAmount], optional
         """
-        self._substances: Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type] = (
-            Unset
-        )
-        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._substances: Union[
+            list[GetComplianceForSubstancesSubstanceWithAmount], None, Unset_Type
+        ] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -118,55 +118,52 @@ class GetComplianceForSubstancesRequest(ModelBase):
     @property
     def substances(
         self,
-    ) -> "Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]":
+    ) -> "Union[list[GetComplianceForSubstancesSubstanceWithAmount], None, Unset_Type]":
         """Gets the substances of this GetComplianceForSubstancesRequest.
 
         Returns
         -------
-        Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]
+        Union[list[GetComplianceForSubstancesSubstanceWithAmount], None, Unset_Type]
             The substances of this GetComplianceForSubstancesRequest.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]"
+        self,
+        substances: "Union[list[GetComplianceForSubstancesSubstanceWithAmount], None, Unset_Type]",
     ) -> None:
         """Sets the substances of this GetComplianceForSubstancesRequest.
 
         Parameters
         ----------
-        substances: Union[list[GetComplianceForSubstancesSubstanceWithAmount], Unset_Type]
+        substances: Union[list[GetComplianceForSubstancesSubstanceWithAmount], None, Unset_Type]
             The substances of this GetComplianceForSubstancesRequest.
         """
-        # Field is not nullable
-        if substances is None:
-            raise ValueError("Invalid value for 'substances', must not be 'None'")
         self._substances = substances
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], None, Unset_Type]":
         """Gets the indicators of this GetComplianceForSubstancesRequest.
 
         Returns
         -------
-        Union[list[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForSubstancesRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this GetComplianceForSubstancesRequest.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForSubstancesRequest.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property

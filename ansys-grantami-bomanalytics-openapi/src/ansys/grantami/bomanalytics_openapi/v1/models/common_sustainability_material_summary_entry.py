@@ -99,11 +99,11 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self,
         *,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, None, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
-        identity: "Union[str, Unset_Type]" = Unset,
-        largest_contributors: "Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, None, Unset_Type]" = Unset,
+        identity: "Union[str, None, Unset_Type]" = Unset,
+        largest_contributors: "Union[list[CommonSustainabilityMaterialContributingComponent], None, Unset_Type]" = Unset,
         mass_after_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         record_reference: "Union[CommonMaterialReference, Unset_Type]" = Unset,
@@ -122,16 +122,16 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         mass_before_processing: CommonValueWithUnit, optional
         record_reference: CommonMaterialReference, optional
         """
-        self._identity: Union[str, Unset_Type] = Unset
+        self._identity: Union[str, None, Unset_Type] = Unset
         self._record_reference: Union[CommonMaterialReference, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, None, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._climate_change_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, None, Unset_Type] = Unset
         self._mass_before_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._mass_after_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._largest_contributors: Union[
-            list[CommonSustainabilityMaterialContributingComponent], Unset_Type
+            list[CommonSustainabilityMaterialContributingComponent], None, Unset_Type
         ] = Unset
 
         if identity is not Unset:
@@ -154,28 +154,25 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
             self.largest_contributors = largest_contributors
 
     @property
-    def identity(self) -> "Union[str, Unset_Type]":
+    def identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the identity of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The identity of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._identity
 
     @identity.setter
-    def identity(self, identity: "Union[str, Unset_Type]") -> None:
+    def identity(self, identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the identity of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        identity: Union[str, Unset_Type]
+        identity: Union[str, None, Unset_Type]
             The identity of this CommonSustainabilityMaterialSummaryEntry.
         """
-        # Field is not nullable
-        if identity is None:
-            raise ValueError("Invalid value for 'identity', must not be 'None'")
         self._identity = identity
 
     @property
@@ -231,30 +228,27 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
+    def embodied_energy_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
     def embodied_energy_percentage(
-        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+        self, embodied_energy_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy_percentage: Union[float, Unset_Type]
+        embodied_energy_percentage: Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
-        # Field is not nullable
-        if embodied_energy_percentage is None:
-            raise ValueError("Invalid value for 'embodied_energy_percentage', must not be 'None'")
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
@@ -283,30 +277,27 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
+    def climate_change_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
     def climate_change_percentage(
-        self, climate_change_percentage: "Union[float, Unset_Type]"
+        self, climate_change_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        climate_change_percentage: Union[float, Unset_Type]
+        climate_change_percentage: Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityMaterialSummaryEntry.
         """
-        # Field is not nullable
-        if climate_change_percentage is None:
-            raise ValueError("Invalid value for 'climate_change_percentage', must not be 'None'")
         self._climate_change_percentage = climate_change_percentage
 
     @property
@@ -366,12 +357,12 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     @property
     def largest_contributors(
         self,
-    ) -> "Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityMaterialContributingComponent], None, Unset_Type]":
         """Gets the largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]
+        Union[list[CommonSustainabilityMaterialContributingComponent], None, Unset_Type]
             The largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._largest_contributors
@@ -379,18 +370,15 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     @largest_contributors.setter
     def largest_contributors(
         self,
-        largest_contributors: "Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]",
+        largest_contributors: "Union[list[CommonSustainabilityMaterialContributingComponent], None, Unset_Type]",
     ) -> None:
         """Sets the largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        largest_contributors: Union[list[CommonSustainabilityMaterialContributingComponent], Unset_Type]
+        largest_contributors: Union[list[CommonSustainabilityMaterialContributingComponent], None, Unset_Type]
             The largest_contributors of this CommonSustainabilityMaterialSummaryEntry.
         """
-        # Field is not nullable
-        if largest_contributors is None:
-            raise ValueError("Invalid value for 'largest_contributors', must not be 'None'")
         self._largest_contributors = largest_contributors
 
     @classmethod

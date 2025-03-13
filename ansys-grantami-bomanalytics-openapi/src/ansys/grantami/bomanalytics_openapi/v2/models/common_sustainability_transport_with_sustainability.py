@@ -90,10 +90,10 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         *,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        id: "Union[str, Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
-        stage_name: "Union[str, Unset_Type]" = Unset,
+        stage_name: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityTransportWithSustainability - a model defined in Swagger
 
@@ -106,12 +106,12 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         reference_value: str, optional
         stage_name: str, optional
         """
-        self._stage_name: Union[str, Unset_Type] = Unset
+        self._stage_name: Union[str, None, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if stage_name is not Unset:
             self.stage_name = stage_name
@@ -127,28 +127,25 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             self.id = id
 
     @property
-    def stage_name(self) -> "Union[str, Unset_Type]":
+    def stage_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the stage_name of this CommonSustainabilityTransportWithSustainability.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The stage_name of this CommonSustainabilityTransportWithSustainability.
         """
         return self._stage_name
 
     @stage_name.setter
-    def stage_name(self, stage_name: "Union[str, Unset_Type]") -> None:
+    def stage_name(self, stage_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the stage_name of this CommonSustainabilityTransportWithSustainability.
 
         Parameters
         ----------
-        stage_name: Union[str, Unset_Type]
+        stage_name: Union[str, None, Unset_Type]
             The stage_name of this CommonSustainabilityTransportWithSustainability.
         """
-        # Field is not nullable
-        if stage_name is None:
-            raise ValueError("Invalid value for 'stage_name', must not be 'None'")
         self._stage_name = stage_name
 
     @property
@@ -252,30 +249,27 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this CommonSustainabilityTransportWithSustainability.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this CommonSustainabilityTransportWithSustainability.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this CommonSustainabilityTransportWithSustainability.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this CommonSustainabilityTransportWithSustainability.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

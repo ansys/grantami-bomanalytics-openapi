@@ -80,8 +80,8 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        parts: "Union[list[GetImpactedSubstancesForPartsPart], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        parts: "Union[list[GetImpactedSubstancesForPartsPart], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForPartsResponse - a model defined in Swagger
 
@@ -90,8 +90,8 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
         log_messages: list[CommonLogEntry], optional
         parts: list[GetImpactedSubstancesForPartsPart], optional
         """
-        self._parts: Union[list[GetImpactedSubstancesForPartsPart], Unset_Type] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._parts: Union[list[GetImpactedSubstancesForPartsPart], None, Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if parts is not Unset:
             self.parts = parts
@@ -99,53 +99,49 @@ class GetImpactedSubstancesForPartsResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def parts(self) -> "Union[list[GetImpactedSubstancesForPartsPart], Unset_Type]":
+    def parts(self) -> "Union[list[GetImpactedSubstancesForPartsPart], None, Unset_Type]":
         """Gets the parts of this GetImpactedSubstancesForPartsResponse.
 
         Returns
         -------
-        Union[list[GetImpactedSubstancesForPartsPart], Unset_Type]
+        Union[list[GetImpactedSubstancesForPartsPart], None, Unset_Type]
             The parts of this GetImpactedSubstancesForPartsResponse.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "Union[list[GetImpactedSubstancesForPartsPart], Unset_Type]") -> None:
+    def parts(
+        self, parts: "Union[list[GetImpactedSubstancesForPartsPart], None, Unset_Type]"
+    ) -> None:
         """Sets the parts of this GetImpactedSubstancesForPartsResponse.
 
         Parameters
         ----------
-        parts: Union[list[GetImpactedSubstancesForPartsPart], Unset_Type]
+        parts: Union[list[GetImpactedSubstancesForPartsPart], None, Unset_Type]
             The parts of this GetImpactedSubstancesForPartsResponse.
         """
-        # Field is not nullable
-        if parts is None:
-            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetImpactedSubstancesForPartsResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetImpactedSubstancesForPartsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetImpactedSubstancesForPartsResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetImpactedSubstancesForPartsResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

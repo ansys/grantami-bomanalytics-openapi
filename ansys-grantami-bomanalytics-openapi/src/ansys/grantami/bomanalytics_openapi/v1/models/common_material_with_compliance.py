@@ -90,13 +90,13 @@ class CommonMaterialWithCompliance(ModelBase):
     def __init__(
         self,
         *,
-        external_identity: "Union[str, Unset_Type]" = Unset,
-        id: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorResult], Unset_Type]" = Unset,
-        name: "Union[str, Unset_Type]" = Unset,
+        external_identity: "Union[str, None, Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorResult], None, Unset_Type]" = Unset,
+        name: "Union[str, None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
-        substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]" = Unset,
+        substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]" = Unset,
     ) -> None:
         """CommonMaterialWithCompliance - a model defined in Swagger
 
@@ -110,13 +110,13 @@ class CommonMaterialWithCompliance(ModelBase):
         reference_value: str, optional
         substances: list[CommonSubstanceWithCompliance], optional
         """
-        self._indicators: Union[list[CommonIndicatorResult], Unset_Type] = Unset
-        self._substances: Union[list[CommonSubstanceWithCompliance], Unset_Type] = Unset
-        self._external_identity: Union[str, Unset_Type] = Unset
-        self._name: Union[str, Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorResult], None, Unset_Type] = Unset
+        self._substances: Union[list[CommonSubstanceWithCompliance], None, Unset_Type] = Unset
+        self._external_identity: Union[str, None, Unset_Type] = Unset
+        self._name: Union[str, None, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if indicators is not Unset:
             self.indicators = indicators
@@ -134,109 +134,99 @@ class CommonMaterialWithCompliance(ModelBase):
             self.id = id
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorResult], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorResult], None, Unset_Type]":
         """Gets the indicators of this CommonMaterialWithCompliance.
 
         Returns
         -------
-        Union[list[CommonIndicatorResult], Unset_Type]
+        Union[list[CommonIndicatorResult], None, Unset_Type]
             The indicators of this CommonMaterialWithCompliance.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorResult], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorResult], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this CommonMaterialWithCompliance.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorResult], Unset_Type]
+        indicators: Union[list[CommonIndicatorResult], None, Unset_Type]
             The indicators of this CommonMaterialWithCompliance.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property
-    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], Unset_Type]":
+    def substances(self) -> "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]":
         """Gets the substances of this CommonMaterialWithCompliance.
 
         Returns
         -------
-        Union[list[CommonSubstanceWithCompliance], Unset_Type]
+        Union[list[CommonSubstanceWithCompliance], None, Unset_Type]
             The substances of this CommonMaterialWithCompliance.
         """
         return self._substances
 
     @substances.setter
     def substances(
-        self, substances: "Union[list[CommonSubstanceWithCompliance], Unset_Type]"
+        self, substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]"
     ) -> None:
         """Sets the substances of this CommonMaterialWithCompliance.
 
         Parameters
         ----------
-        substances: Union[list[CommonSubstanceWithCompliance], Unset_Type]
+        substances: Union[list[CommonSubstanceWithCompliance], None, Unset_Type]
             The substances of this CommonMaterialWithCompliance.
         """
-        # Field is not nullable
-        if substances is None:
-            raise ValueError("Invalid value for 'substances', must not be 'None'")
         self._substances = substances
 
     @property
-    def external_identity(self) -> "Union[str, Unset_Type]":
+    def external_identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the external_identity of this CommonMaterialWithCompliance.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The external_identity of this CommonMaterialWithCompliance.
         """
         return self._external_identity
 
     @external_identity.setter
-    def external_identity(self, external_identity: "Union[str, Unset_Type]") -> None:
+    def external_identity(self, external_identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the external_identity of this CommonMaterialWithCompliance.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        external_identity: Union[str, Unset_Type]
+        external_identity: Union[str, None, Unset_Type]
             The external_identity of this CommonMaterialWithCompliance.
         """
-        # Field is not nullable
-        if external_identity is None:
-            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
         self._external_identity = external_identity
 
     @property
-    def name(self) -> "Union[str, Unset_Type]":
+    def name(self) -> "Union[str, None, Unset_Type]":
         """Gets the name of this CommonMaterialWithCompliance.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The name of this CommonMaterialWithCompliance.
         """
         return self._name
 
     @name.setter
-    def name(self, name: "Union[str, Unset_Type]") -> None:
+    def name(self, name: "Union[str, None, Unset_Type]") -> None:
         """Sets the name of this CommonMaterialWithCompliance.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        name: Union[str, Unset_Type]
+        name: Union[str, None, Unset_Type]
             The name of this CommonMaterialWithCompliance.
         """
-        # Field is not nullable
-        if name is None:
-            raise ValueError("Invalid value for 'name', must not be 'None'")
         self._name = name
 
     @property
@@ -290,30 +280,27 @@ class CommonMaterialWithCompliance(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this CommonMaterialWithCompliance.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this CommonMaterialWithCompliance.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this CommonMaterialWithCompliance.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this CommonMaterialWithCompliance.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

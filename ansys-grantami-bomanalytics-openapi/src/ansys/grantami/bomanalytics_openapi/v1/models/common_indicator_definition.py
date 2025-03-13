@@ -85,10 +85,10 @@ class CommonIndicatorDefinition(ModelBase):
     def __init__(
         self,
         *,
-        default_threshold_percentage: "Union[float, Unset_Type]" = Unset,
-        ignore_exemptions: "Union[bool, Unset_Type]" = Unset,
-        ignore_process_chemicals: "Union[bool, Unset_Type]" = Unset,
-        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
+        default_threshold_percentage: "Union[float, None, Unset_Type]" = Unset,
+        ignore_exemptions: "Union[bool, None, Unset_Type]" = Unset,
+        ignore_process_chemicals: "Union[bool, None, Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], None, Unset_Type]" = Unset,
         name: "Union[str, Unset_Type]" = Unset,
         type: "Union[str, Unset_Type]" = Unset,
     ) -> None:
@@ -104,10 +104,10 @@ class CommonIndicatorDefinition(ModelBase):
         type: str, optional
         """
         self._name: Union[str, Unset_Type] = Unset
-        self._legislation_ids: Union[list[str], Unset_Type] = Unset
-        self._default_threshold_percentage: Union[float, Unset_Type] = Unset
-        self._ignore_exemptions: Union[bool, Unset_Type] = Unset
-        self._ignore_process_chemicals: Union[bool, Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], None, Unset_Type] = Unset
+        self._default_threshold_percentage: Union[float, None, Unset_Type] = Unset
+        self._ignore_exemptions: Union[bool, None, Unset_Type] = Unset
+        self._ignore_process_chemicals: Union[bool, None, Unset_Type] = Unset
         self._type: Union[str, Unset_Type] = Unset
 
         if name is not Unset:
@@ -149,105 +149,95 @@ class CommonIndicatorDefinition(ModelBase):
         self._name = name
 
     @property
-    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], None, Unset_Type]":
         """Gets the legislation_ids of this CommonIndicatorDefinition.
 
         Returns
         -------
-        Union[list[str], Unset_Type]
+        Union[list[str], None, Unset_Type]
             The legislation_ids of this CommonIndicatorDefinition.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], None, Unset_Type]") -> None:
         """Sets the legislation_ids of this CommonIndicatorDefinition.
 
         Parameters
         ----------
-        legislation_ids: Union[list[str], Unset_Type]
+        legislation_ids: Union[list[str], None, Unset_Type]
             The legislation_ids of this CommonIndicatorDefinition.
         """
-        # Field is not nullable
-        if legislation_ids is None:
-            raise ValueError("Invalid value for 'legislation_ids', must not be 'None'")
         self._legislation_ids = legislation_ids
 
     @property
-    def default_threshold_percentage(self) -> "Union[float, Unset_Type]":
+    def default_threshold_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the default_threshold_percentage of this CommonIndicatorDefinition.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The default_threshold_percentage of this CommonIndicatorDefinition.
         """
         return self._default_threshold_percentage
 
     @default_threshold_percentage.setter
     def default_threshold_percentage(
-        self, default_threshold_percentage: "Union[float, Unset_Type]"
+        self, default_threshold_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the default_threshold_percentage of this CommonIndicatorDefinition.
 
         Parameters
         ----------
-        default_threshold_percentage: Union[float, Unset_Type]
+        default_threshold_percentage: Union[float, None, Unset_Type]
             The default_threshold_percentage of this CommonIndicatorDefinition.
         """
-        # Field is not nullable
-        if default_threshold_percentage is None:
-            raise ValueError("Invalid value for 'default_threshold_percentage', must not be 'None'")
         self._default_threshold_percentage = default_threshold_percentage
 
     @property
-    def ignore_exemptions(self) -> "Union[bool, Unset_Type]":
+    def ignore_exemptions(self) -> "Union[bool, None, Unset_Type]":
         """Gets the ignore_exemptions of this CommonIndicatorDefinition.
 
         Returns
         -------
-        Union[bool, Unset_Type]
+        Union[bool, None, Unset_Type]
             The ignore_exemptions of this CommonIndicatorDefinition.
         """
         return self._ignore_exemptions
 
     @ignore_exemptions.setter
-    def ignore_exemptions(self, ignore_exemptions: "Union[bool, Unset_Type]") -> None:
+    def ignore_exemptions(self, ignore_exemptions: "Union[bool, None, Unset_Type]") -> None:
         """Sets the ignore_exemptions of this CommonIndicatorDefinition.
 
         Parameters
         ----------
-        ignore_exemptions: Union[bool, Unset_Type]
+        ignore_exemptions: Union[bool, None, Unset_Type]
             The ignore_exemptions of this CommonIndicatorDefinition.
         """
-        # Field is not nullable
-        if ignore_exemptions is None:
-            raise ValueError("Invalid value for 'ignore_exemptions', must not be 'None'")
         self._ignore_exemptions = ignore_exemptions
 
     @property
-    def ignore_process_chemicals(self) -> "Union[bool, Unset_Type]":
+    def ignore_process_chemicals(self) -> "Union[bool, None, Unset_Type]":
         """Gets the ignore_process_chemicals of this CommonIndicatorDefinition.
 
         Returns
         -------
-        Union[bool, Unset_Type]
+        Union[bool, None, Unset_Type]
             The ignore_process_chemicals of this CommonIndicatorDefinition.
         """
         return self._ignore_process_chemicals
 
     @ignore_process_chemicals.setter
-    def ignore_process_chemicals(self, ignore_process_chemicals: "Union[bool, Unset_Type]") -> None:
+    def ignore_process_chemicals(
+        self, ignore_process_chemicals: "Union[bool, None, Unset_Type]"
+    ) -> None:
         """Sets the ignore_process_chemicals of this CommonIndicatorDefinition.
 
         Parameters
         ----------
-        ignore_process_chemicals: Union[bool, Unset_Type]
+        ignore_process_chemicals: Union[bool, None, Unset_Type]
             The ignore_process_chemicals of this CommonIndicatorDefinition.
         """
-        # Field is not nullable
-        if ignore_process_chemicals is None:
-            raise ValueError("Invalid value for 'ignore_process_chemicals', must not be 'None'")
         self._ignore_process_chemicals = ignore_process_chemicals
 
     @property

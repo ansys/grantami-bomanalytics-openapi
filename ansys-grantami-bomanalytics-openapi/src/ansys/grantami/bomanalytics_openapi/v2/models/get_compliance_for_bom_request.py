@@ -87,7 +87,7 @@ class GetComplianceForBomRequest(ModelBase):
         bom_xml: "Union[str, Unset_Type]" = Unset,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForBomRequest - a model defined in Swagger
 
@@ -99,7 +99,7 @@ class GetComplianceForBomRequest(ModelBase):
         indicators: list[CommonIndicatorDefinition], optional
         """
         self._bom_xml: Union[str, Unset_Type] = Unset
-        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -138,28 +138,27 @@ class GetComplianceForBomRequest(ModelBase):
         self._bom_xml = bom_xml
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], None, Unset_Type]":
         """Gets the indicators of this GetComplianceForBomRequest.
 
         Returns
         -------
-        Union[list[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForBomRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this GetComplianceForBomRequest.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForBomRequest.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property

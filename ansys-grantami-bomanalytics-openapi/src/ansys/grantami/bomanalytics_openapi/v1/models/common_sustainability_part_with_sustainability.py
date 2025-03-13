@@ -109,17 +109,17 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         *,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        external_identity: "Union[str, Unset_Type]" = Unset,
-        id: "Union[str, Unset_Type]" = Unset,
-        input_part_number: "Union[str, Unset_Type]" = Unset,
-        materials: "Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]" = Unset,
-        name: "Union[str, Unset_Type]" = Unset,
-        parts: "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]" = Unset,
-        processes: "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]" = Unset,
+        external_identity: "Union[str, None, Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
+        input_part_number: "Union[str, None, Unset_Type]" = Unset,
+        materials: "Union[list[CommonSustainabilityMaterialWithSustainability], None, Unset_Type]" = Unset,
+        name: "Union[str, None, Unset_Type]" = Unset,
+        parts: "Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]" = Unset,
+        processes: "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
         reported_mass: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]" = Unset,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityPartWithSustainability - a model defined in Swagger
 
@@ -139,25 +139,27 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         reported_mass: CommonValueWithUnit, optional
         transport_stages: list[CommonSustainabilityTransportWithSustainability], optional
         """
-        self._parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type] = Unset
-        self._materials: Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type] = (
+        self._parts: Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type] = (
             Unset
         )
-        self._processes: Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type] = (
-            Unset
-        )
+        self._materials: Union[
+            list[CommonSustainabilityMaterialWithSustainability], None, Unset_Type
+        ] = Unset
+        self._processes: Union[
+            list[CommonSustainabilityProcessWithSustainability], None, Unset_Type
+        ] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._reported_mass: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._transport_stages: Union[
-            list[CommonSustainabilityTransportWithSustainability], Unset_Type
+            list[CommonSustainabilityTransportWithSustainability], None, Unset_Type
         ] = Unset
-        self._input_part_number: Union[str, Unset_Type] = Unset
-        self._external_identity: Union[str, Unset_Type] = Unset
-        self._name: Union[str, Unset_Type] = Unset
+        self._input_part_number: Union[str, None, Unset_Type] = Unset
+        self._external_identity: Union[str, None, Unset_Type] = Unset
+        self._name: Union[str, None, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if parts is not Unset:
             self.parts = parts
@@ -187,86 +189,81 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             self.id = id
 
     @property
-    def parts(self) -> "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]":
+    def parts(self) -> "Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]":
         """Gets the parts of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]
             The parts of this CommonSustainabilityPartWithSustainability.
         """
         return self._parts
 
     @parts.setter
     def parts(
-        self, parts: "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]"
+        self, parts: "Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]"
     ) -> None:
         """Sets the parts of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]
+        parts: Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]
             The parts of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if parts is None:
-            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
     def materials(
         self,
-    ) -> "Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityMaterialWithSustainability], None, Unset_Type]":
         """Gets the materials of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityMaterialWithSustainability], None, Unset_Type]
             The materials of this CommonSustainabilityPartWithSustainability.
         """
         return self._materials
 
     @materials.setter
     def materials(
-        self, materials: "Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]"
+        self,
+        materials: "Union[list[CommonSustainabilityMaterialWithSustainability], None, Unset_Type]",
     ) -> None:
         """Sets the materials of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        materials: Union[list[CommonSustainabilityMaterialWithSustainability], Unset_Type]
+        materials: Union[list[CommonSustainabilityMaterialWithSustainability], None, Unset_Type]
             The materials of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if materials is None:
-            raise ValueError("Invalid value for 'materials', must not be 'None'")
         self._materials = materials
 
     @property
-    def processes(self) -> "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]":
+    def processes(
+        self,
+    ) -> "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]":
         """Gets the processes of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]
             The processes of this CommonSustainabilityPartWithSustainability.
         """
         return self._processes
 
     @processes.setter
     def processes(
-        self, processes: "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]"
+        self,
+        processes: "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]",
     ) -> None:
         """Sets the processes of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        processes: Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]
+        processes: Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]
             The processes of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if processes is None:
-            raise ValueError("Invalid value for 'processes', must not be 'None'")
         self._processes = processes
 
     @property
@@ -347,12 +344,12 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
     @property
     def transport_stages(
         self,
-    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]":
         """Gets the transport_stages of this CommonSustainabilityPartWithSustainability.
 
         Returns
         -------
-        Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]
             The transport_stages of this CommonSustainabilityPartWithSustainability.
         """
         return self._transport_stages
@@ -360,99 +357,87 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
     @transport_stages.setter
     def transport_stages(
         self,
-        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]",
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]",
     ) -> None:
         """Sets the transport_stages of this CommonSustainabilityPartWithSustainability.
 
         Parameters
         ----------
-        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]
             The transport_stages of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if transport_stages is None:
-            raise ValueError("Invalid value for 'transport_stages', must not be 'None'")
         self._transport_stages = transport_stages
 
     @property
-    def input_part_number(self) -> "Union[str, Unset_Type]":
+    def input_part_number(self) -> "Union[str, None, Unset_Type]":
         """Gets the input_part_number of this CommonSustainabilityPartWithSustainability.
         This is set to the value of the PartNumber element in the input BoM.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The input_part_number of this CommonSustainabilityPartWithSustainability.
         """
         return self._input_part_number
 
     @input_part_number.setter
-    def input_part_number(self, input_part_number: "Union[str, Unset_Type]") -> None:
+    def input_part_number(self, input_part_number: "Union[str, None, Unset_Type]") -> None:
         """Sets the input_part_number of this CommonSustainabilityPartWithSustainability.
         This is set to the value of the PartNumber element in the input BoM.
 
         Parameters
         ----------
-        input_part_number: Union[str, Unset_Type]
+        input_part_number: Union[str, None, Unset_Type]
             The input_part_number of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if input_part_number is None:
-            raise ValueError("Invalid value for 'input_part_number', must not be 'None'")
         self._input_part_number = input_part_number
 
     @property
-    def external_identity(self) -> "Union[str, Unset_Type]":
+    def external_identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the external_identity of this CommonSustainabilityPartWithSustainability.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The external_identity of this CommonSustainabilityPartWithSustainability.
         """
         return self._external_identity
 
     @external_identity.setter
-    def external_identity(self, external_identity: "Union[str, Unset_Type]") -> None:
+    def external_identity(self, external_identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the external_identity of this CommonSustainabilityPartWithSustainability.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        external_identity: Union[str, Unset_Type]
+        external_identity: Union[str, None, Unset_Type]
             The external_identity of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if external_identity is None:
-            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
         self._external_identity = external_identity
 
     @property
-    def name(self) -> "Union[str, Unset_Type]":
+    def name(self) -> "Union[str, None, Unset_Type]":
         """Gets the name of this CommonSustainabilityPartWithSustainability.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The name of this CommonSustainabilityPartWithSustainability.
         """
         return self._name
 
     @name.setter
-    def name(self, name: "Union[str, Unset_Type]") -> None:
+    def name(self, name: "Union[str, None, Unset_Type]") -> None:
         """Sets the name of this CommonSustainabilityPartWithSustainability.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        name: Union[str, Unset_Type]
+        name: Union[str, None, Unset_Type]
             The name of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if name is None:
-            raise ValueError("Invalid value for 'name', must not be 'None'")
         self._name = name
 
     @property
@@ -506,30 +491,27 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this CommonSustainabilityPartWithSustainability.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this CommonSustainabilityPartWithSustainability.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this CommonSustainabilityPartWithSustainability.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this CommonSustainabilityPartWithSustainability.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

@@ -86,10 +86,10 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     def __init__(
         self,
         *,
-        component_name: "Union[str, Unset_Type]" = Unset,
-        component_part_number: "Union[str, Unset_Type]" = Unset,
+        component_name: "Union[str, None, Unset_Type]" = Unset,
+        component_part_number: "Union[str, None, Unset_Type]" = Unset,
         material_mass_before_processing: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        parent_name: "Union[str, Unset_Type]" = Unset,
+        parent_name: "Union[str, None, Unset_Type]" = Unset,
         record_reference: "Union[CommonPartReference, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialContributingComponent - a model defined in Swagger
@@ -102,9 +102,9 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         parent_name: str, optional
         record_reference: CommonPartReference, optional
         """
-        self._parent_name: Union[str, Unset_Type] = Unset
-        self._component_name: Union[str, Unset_Type] = Unset
-        self._component_part_number: Union[str, Unset_Type] = Unset
+        self._parent_name: Union[str, None, Unset_Type] = Unset
+        self._component_name: Union[str, None, Unset_Type] = Unset
+        self._component_part_number: Union[str, None, Unset_Type] = Unset
         self._record_reference: Union[CommonPartReference, Unset_Type] = Unset
         self._material_mass_before_processing: Union[CommonValueWithUnit, Unset_Type] = Unset
 
@@ -120,78 +120,69 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
             self.material_mass_before_processing = material_mass_before_processing
 
     @property
-    def parent_name(self) -> "Union[str, Unset_Type]":
+    def parent_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the parent_name of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The parent_name of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._parent_name
 
     @parent_name.setter
-    def parent_name(self, parent_name: "Union[str, Unset_Type]") -> None:
+    def parent_name(self, parent_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the parent_name of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        parent_name: Union[str, Unset_Type]
+        parent_name: Union[str, None, Unset_Type]
             The parent_name of this CommonSustainabilityMaterialContributingComponent.
         """
-        # Field is not nullable
-        if parent_name is None:
-            raise ValueError("Invalid value for 'parent_name', must not be 'None'")
         self._parent_name = parent_name
 
     @property
-    def component_name(self) -> "Union[str, Unset_Type]":
+    def component_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the component_name of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The component_name of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._component_name
 
     @component_name.setter
-    def component_name(self, component_name: "Union[str, Unset_Type]") -> None:
+    def component_name(self, component_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the component_name of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        component_name: Union[str, Unset_Type]
+        component_name: Union[str, None, Unset_Type]
             The component_name of this CommonSustainabilityMaterialContributingComponent.
         """
-        # Field is not nullable
-        if component_name is None:
-            raise ValueError("Invalid value for 'component_name', must not be 'None'")
         self._component_name = component_name
 
     @property
-    def component_part_number(self) -> "Union[str, Unset_Type]":
+    def component_part_number(self) -> "Union[str, None, Unset_Type]":
         """Gets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The component_part_number of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._component_part_number
 
     @component_part_number.setter
-    def component_part_number(self, component_part_number: "Union[str, Unset_Type]") -> None:
+    def component_part_number(self, component_part_number: "Union[str, None, Unset_Type]") -> None:
         """Sets the component_part_number of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        component_part_number: Union[str, Unset_Type]
+        component_part_number: Union[str, None, Unset_Type]
             The component_part_number of this CommonSustainabilityMaterialContributingComponent.
         """
-        # Field is not nullable
-        if component_part_number is None:
-            raise ValueError("Invalid value for 'component_part_number', must not be 'None'")
         self._component_part_number = component_part_number
 
     @property

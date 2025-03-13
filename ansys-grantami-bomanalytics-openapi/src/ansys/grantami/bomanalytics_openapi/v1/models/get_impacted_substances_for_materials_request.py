@@ -86,8 +86,8 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
-        materials: "Union[list[CommonMaterialReference], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], None, Unset_Type]" = Unset,
+        materials: "Union[list[CommonMaterialReference], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForMaterialsRequest - a model defined in Swagger
 
@@ -98,8 +98,8 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
         legislation_ids: list[str], optional
         materials: list[CommonMaterialReference], optional
         """
-        self._materials: Union[list[CommonMaterialReference], Unset_Type] = Unset
-        self._legislation_ids: Union[list[str], Unset_Type] = Unset
+        self._materials: Union[list[CommonMaterialReference], None, Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -113,53 +113,49 @@ class GetImpactedSubstancesForMaterialsRequest(ModelBase):
             self.config = config
 
     @property
-    def materials(self) -> "Union[list[CommonMaterialReference], Unset_Type]":
+    def materials(self) -> "Union[list[CommonMaterialReference], None, Unset_Type]":
         """Gets the materials of this GetImpactedSubstancesForMaterialsRequest.
 
         Returns
         -------
-        Union[list[CommonMaterialReference], Unset_Type]
+        Union[list[CommonMaterialReference], None, Unset_Type]
             The materials of this GetImpactedSubstancesForMaterialsRequest.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "Union[list[CommonMaterialReference], Unset_Type]") -> None:
+    def materials(
+        self, materials: "Union[list[CommonMaterialReference], None, Unset_Type]"
+    ) -> None:
         """Sets the materials of this GetImpactedSubstancesForMaterialsRequest.
 
         Parameters
         ----------
-        materials: Union[list[CommonMaterialReference], Unset_Type]
+        materials: Union[list[CommonMaterialReference], None, Unset_Type]
             The materials of this GetImpactedSubstancesForMaterialsRequest.
         """
-        # Field is not nullable
-        if materials is None:
-            raise ValueError("Invalid value for 'materials', must not be 'None'")
         self._materials = materials
 
     @property
-    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], None, Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
 
         Returns
         -------
-        Union[list[str], Unset_Type]
+        Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], None, Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
 
         Parameters
         ----------
-        legislation_ids: Union[list[str], Unset_Type]
+        legislation_ids: Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForMaterialsRequest.
         """
-        # Field is not nullable
-        if legislation_ids is None:
-            raise ValueError("Invalid value for 'legislation_ids', must not be 'None'")
         self._legislation_ids = legislation_ids
 
     @property

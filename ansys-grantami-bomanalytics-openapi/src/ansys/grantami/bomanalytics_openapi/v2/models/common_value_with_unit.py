@@ -77,7 +77,7 @@ class CommonValueWithUnit(ModelBase):
     def __init__(
         self,
         *,
-        unit: "Union[str, Unset_Type]" = Unset,
+        unit: "Union[str, None, Unset_Type]" = Unset,
         value: "Union[float, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonValueWithUnit - a model defined in Swagger
@@ -88,7 +88,7 @@ class CommonValueWithUnit(ModelBase):
         value: float, optional
         """
         self._value: Union[float, None, Unset_Type] = Unset
-        self._unit: Union[str, Unset_Type] = Unset
+        self._unit: Union[str, None, Unset_Type] = Unset
 
         if value is not Unset:
             self.value = value
@@ -118,28 +118,25 @@ class CommonValueWithUnit(ModelBase):
         self._value = value
 
     @property
-    def unit(self) -> "Union[str, Unset_Type]":
+    def unit(self) -> "Union[str, None, Unset_Type]":
         """Gets the unit of this CommonValueWithUnit.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The unit of this CommonValueWithUnit.
         """
         return self._unit
 
     @unit.setter
-    def unit(self, unit: "Union[str, Unset_Type]") -> None:
+    def unit(self, unit: "Union[str, None, Unset_Type]") -> None:
         """Sets the unit of this CommonValueWithUnit.
 
         Parameters
         ----------
-        unit: Union[str, Unset_Type]
+        unit: Union[str, None, Unset_Type]
             The unit of this CommonValueWithUnit.
         """
-        # Field is not nullable
-        if unit is None:
-            raise ValueError("Invalid value for 'unit', must not be 'None'")
         self._unit = unit
 
     @classmethod

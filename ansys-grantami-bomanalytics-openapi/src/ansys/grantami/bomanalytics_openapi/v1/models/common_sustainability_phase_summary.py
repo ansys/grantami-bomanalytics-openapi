@@ -87,10 +87,10 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         self,
         *,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, None, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
-        phase: "Union[str, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, None, Unset_Type]" = Unset,
+        phase: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityPhaseSummary - a model defined in Swagger
 
@@ -102,11 +102,11 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         embodied_energy_percentage: float, optional
         phase: str, optional
         """
-        self._phase: Union[str, Unset_Type] = Unset
+        self._phase: Union[str, None, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, None, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._climate_change_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, None, Unset_Type] = Unset
 
         if phase is not Unset:
             self.phase = phase
@@ -120,28 +120,25 @@ class CommonSustainabilityPhaseSummary(ModelBase):
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def phase(self) -> "Union[str, Unset_Type]":
+    def phase(self) -> "Union[str, None, Unset_Type]":
         """Gets the phase of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The phase of this CommonSustainabilityPhaseSummary.
         """
         return self._phase
 
     @phase.setter
-    def phase(self, phase: "Union[str, Unset_Type]") -> None:
+    def phase(self, phase: "Union[str, None, Unset_Type]") -> None:
         """Sets the phase of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        phase: Union[str, Unset_Type]
+        phase: Union[str, None, Unset_Type]
             The phase of this CommonSustainabilityPhaseSummary.
         """
-        # Field is not nullable
-        if phase is None:
-            raise ValueError("Invalid value for 'phase', must not be 'None'")
         self._phase = phase
 
     @property
@@ -170,30 +167,27 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
+    def embodied_energy_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
     def embodied_energy_percentage(
-        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+        self, embodied_energy_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        embodied_energy_percentage: Union[float, Unset_Type]
+        embodied_energy_percentage: Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityPhaseSummary.
         """
-        # Field is not nullable
-        if embodied_energy_percentage is None:
-            raise ValueError("Invalid value for 'embodied_energy_percentage', must not be 'None'")
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
@@ -222,30 +216,27 @@ class CommonSustainabilityPhaseSummary(ModelBase):
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
+    def climate_change_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityPhaseSummary.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityPhaseSummary.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
     def climate_change_percentage(
-        self, climate_change_percentage: "Union[float, Unset_Type]"
+        self, climate_change_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityPhaseSummary.
 
         Parameters
         ----------
-        climate_change_percentage: Union[float, Unset_Type]
+        climate_change_percentage: Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityPhaseSummary.
         """
-        # Field is not nullable
-        if climate_change_percentage is None:
-            raise ValueError("Invalid value for 'climate_change_percentage', must not be 'None'")
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod

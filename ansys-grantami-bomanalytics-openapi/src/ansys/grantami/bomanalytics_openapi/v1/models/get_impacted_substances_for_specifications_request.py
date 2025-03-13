@@ -86,8 +86,8 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
-        specifications: "Union[list[CommonSpecificationReference], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], None, Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationReference], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForSpecificationsRequest - a model defined in Swagger
 
@@ -98,8 +98,8 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
         legislation_ids: list[str], optional
         specifications: list[CommonSpecificationReference], optional
         """
-        self._specifications: Union[list[CommonSpecificationReference], Unset_Type] = Unset
-        self._legislation_ids: Union[list[str], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationReference], None, Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -113,55 +113,49 @@ class GetImpactedSubstancesForSpecificationsRequest(ModelBase):
             self.config = config
 
     @property
-    def specifications(self) -> "Union[list[CommonSpecificationReference], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationReference], None, Unset_Type]":
         """Gets the specifications of this GetImpactedSubstancesForSpecificationsRequest.
 
         Returns
         -------
-        Union[list[CommonSpecificationReference], Unset_Type]
+        Union[list[CommonSpecificationReference], None, Unset_Type]
             The specifications of this GetImpactedSubstancesForSpecificationsRequest.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[list[CommonSpecificationReference], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationReference], None, Unset_Type]"
     ) -> None:
         """Sets the specifications of this GetImpactedSubstancesForSpecificationsRequest.
 
         Parameters
         ----------
-        specifications: Union[list[CommonSpecificationReference], Unset_Type]
+        specifications: Union[list[CommonSpecificationReference], None, Unset_Type]
             The specifications of this GetImpactedSubstancesForSpecificationsRequest.
         """
-        # Field is not nullable
-        if specifications is None:
-            raise ValueError("Invalid value for 'specifications', must not be 'None'")
         self._specifications = specifications
 
     @property
-    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], None, Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
 
         Returns
         -------
-        Union[list[str], Unset_Type]
+        Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], None, Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
 
         Parameters
         ----------
-        legislation_ids: Union[list[str], Unset_Type]
+        legislation_ids: Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForSpecificationsRequest.
         """
-        # Field is not nullable
-        if legislation_ids is None:
-            raise ValueError("Invalid value for 'legislation_ids', must not be 'None'")
         self._legislation_ids = legislation_ids
 
     @property
