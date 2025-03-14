@@ -80,8 +80,8 @@ class GetImpactedSubstancesForSpecificationsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        specifications: "Union[list[GetImpactedSubstancesForSpecificationsSpecification], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        specifications: "Union[list[GetImpactedSubstancesForSpecificationsSpecification], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForSpecificationsResponse - a model defined in Swagger
 
@@ -91,9 +91,9 @@ class GetImpactedSubstancesForSpecificationsResponse(ModelBase):
         specifications: list[GetImpactedSubstancesForSpecificationsSpecification], optional
         """
         self._specifications: Union[
-            list[GetImpactedSubstancesForSpecificationsSpecification], Unset_Type
+            list[GetImpactedSubstancesForSpecificationsSpecification], None, Unset_Type
         ] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if specifications is not Unset:
             self.specifications = specifications
@@ -103,12 +103,12 @@ class GetImpactedSubstancesForSpecificationsResponse(ModelBase):
     @property
     def specifications(
         self,
-    ) -> "Union[list[GetImpactedSubstancesForSpecificationsSpecification], Unset_Type]":
+    ) -> "Union[list[GetImpactedSubstancesForSpecificationsSpecification], None, Unset_Type]":
         """Gets the specifications of this GetImpactedSubstancesForSpecificationsResponse.
 
         Returns
         -------
-        Union[list[GetImpactedSubstancesForSpecificationsSpecification], Unset_Type]
+        Union[list[GetImpactedSubstancesForSpecificationsSpecification], None, Unset_Type]
             The specifications of this GetImpactedSubstancesForSpecificationsResponse.
         """
         return self._specifications
@@ -116,43 +116,37 @@ class GetImpactedSubstancesForSpecificationsResponse(ModelBase):
     @specifications.setter
     def specifications(
         self,
-        specifications: "Union[list[GetImpactedSubstancesForSpecificationsSpecification], Unset_Type]",
+        specifications: "Union[list[GetImpactedSubstancesForSpecificationsSpecification], None, Unset_Type]",
     ) -> None:
         """Sets the specifications of this GetImpactedSubstancesForSpecificationsResponse.
 
         Parameters
         ----------
-        specifications: Union[list[GetImpactedSubstancesForSpecificationsSpecification], Unset_Type]
+        specifications: Union[list[GetImpactedSubstancesForSpecificationsSpecification], None, Unset_Type]
             The specifications of this GetImpactedSubstancesForSpecificationsResponse.
         """
-        # Field is not nullable
-        if specifications is None:
-            raise ValueError("Invalid value for 'specifications', must not be 'None'")
         self._specifications = specifications
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetImpactedSubstancesForSpecificationsResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetImpactedSubstancesForSpecificationsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetImpactedSubstancesForSpecificationsResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetImpactedSubstancesForSpecificationsResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

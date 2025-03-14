@@ -87,8 +87,8 @@ class GetComplianceForPartsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        parts: "Union[list[CommonPartReference], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]" = Unset,
+        parts: "Union[list[CommonPartReference], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForPartsRequest - a model defined in Swagger
 
@@ -99,8 +99,8 @@ class GetComplianceForPartsRequest(ModelBase):
         indicators: list[CommonIndicatorDefinition], optional
         parts: list[CommonPartReference], optional
         """
-        self._parts: Union[list[CommonPartReference], Unset_Type] = Unset
-        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._parts: Union[list[CommonPartReference], None, Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -114,53 +114,49 @@ class GetComplianceForPartsRequest(ModelBase):
             self.config = config
 
     @property
-    def parts(self) -> "Union[list[CommonPartReference], Unset_Type]":
+    def parts(self) -> "Union[list[CommonPartReference], None, Unset_Type]":
         """Gets the parts of this GetComplianceForPartsRequest.
 
         Returns
         -------
-        Union[list[CommonPartReference], Unset_Type]
+        Union[list[CommonPartReference], None, Unset_Type]
             The parts of this GetComplianceForPartsRequest.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "Union[list[CommonPartReference], Unset_Type]") -> None:
+    def parts(self, parts: "Union[list[CommonPartReference], None, Unset_Type]") -> None:
         """Sets the parts of this GetComplianceForPartsRequest.
 
         Parameters
         ----------
-        parts: Union[list[CommonPartReference], Unset_Type]
+        parts: Union[list[CommonPartReference], None, Unset_Type]
             The parts of this GetComplianceForPartsRequest.
         """
-        # Field is not nullable
-        if parts is None:
-            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], None, Unset_Type]":
         """Gets the indicators of this GetComplianceForPartsRequest.
 
         Returns
         -------
-        Union[list[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForPartsRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this GetComplianceForPartsRequest.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForPartsRequest.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property

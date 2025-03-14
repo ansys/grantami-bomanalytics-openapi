@@ -105,11 +105,11 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         biodegradable: "Union[bool, None, Unset_Type]" = Unset,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        external_identity: "Union[str, Unset_Type]" = Unset,
+        external_identity: "Union[str, None, Unset_Type]" = Unset,
         functional_recycle: "Union[bool, None, Unset_Type]" = Unset,
-        id: "Union[str, Unset_Type]" = Unset,
-        name: "Union[str, Unset_Type]" = Unset,
-        processes: "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
+        name: "Union[str, None, Unset_Type]" = Unset,
+        processes: "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]" = Unset,
         recyclable: "Union[bool, None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
@@ -132,20 +132,20 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         reference_value: str, optional
         reported_mass: CommonValueWithUnit, optional
         """
-        self._processes: Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type] = (
-            Unset
-        )
+        self._processes: Union[
+            list[CommonSustainabilityProcessWithSustainability], None, Unset_Type
+        ] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._recyclable: Union[bool, None, Unset_Type] = Unset
         self._biodegradable: Union[bool, None, Unset_Type] = Unset
         self._functional_recycle: Union[bool, None, Unset_Type] = Unset
         self._reported_mass: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._external_identity: Union[str, Unset_Type] = Unset
-        self._name: Union[str, Unset_Type] = Unset
+        self._external_identity: Union[str, None, Unset_Type] = Unset
+        self._name: Union[str, None, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if processes is not Unset:
             self.processes = processes
@@ -173,30 +173,30 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             self.id = id
 
     @property
-    def processes(self) -> "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]":
+    def processes(
+        self,
+    ) -> "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]":
         """Gets the processes of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
-        Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]
             The processes of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._processes
 
     @processes.setter
     def processes(
-        self, processes: "Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]"
+        self,
+        processes: "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]",
     ) -> None:
         """Sets the processes of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        processes: Union[list[CommonSustainabilityProcessWithSustainability], Unset_Type]
+        processes: Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]
             The processes of this CommonSustainabilityMaterialWithSustainability.
         """
-        # Field is not nullable
-        if processes is None:
-            raise ValueError("Invalid value for 'processes', must not be 'None'")
         self._processes = processes
 
     @property
@@ -341,57 +341,51 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._reported_mass = reported_mass
 
     @property
-    def external_identity(self) -> "Union[str, Unset_Type]":
+    def external_identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the external_identity of this CommonSustainabilityMaterialWithSustainability.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The external_identity of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._external_identity
 
     @external_identity.setter
-    def external_identity(self, external_identity: "Union[str, Unset_Type]") -> None:
+    def external_identity(self, external_identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the external_identity of this CommonSustainabilityMaterialWithSustainability.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        external_identity: Union[str, Unset_Type]
+        external_identity: Union[str, None, Unset_Type]
             The external_identity of this CommonSustainabilityMaterialWithSustainability.
         """
-        # Field is not nullable
-        if external_identity is None:
-            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
         self._external_identity = external_identity
 
     @property
-    def name(self) -> "Union[str, Unset_Type]":
+    def name(self) -> "Union[str, None, Unset_Type]":
         """Gets the name of this CommonSustainabilityMaterialWithSustainability.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The name of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._name
 
     @name.setter
-    def name(self, name: "Union[str, Unset_Type]") -> None:
+    def name(self, name: "Union[str, None, Unset_Type]") -> None:
         """Sets the name of this CommonSustainabilityMaterialWithSustainability.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        name: Union[str, Unset_Type]
+        name: Union[str, None, Unset_Type]
             The name of this CommonSustainabilityMaterialWithSustainability.
         """
-        # Field is not nullable
-        if name is None:
-            raise ValueError("Invalid value for 'name', must not be 'None'")
         self._name = name
 
     @property
@@ -445,30 +439,27 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this CommonSustainabilityMaterialWithSustainability.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this CommonSustainabilityMaterialWithSustainability.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this CommonSustainabilityMaterialWithSustainability.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

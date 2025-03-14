@@ -86,7 +86,7 @@ class GetImpactedSubstancesForBomRequest(ModelBase):
         bom_xml: "Union[str, Unset_Type]" = Unset,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForBomRequest - a model defined in Swagger
 
@@ -98,7 +98,7 @@ class GetImpactedSubstancesForBomRequest(ModelBase):
         legislation_ids: list[str], optional
         """
         self._bom_xml: Union[str, Unset_Type] = Unset
-        self._legislation_ids: Union[list[str], Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -137,28 +137,25 @@ class GetImpactedSubstancesForBomRequest(ModelBase):
         self._bom_xml = bom_xml
 
     @property
-    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], None, Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForBomRequest.
 
         Returns
         -------
-        Union[list[str], Unset_Type]
+        Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForBomRequest.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], None, Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForBomRequest.
 
         Parameters
         ----------
-        legislation_ids: Union[list[str], Unset_Type]
+        legislation_ids: Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForBomRequest.
         """
-        # Field is not nullable
-        if legislation_ids is None:
-            raise ValueError("Invalid value for 'legislation_ids', must not be 'None'")
         self._legislation_ids = legislation_ids
 
     @property

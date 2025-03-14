@@ -87,8 +87,8 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        specifications: "Union[list[CommonSpecificationReference], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationReference], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSpecificationsRequest - a model defined in Swagger
 
@@ -99,8 +99,8 @@ class GetComplianceForSpecificationsRequest(ModelBase):
         indicators: list[CommonIndicatorDefinition], optional
         specifications: list[CommonSpecificationReference], optional
         """
-        self._specifications: Union[list[CommonSpecificationReference], Unset_Type] = Unset
-        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationReference], None, Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -114,55 +114,51 @@ class GetComplianceForSpecificationsRequest(ModelBase):
             self.config = config
 
     @property
-    def specifications(self) -> "Union[list[CommonSpecificationReference], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationReference], None, Unset_Type]":
         """Gets the specifications of this GetComplianceForSpecificationsRequest.
 
         Returns
         -------
-        Union[list[CommonSpecificationReference], Unset_Type]
+        Union[list[CommonSpecificationReference], None, Unset_Type]
             The specifications of this GetComplianceForSpecificationsRequest.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[list[CommonSpecificationReference], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationReference], None, Unset_Type]"
     ) -> None:
         """Sets the specifications of this GetComplianceForSpecificationsRequest.
 
         Parameters
         ----------
-        specifications: Union[list[CommonSpecificationReference], Unset_Type]
+        specifications: Union[list[CommonSpecificationReference], None, Unset_Type]
             The specifications of this GetComplianceForSpecificationsRequest.
         """
-        # Field is not nullable
-        if specifications is None:
-            raise ValueError("Invalid value for 'specifications', must not be 'None'")
         self._specifications = specifications
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], None, Unset_Type]":
         """Gets the indicators of this GetComplianceForSpecificationsRequest.
 
         Returns
         -------
-        Union[list[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForSpecificationsRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this GetComplianceForSpecificationsRequest.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForSpecificationsRequest.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property

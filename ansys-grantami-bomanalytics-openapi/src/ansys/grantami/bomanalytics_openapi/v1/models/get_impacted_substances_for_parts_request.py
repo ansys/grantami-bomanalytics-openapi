@@ -86,8 +86,8 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        legislation_ids: "Union[list[str], Unset_Type]" = Unset,
-        parts: "Union[list[CommonPartReference], Unset_Type]" = Unset,
+        legislation_ids: "Union[list[str], None, Unset_Type]" = Unset,
+        parts: "Union[list[CommonPartReference], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForPartsRequest - a model defined in Swagger
 
@@ -98,8 +98,8 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
         legislation_ids: list[str], optional
         parts: list[CommonPartReference], optional
         """
-        self._parts: Union[list[CommonPartReference], Unset_Type] = Unset
-        self._legislation_ids: Union[list[str], Unset_Type] = Unset
+        self._parts: Union[list[CommonPartReference], None, Unset_Type] = Unset
+        self._legislation_ids: Union[list[str], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -113,53 +113,47 @@ class GetImpactedSubstancesForPartsRequest(ModelBase):
             self.config = config
 
     @property
-    def parts(self) -> "Union[list[CommonPartReference], Unset_Type]":
+    def parts(self) -> "Union[list[CommonPartReference], None, Unset_Type]":
         """Gets the parts of this GetImpactedSubstancesForPartsRequest.
 
         Returns
         -------
-        Union[list[CommonPartReference], Unset_Type]
+        Union[list[CommonPartReference], None, Unset_Type]
             The parts of this GetImpactedSubstancesForPartsRequest.
         """
         return self._parts
 
     @parts.setter
-    def parts(self, parts: "Union[list[CommonPartReference], Unset_Type]") -> None:
+    def parts(self, parts: "Union[list[CommonPartReference], None, Unset_Type]") -> None:
         """Sets the parts of this GetImpactedSubstancesForPartsRequest.
 
         Parameters
         ----------
-        parts: Union[list[CommonPartReference], Unset_Type]
+        parts: Union[list[CommonPartReference], None, Unset_Type]
             The parts of this GetImpactedSubstancesForPartsRequest.
         """
-        # Field is not nullable
-        if parts is None:
-            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
-    def legislation_ids(self) -> "Union[list[str], Unset_Type]":
+    def legislation_ids(self) -> "Union[list[str], None, Unset_Type]":
         """Gets the legislation_ids of this GetImpactedSubstancesForPartsRequest.
 
         Returns
         -------
-        Union[list[str], Unset_Type]
+        Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForPartsRequest.
         """
         return self._legislation_ids
 
     @legislation_ids.setter
-    def legislation_ids(self, legislation_ids: "Union[list[str], Unset_Type]") -> None:
+    def legislation_ids(self, legislation_ids: "Union[list[str], None, Unset_Type]") -> None:
         """Sets the legislation_ids of this GetImpactedSubstancesForPartsRequest.
 
         Parameters
         ----------
-        legislation_ids: Union[list[str], Unset_Type]
+        legislation_ids: Union[list[str], None, Unset_Type]
             The legislation_ids of this GetImpactedSubstancesForPartsRequest.
         """
-        # Field is not nullable
-        if legislation_ids is None:
-            raise ValueError("Invalid value for 'legislation_ids', must not be 'None'")
         self._legislation_ids = legislation_ids
 
     @property

@@ -95,12 +95,12 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self,
         *,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, None, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
-        material_identity: "Union[str, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, None, Unset_Type]" = Unset,
+        material_identity: "Union[str, None, Unset_Type]" = Unset,
         material_record_reference: "Union[CommonMaterialReference, Unset_Type]" = Unset,
-        process_name: "Union[str, Unset_Type]" = Unset,
+        process_name: "Union[str, None, Unset_Type]" = Unset,
         process_record_reference: "Union[CommonProcessReference, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityProcessSummaryEntry - a model defined in Swagger
@@ -116,14 +116,14 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         process_name: str, optional
         process_record_reference: CommonProcessReference, optional
         """
-        self._process_name: Union[str, Unset_Type] = Unset
+        self._process_name: Union[str, None, Unset_Type] = Unset
         self._process_record_reference: Union[CommonProcessReference, Unset_Type] = Unset
         self._material_record_reference: Union[CommonMaterialReference, Unset_Type] = Unset
-        self._material_identity: Union[str, Unset_Type] = Unset
+        self._material_identity: Union[str, None, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, None, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._climate_change_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, None, Unset_Type] = Unset
 
         if process_name is not Unset:
             self.process_name = process_name
@@ -143,28 +143,25 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def process_name(self) -> "Union[str, Unset_Type]":
+    def process_name(self) -> "Union[str, None, Unset_Type]":
         """Gets the process_name of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The process_name of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._process_name
 
     @process_name.setter
-    def process_name(self, process_name: "Union[str, Unset_Type]") -> None:
+    def process_name(self, process_name: "Union[str, None, Unset_Type]") -> None:
         """Sets the process_name of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        process_name: Union[str, Unset_Type]
+        process_name: Union[str, None, Unset_Type]
             The process_name of this CommonSustainabilityProcessSummaryEntry.
         """
-        # Field is not nullable
-        if process_name is None:
-            raise ValueError("Invalid value for 'process_name', must not be 'None'")
         self._process_name = process_name
 
     @property
@@ -222,28 +219,25 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._material_record_reference = material_record_reference
 
     @property
-    def material_identity(self) -> "Union[str, Unset_Type]":
+    def material_identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the material_identity of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The material_identity of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._material_identity
 
     @material_identity.setter
-    def material_identity(self, material_identity: "Union[str, Unset_Type]") -> None:
+    def material_identity(self, material_identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the material_identity of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        material_identity: Union[str, Unset_Type]
+        material_identity: Union[str, None, Unset_Type]
             The material_identity of this CommonSustainabilityProcessSummaryEntry.
         """
-        # Field is not nullable
-        if material_identity is None:
-            raise ValueError("Invalid value for 'material_identity', must not be 'None'")
         self._material_identity = material_identity
 
     @property
@@ -272,30 +266,27 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
+    def embodied_energy_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
     def embodied_energy_percentage(
-        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+        self, embodied_energy_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        embodied_energy_percentage: Union[float, Unset_Type]
+        embodied_energy_percentage: Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
-        # Field is not nullable
-        if embodied_energy_percentage is None:
-            raise ValueError("Invalid value for 'embodied_energy_percentage', must not be 'None'")
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
@@ -324,30 +315,27 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
+    def climate_change_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
     def climate_change_percentage(
-        self, climate_change_percentage: "Union[float, Unset_Type]"
+        self, climate_change_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        climate_change_percentage: Union[float, Unset_Type]
+        climate_change_percentage: Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityProcessSummaryEntry.
         """
-        # Field is not nullable
-        if climate_change_percentage is None:
-            raise ValueError("Invalid value for 'climate_change_percentage', must not be 'None'")
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod

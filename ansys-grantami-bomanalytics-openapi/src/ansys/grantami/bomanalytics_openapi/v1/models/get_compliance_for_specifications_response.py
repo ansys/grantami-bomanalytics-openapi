@@ -80,8 +80,8 @@ class GetComplianceForSpecificationsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        specifications: "Union[list[CommonSpecificationWithCompliance], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        specifications: "Union[list[CommonSpecificationWithCompliance], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForSpecificationsResponse - a model defined in Swagger
 
@@ -90,8 +90,10 @@ class GetComplianceForSpecificationsResponse(ModelBase):
         log_messages: list[CommonLogEntry], optional
         specifications: list[CommonSpecificationWithCompliance], optional
         """
-        self._specifications: Union[list[CommonSpecificationWithCompliance], Unset_Type] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._specifications: Union[list[CommonSpecificationWithCompliance], None, Unset_Type] = (
+            Unset
+        )
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if specifications is not Unset:
             self.specifications = specifications
@@ -99,55 +101,49 @@ class GetComplianceForSpecificationsResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def specifications(self) -> "Union[list[CommonSpecificationWithCompliance], Unset_Type]":
+    def specifications(self) -> "Union[list[CommonSpecificationWithCompliance], None, Unset_Type]":
         """Gets the specifications of this GetComplianceForSpecificationsResponse.
 
         Returns
         -------
-        Union[list[CommonSpecificationWithCompliance], Unset_Type]
+        Union[list[CommonSpecificationWithCompliance], None, Unset_Type]
             The specifications of this GetComplianceForSpecificationsResponse.
         """
         return self._specifications
 
     @specifications.setter
     def specifications(
-        self, specifications: "Union[list[CommonSpecificationWithCompliance], Unset_Type]"
+        self, specifications: "Union[list[CommonSpecificationWithCompliance], None, Unset_Type]"
     ) -> None:
         """Sets the specifications of this GetComplianceForSpecificationsResponse.
 
         Parameters
         ----------
-        specifications: Union[list[CommonSpecificationWithCompliance], Unset_Type]
+        specifications: Union[list[CommonSpecificationWithCompliance], None, Unset_Type]
             The specifications of this GetComplianceForSpecificationsResponse.
         """
-        # Field is not nullable
-        if specifications is None:
-            raise ValueError("Invalid value for 'specifications', must not be 'None'")
         self._specifications = specifications
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetComplianceForSpecificationsResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetComplianceForSpecificationsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetComplianceForSpecificationsResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetComplianceForSpecificationsResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

@@ -85,10 +85,10 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
     def __init__(
         self,
         *,
-        external_identity: "Union[str, Unset_Type]" = Unset,
-        id: "Union[str, Unset_Type]" = Unset,
-        name: "Union[str, Unset_Type]" = Unset,
-        percentage_amount: "Union[float, Unset_Type]" = Unset,
+        external_identity: "Union[str, None, Unset_Type]" = Unset,
+        id: "Union[str, None, Unset_Type]" = Unset,
+        name: "Union[str, None, Unset_Type]" = Unset,
+        percentage_amount: "Union[float, None, Unset_Type]" = Unset,
         reference_type: "Union[str, Unset_Type]" = Unset,
         reference_value: "Union[str, Unset_Type]" = Unset,
     ) -> None:
@@ -103,12 +103,12 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
         reference_type: str, optional
         reference_value: str, optional
         """
-        self._percentage_amount: Union[float, Unset_Type] = Unset
-        self._external_identity: Union[str, Unset_Type] = Unset
-        self._name: Union[str, Unset_Type] = Unset
+        self._percentage_amount: Union[float, None, Unset_Type] = Unset
+        self._external_identity: Union[str, None, Unset_Type] = Unset
+        self._name: Union[str, None, Unset_Type] = Unset
         self._reference_type: Union[str, Unset_Type] = Unset
         self._reference_value: Union[str, Unset_Type] = Unset
-        self._id: Union[str, Unset_Type] = Unset
+        self._id: Union[str, None, Unset_Type] = Unset
 
         if percentage_amount is not Unset:
             self.percentage_amount = percentage_amount
@@ -124,82 +124,73 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
             self.id = id
 
     @property
-    def percentage_amount(self) -> "Union[float, Unset_Type]":
+    def percentage_amount(self) -> "Union[float, None, Unset_Type]":
         """Gets the percentage_amount of this GetComplianceForSubstancesSubstanceWithAmount.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The percentage_amount of this GetComplianceForSubstancesSubstanceWithAmount.
         """
         return self._percentage_amount
 
     @percentage_amount.setter
-    def percentage_amount(self, percentage_amount: "Union[float, Unset_Type]") -> None:
+    def percentage_amount(self, percentage_amount: "Union[float, None, Unset_Type]") -> None:
         """Sets the percentage_amount of this GetComplianceForSubstancesSubstanceWithAmount.
 
         Parameters
         ----------
-        percentage_amount: Union[float, Unset_Type]
+        percentage_amount: Union[float, None, Unset_Type]
             The percentage_amount of this GetComplianceForSubstancesSubstanceWithAmount.
         """
-        # Field is not nullable
-        if percentage_amount is None:
-            raise ValueError("Invalid value for 'percentage_amount', must not be 'None'")
         self._percentage_amount = percentage_amount
 
     @property
-    def external_identity(self) -> "Union[str, Unset_Type]":
+    def external_identity(self) -> "Union[str, None, Unset_Type]":
         """Gets the external_identity of this GetComplianceForSubstancesSubstanceWithAmount.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The external_identity of this GetComplianceForSubstancesSubstanceWithAmount.
         """
         return self._external_identity
 
     @external_identity.setter
-    def external_identity(self, external_identity: "Union[str, Unset_Type]") -> None:
+    def external_identity(self, external_identity: "Union[str, None, Unset_Type]") -> None:
         """Sets the external_identity of this GetComplianceForSubstancesSubstanceWithAmount.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        external_identity: Union[str, Unset_Type]
+        external_identity: Union[str, None, Unset_Type]
             The external_identity of this GetComplianceForSubstancesSubstanceWithAmount.
         """
-        # Field is not nullable
-        if external_identity is None:
-            raise ValueError("Invalid value for 'external_identity', must not be 'None'")
         self._external_identity = external_identity
 
     @property
-    def name(self) -> "Union[str, Unset_Type]":
+    def name(self) -> "Union[str, None, Unset_Type]":
         """Gets the name of this GetComplianceForSubstancesSubstanceWithAmount.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The name of this GetComplianceForSubstancesSubstanceWithAmount.
         """
         return self._name
 
     @name.setter
-    def name(self, name: "Union[str, Unset_Type]") -> None:
+    def name(self, name: "Union[str, None, Unset_Type]") -> None:
         """Sets the name of this GetComplianceForSubstancesSubstanceWithAmount.
         Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
 
         Parameters
         ----------
-        name: Union[str, Unset_Type]
+        name: Union[str, None, Unset_Type]
             The name of this GetComplianceForSubstancesSubstanceWithAmount.
         """
-        # Field is not nullable
-        if name is None:
-            raise ValueError("Invalid value for 'name', must not be 'None'")
         self._name = name
 
     @property
@@ -253,30 +244,27 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
         self._reference_value = reference_value
 
     @property
-    def id(self) -> "Union[str, Unset_Type]":
+    def id(self) -> "Union[str, None, Unset_Type]":
         """Gets the id of this GetComplianceForSubstancesSubstanceWithAmount.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The id of this GetComplianceForSubstancesSubstanceWithAmount.
         """
         return self._id
 
     @id.setter
-    def id(self, id: "Union[str, Unset_Type]") -> None:
+    def id(self, id: "Union[str, None, Unset_Type]") -> None:
         """Sets the id of this GetComplianceForSubstancesSubstanceWithAmount.
         Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned.
 
         Parameters
         ----------
-        id: Union[str, Unset_Type]
+        id: Union[str, None, Unset_Type]
             The id of this GetComplianceForSubstancesSubstanceWithAmount.
         """
-        # Field is not nullable
-        if id is None:
-            raise ValueError("Invalid value for 'id', must not be 'None'")
         self._id = id
 
     @classmethod

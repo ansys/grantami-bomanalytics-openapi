@@ -80,8 +80,8 @@ class GetImpactedSubstancesForBom2301Response(ModelBase):
     def __init__(
         self,
         *,
-        legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]" = Unset,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
+        legislations: "Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
     ) -> None:
         """GetImpactedSubstancesForBom2301Response - a model defined in Swagger
 
@@ -90,8 +90,10 @@ class GetImpactedSubstancesForBom2301Response(ModelBase):
         legislations: list[CommonLegislationWithImpactedSubstances], optional
         log_messages: list[CommonLogEntry], optional
         """
-        self._legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._legislations: Union[
+            list[CommonLegislationWithImpactedSubstances], None, Unset_Type
+        ] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if legislations is not Unset:
             self.legislations = legislations
@@ -99,55 +101,51 @@ class GetImpactedSubstancesForBom2301Response(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def legislations(self) -> "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]":
+    def legislations(
+        self,
+    ) -> "Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]":
         """Gets the legislations of this GetImpactedSubstancesForBom2301Response.
 
         Returns
         -------
-        Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
+        Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]
             The legislations of this GetImpactedSubstancesForBom2301Response.
         """
         return self._legislations
 
     @legislations.setter
     def legislations(
-        self, legislations: "Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]"
+        self, legislations: "Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]"
     ) -> None:
         """Sets the legislations of this GetImpactedSubstancesForBom2301Response.
 
         Parameters
         ----------
-        legislations: Union[list[CommonLegislationWithImpactedSubstances], Unset_Type]
+        legislations: Union[list[CommonLegislationWithImpactedSubstances], None, Unset_Type]
             The legislations of this GetImpactedSubstancesForBom2301Response.
         """
-        # Field is not nullable
-        if legislations is None:
-            raise ValueError("Invalid value for 'legislations', must not be 'None'")
         self._legislations = legislations
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetImpactedSubstancesForBom2301Response.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetImpactedSubstancesForBom2301Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetImpactedSubstancesForBom2301Response.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetImpactedSubstancesForBom2301Response.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

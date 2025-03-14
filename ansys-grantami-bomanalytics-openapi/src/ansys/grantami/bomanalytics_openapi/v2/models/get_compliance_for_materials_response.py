@@ -80,8 +80,8 @@ class GetComplianceForMaterialsResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        materials: "Union[list[CommonMaterialWithCompliance], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        materials: "Union[list[CommonMaterialWithCompliance], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForMaterialsResponse - a model defined in Swagger
 
@@ -90,8 +90,8 @@ class GetComplianceForMaterialsResponse(ModelBase):
         log_messages: list[CommonLogEntry], optional
         materials: list[CommonMaterialWithCompliance], optional
         """
-        self._materials: Union[list[CommonMaterialWithCompliance], Unset_Type] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._materials: Union[list[CommonMaterialWithCompliance], None, Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if materials is not Unset:
             self.materials = materials
@@ -99,53 +99,49 @@ class GetComplianceForMaterialsResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def materials(self) -> "Union[list[CommonMaterialWithCompliance], Unset_Type]":
+    def materials(self) -> "Union[list[CommonMaterialWithCompliance], None, Unset_Type]":
         """Gets the materials of this GetComplianceForMaterialsResponse.
 
         Returns
         -------
-        Union[list[CommonMaterialWithCompliance], Unset_Type]
+        Union[list[CommonMaterialWithCompliance], None, Unset_Type]
             The materials of this GetComplianceForMaterialsResponse.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "Union[list[CommonMaterialWithCompliance], Unset_Type]") -> None:
+    def materials(
+        self, materials: "Union[list[CommonMaterialWithCompliance], None, Unset_Type]"
+    ) -> None:
         """Sets the materials of this GetComplianceForMaterialsResponse.
 
         Parameters
         ----------
-        materials: Union[list[CommonMaterialWithCompliance], Unset_Type]
+        materials: Union[list[CommonMaterialWithCompliance], None, Unset_Type]
             The materials of this GetComplianceForMaterialsResponse.
         """
-        # Field is not nullable
-        if materials is None:
-            raise ValueError("Invalid value for 'materials', must not be 'None'")
         self._materials = materials
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetComplianceForMaterialsResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetComplianceForMaterialsResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetComplianceForMaterialsResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetComplianceForMaterialsResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

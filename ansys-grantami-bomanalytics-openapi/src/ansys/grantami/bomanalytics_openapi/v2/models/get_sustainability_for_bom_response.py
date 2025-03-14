@@ -83,9 +83,9 @@ class GetSustainabilityForBomResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
         part: "Union[CommonSustainabilityPartWithSustainability, Unset_Type]" = Unset,
-        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]" = Unset,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]" = Unset,
     ) -> None:
         """GetSustainabilityForBomResponse - a model defined in Swagger
 
@@ -97,9 +97,9 @@ class GetSustainabilityForBomResponse(ModelBase):
         """
         self._part: Union[CommonSustainabilityPartWithSustainability, Unset_Type] = Unset
         self._transport_stages: Union[
-            list[CommonSustainabilityTransportWithSustainability], Unset_Type
+            list[CommonSustainabilityTransportWithSustainability], None, Unset_Type
         ] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if part is not Unset:
             self.part = part
@@ -136,12 +136,12 @@ class GetSustainabilityForBomResponse(ModelBase):
     @property
     def transport_stages(
         self,
-    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]":
         """Gets the transport_stages of this GetSustainabilityForBomResponse.
 
         Returns
         -------
-        Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]
             The transport_stages of this GetSustainabilityForBomResponse.
         """
         return self._transport_stages
@@ -149,43 +149,37 @@ class GetSustainabilityForBomResponse(ModelBase):
     @transport_stages.setter
     def transport_stages(
         self,
-        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]",
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]",
     ) -> None:
         """Sets the transport_stages of this GetSustainabilityForBomResponse.
 
         Parameters
         ----------
-        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]
             The transport_stages of this GetSustainabilityForBomResponse.
         """
-        # Field is not nullable
-        if transport_stages is None:
-            raise ValueError("Invalid value for 'transport_stages', must not be 'None'")
         self._transport_stages = transport_stages
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetSustainabilityForBomResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetSustainabilityForBomResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetSustainabilityForBomResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetSustainabilityForBomResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

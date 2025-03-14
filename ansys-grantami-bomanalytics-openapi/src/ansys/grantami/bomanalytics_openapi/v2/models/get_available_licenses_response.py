@@ -81,9 +81,9 @@ class GetAvailableLicensesResponse(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        restricted_substances: "Union[bool, Unset_Type]" = Unset,
-        sustainability: "Union[bool, Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        restricted_substances: "Union[bool, None, Unset_Type]" = Unset,
+        sustainability: "Union[bool, None, Unset_Type]" = Unset,
     ) -> None:
         """GetAvailableLicensesResponse - a model defined in Swagger
 
@@ -93,9 +93,9 @@ class GetAvailableLicensesResponse(ModelBase):
         restricted_substances: bool, optional
         sustainability: bool, optional
         """
-        self._restricted_substances: Union[bool, Unset_Type] = Unset
-        self._sustainability: Union[bool, Unset_Type] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._restricted_substances: Union[bool, None, Unset_Type] = Unset
+        self._sustainability: Union[bool, None, Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if restricted_substances is not Unset:
             self.restricted_substances = restricted_substances
@@ -105,78 +105,69 @@ class GetAvailableLicensesResponse(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def restricted_substances(self) -> "Union[bool, Unset_Type]":
+    def restricted_substances(self) -> "Union[bool, None, Unset_Type]":
         """Gets the restricted_substances of this GetAvailableLicensesResponse.
 
         Returns
         -------
-        Union[bool, Unset_Type]
+        Union[bool, None, Unset_Type]
             The restricted_substances of this GetAvailableLicensesResponse.
         """
         return self._restricted_substances
 
     @restricted_substances.setter
-    def restricted_substances(self, restricted_substances: "Union[bool, Unset_Type]") -> None:
+    def restricted_substances(self, restricted_substances: "Union[bool, None, Unset_Type]") -> None:
         """Sets the restricted_substances of this GetAvailableLicensesResponse.
 
         Parameters
         ----------
-        restricted_substances: Union[bool, Unset_Type]
+        restricted_substances: Union[bool, None, Unset_Type]
             The restricted_substances of this GetAvailableLicensesResponse.
         """
-        # Field is not nullable
-        if restricted_substances is None:
-            raise ValueError("Invalid value for 'restricted_substances', must not be 'None'")
         self._restricted_substances = restricted_substances
 
     @property
-    def sustainability(self) -> "Union[bool, Unset_Type]":
+    def sustainability(self) -> "Union[bool, None, Unset_Type]":
         """Gets the sustainability of this GetAvailableLicensesResponse.
 
         Returns
         -------
-        Union[bool, Unset_Type]
+        Union[bool, None, Unset_Type]
             The sustainability of this GetAvailableLicensesResponse.
         """
         return self._sustainability
 
     @sustainability.setter
-    def sustainability(self, sustainability: "Union[bool, Unset_Type]") -> None:
+    def sustainability(self, sustainability: "Union[bool, None, Unset_Type]") -> None:
         """Sets the sustainability of this GetAvailableLicensesResponse.
 
         Parameters
         ----------
-        sustainability: Union[bool, Unset_Type]
+        sustainability: Union[bool, None, Unset_Type]
             The sustainability of this GetAvailableLicensesResponse.
         """
-        # Field is not nullable
-        if sustainability is None:
-            raise ValueError("Invalid value for 'sustainability', must not be 'None'")
         self._sustainability = sustainability
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetAvailableLicensesResponse.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetAvailableLicensesResponse.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetAvailableLicensesResponse.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetAvailableLicensesResponse.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

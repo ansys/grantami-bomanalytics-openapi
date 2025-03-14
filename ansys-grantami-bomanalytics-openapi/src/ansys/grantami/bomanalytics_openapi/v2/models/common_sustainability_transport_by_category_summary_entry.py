@@ -89,12 +89,12 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
     def __init__(
         self,
         *,
-        category: "Union[str, Unset_Type]" = Unset,
+        category: "Union[str, None, Unset_Type]" = Unset,
         climate_change: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        climate_change_percentage: "Union[float, Unset_Type]" = Unset,
+        climate_change_percentage: "Union[float, None, Unset_Type]" = Unset,
         distance: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
         embodied_energy: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
-        embodied_energy_percentage: "Union[float, Unset_Type]" = Unset,
+        embodied_energy_percentage: "Union[float, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityTransportByCategorySummaryEntry - a model defined in Swagger
 
@@ -107,12 +107,12 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
         embodied_energy: CommonValueWithUnit, optional
         embodied_energy_percentage: float, optional
         """
-        self._category: Union[str, Unset_Type] = Unset
+        self._category: Union[str, None, Unset_Type] = Unset
         self._distance: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._embodied_energy: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._embodied_energy_percentage: Union[float, Unset_Type] = Unset
+        self._embodied_energy_percentage: Union[float, None, Unset_Type] = Unset
         self._climate_change: Union[CommonValueWithUnit, Unset_Type] = Unset
-        self._climate_change_percentage: Union[float, Unset_Type] = Unset
+        self._climate_change_percentage: Union[float, None, Unset_Type] = Unset
 
         if category is not Unset:
             self.category = category
@@ -128,28 +128,25 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
             self.climate_change_percentage = climate_change_percentage
 
     @property
-    def category(self) -> "Union[str, Unset_Type]":
+    def category(self) -> "Union[str, None, Unset_Type]":
         """Gets the category of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The category of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
         return self._category
 
     @category.setter
-    def category(self, category: "Union[str, Unset_Type]") -> None:
+    def category(self, category: "Union[str, None, Unset_Type]") -> None:
         """Sets the category of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Parameters
         ----------
-        category: Union[str, Unset_Type]
+        category: Union[str, None, Unset_Type]
             The category of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
-        # Field is not nullable
-        if category is None:
-            raise ValueError("Invalid value for 'category', must not be 'None'")
         self._category = category
 
     @property
@@ -203,30 +200,27 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
         self._embodied_energy = embodied_energy
 
     @property
-    def embodied_energy_percentage(self) -> "Union[float, Unset_Type]":
+    def embodied_energy_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the embodied_energy_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
         return self._embodied_energy_percentage
 
     @embodied_energy_percentage.setter
     def embodied_energy_percentage(
-        self, embodied_energy_percentage: "Union[float, Unset_Type]"
+        self, embodied_energy_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the embodied_energy_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Parameters
         ----------
-        embodied_energy_percentage: Union[float, Unset_Type]
+        embodied_energy_percentage: Union[float, None, Unset_Type]
             The embodied_energy_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
-        # Field is not nullable
-        if embodied_energy_percentage is None:
-            raise ValueError("Invalid value for 'embodied_energy_percentage', must not be 'None'")
         self._embodied_energy_percentage = embodied_energy_percentage
 
     @property
@@ -255,30 +249,27 @@ class CommonSustainabilityTransportByCategorySummaryEntry(ModelBase):
         self._climate_change = climate_change
 
     @property
-    def climate_change_percentage(self) -> "Union[float, Unset_Type]":
+    def climate_change_percentage(self) -> "Union[float, None, Unset_Type]":
         """Gets the climate_change_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Returns
         -------
-        Union[float, Unset_Type]
+        Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
         return self._climate_change_percentage
 
     @climate_change_percentage.setter
     def climate_change_percentage(
-        self, climate_change_percentage: "Union[float, Unset_Type]"
+        self, climate_change_percentage: "Union[float, None, Unset_Type]"
     ) -> None:
         """Sets the climate_change_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
 
         Parameters
         ----------
-        climate_change_percentage: Union[float, Unset_Type]
+        climate_change_percentage: Union[float, None, Unset_Type]
             The climate_change_percentage of this CommonSustainabilityTransportByCategorySummaryEntry.
         """
-        # Field is not nullable
-        if climate_change_percentage is None:
-            raise ValueError("Invalid value for 'climate_change_percentage', must not be 'None'")
         self._climate_change_percentage = climate_change_percentage
 
     @classmethod

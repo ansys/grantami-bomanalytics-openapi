@@ -79,9 +79,9 @@ class CommonPreferredUnits(ModelBase):
     def __init__(
         self,
         *,
-        distance_unit: "Union[str, Unset_Type]" = Unset,
-        energy_unit: "Union[str, Unset_Type]" = Unset,
-        mass_unit: "Union[str, Unset_Type]" = Unset,
+        distance_unit: "Union[str, None, Unset_Type]" = Unset,
+        energy_unit: "Union[str, None, Unset_Type]" = Unset,
+        mass_unit: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonPreferredUnits - a model defined in Swagger
 
@@ -91,9 +91,9 @@ class CommonPreferredUnits(ModelBase):
         energy_unit: str, optional
         mass_unit: str, optional
         """
-        self._mass_unit: Union[str, Unset_Type] = Unset
-        self._energy_unit: Union[str, Unset_Type] = Unset
-        self._distance_unit: Union[str, Unset_Type] = Unset
+        self._mass_unit: Union[str, None, Unset_Type] = Unset
+        self._energy_unit: Union[str, None, Unset_Type] = Unset
+        self._distance_unit: Union[str, None, Unset_Type] = Unset
 
         if mass_unit is not Unset:
             self.mass_unit = mass_unit
@@ -103,78 +103,69 @@ class CommonPreferredUnits(ModelBase):
             self.distance_unit = distance_unit
 
     @property
-    def mass_unit(self) -> "Union[str, Unset_Type]":
+    def mass_unit(self) -> "Union[str, None, Unset_Type]":
         """Gets the mass_unit of this CommonPreferredUnits.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The mass_unit of this CommonPreferredUnits.
         """
         return self._mass_unit
 
     @mass_unit.setter
-    def mass_unit(self, mass_unit: "Union[str, Unset_Type]") -> None:
+    def mass_unit(self, mass_unit: "Union[str, None, Unset_Type]") -> None:
         """Sets the mass_unit of this CommonPreferredUnits.
 
         Parameters
         ----------
-        mass_unit: Union[str, Unset_Type]
+        mass_unit: Union[str, None, Unset_Type]
             The mass_unit of this CommonPreferredUnits.
         """
-        # Field is not nullable
-        if mass_unit is None:
-            raise ValueError("Invalid value for 'mass_unit', must not be 'None'")
         self._mass_unit = mass_unit
 
     @property
-    def energy_unit(self) -> "Union[str, Unset_Type]":
+    def energy_unit(self) -> "Union[str, None, Unset_Type]":
         """Gets the energy_unit of this CommonPreferredUnits.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The energy_unit of this CommonPreferredUnits.
         """
         return self._energy_unit
 
     @energy_unit.setter
-    def energy_unit(self, energy_unit: "Union[str, Unset_Type]") -> None:
+    def energy_unit(self, energy_unit: "Union[str, None, Unset_Type]") -> None:
         """Sets the energy_unit of this CommonPreferredUnits.
 
         Parameters
         ----------
-        energy_unit: Union[str, Unset_Type]
+        energy_unit: Union[str, None, Unset_Type]
             The energy_unit of this CommonPreferredUnits.
         """
-        # Field is not nullable
-        if energy_unit is None:
-            raise ValueError("Invalid value for 'energy_unit', must not be 'None'")
         self._energy_unit = energy_unit
 
     @property
-    def distance_unit(self) -> "Union[str, Unset_Type]":
+    def distance_unit(self) -> "Union[str, None, Unset_Type]":
         """Gets the distance_unit of this CommonPreferredUnits.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The distance_unit of this CommonPreferredUnits.
         """
         return self._distance_unit
 
     @distance_unit.setter
-    def distance_unit(self, distance_unit: "Union[str, Unset_Type]") -> None:
+    def distance_unit(self, distance_unit: "Union[str, None, Unset_Type]") -> None:
         """Sets the distance_unit of this CommonPreferredUnits.
 
         Parameters
         ----------
-        distance_unit: Union[str, Unset_Type]
+        distance_unit: Union[str, None, Unset_Type]
             The distance_unit of this CommonPreferredUnits.
         """
-        # Field is not nullable
-        if distance_unit is None:
-            raise ValueError("Invalid value for 'distance_unit', must not be 'None'")
         self._distance_unit = distance_unit
 
     @classmethod

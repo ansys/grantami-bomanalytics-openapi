@@ -86,10 +86,10 @@ class CommonSustainabilityTransportSummary(ModelBase):
     def __init__(
         self,
         *,
-        category_summary: "Union[list[CommonSustainabilityTransportByCategorySummaryEntry], Unset_Type]" = Unset,
-        part_summary: "Union[list[CommonSustainabilityTransportByPartSummaryEntry], Unset_Type]" = Unset,
+        category_summary: "Union[list[CommonSustainabilityTransportByCategorySummaryEntry], None, Unset_Type]" = Unset,
+        part_summary: "Union[list[CommonSustainabilityTransportByPartSummaryEntry], None, Unset_Type]" = Unset,
         phase_summary: "Union[CommonSustainabilityPhaseSummary, Unset_Type]" = Unset,
-        summary: "Union[list[CommonSustainabilityTransportSummaryEntry], Unset_Type]" = Unset,
+        summary: "Union[list[CommonSustainabilityTransportSummaryEntry], None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityTransportSummary - a model defined in Swagger
 
@@ -100,12 +100,14 @@ class CommonSustainabilityTransportSummary(ModelBase):
         phase_summary: CommonSustainabilityPhaseSummary, optional
         summary: list[CommonSustainabilityTransportSummaryEntry], optional
         """
-        self._summary: Union[list[CommonSustainabilityTransportSummaryEntry], Unset_Type] = Unset
+        self._summary: Union[list[CommonSustainabilityTransportSummaryEntry], None, Unset_Type] = (
+            Unset
+        )
         self._part_summary: Union[
-            list[CommonSustainabilityTransportByPartSummaryEntry], Unset_Type
+            list[CommonSustainabilityTransportByPartSummaryEntry], None, Unset_Type
         ] = Unset
         self._category_summary: Union[
-            list[CommonSustainabilityTransportByCategorySummaryEntry], Unset_Type
+            list[CommonSustainabilityTransportByCategorySummaryEntry], None, Unset_Type
         ] = Unset
         self._phase_summary: Union[CommonSustainabilityPhaseSummary, Unset_Type] = Unset
 
@@ -119,41 +121,38 @@ class CommonSustainabilityTransportSummary(ModelBase):
             self.phase_summary = phase_summary
 
     @property
-    def summary(self) -> "Union[list[CommonSustainabilityTransportSummaryEntry], Unset_Type]":
+    def summary(self) -> "Union[list[CommonSustainabilityTransportSummaryEntry], None, Unset_Type]":
         """Gets the summary of this CommonSustainabilityTransportSummary.
 
         Returns
         -------
-        Union[list[CommonSustainabilityTransportSummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityTransportSummaryEntry], None, Unset_Type]
             The summary of this CommonSustainabilityTransportSummary.
         """
         return self._summary
 
     @summary.setter
     def summary(
-        self, summary: "Union[list[CommonSustainabilityTransportSummaryEntry], Unset_Type]"
+        self, summary: "Union[list[CommonSustainabilityTransportSummaryEntry], None, Unset_Type]"
     ) -> None:
         """Sets the summary of this CommonSustainabilityTransportSummary.
 
         Parameters
         ----------
-        summary: Union[list[CommonSustainabilityTransportSummaryEntry], Unset_Type]
+        summary: Union[list[CommonSustainabilityTransportSummaryEntry], None, Unset_Type]
             The summary of this CommonSustainabilityTransportSummary.
         """
-        # Field is not nullable
-        if summary is None:
-            raise ValueError("Invalid value for 'summary', must not be 'None'")
         self._summary = summary
 
     @property
     def part_summary(
         self,
-    ) -> "Union[list[CommonSustainabilityTransportByPartSummaryEntry], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityTransportByPartSummaryEntry], None, Unset_Type]":
         """Gets the part_summary of this CommonSustainabilityTransportSummary.
 
         Returns
         -------
-        Union[list[CommonSustainabilityTransportByPartSummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityTransportByPartSummaryEntry], None, Unset_Type]
             The part_summary of this CommonSustainabilityTransportSummary.
         """
         return self._part_summary
@@ -161,29 +160,26 @@ class CommonSustainabilityTransportSummary(ModelBase):
     @part_summary.setter
     def part_summary(
         self,
-        part_summary: "Union[list[CommonSustainabilityTransportByPartSummaryEntry], Unset_Type]",
+        part_summary: "Union[list[CommonSustainabilityTransportByPartSummaryEntry], None, Unset_Type]",
     ) -> None:
         """Sets the part_summary of this CommonSustainabilityTransportSummary.
 
         Parameters
         ----------
-        part_summary: Union[list[CommonSustainabilityTransportByPartSummaryEntry], Unset_Type]
+        part_summary: Union[list[CommonSustainabilityTransportByPartSummaryEntry], None, Unset_Type]
             The part_summary of this CommonSustainabilityTransportSummary.
         """
-        # Field is not nullable
-        if part_summary is None:
-            raise ValueError("Invalid value for 'part_summary', must not be 'None'")
         self._part_summary = part_summary
 
     @property
     def category_summary(
         self,
-    ) -> "Union[list[CommonSustainabilityTransportByCategorySummaryEntry], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityTransportByCategorySummaryEntry], None, Unset_Type]":
         """Gets the category_summary of this CommonSustainabilityTransportSummary.
 
         Returns
         -------
-        Union[list[CommonSustainabilityTransportByCategorySummaryEntry], Unset_Type]
+        Union[list[CommonSustainabilityTransportByCategorySummaryEntry], None, Unset_Type]
             The category_summary of this CommonSustainabilityTransportSummary.
         """
         return self._category_summary
@@ -191,18 +187,15 @@ class CommonSustainabilityTransportSummary(ModelBase):
     @category_summary.setter
     def category_summary(
         self,
-        category_summary: "Union[list[CommonSustainabilityTransportByCategorySummaryEntry], Unset_Type]",
+        category_summary: "Union[list[CommonSustainabilityTransportByCategorySummaryEntry], None, Unset_Type]",
     ) -> None:
         """Sets the category_summary of this CommonSustainabilityTransportSummary.
 
         Parameters
         ----------
-        category_summary: Union[list[CommonSustainabilityTransportByCategorySummaryEntry], Unset_Type]
+        category_summary: Union[list[CommonSustainabilityTransportByCategorySummaryEntry], None, Unset_Type]
             The category_summary of this CommonSustainabilityTransportSummary.
         """
-        # Field is not nullable
-        if category_summary is None:
-            raise ValueError("Invalid value for 'category_summary', must not be 'None'")
         self._category_summary = category_summary
 
     @property

@@ -1693,10 +1693,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialReference'
+          nullable: true
         LegislationIds:
           type: array
           items:
             type: string
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -1715,9 +1717,11 @@ components:
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -1725,31 +1729,42 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.RequestConfig:
       type: object
       properties:
         MaterialUniverseTableName:
           type: string
+          nullable: true
         InhouseMaterialsTableName:
           type: string
+          nullable: true
         SpecificationsTableName:
           type: string
+          nullable: true
         ProductsAndPartsTableName:
           type: string
+          nullable: true
         SubstancesTableName:
           type: string
+          nullable: true
         CoatingsTableName:
           type: string
+          nullable: true
         TransportTableName:
           type: string
+          nullable: true
         ProcessUniverseTableName:
           type: string
+          nullable: true
         LocationsTableName:
           type: string
+          nullable: true
         MaximumSpecToSpecLinkDepth:
           type: integer
           description: "This value is the maximum number of nodes specification link chains should be expanded to contain. The default value of 0 represents the unlimited case."
           format: int32
+          nullable: true
     GetImpactedSubstancesForMaterials.Response:
       type: object
       properties:
@@ -1757,10 +1772,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetImpactedSubstancesForMaterials.Material'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Materials:
           - Legislations:
@@ -1786,12 +1803,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -1799,6 +1819,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.LegislationWithImpactedSubstances:
       type: object
       properties:
@@ -1808,15 +1829,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.ImpactedSubstance'
+          nullable: true
     Common.ImpactedSubstance:
       type: object
       properties:
         SubstanceName:
           type: string
+          nullable: true
         CasNumber:
           type: string
+          nullable: true
         EcNumber:
           type: string
+          nullable: true
         MaxPercentageAmountInMaterial:
           type: number
           format: double
@@ -1839,10 +1864,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationReference'
+          nullable: true
         LegislationIds:
           type: array
           items:
             type: string
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -1863,9 +1890,11 @@ components:
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -1873,6 +1902,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetImpactedSubstancesForSpecifications.Response:
       type: object
       properties:
@@ -1880,10 +1910,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetImpactedSubstancesForSpecifications.Specification'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Specifications:
           - Legislations:
@@ -1924,12 +1956,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -1937,6 +1972,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetImpactedSubstancesForParts.Request:
       type: object
       properties:
@@ -1944,10 +1980,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartReference'
+          nullable: true
         LegislationIds:
           type: array
           items:
             type: string
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -1968,12 +2006,15 @@ components:
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -1981,6 +2022,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetImpactedSubstancesForParts.Response:
       type: object
       properties:
@@ -1988,10 +2030,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetImpactedSubstancesForParts.Part'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Parts:
           - Legislations:
@@ -2032,15 +2076,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+          nullable: true
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2048,6 +2096,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetImpactedSubstancesForBom1711.Request:
       type: object
       properties:
@@ -2057,6 +2106,7 @@ components:
           type: array
           items:
             type: string
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2074,10 +2124,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Legislations:
           - LegislationId: SINList
@@ -2102,6 +2154,7 @@ components:
           type: array
           items:
             type: string
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2119,10 +2172,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Legislations:
           - LegislationId: SINList
@@ -2145,10 +2200,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GetComplianceForSubstances.SubstanceWithAmount'
+          nullable: true
         Indicators:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorDefinition'
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2184,12 +2241,15 @@ components:
         PercentageAmount:
           type: number
           format: double
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2197,6 +2257,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.IndicatorDefinition:
       type: object
       properties:
@@ -2206,13 +2267,17 @@ components:
           type: array
           items:
             type: string
+          nullable: true
         DefaultThresholdPercentage:
           type: number
           format: double
+          nullable: true
         IgnoreExemptions:
           type: boolean
+          nullable: true
         IgnoreProcessChemicals:
           type: boolean
+          nullable: true
         Type:
           type: string
     GetComplianceForSubstances.Response:
@@ -2222,10 +2287,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Substances:
           - Indicators:
@@ -2252,6 +2319,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorResult'
+          nullable: true
         PercentageAmount:
           type: number
           format: double
@@ -2259,9 +2327,11 @@ components:
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2269,6 +2339,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.IndicatorResult:
       type: object
       properties:
@@ -2283,10 +2354,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialReference'
+          nullable: true
         Indicators:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorDefinition'
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2321,10 +2394,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialWithCompliance'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Materials:
           - Indicators:
@@ -2375,16 +2450,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorResult'
+          nullable: true
         Substances:
           type: array
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2392,6 +2471,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetComplianceForSpecifications.Request:
       type: object
       properties:
@@ -2399,10 +2479,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationReference'
+          nullable: true
         Indicators:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorDefinition'
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2437,10 +2519,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationWithCompliance'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Specifications:
           - Indicators:
@@ -2570,28 +2654,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorResult'
+          nullable: true
         Specifications:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationWithCompliance'
+          nullable: true
         Coatings:
           type: array
           items:
             $ref: '#/components/schemas/Common.CoatingWithCompliance'
+          nullable: true
         Materials:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialWithCompliance'
+          nullable: true
         Substances:
           type: array
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2599,6 +2690,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.CoatingWithCompliance:
       type: object
       properties:
@@ -2606,10 +2698,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorResult'
+          nullable: true
         Substances:
           type: array
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2617,6 +2711,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetComplianceForParts.Request:
       type: object
       properties:
@@ -2624,10 +2719,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartReference'
+          nullable: true
         Indicators:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorDefinition'
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2662,10 +2759,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartWithCompliance'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Parts:
           - Indicators:
@@ -2792,31 +2891,39 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorResult'
+          nullable: true
         Parts:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartWithCompliance'
+          nullable: true
         Specifications:
           type: array
           items:
             $ref: '#/components/schemas/Common.SpecificationWithCompliance'
+          nullable: true
         Materials:
           type: array
           items:
             $ref: '#/components/schemas/Common.MaterialWithCompliance'
+          nullable: true
         Substances:
           type: array
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
+          nullable: true
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -2824,6 +2931,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetComplianceForBom1711.Request:
       type: object
       properties:
@@ -2833,6 +2941,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorDefinition'
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2863,10 +2972,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartWithCompliance'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Parts:
           - Indicators:
@@ -2930,6 +3041,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.IndicatorDefinition'
+          nullable: true
         DatabaseKey:
           type: string
         Config:
@@ -2960,10 +3072,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.PartWithCompliance'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Parts:
           - Indicators:
@@ -3023,12 +3137,15 @@ components:
       properties:
         RestrictedSubstances:
           type: boolean
+          nullable: true
         Sustainability:
           type: boolean
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         RestrictedSubstances: true
         Sustainability: false
@@ -3054,10 +3171,13 @@ components:
       properties:
         MassUnit:
           type: string
+          nullable: true
         EnergyUnit:
           type: string
+          nullable: true
         DistanceUnit:
           type: string
+          nullable: true
     GetSustainabilityForBom2301.Response:
       type: object
       properties:
@@ -3065,14 +3185,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.PartWithSustainability'
+          nullable: true
         TransportStages:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportWithSustainability'
+          nullable: true
         LogMessages:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         Parts:
           - Parts:
@@ -3141,14 +3264,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.PartWithSustainability'
+          nullable: true
         Materials:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.MaterialWithSustainability'
+          nullable: true
         Processes:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.ProcessWithSustainability'
+          nullable: true
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
@@ -3159,15 +3285,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportWithSustainability'
+          nullable: true
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3175,6 +3305,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.Sustainability.MaterialWithSustainability:
       type: object
       properties:
@@ -3182,6 +3313,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.ProcessWithSustainability'
+          nullable: true
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
@@ -3200,9 +3332,11 @@ components:
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3210,6 +3344,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.Sustainability.ProcessWithSustainability:
       type: object
       properties:
@@ -3221,12 +3356,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportWithSustainability'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3234,6 +3372,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.ValueWithUnit:
       type: object
       properties:
@@ -3243,11 +3382,13 @@ components:
           nullable: true
         Unit:
           type: string
+          nullable: true
     Common.Sustainability.TransportWithSustainability:
       type: object
       properties:
         StageName:
           type: string
+          nullable: true
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
@@ -3259,6 +3400,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetSustainabilitySummaryForBom2301.Request:
       type: object
       properties:
@@ -3288,6 +3430,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.LogEntry'
+          nullable: true
       example:
         MaterialSummary:
           Summary:
@@ -3391,6 +3534,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.MaterialSummaryEntry'
+          nullable: true
         PhaseSummary:
           $ref: '#/components/schemas/Common.Sustainability.PhaseSummary'
     Common.Sustainability.MaterialSummaryEntry:
@@ -3398,6 +3542,7 @@ components:
       properties:
         Identity:
           type: string
+          nullable: true
         RecordReference:
           $ref: '#/components/schemas/Common.MaterialReference'
         EmbodiedEnergy:
@@ -3405,11 +3550,13 @@ components:
         EmbodiedEnergyPercentage:
           type: number
           format: double
+          nullable: true
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
+          nullable: true
         MassBeforeProcessing:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         MassAfterProcessing:
@@ -3418,15 +3565,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.MaterialContributingComponent'
+          nullable: true
     Common.Sustainability.MaterialContributingComponent:
       type: object
       properties:
         ParentName:
           type: string
+          nullable: true
         ComponentName:
           type: string
+          nullable: true
         ComponentPartNumber:
           type: string
+          nullable: true
         RecordReference:
           $ref: '#/components/schemas/Common.PartReference'
         MaterialMassBeforeProcessing:
@@ -3436,16 +3587,19 @@ components:
       properties:
         Phase:
           type: string
+          nullable: true
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
           type: number
           format: double
+          nullable: true
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
+          nullable: true
     Common.Sustainability.ProcessSummary:
       type: object
       properties:
@@ -3453,14 +3607,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.ProcessSummaryEntry'
+          nullable: true
         SecondaryProcesses:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.ProcessSummaryEntry'
+          nullable: true
         JoiningAndFinishingProcesses:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.ProcessSummaryEntry'
+          nullable: true
         PhaseSummary:
           $ref: '#/components/schemas/Common.Sustainability.PhaseSummary'
     Common.Sustainability.ProcessSummaryEntry:
@@ -3468,31 +3625,37 @@ components:
       properties:
         ProcessName:
           type: string
+          nullable: true
         ProcessRecordReference:
           $ref: '#/components/schemas/Common.ProcessReference'
         MaterialRecordReference:
           $ref: '#/components/schemas/Common.MaterialReference'
         MaterialIdentity:
           type: string
+          nullable: true
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
           type: number
           format: double
+          nullable: true
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
+          nullable: true
     Common.ProcessReference:
       type: object
       properties:
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
         Name:
           type: string
           description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
         ReferenceValue:
@@ -3500,6 +3663,7 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.Sustainability.TransportSummary:
       type: object
       properties:
@@ -3507,14 +3671,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportSummaryEntry'
+          nullable: true
         PartSummary:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportByPartSummaryEntry'
+          nullable: true
         CategorySummary:
           type: array
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportByCategorySummaryEntry'
+          nullable: true
         PhaseSummary:
           $ref: '#/components/schemas/Common.Sustainability.PhaseSummary'
     Common.Sustainability.TransportSummaryEntry:
@@ -3522,6 +3689,7 @@ components:
       properties:
         StageName:
           type: string
+          nullable: true
         RecordReference:
           $ref: '#/components/schemas/Common.TransportReference'
         Distance:
@@ -3531,11 +3699,13 @@ components:
         EmbodiedEnergyPercentage:
           type: number
           format: double
+          nullable: true
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
+          nullable: true
     Common.TransportReference:
       type: object
       properties:
@@ -3546,19 +3716,24 @@ components:
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.Sustainability.TransportByPartSummaryEntry:
       type: object
       properties:
         ParentPartName:
           type: string
+          nullable: true
         PartName:
           type: string
+          nullable: true
         Category:
           type: string
+          nullable: true
         TransportTypes:
           type: array
           items:
             type: string
+          nullable: true
         Distance:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergy:
@@ -3566,16 +3741,19 @@ components:
         EmbodiedEnergyPercentage:
           type: number
           format: double
+          nullable: true
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
+          nullable: true
     Common.Sustainability.TransportByCategorySummaryEntry:
       type: object
       properties:
         Category:
           type: string
+          nullable: true
         Distance:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergy:
@@ -3583,8 +3761,10 @@ components:
         EmbodiedEnergyPercentage:
           type: number
           format: double
+          nullable: true
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChangePercentage:
           type: number
           format: double
+          nullable: true

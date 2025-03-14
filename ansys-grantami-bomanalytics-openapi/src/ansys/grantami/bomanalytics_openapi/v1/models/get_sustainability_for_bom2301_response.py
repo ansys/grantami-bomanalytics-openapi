@@ -83,9 +83,9 @@ class GetSustainabilityForBom2301Response(ModelBase):
     def __init__(
         self,
         *,
-        log_messages: "Union[list[CommonLogEntry], Unset_Type]" = Unset,
-        parts: "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]" = Unset,
-        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]" = Unset,
+        log_messages: "Union[list[CommonLogEntry], None, Unset_Type]" = Unset,
+        parts: "Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]" = Unset,
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]" = Unset,
     ) -> None:
         """GetSustainabilityForBom2301Response - a model defined in Swagger
 
@@ -95,11 +95,13 @@ class GetSustainabilityForBom2301Response(ModelBase):
         parts: list[CommonSustainabilityPartWithSustainability], optional
         transport_stages: list[CommonSustainabilityTransportWithSustainability], optional
         """
-        self._parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type] = Unset
+        self._parts: Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type] = (
+            Unset
+        )
         self._transport_stages: Union[
-            list[CommonSustainabilityTransportWithSustainability], Unset_Type
+            list[CommonSustainabilityTransportWithSustainability], None, Unset_Type
         ] = Unset
-        self._log_messages: Union[list[CommonLogEntry], Unset_Type] = Unset
+        self._log_messages: Union[list[CommonLogEntry], None, Unset_Type] = Unset
 
         if parts is not Unset:
             self.parts = parts
@@ -109,41 +111,38 @@ class GetSustainabilityForBom2301Response(ModelBase):
             self.log_messages = log_messages
 
     @property
-    def parts(self) -> "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]":
+    def parts(self) -> "Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]":
         """Gets the parts of this GetSustainabilityForBom2301Response.
 
         Returns
         -------
-        Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]
             The parts of this GetSustainabilityForBom2301Response.
         """
         return self._parts
 
     @parts.setter
     def parts(
-        self, parts: "Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]"
+        self, parts: "Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]"
     ) -> None:
         """Sets the parts of this GetSustainabilityForBom2301Response.
 
         Parameters
         ----------
-        parts: Union[list[CommonSustainabilityPartWithSustainability], Unset_Type]
+        parts: Union[list[CommonSustainabilityPartWithSustainability], None, Unset_Type]
             The parts of this GetSustainabilityForBom2301Response.
         """
-        # Field is not nullable
-        if parts is None:
-            raise ValueError("Invalid value for 'parts', must not be 'None'")
         self._parts = parts
 
     @property
     def transport_stages(
         self,
-    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]":
+    ) -> "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]":
         """Gets the transport_stages of this GetSustainabilityForBom2301Response.
 
         Returns
         -------
-        Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+        Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]
             The transport_stages of this GetSustainabilityForBom2301Response.
         """
         return self._transport_stages
@@ -151,43 +150,37 @@ class GetSustainabilityForBom2301Response(ModelBase):
     @transport_stages.setter
     def transport_stages(
         self,
-        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]",
+        transport_stages: "Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]",
     ) -> None:
         """Sets the transport_stages of this GetSustainabilityForBom2301Response.
 
         Parameters
         ----------
-        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], Unset_Type]
+        transport_stages: Union[list[CommonSustainabilityTransportWithSustainability], None, Unset_Type]
             The transport_stages of this GetSustainabilityForBom2301Response.
         """
-        # Field is not nullable
-        if transport_stages is None:
-            raise ValueError("Invalid value for 'transport_stages', must not be 'None'")
         self._transport_stages = transport_stages
 
     @property
-    def log_messages(self) -> "Union[list[CommonLogEntry], Unset_Type]":
+    def log_messages(self) -> "Union[list[CommonLogEntry], None, Unset_Type]":
         """Gets the log_messages of this GetSustainabilityForBom2301Response.
 
         Returns
         -------
-        Union[list[CommonLogEntry], Unset_Type]
+        Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetSustainabilityForBom2301Response.
         """
         return self._log_messages
 
     @log_messages.setter
-    def log_messages(self, log_messages: "Union[list[CommonLogEntry], Unset_Type]") -> None:
+    def log_messages(self, log_messages: "Union[list[CommonLogEntry], None, Unset_Type]") -> None:
         """Sets the log_messages of this GetSustainabilityForBom2301Response.
 
         Parameters
         ----------
-        log_messages: Union[list[CommonLogEntry], Unset_Type]
+        log_messages: Union[list[CommonLogEntry], None, Unset_Type]
             The log_messages of this GetSustainabilityForBom2301Response.
         """
-        # Field is not nullable
-        if log_messages is None:
-            raise ValueError("Invalid value for 'log_messages', must not be 'None'")
         self._log_messages = log_messages
 
     @classmethod

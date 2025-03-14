@@ -87,8 +87,8 @@ class GetComplianceForMaterialsRequest(ModelBase):
         *,
         config: "Union[CommonRequestConfig, Unset_Type]" = Unset,
         database_key: "Union[str, Unset_Type]" = Unset,
-        indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]" = Unset,
-        materials: "Union[list[CommonMaterialReference], Unset_Type]" = Unset,
+        indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]" = Unset,
+        materials: "Union[list[CommonMaterialReference], None, Unset_Type]" = Unset,
     ) -> None:
         """GetComplianceForMaterialsRequest - a model defined in Swagger
 
@@ -99,8 +99,8 @@ class GetComplianceForMaterialsRequest(ModelBase):
         indicators: list[CommonIndicatorDefinition], optional
         materials: list[CommonMaterialReference], optional
         """
-        self._materials: Union[list[CommonMaterialReference], Unset_Type] = Unset
-        self._indicators: Union[list[CommonIndicatorDefinition], Unset_Type] = Unset
+        self._materials: Union[list[CommonMaterialReference], None, Unset_Type] = Unset
+        self._indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type] = Unset
         self._database_key: Union[str, Unset_Type] = Unset
         self._config: Union[CommonRequestConfig, Unset_Type] = Unset
 
@@ -114,53 +114,51 @@ class GetComplianceForMaterialsRequest(ModelBase):
             self.config = config
 
     @property
-    def materials(self) -> "Union[list[CommonMaterialReference], Unset_Type]":
+    def materials(self) -> "Union[list[CommonMaterialReference], None, Unset_Type]":
         """Gets the materials of this GetComplianceForMaterialsRequest.
 
         Returns
         -------
-        Union[list[CommonMaterialReference], Unset_Type]
+        Union[list[CommonMaterialReference], None, Unset_Type]
             The materials of this GetComplianceForMaterialsRequest.
         """
         return self._materials
 
     @materials.setter
-    def materials(self, materials: "Union[list[CommonMaterialReference], Unset_Type]") -> None:
+    def materials(
+        self, materials: "Union[list[CommonMaterialReference], None, Unset_Type]"
+    ) -> None:
         """Sets the materials of this GetComplianceForMaterialsRequest.
 
         Parameters
         ----------
-        materials: Union[list[CommonMaterialReference], Unset_Type]
+        materials: Union[list[CommonMaterialReference], None, Unset_Type]
             The materials of this GetComplianceForMaterialsRequest.
         """
-        # Field is not nullable
-        if materials is None:
-            raise ValueError("Invalid value for 'materials', must not be 'None'")
         self._materials = materials
 
     @property
-    def indicators(self) -> "Union[list[CommonIndicatorDefinition], Unset_Type]":
+    def indicators(self) -> "Union[list[CommonIndicatorDefinition], None, Unset_Type]":
         """Gets the indicators of this GetComplianceForMaterialsRequest.
 
         Returns
         -------
-        Union[list[CommonIndicatorDefinition], Unset_Type]
+        Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForMaterialsRequest.
         """
         return self._indicators
 
     @indicators.setter
-    def indicators(self, indicators: "Union[list[CommonIndicatorDefinition], Unset_Type]") -> None:
+    def indicators(
+        self, indicators: "Union[list[CommonIndicatorDefinition], None, Unset_Type]"
+    ) -> None:
         """Sets the indicators of this GetComplianceForMaterialsRequest.
 
         Parameters
         ----------
-        indicators: Union[list[CommonIndicatorDefinition], Unset_Type]
+        indicators: Union[list[CommonIndicatorDefinition], None, Unset_Type]
             The indicators of this GetComplianceForMaterialsRequest.
         """
-        # Field is not nullable
-        if indicators is None:
-            raise ValueError("Invalid value for 'indicators', must not be 'None'")
         self._indicators = indicators
 
     @property
