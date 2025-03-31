@@ -108,8 +108,8 @@ class CommonPartWithCompliance(ModelBase):
         materials: "Union[list[CommonMaterialWithCompliance], None, Unset_Type]" = Unset,
         name: "Union[str, None, Unset_Type]" = Unset,
         parts: "Union[list[CommonPartWithCompliance], None, Unset_Type]" = Unset,
-        reference_type: "Union[str, Unset_Type]" = Unset,
-        reference_value: "Union[str, Unset_Type]" = Unset,
+        reference_type: "Union[str, None, Unset_Type]" = Unset,
+        reference_value: "Union[str, None, Unset_Type]" = Unset,
         specifications: "Union[list[CommonSpecificationWithCompliance], None, Unset_Type]" = Unset,
         substances: "Union[list[CommonSubstanceWithCompliance], None, Unset_Type]" = Unset,
     ) -> None:
@@ -139,8 +139,8 @@ class CommonPartWithCompliance(ModelBase):
         self._input_part_number: Union[str, None, Unset_Type] = Unset
         self._external_identity: Union[str, None, Unset_Type] = Unset
         self._name: Union[str, None, Unset_Type] = Unset
-        self._reference_type: Union[str, Unset_Type] = Unset
-        self._reference_value: Union[str, Unset_Type] = Unset
+        self._reference_type: Union[str, None, Unset_Type] = Unset
+        self._reference_value: Union[str, None, Unset_Type] = Unset
         self._id: Union[str, None, Unset_Type] = Unset
 
         if indicators is not Unset:
@@ -357,53 +357,47 @@ class CommonPartWithCompliance(ModelBase):
         self._name = name
 
     @property
-    def reference_type(self) -> "Union[str, Unset_Type]":
+    def reference_type(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_type of this CommonPartWithCompliance.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_type of this CommonPartWithCompliance.
         """
         return self._reference_type
 
     @reference_type.setter
-    def reference_type(self, reference_type: "Union[str, Unset_Type]") -> None:
+    def reference_type(self, reference_type: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_type of this CommonPartWithCompliance.
 
         Parameters
         ----------
-        reference_type: Union[str, Unset_Type]
+        reference_type: Union[str, None, Unset_Type]
             The reference_type of this CommonPartWithCompliance.
         """
-        # Field is not nullable
-        if reference_type is None:
-            raise ValueError("Invalid value for 'reference_type', must not be 'None'")
         self._reference_type = reference_type
 
     @property
-    def reference_value(self) -> "Union[str, Unset_Type]":
+    def reference_value(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_value of this CommonPartWithCompliance.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_value of this CommonPartWithCompliance.
         """
         return self._reference_value
 
     @reference_value.setter
-    def reference_value(self, reference_value: "Union[str, Unset_Type]") -> None:
+    def reference_value(self, reference_value: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_value of this CommonPartWithCompliance.
 
         Parameters
         ----------
-        reference_value: Union[str, Unset_Type]
+        reference_value: Union[str, None, Unset_Type]
             The reference_value of this CommonPartWithCompliance.
         """
-        # Field is not nullable
-        if reference_value is None:
-            raise ValueError("Invalid value for 'reference_value', must not be 'None'")
         self._reference_value = reference_value
 
     @property

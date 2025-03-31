@@ -80,8 +80,8 @@ class CommonTransportReference(ModelBase):
         self,
         *,
         id: "Union[str, None, Unset_Type]" = Unset,
-        reference_type: "Union[str, Unset_Type]" = Unset,
-        reference_value: "Union[str, Unset_Type]" = Unset,
+        reference_type: "Union[str, None, Unset_Type]" = Unset,
+        reference_value: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonTransportReference - a model defined in Swagger
 
@@ -91,8 +91,8 @@ class CommonTransportReference(ModelBase):
         reference_type: str, optional
         reference_value: str, optional
         """
-        self._reference_type: Union[str, Unset_Type] = Unset
-        self._reference_value: Union[str, Unset_Type] = Unset
+        self._reference_type: Union[str, None, Unset_Type] = Unset
+        self._reference_value: Union[str, None, Unset_Type] = Unset
         self._id: Union[str, None, Unset_Type] = Unset
 
         if reference_type is not Unset:
@@ -103,53 +103,47 @@ class CommonTransportReference(ModelBase):
             self.id = id
 
     @property
-    def reference_type(self) -> "Union[str, Unset_Type]":
+    def reference_type(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_type of this CommonTransportReference.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_type of this CommonTransportReference.
         """
         return self._reference_type
 
     @reference_type.setter
-    def reference_type(self, reference_type: "Union[str, Unset_Type]") -> None:
+    def reference_type(self, reference_type: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_type of this CommonTransportReference.
 
         Parameters
         ----------
-        reference_type: Union[str, Unset_Type]
+        reference_type: Union[str, None, Unset_Type]
             The reference_type of this CommonTransportReference.
         """
-        # Field is not nullable
-        if reference_type is None:
-            raise ValueError("Invalid value for 'reference_type', must not be 'None'")
         self._reference_type = reference_type
 
     @property
-    def reference_value(self) -> "Union[str, Unset_Type]":
+    def reference_value(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_value of this CommonTransportReference.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_value of this CommonTransportReference.
         """
         return self._reference_value
 
     @reference_value.setter
-    def reference_value(self, reference_value: "Union[str, Unset_Type]") -> None:
+    def reference_value(self, reference_value: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_value of this CommonTransportReference.
 
         Parameters
         ----------
-        reference_value: Union[str, Unset_Type]
+        reference_value: Union[str, None, Unset_Type]
             The reference_value of this CommonTransportReference.
         """
-        # Field is not nullable
-        if reference_value is None:
-            raise ValueError("Invalid value for 'reference_value', must not be 'None'")
         self._reference_value = reference_value
 
     @property

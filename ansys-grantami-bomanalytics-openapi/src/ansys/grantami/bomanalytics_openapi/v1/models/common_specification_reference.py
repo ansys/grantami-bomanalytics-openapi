@@ -86,8 +86,8 @@ class CommonSpecificationReference(ModelBase):
         external_identity: "Union[str, None, Unset_Type]" = Unset,
         id: "Union[str, None, Unset_Type]" = Unset,
         name: "Union[str, None, Unset_Type]" = Unset,
-        reference_type: "Union[str, Unset_Type]" = Unset,
-        reference_value: "Union[str, Unset_Type]" = Unset,
+        reference_type: "Union[str, None, Unset_Type]" = Unset,
+        reference_value: "Union[str, None, Unset_Type]" = Unset,
     ) -> None:
         """CommonSpecificationReference - a model defined in Swagger
 
@@ -101,8 +101,8 @@ class CommonSpecificationReference(ModelBase):
         """
         self._external_identity: Union[str, None, Unset_Type] = Unset
         self._name: Union[str, None, Unset_Type] = Unset
-        self._reference_type: Union[str, Unset_Type] = Unset
-        self._reference_value: Union[str, Unset_Type] = Unset
+        self._reference_type: Union[str, None, Unset_Type] = Unset
+        self._reference_value: Union[str, None, Unset_Type] = Unset
         self._id: Union[str, None, Unset_Type] = Unset
 
         if external_identity is not Unset:
@@ -165,53 +165,47 @@ class CommonSpecificationReference(ModelBase):
         self._name = name
 
     @property
-    def reference_type(self) -> "Union[str, Unset_Type]":
+    def reference_type(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_type of this CommonSpecificationReference.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_type of this CommonSpecificationReference.
         """
         return self._reference_type
 
     @reference_type.setter
-    def reference_type(self, reference_type: "Union[str, Unset_Type]") -> None:
+    def reference_type(self, reference_type: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_type of this CommonSpecificationReference.
 
         Parameters
         ----------
-        reference_type: Union[str, Unset_Type]
+        reference_type: Union[str, None, Unset_Type]
             The reference_type of this CommonSpecificationReference.
         """
-        # Field is not nullable
-        if reference_type is None:
-            raise ValueError("Invalid value for 'reference_type', must not be 'None'")
         self._reference_type = reference_type
 
     @property
-    def reference_value(self) -> "Union[str, Unset_Type]":
+    def reference_value(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_value of this CommonSpecificationReference.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_value of this CommonSpecificationReference.
         """
         return self._reference_value
 
     @reference_value.setter
-    def reference_value(self, reference_value: "Union[str, Unset_Type]") -> None:
+    def reference_value(self, reference_value: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_value of this CommonSpecificationReference.
 
         Parameters
         ----------
-        reference_value: Union[str, Unset_Type]
+        reference_value: Union[str, None, Unset_Type]
             The reference_value of this CommonSpecificationReference.
         """
-        # Field is not nullable
-        if reference_value is None:
-            raise ValueError("Invalid value for 'reference_value', must not be 'None'")
         self._reference_value = reference_value
 
     @property
