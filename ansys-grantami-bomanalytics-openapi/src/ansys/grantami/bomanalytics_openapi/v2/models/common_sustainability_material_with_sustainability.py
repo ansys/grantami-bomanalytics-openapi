@@ -111,8 +111,8 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         name: "Union[str, None, Unset_Type]" = Unset,
         processes: "Union[list[CommonSustainabilityProcessWithSustainability], None, Unset_Type]" = Unset,
         recyclable: "Union[bool, None, Unset_Type]" = Unset,
-        reference_type: "Union[str, Unset_Type]" = Unset,
-        reference_value: "Union[str, Unset_Type]" = Unset,
+        reference_type: "Union[str, None, Unset_Type]" = Unset,
+        reference_value: "Union[str, None, Unset_Type]" = Unset,
         reported_mass: "Union[CommonValueWithUnit, Unset_Type]" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialWithSustainability - a model defined in Swagger
@@ -143,8 +143,8 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._reported_mass: Union[CommonValueWithUnit, Unset_Type] = Unset
         self._external_identity: Union[str, None, Unset_Type] = Unset
         self._name: Union[str, None, Unset_Type] = Unset
-        self._reference_type: Union[str, Unset_Type] = Unset
-        self._reference_value: Union[str, Unset_Type] = Unset
+        self._reference_type: Union[str, None, Unset_Type] = Unset
+        self._reference_value: Union[str, None, Unset_Type] = Unset
         self._id: Union[str, None, Unset_Type] = Unset
 
         if processes is not Unset:
@@ -389,53 +389,47 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._name = name
 
     @property
-    def reference_type(self) -> "Union[str, Unset_Type]":
+    def reference_type(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_type of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_type of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._reference_type
 
     @reference_type.setter
-    def reference_type(self, reference_type: "Union[str, Unset_Type]") -> None:
+    def reference_type(self, reference_type: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_type of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        reference_type: Union[str, Unset_Type]
+        reference_type: Union[str, None, Unset_Type]
             The reference_type of this CommonSustainabilityMaterialWithSustainability.
         """
-        # Field is not nullable
-        if reference_type is None:
-            raise ValueError("Invalid value for 'reference_type', must not be 'None'")
         self._reference_type = reference_type
 
     @property
-    def reference_value(self) -> "Union[str, Unset_Type]":
+    def reference_value(self) -> "Union[str, None, Unset_Type]":
         """Gets the reference_value of this CommonSustainabilityMaterialWithSustainability.
 
         Returns
         -------
-        Union[str, Unset_Type]
+        Union[str, None, Unset_Type]
             The reference_value of this CommonSustainabilityMaterialWithSustainability.
         """
         return self._reference_value
 
     @reference_value.setter
-    def reference_value(self, reference_value: "Union[str, Unset_Type]") -> None:
+    def reference_value(self, reference_value: "Union[str, None, Unset_Type]") -> None:
         """Sets the reference_value of this CommonSustainabilityMaterialWithSustainability.
 
         Parameters
         ----------
-        reference_value: Union[str, Unset_Type]
+        reference_value: Union[str, None, Unset_Type]
             The reference_value of this CommonSustainabilityMaterialWithSustainability.
         """
-        # Field is not nullable
-        if reference_value is None:
-            raise ValueError("Invalid value for 'reference_value', must not be 'None'")
         self._reference_value = reference_value
 
     @property

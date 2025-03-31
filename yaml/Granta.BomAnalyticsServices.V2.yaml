@@ -1135,7 +1135,7 @@ paths:
               example3:
                 summary: BoM with a sub-component that is manufactured in Sweden and then transported to the final manufacturing location in Norway
                 value:
-                  BomXml: '<?xml version=\"1.0\"?><PartsEco xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.grantadesign.com/24/12/BillOfMaterialsEco\">  <Components>    <Part>      <Quantity Unit=\"Each\">1</Quantity>      <PartNumber>Example</PartNumber>      <ExternalIdentity>5</ExternalIdentity>      <Components>        <Part>          <Quantity Unit=\"Each\">1</Quantity>          <MassPerUom Unit=\"kg/Part\">2</MassPerUom>          <PartNumber>Sub Part</PartNumber>          <Name />          <ExternalIdentity>6</ExternalIdentity>          <Materials>            <Material>              <Percentage>100</Percentage>              <MIMaterialReference>                <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">cebc4725-623e-4507-818f-06e8a734c681</recordGUID>              </MIMaterialReference>              <Identity>S200</Identity>              <Name>S-200 Alloy</Name>              <ExternalIdentity>7</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">03de1a28-7dd7-4354-bbd8-c839cfa00ec7</recordGUID>                  </MIProcessReference>                  <Identity>sustainability_machining_fine</Identity>                  <Name>Machining, fine</Name>                  <ExternalIdentity>9</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Quantity Unit=\"g\">500</Quantity>                  <Location>                    <MILocationReference>                      <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                      <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>                    </MILocationReference>                    <Identity>SWE</Identity>                    <Name>Sweden</Name>                    <ExternalIdentity>69</ExternalIdentity>                  </Location>                </Process>              </Processes>            </Material>          </Materials>          <TransportPhase>            <TransportStage>              <Name>Aircraft, short haul, belly-freight</Name>              <MITransportReference>                <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">b916ed6b-5e06-4343-9131-d4d562e2d12b</recordGUID>              </MITransportReference>              <Distance Unit=\"km\">200</Distance>            </TransportStage>          </TransportPhase>        </Part>      </Components>    </Part>  </Components>  <Location>    <MILocationReference>      <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>      <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">8abc12ba-9928-40e5-9a68-5ff81b5d2ada</recordGUID>    </MILocationReference>    <Identity>NOR</Identity>    <Name>Norway</Name>    <ExternalIdentity>129</ExternalIdentity>  </Location>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
+                  BomXml: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/24/12/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>Example</PartNumber>      <ExternalIdentity>5</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <MassPerUom Unit="kg/Part">2</MassPerUom>          <PartNumber>Sub Part</PartNumber>          <Name />          <ExternalIdentity>6</ExternalIdentity>          <Materials>            <Material>              <Percentage>100</Percentage>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">cebc4725-623e-4507-818f-06e8a734c681</recordGUID>              </MIMaterialReference>              <Identity>S200</Identity>              <Name>S-200 Alloy</Name>              <ExternalIdentity>7</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">03de1a28-7dd7-4354-bbd8-c839cfa00ec7</recordGUID>                  </MIProcessReference>                  <Identity>sustainability_machining_fine</Identity>                  <Name>Machining, fine</Name>                  <ExternalIdentity>9</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Quantity Unit="g">500</Quantity>                  <Location>                    <MILocationReference>                      <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                      <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>                    </MILocationReference>                    <Identity>SWE</Identity>                    <Name>Sweden</Name>                    <ExternalIdentity>69</ExternalIdentity>                  </Location>                </Process>              </Processes>            </Material>          </Materials>          <TransportPhase>            <TransportStage>              <Name>Aircraft, short haul, belly-freight</Name>              <MITransportReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b916ed6b-5e06-4343-9131-d4d562e2d12b</recordGUID>              </MITransportReference>              <Distance Unit="km">200</Distance>            </TransportStage>          </TransportPhase>        </Part>      </Components>    </Part>  </Components>  <Location>    <MILocationReference>      <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>      <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8abc12ba-9928-40e5-9a68-5ff81b5d2ada</recordGUID>    </MILocationReference>    <Identity>NOR</Identity>    <Name>Norway</Name>    <ExternalIdentity>129</ExternalIdentity>  </Location>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
                   PreferredUnits:
                   DatabaseKey: MI_Restricted_Substances
                   Config:
@@ -1397,7 +1397,7 @@ paths:
               example3:
                 summary: BoM with a sub-component that is manufactured in Sweden and then transported to the final manufacturing location in Norway
                 value:
-                  BomXml: '<?xml version=\"1.0\"?><PartsEco xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.grantadesign.com/24/12/BillOfMaterialsEco\">  <Components>    <Part>      <Quantity Unit=\"Each\">1</Quantity>      <PartNumber>Example</PartNumber>      <ExternalIdentity>5</ExternalIdentity>      <Components>        <Part>          <Quantity Unit=\"Each\">1</Quantity>          <MassPerUom Unit=\"kg/Part\">2</MassPerUom>          <PartNumber>Sub Part</PartNumber>          <Name />          <ExternalIdentity>6</ExternalIdentity>          <Materials>            <Material>              <Percentage>100</Percentage>              <MIMaterialReference>                <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">cebc4725-623e-4507-818f-06e8a734c681</recordGUID>              </MIMaterialReference>              <Identity>S200</Identity>              <Name>S-200 Alloy</Name>              <ExternalIdentity>7</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">03de1a28-7dd7-4354-bbd8-c839cfa00ec7</recordGUID>                  </MIProcessReference>                  <Identity>sustainability_machining_fine</Identity>                  <Name>Machining, fine</Name>                  <ExternalIdentity>9</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Quantity Unit=\"g\">500</Quantity>                  <Location>                    <MILocationReference>                      <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                      <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>                    </MILocationReference>                    <Identity>SWE</Identity>                    <Name>Sweden</Name>                    <ExternalIdentity>69</ExternalIdentity>                  </Location>                </Process>              </Processes>            </Material>          </Materials>          <TransportPhase>            <TransportStage>              <Name>Aircraft, short haul, belly-freight</Name>              <MITransportReference>                <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>                <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">b916ed6b-5e06-4343-9131-d4d562e2d12b</recordGUID>              </MITransportReference>              <Distance Unit=\"km\">200</Distance>            </TransportStage>          </TransportPhase>        </Part>      </Components>    </Part>  </Components>  <Location>    <MILocationReference>      <dbKey xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">MI_Restricted_Substances</dbKey>      <recordGUID xmlns=\"http://www.grantadesign.com/12/05/GrantaBaseTypes\">8abc12ba-9928-40e5-9a68-5ff81b5d2ada</recordGUID>    </MILocationReference>    <Identity>NOR</Identity>    <Name>Norway</Name>    <ExternalIdentity>129</ExternalIdentity>  </Location>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
+                  BomXml: '<?xml version="1.0"?><PartsEco xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.grantadesign.com/24/12/BillOfMaterialsEco">  <Components>    <Part>      <Quantity Unit="Each">1</Quantity>      <PartNumber>Example</PartNumber>      <ExternalIdentity>5</ExternalIdentity>      <Components>        <Part>          <Quantity Unit="Each">1</Quantity>          <MassPerUom Unit="kg/Part">2</MassPerUom>          <PartNumber>Sub Part</PartNumber>          <Name />          <ExternalIdentity>6</ExternalIdentity>          <Materials>            <Material>              <Percentage>100</Percentage>              <MIMaterialReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">cebc4725-623e-4507-818f-06e8a734c681</recordGUID>              </MIMaterialReference>              <Identity>S200</Identity>              <Name>S-200 Alloy</Name>              <ExternalIdentity>7</ExternalIdentity>              <Processes>                <Process>                  <MIProcessReference>                    <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                    <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">03de1a28-7dd7-4354-bbd8-c839cfa00ec7</recordGUID>                  </MIProcessReference>                  <Identity>sustainability_machining_fine</Identity>                  <Name>Machining, fine</Name>                  <ExternalIdentity>9</ExternalIdentity>                  <DimensionType>MassRemoved</DimensionType>                  <Quantity Unit="g">500</Quantity>                  <Location>                    <MILocationReference>                      <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                      <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">bada4963-8fd8-469a-aee8-5ea8d7673d78</recordGUID>                    </MILocationReference>                    <Identity>SWE</Identity>                    <Name>Sweden</Name>                    <ExternalIdentity>69</ExternalIdentity>                  </Location>                </Process>              </Processes>            </Material>          </Materials>          <TransportPhase>            <TransportStage>              <Name>Aircraft, short haul, belly-freight</Name>              <MITransportReference>                <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>                <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">b916ed6b-5e06-4343-9131-d4d562e2d12b</recordGUID>              </MITransportReference>              <Distance Unit="km">200</Distance>            </TransportStage>          </TransportPhase>        </Part>      </Components>    </Part>  </Components>  <Location>    <MILocationReference>      <dbKey xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">MI_Restricted_Substances</dbKey>      <recordGUID xmlns="http://www.grantadesign.com/12/05/GrantaBaseTypes">8abc12ba-9928-40e5-9a68-5ff81b5d2ada</recordGUID>    </MILocationReference>    <Identity>NOR</Identity>    <Name>Norway</Name>    <ExternalIdentity>129</ExternalIdentity>  </Location>  <Notes>    <ProductName>Example</ProductName>  </Notes></PartsEco>'
                   PreferredUnits:
                   DatabaseKey: MI_Restricted_Substances
                   Config:
@@ -1808,8 +1808,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -1898,8 +1900,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -1981,8 +1985,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2051,8 +2057,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2101,8 +2109,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2175,8 +2185,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2288,8 +2300,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2370,8 +2384,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2502,8 +2518,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2721,8 +2739,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2742,8 +2762,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2962,8 +2984,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3233,8 +3257,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3272,8 +3298,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3300,8 +3328,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3328,8 +3358,10 @@ components:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3591,8 +3623,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3644,8 +3678,10 @@ components:
       properties:
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."

@@ -1724,8 +1724,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -1814,8 +1816,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -1897,8 +1901,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -1967,8 +1973,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2017,8 +2025,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2091,8 +2101,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2252,8 +2264,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2334,8 +2348,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2466,8 +2482,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2685,8 +2703,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2706,8 +2726,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2926,8 +2948,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3300,8 +3324,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3339,8 +3365,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3367,8 +3395,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3395,8 +3425,10 @@ components:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3658,8 +3690,10 @@ components:
           nullable: true
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -3711,8 +3745,10 @@ components:
       properties:
         ReferenceType:
           type: string
+          nullable: true
         ReferenceValue:
           type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
