@@ -135,13 +135,7 @@ jobs:
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
-          twine-token: ${{ secrets.PYPI_TOKEN }}
-
-      - name: "Download distribution artifacts"
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.LIBRARY_NAME }}-artifacts
-          path: ${{ env.LIBRARY_NAME }}-artifacts
+          twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
 
       - name: "Release to GitHub"
         uses: softprops/action-gh-release@v2
