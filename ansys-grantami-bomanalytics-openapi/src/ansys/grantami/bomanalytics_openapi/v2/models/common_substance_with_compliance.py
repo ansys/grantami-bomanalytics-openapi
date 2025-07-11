@@ -61,6 +61,8 @@ class CommonSubstanceWithCompliance(ModelBase):
         Name of the property used as discriminator for subtypes.
     """
     swagger_types: dict[str, str] = {
+        "database_key": "str",
+        "equivalent_references": "list[CommonOutputSubstanceEquivalentSubstanceReference]",
         "external_identity": "str",
         "id": "str",
         "indicators": "list[CommonIndicatorResult]",
@@ -71,6 +73,8 @@ class CommonSubstanceWithCompliance(ModelBase):
     }
 
     attribute_map: dict[str, str] = {
+        "database_key": "DatabaseKey",
+        "equivalent_references": "EquivalentReferences",
         "external_identity": "ExternalIdentity",
         "id": "Id",
         "indicators": "Indicators",
@@ -82,6 +86,7 @@ class CommonSubstanceWithCompliance(ModelBase):
 
     subtype_mapping: dict[str, str] = {
         "Indicators": "CommonIndicatorResult",
+        "EquivalentReferences": "CommonOutputSubstanceEquivalentSubstanceReference",
     }
 
     discriminator: Optional[str] = None
@@ -89,6 +94,8 @@ class CommonSubstanceWithCompliance(ModelBase):
     def __init__(
         self,
         *,
+        database_key: "str | None | Unset_Type" = Unset,
+        equivalent_references: "list[CommonOutputSubstanceEquivalentSubstanceReference] | None | Unset_Type" = Unset,
         external_identity: "str | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
         indicators: "list[CommonIndicatorResult] | None | Unset_Type" = Unset,
@@ -101,6 +108,8 @@ class CommonSubstanceWithCompliance(ModelBase):
 
         Parameters
         ----------
+        database_key: str | None, optional
+        equivalent_references: list[CommonOutputSubstanceEquivalentSubstanceReference] | None, optional
         external_identity: str | None, optional
         id: str | None, optional
         indicators: list[CommonIndicatorResult] | None, optional
@@ -111,16 +120,22 @@ class CommonSubstanceWithCompliance(ModelBase):
         """
         self._indicators: list[CommonIndicatorResult] | None | Unset_Type = Unset
         self._percentage_amount: float | None | Unset_Type = Unset
+        self._equivalent_references: (
+            list[CommonOutputSubstanceEquivalentSubstanceReference] | None | Unset_Type
+        ) = Unset
         self._external_identity: str | None | Unset_Type = Unset
         self._name: str | None | Unset_Type = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if indicators is not Unset:
             self.indicators = indicators
         if percentage_amount is not Unset:
             self.percentage_amount = percentage_amount
+        if equivalent_references is not Unset:
+            self.equivalent_references = equivalent_references
         if external_identity is not Unset:
             self.external_identity = external_identity
         if name is not Unset:
@@ -129,6 +144,8 @@ class CommonSubstanceWithCompliance(ModelBase):
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -175,6 +192,33 @@ class CommonSubstanceWithCompliance(ModelBase):
             The percentage_amount of this CommonSubstanceWithCompliance.
         """
         self._percentage_amount = percentage_amount
+
+    @property
+    def equivalent_references(
+        self,
+    ) -> "list[CommonOutputSubstanceEquivalentSubstanceReference] | None | Unset_Type":
+        """Gets the equivalent_references of this CommonSubstanceWithCompliance.
+
+        Returns
+        -------
+        list[CommonOutputSubstanceEquivalentSubstanceReference] | None | Unset_Type
+            The equivalent_references of this CommonSubstanceWithCompliance.
+        """
+        return self._equivalent_references
+
+    @equivalent_references.setter
+    def equivalent_references(
+        self,
+        equivalent_references: "list[CommonOutputSubstanceEquivalentSubstanceReference] | None | Unset_Type",
+    ) -> None:
+        """Sets the equivalent_references of this CommonSubstanceWithCompliance.
+
+        Parameters
+        ----------
+        equivalent_references: list[CommonOutputSubstanceEquivalentSubstanceReference] | None | Unset_Type
+            The equivalent_references of this CommonSubstanceWithCompliance.
+        """
+        self._equivalent_references = equivalent_references
 
     @property
     def external_identity(self) -> "str | None | Unset_Type":
@@ -267,6 +311,28 @@ class CommonSubstanceWithCompliance(ModelBase):
             The reference_value of this CommonSubstanceWithCompliance.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this CommonSubstanceWithCompliance.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this CommonSubstanceWithCompliance.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this CommonSubstanceWithCompliance.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this CommonSubstanceWithCompliance.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":

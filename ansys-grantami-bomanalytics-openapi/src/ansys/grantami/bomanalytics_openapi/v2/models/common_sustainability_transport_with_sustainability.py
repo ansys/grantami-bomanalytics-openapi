@@ -62,8 +62,12 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
     """
     swagger_types: dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
+        "database_key": "str",
         "embodied_energy": "CommonValueWithUnit",
+        "equivalent_references": "list[CommonOutputTransportEquivalentTransportReference]",
+        "external_identity": "str",
         "id": "str",
+        "name": "str",
         "reference_type": "str",
         "reference_value": "str",
         "stage_name": "str",
@@ -71,8 +75,12 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
 
     attribute_map: dict[str, str] = {
         "climate_change": "ClimateChange",
+        "database_key": "DatabaseKey",
         "embodied_energy": "EmbodiedEnergy",
+        "equivalent_references": "EquivalentReferences",
+        "external_identity": "ExternalIdentity",
         "id": "Id",
+        "name": "Name",
         "reference_type": "ReferenceType",
         "reference_value": "ReferenceValue",
         "stage_name": "StageName",
@@ -81,6 +89,7 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
     subtype_mapping: dict[str, str] = {
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
+        "EquivalentReferences": "CommonOutputTransportEquivalentTransportReference",
     }
 
     discriminator: Optional[str] = None
@@ -89,8 +98,12 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         self,
         *,
         climate_change: "CommonValueWithUnit | Unset_Type" = Unset,
+        database_key: "str | None | Unset_Type" = Unset,
         embodied_energy: "CommonValueWithUnit | Unset_Type" = Unset,
+        equivalent_references: "list[CommonOutputTransportEquivalentTransportReference] | None | Unset_Type" = Unset,
+        external_identity: "str | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
+        name: "str | None | Unset_Type" = Unset,
         reference_type: "str | None | Unset_Type" = Unset,
         reference_value: "str | None | Unset_Type" = Unset,
         stage_name: "str | None | Unset_Type" = Unset,
@@ -100,8 +113,12 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         Parameters
         ----------
         climate_change: CommonValueWithUnit, optional
+        database_key: str | None, optional
         embodied_energy: CommonValueWithUnit, optional
+        equivalent_references: list[CommonOutputTransportEquivalentTransportReference] | None, optional
+        external_identity: str | None, optional
         id: str | None, optional
+        name: str | None, optional
         reference_type: str | None, optional
         reference_value: str | None, optional
         stage_name: str | None, optional
@@ -109,8 +126,14 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         self._stage_name: str | None | Unset_Type = Unset
         self._embodied_energy: CommonValueWithUnit | Unset_Type = Unset
         self._climate_change: CommonValueWithUnit | Unset_Type = Unset
+        self._equivalent_references: (
+            list[CommonOutputTransportEquivalentTransportReference] | None | Unset_Type
+        ) = Unset
+        self._external_identity: str | None | Unset_Type = Unset
+        self._name: str | None | Unset_Type = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if stage_name is not Unset:
@@ -119,10 +142,18 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             self.embodied_energy = embodied_energy
         if climate_change is not Unset:
             self.climate_change = climate_change
+        if equivalent_references is not Unset:
+            self.equivalent_references = equivalent_references
+        if external_identity is not Unset:
+            self.external_identity = external_identity
+        if name is not Unset:
+            self.name = name
         if reference_type is not Unset:
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -199,6 +230,81 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
         self._climate_change = climate_change
 
     @property
+    def equivalent_references(
+        self,
+    ) -> "list[CommonOutputTransportEquivalentTransportReference] | None | Unset_Type":
+        """Gets the equivalent_references of this CommonSustainabilityTransportWithSustainability.
+
+        Returns
+        -------
+        list[CommonOutputTransportEquivalentTransportReference] | None | Unset_Type
+            The equivalent_references of this CommonSustainabilityTransportWithSustainability.
+        """
+        return self._equivalent_references
+
+    @equivalent_references.setter
+    def equivalent_references(
+        self,
+        equivalent_references: "list[CommonOutputTransportEquivalentTransportReference] | None | Unset_Type",
+    ) -> None:
+        """Sets the equivalent_references of this CommonSustainabilityTransportWithSustainability.
+
+        Parameters
+        ----------
+        equivalent_references: list[CommonOutputTransportEquivalentTransportReference] | None | Unset_Type
+            The equivalent_references of this CommonSustainabilityTransportWithSustainability.
+        """
+        self._equivalent_references = equivalent_references
+
+    @property
+    def external_identity(self) -> "str | None | Unset_Type":
+        """Gets the external_identity of this CommonSustainabilityTransportWithSustainability.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The external_identity of this CommonSustainabilityTransportWithSustainability.
+        """
+        return self._external_identity
+
+    @external_identity.setter
+    def external_identity(self, external_identity: "str | None | Unset_Type") -> None:
+        """Sets the external_identity of this CommonSustainabilityTransportWithSustainability.
+        In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
+
+        Parameters
+        ----------
+        external_identity: str | None | Unset_Type
+            The external_identity of this CommonSustainabilityTransportWithSustainability.
+        """
+        self._external_identity = external_identity
+
+    @property
+    def name(self) -> "str | None | Unset_Type":
+        """Gets the name of this CommonSustainabilityTransportWithSustainability.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The name of this CommonSustainabilityTransportWithSustainability.
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: "str | None | Unset_Type") -> None:
+        """Sets the name of this CommonSustainabilityTransportWithSustainability.
+        Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted.
+
+        Parameters
+        ----------
+        name: str | None | Unset_Type
+            The name of this CommonSustainabilityTransportWithSustainability.
+        """
+        self._name = name
+
+    @property
     def reference_type(self) -> "str | None | Unset_Type":
         """Gets the reference_type of this CommonSustainabilityTransportWithSustainability.
 
@@ -241,6 +347,28 @@ class CommonSustainabilityTransportWithSustainability(ModelBase):
             The reference_value of this CommonSustainabilityTransportWithSustainability.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this CommonSustainabilityTransportWithSustainability.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this CommonSustainabilityTransportWithSustainability.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this CommonSustainabilityTransportWithSustainability.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this CommonSustainabilityTransportWithSustainability.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":

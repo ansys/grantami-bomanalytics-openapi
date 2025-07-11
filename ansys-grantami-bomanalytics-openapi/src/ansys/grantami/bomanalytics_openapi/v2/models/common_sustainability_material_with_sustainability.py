@@ -63,7 +63,9 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
     swagger_types: dict[str, str] = {
         "biodegradable": "bool",
         "climate_change": "CommonValueWithUnit",
+        "database_key": "str",
         "embodied_energy": "CommonValueWithUnit",
+        "equivalent_references": "list[CommonOutputMaterialEquivalentMaterialReference]",
         "external_identity": "str",
         "functional_recycle": "bool",
         "id": "str",
@@ -78,7 +80,9 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
     attribute_map: dict[str, str] = {
         "biodegradable": "Biodegradable",
         "climate_change": "ClimateChange",
+        "database_key": "DatabaseKey",
         "embodied_energy": "EmbodiedEnergy",
+        "equivalent_references": "EquivalentReferences",
         "external_identity": "ExternalIdentity",
         "functional_recycle": "FunctionalRecycle",
         "id": "Id",
@@ -95,6 +99,7 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
         "ReportedMass": "CommonValueWithUnit",
+        "EquivalentReferences": "CommonOutputMaterialEquivalentMaterialReference",
     }
 
     discriminator: Optional[str] = None
@@ -104,7 +109,9 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         *,
         biodegradable: "bool | None | Unset_Type" = Unset,
         climate_change: "CommonValueWithUnit | Unset_Type" = Unset,
+        database_key: "str | None | Unset_Type" = Unset,
         embodied_energy: "CommonValueWithUnit | Unset_Type" = Unset,
+        equivalent_references: "list[CommonOutputMaterialEquivalentMaterialReference] | None | Unset_Type" = Unset,
         external_identity: "str | None | Unset_Type" = Unset,
         functional_recycle: "bool | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
@@ -121,7 +128,9 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         ----------
         biodegradable: bool | None, optional
         climate_change: CommonValueWithUnit, optional
+        database_key: str | None, optional
         embodied_energy: CommonValueWithUnit, optional
+        equivalent_references: list[CommonOutputMaterialEquivalentMaterialReference] | None, optional
         external_identity: str | None, optional
         functional_recycle: bool | None, optional
         id: str | None, optional
@@ -141,10 +150,14 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._biodegradable: bool | None | Unset_Type = Unset
         self._functional_recycle: bool | None | Unset_Type = Unset
         self._reported_mass: CommonValueWithUnit | Unset_Type = Unset
+        self._equivalent_references: (
+            list[CommonOutputMaterialEquivalentMaterialReference] | None | Unset_Type
+        ) = Unset
         self._external_identity: str | None | Unset_Type = Unset
         self._name: str | None | Unset_Type = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if processes is not Unset:
@@ -161,6 +174,8 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             self.functional_recycle = functional_recycle
         if reported_mass is not Unset:
             self.reported_mass = reported_mass
+        if equivalent_references is not Unset:
+            self.equivalent_references = equivalent_references
         if external_identity is not Unset:
             self.external_identity = external_identity
         if name is not Unset:
@@ -169,6 +184,8 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -340,6 +357,33 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
         self._reported_mass = reported_mass
 
     @property
+    def equivalent_references(
+        self,
+    ) -> "list[CommonOutputMaterialEquivalentMaterialReference] | None | Unset_Type":
+        """Gets the equivalent_references of this CommonSustainabilityMaterialWithSustainability.
+
+        Returns
+        -------
+        list[CommonOutputMaterialEquivalentMaterialReference] | None | Unset_Type
+            The equivalent_references of this CommonSustainabilityMaterialWithSustainability.
+        """
+        return self._equivalent_references
+
+    @equivalent_references.setter
+    def equivalent_references(
+        self,
+        equivalent_references: "list[CommonOutputMaterialEquivalentMaterialReference] | None | Unset_Type",
+    ) -> None:
+        """Sets the equivalent_references of this CommonSustainabilityMaterialWithSustainability.
+
+        Parameters
+        ----------
+        equivalent_references: list[CommonOutputMaterialEquivalentMaterialReference] | None | Unset_Type
+            The equivalent_references of this CommonSustainabilityMaterialWithSustainability.
+        """
+        self._equivalent_references = equivalent_references
+
+    @property
     def external_identity(self) -> "str | None | Unset_Type":
         """Gets the external_identity of this CommonSustainabilityMaterialWithSustainability.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
@@ -430,6 +474,28 @@ class CommonSustainabilityMaterialWithSustainability(ModelBase):
             The reference_value of this CommonSustainabilityMaterialWithSustainability.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this CommonSustainabilityMaterialWithSustainability.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this CommonSustainabilityMaterialWithSustainability.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this CommonSustainabilityMaterialWithSustainability.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this CommonSustainabilityMaterialWithSustainability.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":
