@@ -66,9 +66,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
         "material_identity": "str",
-        "material_record_reference": "CommonMaterialReference",
+        "material_record_reference": "CommonOutputMaterialExtendedMaterialReference",
         "process_name": "str",
-        "process_record_reference": "CommonProcessReference",
+        "process_record_reference": "CommonOutputProcessExtendedProcessReference",
     }
 
     attribute_map: dict[str, str] = {
@@ -83,8 +83,8 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
     }
 
     subtype_mapping: dict[str, str] = {
-        "ProcessRecordReference": "CommonProcessReference",
-        "MaterialRecordReference": "CommonMaterialReference",
+        "ProcessRecordReference": "CommonOutputProcessExtendedProcessReference",
+        "MaterialRecordReference": "CommonOutputMaterialExtendedMaterialReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
     }
@@ -99,9 +99,9 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         embodied_energy: "CommonValueWithUnit | Unset_Type" = Unset,
         embodied_energy_percentage: "float | None | Unset_Type" = Unset,
         material_identity: "str | None | Unset_Type" = Unset,
-        material_record_reference: "CommonMaterialReference | Unset_Type" = Unset,
+        material_record_reference: "CommonOutputMaterialExtendedMaterialReference | Unset_Type" = Unset,
         process_name: "str | None | Unset_Type" = Unset,
-        process_record_reference: "CommonProcessReference | Unset_Type" = Unset,
+        process_record_reference: "CommonOutputProcessExtendedProcessReference | Unset_Type" = Unset,
     ) -> None:
         """CommonSustainabilityProcessSummaryEntry - a model defined in Swagger
 
@@ -112,13 +112,17 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         embodied_energy: CommonValueWithUnit, optional
         embodied_energy_percentage: float | None, optional
         material_identity: str | None, optional
-        material_record_reference: CommonMaterialReference, optional
+        material_record_reference: CommonOutputMaterialExtendedMaterialReference, optional
         process_name: str | None, optional
-        process_record_reference: CommonProcessReference, optional
+        process_record_reference: CommonOutputProcessExtendedProcessReference, optional
         """
         self._process_name: str | None | Unset_Type = Unset
-        self._process_record_reference: CommonProcessReference | Unset_Type = Unset
-        self._material_record_reference: CommonMaterialReference | Unset_Type = Unset
+        self._process_record_reference: CommonOutputProcessExtendedProcessReference | Unset_Type = (
+            Unset
+        )
+        self._material_record_reference: (
+            CommonOutputMaterialExtendedMaterialReference | Unset_Type
+        ) = Unset
         self._material_identity: str | None | Unset_Type = Unset
         self._embodied_energy: CommonValueWithUnit | Unset_Type = Unset
         self._embodied_energy_percentage: float | None | Unset_Type = Unset
@@ -165,25 +169,27 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._process_name = process_name
 
     @property
-    def process_record_reference(self) -> "CommonProcessReference | Unset_Type":
+    def process_record_reference(
+        self,
+    ) -> "CommonOutputProcessExtendedProcessReference | Unset_Type":
         """Gets the process_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        CommonProcessReference | Unset_Type
+        CommonOutputProcessExtendedProcessReference | Unset_Type
             The process_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._process_record_reference
 
     @process_record_reference.setter
     def process_record_reference(
-        self, process_record_reference: "CommonProcessReference | Unset_Type"
+        self, process_record_reference: "CommonOutputProcessExtendedProcessReference | Unset_Type"
     ) -> None:
         """Sets the process_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        process_record_reference: CommonProcessReference | Unset_Type
+        process_record_reference: CommonOutputProcessExtendedProcessReference | Unset_Type
             The process_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
         # Field is not nullable
@@ -192,25 +198,28 @@ class CommonSustainabilityProcessSummaryEntry(ModelBase):
         self._process_record_reference = process_record_reference
 
     @property
-    def material_record_reference(self) -> "CommonMaterialReference | Unset_Type":
+    def material_record_reference(
+        self,
+    ) -> "CommonOutputMaterialExtendedMaterialReference | Unset_Type":
         """Gets the material_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Returns
         -------
-        CommonMaterialReference | Unset_Type
+        CommonOutputMaterialExtendedMaterialReference | Unset_Type
             The material_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
         return self._material_record_reference
 
     @material_record_reference.setter
     def material_record_reference(
-        self, material_record_reference: "CommonMaterialReference | Unset_Type"
+        self,
+        material_record_reference: "CommonOutputMaterialExtendedMaterialReference | Unset_Type",
     ) -> None:
         """Sets the material_record_reference of this CommonSustainabilityProcessSummaryEntry.
 
         Parameters
         ----------
-        material_record_reference: CommonMaterialReference | Unset_Type
+        material_record_reference: CommonOutputMaterialExtendedMaterialReference | Unset_Type
             The material_record_reference of this CommonSustainabilityProcessSummaryEntry.
         """
         # Field is not nullable

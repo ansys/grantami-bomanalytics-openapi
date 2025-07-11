@@ -61,6 +61,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
         Name of the property used as discriminator for subtypes.
     """
     swagger_types: dict[str, str] = {
+        "database_key": "str",
         "external_identity": "str",
         "id": "str",
         "name": "str",
@@ -70,6 +71,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
     }
 
     attribute_map: dict[str, str] = {
+        "database_key": "DatabaseKey",
         "external_identity": "ExternalIdentity",
         "id": "Id",
         "name": "Name",
@@ -85,6 +87,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
     def __init__(
         self,
         *,
+        database_key: "str | None | Unset_Type" = Unset,
         external_identity: "str | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
         name: "str | None | Unset_Type" = Unset,
@@ -96,6 +99,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
 
         Parameters
         ----------
+        database_key: str | None, optional
         external_identity: str | None, optional
         id: str | None, optional
         name: str | None, optional
@@ -108,6 +112,7 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
         self._name: str | None | Unset_Type = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if percentage_amount is not Unset:
@@ -120,6 +125,8 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -236,6 +243,28 @@ class GetComplianceForSubstancesSubstanceWithAmount(ModelBase):
             The reference_value of this GetComplianceForSubstancesSubstanceWithAmount.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this GetComplianceForSubstancesSubstanceWithAmount.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this GetComplianceForSubstancesSubstanceWithAmount.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this GetComplianceForSubstancesSubstanceWithAmount.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this GetComplianceForSubstancesSubstanceWithAmount.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":

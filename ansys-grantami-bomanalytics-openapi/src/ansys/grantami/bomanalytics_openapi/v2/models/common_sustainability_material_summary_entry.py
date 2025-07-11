@@ -69,7 +69,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         "largest_contributors": "list[CommonSustainabilityMaterialContributingComponent]",
         "mass_after_processing": "CommonValueWithUnit",
         "mass_before_processing": "CommonValueWithUnit",
-        "record_reference": "CommonMaterialReference",
+        "record_reference": "CommonOutputMaterialExtendedMaterialReference",
     }
 
     attribute_map: dict[str, str] = {
@@ -85,7 +85,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
     }
 
     subtype_mapping: dict[str, str] = {
-        "RecordReference": "CommonMaterialReference",
+        "RecordReference": "CommonOutputMaterialExtendedMaterialReference",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
         "MassBeforeProcessing": "CommonValueWithUnit",
@@ -106,7 +106,7 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         largest_contributors: "list[CommonSustainabilityMaterialContributingComponent] | None | Unset_Type" = Unset,
         mass_after_processing: "CommonValueWithUnit | Unset_Type" = Unset,
         mass_before_processing: "CommonValueWithUnit | Unset_Type" = Unset,
-        record_reference: "CommonMaterialReference | Unset_Type" = Unset,
+        record_reference: "CommonOutputMaterialExtendedMaterialReference | Unset_Type" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialSummaryEntry - a model defined in Swagger
 
@@ -120,10 +120,10 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         largest_contributors: list[CommonSustainabilityMaterialContributingComponent] | None, optional
         mass_after_processing: CommonValueWithUnit, optional
         mass_before_processing: CommonValueWithUnit, optional
-        record_reference: CommonMaterialReference, optional
+        record_reference: CommonOutputMaterialExtendedMaterialReference, optional
         """
         self._identity: str | None | Unset_Type = Unset
-        self._record_reference: CommonMaterialReference | Unset_Type = Unset
+        self._record_reference: CommonOutputMaterialExtendedMaterialReference | Unset_Type = Unset
         self._embodied_energy: CommonValueWithUnit | Unset_Type = Unset
         self._embodied_energy_percentage: float | None | Unset_Type = Unset
         self._climate_change: CommonValueWithUnit | Unset_Type = Unset
@@ -176,23 +176,25 @@ class CommonSustainabilityMaterialSummaryEntry(ModelBase):
         self._identity = identity
 
     @property
-    def record_reference(self) -> "CommonMaterialReference | Unset_Type":
+    def record_reference(self) -> "CommonOutputMaterialExtendedMaterialReference | Unset_Type":
         """Gets the record_reference of this CommonSustainabilityMaterialSummaryEntry.
 
         Returns
         -------
-        CommonMaterialReference | Unset_Type
+        CommonOutputMaterialExtendedMaterialReference | Unset_Type
             The record_reference of this CommonSustainabilityMaterialSummaryEntry.
         """
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "CommonMaterialReference | Unset_Type") -> None:
+    def record_reference(
+        self, record_reference: "CommonOutputMaterialExtendedMaterialReference | Unset_Type"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityMaterialSummaryEntry.
 
         Parameters
         ----------
-        record_reference: CommonMaterialReference | Unset_Type
+        record_reference: CommonOutputMaterialExtendedMaterialReference | Unset_Type
             The record_reference of this CommonSustainabilityMaterialSummaryEntry.
         """
         # Field is not nullable

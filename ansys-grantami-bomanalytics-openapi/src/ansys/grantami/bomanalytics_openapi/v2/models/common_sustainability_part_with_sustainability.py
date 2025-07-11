@@ -62,7 +62,9 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
     """
     swagger_types: dict[str, str] = {
         "climate_change": "CommonValueWithUnit",
+        "database_key": "str",
         "embodied_energy": "CommonValueWithUnit",
+        "equivalent_references": "list[CommonOutputPartEquivalentPartReference]",
         "external_identity": "str",
         "id": "str",
         "input_part_number": "str",
@@ -78,7 +80,9 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
 
     attribute_map: dict[str, str] = {
         "climate_change": "ClimateChange",
+        "database_key": "DatabaseKey",
         "embodied_energy": "EmbodiedEnergy",
+        "equivalent_references": "EquivalentReferences",
         "external_identity": "ExternalIdentity",
         "id": "Id",
         "input_part_number": "InputPartNumber",
@@ -100,6 +104,7 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         "ClimateChange": "CommonValueWithUnit",
         "ReportedMass": "CommonValueWithUnit",
         "TransportStages": "CommonSustainabilityTransportWithSustainability",
+        "EquivalentReferences": "CommonOutputPartEquivalentPartReference",
     }
 
     discriminator: Optional[str] = None
@@ -108,7 +113,9 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self,
         *,
         climate_change: "CommonValueWithUnit | Unset_Type" = Unset,
+        database_key: "str | None | Unset_Type" = Unset,
         embodied_energy: "CommonValueWithUnit | Unset_Type" = Unset,
+        equivalent_references: "list[CommonOutputPartEquivalentPartReference] | None | Unset_Type" = Unset,
         external_identity: "str | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
         input_part_number: "str | None | Unset_Type" = Unset,
@@ -126,7 +133,9 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         Parameters
         ----------
         climate_change: CommonValueWithUnit, optional
+        database_key: str | None, optional
         embodied_energy: CommonValueWithUnit, optional
+        equivalent_references: list[CommonOutputPartEquivalentPartReference] | None, optional
         external_identity: str | None, optional
         id: str | None, optional
         input_part_number: str | None, optional
@@ -152,11 +161,15 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._transport_stages: (
             list[CommonSustainabilityTransportWithSustainability] | None | Unset_Type
         ) = Unset
+        self._equivalent_references: (
+            list[CommonOutputPartEquivalentPartReference] | None | Unset_Type
+        ) = Unset
         self._input_part_number: str | None | Unset_Type = Unset
         self._external_identity: str | None | Unset_Type = Unset
         self._name: str | None | Unset_Type = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if parts is not Unset:
@@ -173,6 +186,8 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             self.reported_mass = reported_mass
         if transport_stages is not Unset:
             self.transport_stages = transport_stages
+        if equivalent_references is not Unset:
+            self.equivalent_references = equivalent_references
         if input_part_number is not Unset:
             self.input_part_number = input_part_number
         if external_identity is not Unset:
@@ -183,6 +198,8 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -365,6 +382,33 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
         self._transport_stages = transport_stages
 
     @property
+    def equivalent_references(
+        self,
+    ) -> "list[CommonOutputPartEquivalentPartReference] | None | Unset_Type":
+        """Gets the equivalent_references of this CommonSustainabilityPartWithSustainability.
+
+        Returns
+        -------
+        list[CommonOutputPartEquivalentPartReference] | None | Unset_Type
+            The equivalent_references of this CommonSustainabilityPartWithSustainability.
+        """
+        return self._equivalent_references
+
+    @equivalent_references.setter
+    def equivalent_references(
+        self,
+        equivalent_references: "list[CommonOutputPartEquivalentPartReference] | None | Unset_Type",
+    ) -> None:
+        """Sets the equivalent_references of this CommonSustainabilityPartWithSustainability.
+
+        Parameters
+        ----------
+        equivalent_references: list[CommonOutputPartEquivalentPartReference] | None | Unset_Type
+            The equivalent_references of this CommonSustainabilityPartWithSustainability.
+        """
+        self._equivalent_references = equivalent_references
+
+    @property
     def input_part_number(self) -> "str | None | Unset_Type":
         """Gets the input_part_number of this CommonSustainabilityPartWithSustainability.
         This is set to the value of the PartNumber element in the input BoM.
@@ -479,6 +523,28 @@ class CommonSustainabilityPartWithSustainability(ModelBase):
             The reference_value of this CommonSustainabilityPartWithSustainability.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this CommonSustainabilityPartWithSustainability.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this CommonSustainabilityPartWithSustainability.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this CommonSustainabilityPartWithSustainability.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this CommonSustainabilityPartWithSustainability.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":
