@@ -65,7 +65,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         "component_part_number": "str",
         "material_mass_before_processing": "CommonValueWithUnit",
         "parent_name": "str",
-        "record_reference": "CommonPartReference",
+        "record_reference": "CommonOutputPartExtendedPartReference",
     }
 
     attribute_map: dict[str, str] = {
@@ -77,7 +77,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
     }
 
     subtype_mapping: dict[str, str] = {
-        "RecordReference": "CommonPartReference",
+        "RecordReference": "CommonOutputPartExtendedPartReference",
         "MaterialMassBeforeProcessing": "CommonValueWithUnit",
     }
 
@@ -90,7 +90,7 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         component_part_number: "str | None | Unset_Type" = Unset,
         material_mass_before_processing: "CommonValueWithUnit | Unset_Type" = Unset,
         parent_name: "str | None | Unset_Type" = Unset,
-        record_reference: "CommonPartReference | Unset_Type" = Unset,
+        record_reference: "CommonOutputPartExtendedPartReference | Unset_Type" = Unset,
     ) -> None:
         """CommonSustainabilityMaterialContributingComponent - a model defined in Swagger
 
@@ -100,12 +100,12 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         component_part_number: str | None, optional
         material_mass_before_processing: CommonValueWithUnit, optional
         parent_name: str | None, optional
-        record_reference: CommonPartReference, optional
+        record_reference: CommonOutputPartExtendedPartReference, optional
         """
         self._parent_name: str | None | Unset_Type = Unset
         self._component_name: str | None | Unset_Type = Unset
         self._component_part_number: str | None | Unset_Type = Unset
-        self._record_reference: CommonPartReference | Unset_Type = Unset
+        self._record_reference: CommonOutputPartExtendedPartReference | Unset_Type = Unset
         self._material_mass_before_processing: CommonValueWithUnit | Unset_Type = Unset
 
         if parent_name is not Unset:
@@ -186,23 +186,25 @@ class CommonSustainabilityMaterialContributingComponent(ModelBase):
         self._component_part_number = component_part_number
 
     @property
-    def record_reference(self) -> "CommonPartReference | Unset_Type":
+    def record_reference(self) -> "CommonOutputPartExtendedPartReference | Unset_Type":
         """Gets the record_reference of this CommonSustainabilityMaterialContributingComponent.
 
         Returns
         -------
-        CommonPartReference | Unset_Type
+        CommonOutputPartExtendedPartReference | Unset_Type
             The record_reference of this CommonSustainabilityMaterialContributingComponent.
         """
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "CommonPartReference | Unset_Type") -> None:
+    def record_reference(
+        self, record_reference: "CommonOutputPartExtendedPartReference | Unset_Type"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityMaterialContributingComponent.
 
         Parameters
         ----------
-        record_reference: CommonPartReference | Unset_Type
+        record_reference: CommonOutputPartExtendedPartReference | Unset_Type
             The record_reference of this CommonSustainabilityMaterialContributingComponent.
         """
         # Field is not nullable

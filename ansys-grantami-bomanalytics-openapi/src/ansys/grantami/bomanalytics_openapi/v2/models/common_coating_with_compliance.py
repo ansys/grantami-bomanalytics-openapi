@@ -61,6 +61,8 @@ class CommonCoatingWithCompliance(ModelBase):
         Name of the property used as discriminator for subtypes.
     """
     swagger_types: dict[str, str] = {
+        "database_key": "str",
+        "equivalent_references": "list[CommonOutputCoatingEquivalentCoatingReference]",
         "id": "str",
         "indicators": "list[CommonIndicatorResult]",
         "reference_type": "str",
@@ -69,6 +71,8 @@ class CommonCoatingWithCompliance(ModelBase):
     }
 
     attribute_map: dict[str, str] = {
+        "database_key": "DatabaseKey",
+        "equivalent_references": "EquivalentReferences",
         "id": "Id",
         "indicators": "Indicators",
         "reference_type": "ReferenceType",
@@ -79,6 +83,7 @@ class CommonCoatingWithCompliance(ModelBase):
     subtype_mapping: dict[str, str] = {
         "Indicators": "CommonIndicatorResult",
         "Substances": "CommonSubstanceWithCompliance",
+        "EquivalentReferences": "CommonOutputCoatingEquivalentCoatingReference",
     }
 
     discriminator: Optional[str] = None
@@ -86,6 +91,8 @@ class CommonCoatingWithCompliance(ModelBase):
     def __init__(
         self,
         *,
+        database_key: "str | None | Unset_Type" = Unset,
+        equivalent_references: "list[CommonOutputCoatingEquivalentCoatingReference] | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
         indicators: "list[CommonIndicatorResult] | None | Unset_Type" = Unset,
         reference_type: "str | None | Unset_Type" = Unset,
@@ -96,6 +103,8 @@ class CommonCoatingWithCompliance(ModelBase):
 
         Parameters
         ----------
+        database_key: str | None, optional
+        equivalent_references: list[CommonOutputCoatingEquivalentCoatingReference] | None, optional
         id: str | None, optional
         indicators: list[CommonIndicatorResult] | None, optional
         reference_type: str | None, optional
@@ -104,18 +113,26 @@ class CommonCoatingWithCompliance(ModelBase):
         """
         self._indicators: list[CommonIndicatorResult] | None | Unset_Type = Unset
         self._substances: list[CommonSubstanceWithCompliance] | None | Unset_Type = Unset
+        self._equivalent_references: (
+            list[CommonOutputCoatingEquivalentCoatingReference] | None | Unset_Type
+        ) = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if indicators is not Unset:
             self.indicators = indicators
         if substances is not Unset:
             self.substances = substances
+        if equivalent_references is not Unset:
+            self.equivalent_references = equivalent_references
         if reference_type is not Unset:
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -166,6 +183,33 @@ class CommonCoatingWithCompliance(ModelBase):
         self._substances = substances
 
     @property
+    def equivalent_references(
+        self,
+    ) -> "list[CommonOutputCoatingEquivalentCoatingReference] | None | Unset_Type":
+        """Gets the equivalent_references of this CommonCoatingWithCompliance.
+
+        Returns
+        -------
+        list[CommonOutputCoatingEquivalentCoatingReference] | None | Unset_Type
+            The equivalent_references of this CommonCoatingWithCompliance.
+        """
+        return self._equivalent_references
+
+    @equivalent_references.setter
+    def equivalent_references(
+        self,
+        equivalent_references: "list[CommonOutputCoatingEquivalentCoatingReference] | None | Unset_Type",
+    ) -> None:
+        """Sets the equivalent_references of this CommonCoatingWithCompliance.
+
+        Parameters
+        ----------
+        equivalent_references: list[CommonOutputCoatingEquivalentCoatingReference] | None | Unset_Type
+            The equivalent_references of this CommonCoatingWithCompliance.
+        """
+        self._equivalent_references = equivalent_references
+
+    @property
     def reference_type(self) -> "str | None | Unset_Type":
         """Gets the reference_type of this CommonCoatingWithCompliance.
 
@@ -208,6 +252,28 @@ class CommonCoatingWithCompliance(ModelBase):
             The reference_value of this CommonCoatingWithCompliance.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this CommonCoatingWithCompliance.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this CommonCoatingWithCompliance.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this CommonCoatingWithCompliance.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this CommonCoatingWithCompliance.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":

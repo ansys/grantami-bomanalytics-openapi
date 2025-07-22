@@ -1812,6 +1812,9 @@ components:
         ReferenceValue:
           type: string
           nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -1890,6 +1893,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Material.EquivalentMaterialReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -1902,6 +1910,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -1937,6 +1948,30 @@ components:
         LegislationThreshold:
           type: number
           format: double
+          nullable: true
+    Common.Output.Material.EquivalentMaterialReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
           nullable: true
     Common.LogEntry:
       type: object
@@ -1987,6 +2022,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2047,6 +2085,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Specification.EquivalentSpecificationReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -2059,6 +2102,33 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
+    Common.Output.Specification.EquivalentSpecificationReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2111,6 +2181,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2171,6 +2244,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.LegislationWithImpactedSubstances'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Part.EquivalentPartReference'
+          nullable: true
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
@@ -2187,6 +2265,33 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
+    Common.Output.Part.EquivalentPartReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2304,6 +2409,9 @@ components:
         ReferenceValue:
           type: string
           nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2374,6 +2482,11 @@ components:
           type: number
           format: double
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Substance.EquivalentSubstanceReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -2388,6 +2501,9 @@ components:
         ReferenceValue:
           type: string
           nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
         Id:
           type: string
           description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
@@ -2399,6 +2515,30 @@ components:
           type: string
         Flag:
           type: string
+    Common.Output.Substance.EquivalentSubstanceReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     GetComplianceForMaterials.Request:
       type: object
       properties:
@@ -2508,6 +2648,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Material.EquivalentMaterialReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -2520,6 +2665,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2729,6 +2877,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Specification.EquivalentSpecificationReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -2741,6 +2894,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2760,10 +2916,42 @@ components:
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Coating.EquivalentCoatingReference'
+          nullable: true
         ReferenceType:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
+    Common.Output.Coating.EquivalentCoatingReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -2970,6 +3158,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.SubstanceWithCompliance'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Part.EquivalentPartReference'
+          nullable: true
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
@@ -2986,6 +3179,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -3243,6 +3439,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportWithSustainability'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Part.EquivalentPartReference'
+          nullable: true
         InputPartNumber:
           type: string
           description: This is set to the value of the PartNumber element in the input BoM.
@@ -3259,6 +3460,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -3288,6 +3492,11 @@ components:
           nullable: true
         ReportedMass:
           $ref: '#/components/schemas/Common.ValueWithUnit'
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Material.EquivalentMaterialReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -3300,6 +3509,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -3318,6 +3530,11 @@ components:
           items:
             $ref: '#/components/schemas/Common.Sustainability.TransportWithSustainability'
           nullable: true
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Process.EquivalentProcessReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -3330,6 +3547,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -3356,10 +3576,74 @@ components:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         ClimateChange:
           $ref: '#/components/schemas/Common.ValueWithUnit'
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Transport.EquivalentTransportReference'
+          nullable: true
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
+    Common.Output.Transport.EquivalentTransportReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
+    Common.Output.Process.EquivalentProcessReference:
+      type: object
+      properties:
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -3509,7 +3793,7 @@ components:
           type: string
           nullable: true
         RecordReference:
-          $ref: '#/components/schemas/Common.MaterialReference'
+          $ref: '#/components/schemas/Common.Output.Material.ExtendedMaterialReference'
         EmbodiedEnergy:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergyPercentage:
@@ -3531,6 +3815,35 @@ components:
           items:
             $ref: '#/components/schemas/Common.Sustainability.MaterialContributingComponent'
           nullable: true
+    Common.Output.Material.ExtendedMaterialReference:
+      type: object
+      properties:
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Material.EquivalentMaterialReference'
+          nullable: true
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.Sustainability.MaterialContributingComponent:
       type: object
       properties:
@@ -3544,9 +3857,42 @@ components:
           type: string
           nullable: true
         RecordReference:
-          $ref: '#/components/schemas/Common.PartReference'
+          $ref: '#/components/schemas/Common.Output.Part.ExtendedPartReference'
         MaterialMassBeforeProcessing:
           $ref: '#/components/schemas/Common.ValueWithUnit'
+    Common.Output.Part.ExtendedPartReference:
+      type: object
+      properties:
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Part.EquivalentPartReference'
+          nullable: true
+        InputPartNumber:
+          type: string
+          description: This is set to the value of the PartNumber element in the input BoM.
+          nullable: true
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
+        ReferenceType:
+          type: string
+          nullable: true
+        ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
+          type: string
+          nullable: true
+        Id:
+          type: string
+          description: "Many elements in the input BoM schema allow for an XML ID attribute (called 'id') to be set. If this was set in the input BoM, its value is returned in this property. If no value was set in the input BoM an arbitrary, a unique value will be assigned."
+          nullable: true
     Common.Sustainability.PhaseSummary:
       type: object
       properties:
@@ -3592,9 +3938,9 @@ components:
           type: string
           nullable: true
         ProcessRecordReference:
-          $ref: '#/components/schemas/Common.ProcessReference'
+          $ref: '#/components/schemas/Common.Output.Process.ExtendedProcessReference'
         MaterialRecordReference:
-          $ref: '#/components/schemas/Common.MaterialReference'
+          $ref: '#/components/schemas/Common.Output.Material.ExtendedMaterialReference'
         MaterialIdentity:
           type: string
           nullable: true
@@ -3610,9 +3956,14 @@ components:
           type: number
           format: double
           nullable: true
-    Common.ProcessReference:
+    Common.Output.Process.ExtendedProcessReference:
       type: object
       properties:
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Process.EquivalentProcessReference'
+          nullable: true
         ExternalIdentity:
           type: string
           description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
@@ -3625,6 +3976,9 @@ components:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:
@@ -3658,7 +4012,7 @@ components:
           type: string
           nullable: true
         RecordReference:
-          $ref: '#/components/schemas/Common.TransportReference'
+          $ref: '#/components/schemas/Common.Output.Transport.ExtendedTransportReference'
         Distance:
           $ref: '#/components/schemas/Common.ValueWithUnit'
         EmbodiedEnergy:
@@ -3673,13 +4027,29 @@ components:
           type: number
           format: double
           nullable: true
-    Common.TransportReference:
+    Common.Output.Transport.ExtendedTransportReference:
       type: object
       properties:
+        EquivalentReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Common.Output.Transport.EquivalentTransportReference'
+          nullable: true
+        ExternalIdentity:
+          type: string
+          description: "In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted."
+          nullable: true
+        Name:
+          type: string
+          description: "Many elements in the input BoM schema allow for the display name to be set in a 'Name' element. If this was set in the input BoM, its value is returned in this property. If the Name was not present in the input BoM, this property is omitted."
+          nullable: true
         ReferenceType:
           type: string
           nullable: true
         ReferenceValue:
+          type: string
+          nullable: true
+        DatabaseKey:
           type: string
           nullable: true
         Id:

@@ -66,7 +66,7 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         "distance": "CommonValueWithUnit",
         "embodied_energy": "CommonValueWithUnit",
         "embodied_energy_percentage": "float",
-        "record_reference": "CommonTransportReference",
+        "record_reference": "CommonOutputTransportExtendedTransportReference",
         "stage_name": "str",
     }
 
@@ -81,7 +81,7 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
     }
 
     subtype_mapping: dict[str, str] = {
-        "RecordReference": "CommonTransportReference",
+        "RecordReference": "CommonOutputTransportExtendedTransportReference",
         "Distance": "CommonValueWithUnit",
         "EmbodiedEnergy": "CommonValueWithUnit",
         "ClimateChange": "CommonValueWithUnit",
@@ -97,7 +97,7 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         distance: "CommonValueWithUnit | Unset_Type" = Unset,
         embodied_energy: "CommonValueWithUnit | Unset_Type" = Unset,
         embodied_energy_percentage: "float | None | Unset_Type" = Unset,
-        record_reference: "CommonTransportReference | Unset_Type" = Unset,
+        record_reference: "CommonOutputTransportExtendedTransportReference | Unset_Type" = Unset,
         stage_name: "str | None | Unset_Type" = Unset,
     ) -> None:
         """CommonSustainabilityTransportSummaryEntry - a model defined in Swagger
@@ -109,11 +109,11 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         distance: CommonValueWithUnit, optional
         embodied_energy: CommonValueWithUnit, optional
         embodied_energy_percentage: float | None, optional
-        record_reference: CommonTransportReference, optional
+        record_reference: CommonOutputTransportExtendedTransportReference, optional
         stage_name: str | None, optional
         """
         self._stage_name: str | None | Unset_Type = Unset
-        self._record_reference: CommonTransportReference | Unset_Type = Unset
+        self._record_reference: CommonOutputTransportExtendedTransportReference | Unset_Type = Unset
         self._distance: CommonValueWithUnit | Unset_Type = Unset
         self._embodied_energy: CommonValueWithUnit | Unset_Type = Unset
         self._embodied_energy_percentage: float | None | Unset_Type = Unset
@@ -158,23 +158,25 @@ class CommonSustainabilityTransportSummaryEntry(ModelBase):
         self._stage_name = stage_name
 
     @property
-    def record_reference(self) -> "CommonTransportReference | Unset_Type":
+    def record_reference(self) -> "CommonOutputTransportExtendedTransportReference | Unset_Type":
         """Gets the record_reference of this CommonSustainabilityTransportSummaryEntry.
 
         Returns
         -------
-        CommonTransportReference | Unset_Type
+        CommonOutputTransportExtendedTransportReference | Unset_Type
             The record_reference of this CommonSustainabilityTransportSummaryEntry.
         """
         return self._record_reference
 
     @record_reference.setter
-    def record_reference(self, record_reference: "CommonTransportReference | Unset_Type") -> None:
+    def record_reference(
+        self, record_reference: "CommonOutputTransportExtendedTransportReference | Unset_Type"
+    ) -> None:
         """Sets the record_reference of this CommonSustainabilityTransportSummaryEntry.
 
         Parameters
         ----------
-        record_reference: CommonTransportReference | Unset_Type
+        record_reference: CommonOutputTransportExtendedTransportReference | Unset_Type
             The record_reference of this CommonSustainabilityTransportSummaryEntry.
         """
         # Field is not nullable

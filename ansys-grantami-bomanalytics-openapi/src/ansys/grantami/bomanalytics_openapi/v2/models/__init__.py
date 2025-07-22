@@ -44,10 +44,38 @@ from .common_legislation_with_impacted_substances import CommonLegislationWithIm
 from .common_log_entry import CommonLogEntry
 from .common_material_reference import CommonMaterialReference
 from .common_material_with_compliance import CommonMaterialWithCompliance
+from .common_output_coating_equivalent_coating_reference import (
+    CommonOutputCoatingEquivalentCoatingReference,
+)
+from .common_output_material_equivalent_material_reference import (
+    CommonOutputMaterialEquivalentMaterialReference,
+)
+from .common_output_material_extended_material_reference import (
+    CommonOutputMaterialExtendedMaterialReference,
+)
+from .common_output_part_equivalent_part_reference import CommonOutputPartEquivalentPartReference
+from .common_output_part_extended_part_reference import CommonOutputPartExtendedPartReference
+from .common_output_process_equivalent_process_reference import (
+    CommonOutputProcessEquivalentProcessReference,
+)
+from .common_output_process_extended_process_reference import (
+    CommonOutputProcessExtendedProcessReference,
+)
+from .common_output_specification_equivalent_specification_reference import (
+    CommonOutputSpecificationEquivalentSpecificationReference,
+)
+from .common_output_substance_equivalent_substance_reference import (
+    CommonOutputSubstanceEquivalentSubstanceReference,
+)
+from .common_output_transport_equivalent_transport_reference import (
+    CommonOutputTransportEquivalentTransportReference,
+)
+from .common_output_transport_extended_transport_reference import (
+    CommonOutputTransportExtendedTransportReference,
+)
 from .common_part_reference import CommonPartReference
 from .common_part_with_compliance import CommonPartWithCompliance
 from .common_preferred_units import CommonPreferredUnits
-from .common_process_reference import CommonProcessReference
 from .common_request_config import CommonRequestConfig
 from .common_specification_reference import CommonSpecificationReference
 from .common_specification_with_compliance import CommonSpecificationWithCompliance
@@ -80,7 +108,6 @@ from .common_sustainability_transport_summary_entry import CommonSustainabilityT
 from .common_sustainability_transport_with_sustainability import (
     CommonSustainabilityTransportWithSustainability,
 )
-from .common_transport_reference import CommonTransportReference
 from .common_value_with_unit import CommonValueWithUnit
 from .get_available_licenses_response import GetAvailableLicensesResponse
 from .get_compliance_for_bom_request import GetComplianceForBomRequest
@@ -134,10 +161,20 @@ __all__ = [
     "CommonLogEntry",
     "CommonMaterialReference",
     "CommonMaterialWithCompliance",
+    "CommonOutputCoatingEquivalentCoatingReference",
+    "CommonOutputMaterialEquivalentMaterialReference",
+    "CommonOutputMaterialExtendedMaterialReference",
+    "CommonOutputPartEquivalentPartReference",
+    "CommonOutputPartExtendedPartReference",
+    "CommonOutputProcessEquivalentProcessReference",
+    "CommonOutputProcessExtendedProcessReference",
+    "CommonOutputSpecificationEquivalentSpecificationReference",
+    "CommonOutputSubstanceEquivalentSubstanceReference",
+    "CommonOutputTransportEquivalentTransportReference",
+    "CommonOutputTransportExtendedTransportReference",
     "CommonPartReference",
     "CommonPartWithCompliance",
     "CommonPreferredUnits",
-    "CommonProcessReference",
     "CommonRequestConfig",
     "CommonSpecificationReference",
     "CommonSpecificationWithCompliance",
@@ -156,7 +193,6 @@ __all__ = [
     "CommonSustainabilityTransportSummary",
     "CommonSustainabilityTransportSummaryEntry",
     "CommonSustainabilityTransportWithSustainability",
-    "CommonTransportReference",
     "CommonValueWithUnit",
     "GetAvailableLicensesResponse",
     "GetComplianceForBomRequest",
