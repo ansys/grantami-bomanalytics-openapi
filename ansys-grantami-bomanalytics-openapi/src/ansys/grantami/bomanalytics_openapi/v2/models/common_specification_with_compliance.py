@@ -62,6 +62,8 @@ class CommonSpecificationWithCompliance(ModelBase):
     """
     swagger_types: dict[str, str] = {
         "coatings": "list[CommonCoatingWithCompliance]",
+        "database_key": "str",
+        "equivalent_references": "list[CommonOutputSpecificationEquivalentSpecificationReference]",
         "external_identity": "str",
         "id": "str",
         "indicators": "list[CommonIndicatorResult]",
@@ -75,6 +77,8 @@ class CommonSpecificationWithCompliance(ModelBase):
 
     attribute_map: dict[str, str] = {
         "coatings": "Coatings",
+        "database_key": "DatabaseKey",
+        "equivalent_references": "EquivalentReferences",
         "external_identity": "ExternalIdentity",
         "id": "Id",
         "indicators": "Indicators",
@@ -92,6 +96,7 @@ class CommonSpecificationWithCompliance(ModelBase):
         "Coatings": "CommonCoatingWithCompliance",
         "Materials": "CommonMaterialWithCompliance",
         "Substances": "CommonSubstanceWithCompliance",
+        "EquivalentReferences": "CommonOutputSpecificationEquivalentSpecificationReference",
     }
 
     discriminator: Optional[str] = None
@@ -100,6 +105,8 @@ class CommonSpecificationWithCompliance(ModelBase):
         self,
         *,
         coatings: "list[CommonCoatingWithCompliance] | None | Unset_Type" = Unset,
+        database_key: "str | None | Unset_Type" = Unset,
+        equivalent_references: "list[CommonOutputSpecificationEquivalentSpecificationReference] | None | Unset_Type" = Unset,
         external_identity: "str | None | Unset_Type" = Unset,
         id: "str | None | Unset_Type" = Unset,
         indicators: "list[CommonIndicatorResult] | None | Unset_Type" = Unset,
@@ -115,6 +122,8 @@ class CommonSpecificationWithCompliance(ModelBase):
         Parameters
         ----------
         coatings: list[CommonCoatingWithCompliance] | None, optional
+        database_key: str | None, optional
+        equivalent_references: list[CommonOutputSpecificationEquivalentSpecificationReference] | None, optional
         external_identity: str | None, optional
         id: str | None, optional
         indicators: list[CommonIndicatorResult] | None, optional
@@ -130,10 +139,14 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._coatings: list[CommonCoatingWithCompliance] | None | Unset_Type = Unset
         self._materials: list[CommonMaterialWithCompliance] | None | Unset_Type = Unset
         self._substances: list[CommonSubstanceWithCompliance] | None | Unset_Type = Unset
+        self._equivalent_references: (
+            list[CommonOutputSpecificationEquivalentSpecificationReference] | None | Unset_Type
+        ) = Unset
         self._external_identity: str | None | Unset_Type = Unset
         self._name: str | None | Unset_Type = Unset
         self._reference_type: str | None | Unset_Type = Unset
         self._reference_value: str | None | Unset_Type = Unset
+        self._database_key: str | None | Unset_Type = Unset
         self._id: str | None | Unset_Type = Unset
 
         if indicators is not Unset:
@@ -146,6 +159,8 @@ class CommonSpecificationWithCompliance(ModelBase):
             self.materials = materials
         if substances is not Unset:
             self.substances = substances
+        if equivalent_references is not Unset:
+            self.equivalent_references = equivalent_references
         if external_identity is not Unset:
             self.external_identity = external_identity
         if name is not Unset:
@@ -154,6 +169,8 @@ class CommonSpecificationWithCompliance(ModelBase):
             self.reference_type = reference_type
         if reference_value is not Unset:
             self.reference_value = reference_value
+        if database_key is not Unset:
+            self.database_key = database_key
         if id is not Unset:
             self.id = id
 
@@ -274,6 +291,33 @@ class CommonSpecificationWithCompliance(ModelBase):
         self._substances = substances
 
     @property
+    def equivalent_references(
+        self,
+    ) -> "list[CommonOutputSpecificationEquivalentSpecificationReference] | None | Unset_Type":
+        """Gets the equivalent_references of this CommonSpecificationWithCompliance.
+
+        Returns
+        -------
+        list[CommonOutputSpecificationEquivalentSpecificationReference] | None | Unset_Type
+            The equivalent_references of this CommonSpecificationWithCompliance.
+        """
+        return self._equivalent_references
+
+    @equivalent_references.setter
+    def equivalent_references(
+        self,
+        equivalent_references: "list[CommonOutputSpecificationEquivalentSpecificationReference] | None | Unset_Type",
+    ) -> None:
+        """Sets the equivalent_references of this CommonSpecificationWithCompliance.
+
+        Parameters
+        ----------
+        equivalent_references: list[CommonOutputSpecificationEquivalentSpecificationReference] | None | Unset_Type
+            The equivalent_references of this CommonSpecificationWithCompliance.
+        """
+        self._equivalent_references = equivalent_references
+
+    @property
     def external_identity(self) -> "str | None | Unset_Type":
         """Gets the external_identity of this CommonSpecificationWithCompliance.
         In the input BoM, the ExternalIdentity is intended to be used as a temporary reference populated and used by applications to refer to the item within the BoM. If a value was specified in the input BoM, it will be returned back to the client in this property. If the ExternalIdentity was not present in the input BoM, this property is omitted.
@@ -364,6 +408,28 @@ class CommonSpecificationWithCompliance(ModelBase):
             The reference_value of this CommonSpecificationWithCompliance.
         """
         self._reference_value = reference_value
+
+    @property
+    def database_key(self) -> "str | None | Unset_Type":
+        """Gets the database_key of this CommonSpecificationWithCompliance.
+
+        Returns
+        -------
+        str | None | Unset_Type
+            The database_key of this CommonSpecificationWithCompliance.
+        """
+        return self._database_key
+
+    @database_key.setter
+    def database_key(self, database_key: "str | None | Unset_Type") -> None:
+        """Sets the database_key of this CommonSpecificationWithCompliance.
+
+        Parameters
+        ----------
+        database_key: str | None | Unset_Type
+            The database_key of this CommonSpecificationWithCompliance.
+        """
+        self._database_key = database_key
 
     @property
     def id(self) -> "str | None | Unset_Type":
