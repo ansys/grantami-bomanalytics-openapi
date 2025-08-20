@@ -190,7 +190,7 @@ paths:
                 value:
                   Specifications:
                     - ReferenceType: MiRecordHistoryIdentity
-                      ReferenceValue: '545019'
+                      ReferenceValue: 545019
                     - ReferenceType: SpecificationId
                       ReferenceValue: AMS03-27
                   LegislationIds:
@@ -225,7 +225,7 @@ paths:
                                 MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
-                        ReferenceValue: '545019'
+                        ReferenceValue: 545019
                       - Legislations:
                           - LegislationId: SINList
                             ImpactedSubstances:
@@ -262,7 +262,7 @@ paths:
                 value:
                   Parts:
                     - ReferenceType: MiRecordHistoryIdentity
-                      ReferenceValue: '565024'
+                      ReferenceValue: 565024
                     - ReferenceType: PartNumber
                       ReferenceValue: FLRY33
                   LegislationIds:
@@ -297,7 +297,7 @@ paths:
                                 MaxPercentageAmountInMaterial:
                                 LegislationThreshold: 0.1
                         ReferenceType: MiRecordHistoryIdentity
-                        ReferenceValue: '565024'
+                        ReferenceValue: 565024
                       - Legislations:
                           - LegislationId: SINList
                             ImpactedSubstances:
@@ -528,7 +528,7 @@ paths:
                                 Flag: RohsBelowThreshold
                             PercentageAmount: 0.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '12345'
+                            ReferenceValue: 12345
                         ReferenceType: MaterialId
                         ReferenceValue: S200
                       - Indicators:
@@ -544,7 +544,7 @@ paths:
                                 Flag: RohsBelowThreshold
                             PercentageAmount: 0.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '12345'
+                            ReferenceValue: 12345
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListAboveThreshold
@@ -552,7 +552,7 @@ paths:
                                 Flag: RohsAboveThreshold
                             PercentageAmount: 1.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '34567'
+                            ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
                     LogMessages: [ ]
@@ -574,7 +574,7 @@ paths:
                                 Flag: WatchListBelowThreshold
                             PercentageAmount: 0.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '12345'
+                            ReferenceValue: 12345
                           - Indicators:
                               - Name: Ignore Process Chemicals
                                 Flag: WatchListNotImpacted
@@ -582,7 +582,7 @@ paths:
                                 Flag: WatchListAboveThreshold
                             PercentageAmount: 0.3
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '34567'
+                            ReferenceValue: 34567
                         ReferenceType: MaterialId
                         ReferenceValue: plastic-pc-20carbonfiber
                     LogMessages: [ ]
@@ -662,9 +662,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '987654'
+                            ReferenceValue: 987654
                         Coatings:
                           - Indicators:
                               - Name: Indicator 1
@@ -679,9 +679,9 @@ paths:
                                     Flag: RohsNotImpacted
                                 PercentageAmount: 0
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '62345'
+                                ReferenceValue: 62345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '987654'
+                            ReferenceValue: 987654
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: SpecificationId
@@ -707,9 +707,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '111111'
+                            ReferenceValue: 111111
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListHasSubstanceAboveThreshold
@@ -723,7 +723,7 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                               - Indicators:
                                   - Name: Indicator 1
                                     Flag: WatchListAboveThreshold
@@ -731,9 +731,9 @@ paths:
                                     Flag: RohsAboveThreshold
                                 PercentageAmount: 1.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '34567'
+                                ReferenceValue: 34567
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '222222'
+                            ReferenceValue: 222222
                         Substances:
                           - Indicators:
                               - Name: Indicator 1
@@ -742,7 +742,7 @@ paths:
                                 Flag: RohsBelowThreshold
                             PercentageAmount: 0.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '12345'
+                            ReferenceValue: 12345
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListAboveThreshold
@@ -750,7 +750,7 @@ paths:
                                 Flag: RohsAboveThreshold
                             PercentageAmount:
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '34567'
+                            ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
                     LogMessages:
@@ -860,9 +860,9 @@ paths:
                                     Flag: RohsNotImpacted
                                 PercentageAmount: 0
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '62345'
+                                ReferenceValue: 62345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '987654'
+                            ReferenceValue: 987654
                         Specifications:
                           - Indicators:
                               - Name: Indicator 1
@@ -880,9 +880,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '987654'
+                            ReferenceValue: 987654
                         Materials: [ ]
                         Substances: [ ]
                         ReferenceType: PartNumber
@@ -908,9 +908,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '111111'
+                            ReferenceValue: 111111
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListHasSubstanceAboveThreshold
@@ -924,7 +924,7 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                               - Indicators:
                                   - Name: Indicator 1
                                     Flag: WatchListAboveThreshold
@@ -932,9 +932,9 @@ paths:
                                     Flag: RohsAboveThreshold
                                 PercentageAmount: 2.9
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '34567'
+                                ReferenceValue: 34567
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '222222'
+                            ReferenceValue: 222222
                         Substances:
                           - Indicators:
                               - Name: Indicator 1
@@ -943,7 +943,7 @@ paths:
                                 Flag: RohsBelowThreshold
                             PercentageAmount: 0.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '12345'
+                            ReferenceValue: 12345
                           - Indicators:
                               - Name: Indicator 1
                                 Flag: WatchListAboveThreshold
@@ -951,7 +951,7 @@ paths:
                                 Flag: RohsAboveThreshold
                             PercentageAmount: 1.1
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '34567'
+                            ReferenceValue: 34567
                         ReferenceType: MiRecordGuid
                         ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
                     LogMessages: [ ]
@@ -975,7 +975,7 @@ paths:
                                 Flag: RohsAboveThreshold
                             PercentageAmount:
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '72969'
+                            ReferenceValue: 72969
                         ReferenceType: PartNumber
                         ReferenceValue: FLRY33
                     LogMessages: [ ]
@@ -1051,7 +1051,7 @@ paths:
                                     Flag: RohsNotImpacted
                                 PercentageAmount: 0
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '62345'
+                                ReferenceValue: 62345
                         Specifications: [ ]
                         Materials: [ ]
                         Substances: [ ]
@@ -1076,9 +1076,9 @@ paths:
                                     Flag: RohsBelowThreshold
                                 PercentageAmount: 0.1
                                 ReferenceType: MiRecordHistoryIdentity
-                                ReferenceValue: '12345'
+                                ReferenceValue: 12345
                             ReferenceType: MiRecordHistoryIdentity
-                            ReferenceValue: '111111'
+                            ReferenceValue: 111111
                         Substances: [ ]
                     LogMessages: [ ]
   /licenses:
@@ -1300,7 +1300,7 @@ paths:
                                     Value: 0.0751787094942408
                                     Unit: kg
                                   TransportStages: [ ]
-                                  ExternalIdentity: '9'
+                                  ExternalIdentity: 9
                                   Name: 'Machining, fine'
                                   ReferenceType: MiRecordHistoryGuid
                                   ReferenceValue: 03de1a28-7dd7-4354-bbd8-c839cfa00ec7
@@ -1317,7 +1317,7 @@ paths:
                               ReportedMass:
                                 Value: 2
                                 Unit: kg
-                              ExternalIdentity: '7'
+                              ExternalIdentity: 7
                               Name: S-200 Alloy
                               ReferenceType: MiRecordGuid
                               ReferenceValue: cebc4725-623e-4507-818f-06e8a734c681
@@ -1344,7 +1344,7 @@ paths:
                               ReferenceValue: b916ed6b-5e06-4343-9131-d4d562e2d12b
                               Id: P6
                           InputPartNumber: Sub Part
-                          ExternalIdentity: '6'
+                          ExternalIdentity: 6
                           Id: P2
                       Materials: [ ]
                       Processes: [ ]
@@ -1651,7 +1651,7 @@ paths:
                             - ComponentName: ''
                               ComponentPartNumber: Sub Part
                               RecordReference:
-                                ExternalIdentity: '6'
+                                ExternalIdentity: 6
                                 Name: ''
                                 Id: P2
                               MaterialMassBeforeProcessing:
@@ -2000,7 +2000,7 @@ components:
       example:
         Specifications:
           - ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: '545019'
+            ReferenceValue: 545019
           - ReferenceType: SpecificationId
             ReferenceValue: AMS03-27
         LegislationIds:
@@ -2060,7 +2060,7 @@ components:
                     MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: '545019'
+            ReferenceValue: 545019
           - Legislations:
               - LegislationId: SINList
                 ImpactedSubstances:
@@ -2155,7 +2155,7 @@ components:
       example:
         Parts:
           - ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: '565024'
+            ReferenceValue: 565024
           - ReferenceType: PartNumber
             ReferenceValue: FLRY33
         LegislationIds:
@@ -2219,7 +2219,7 @@ components:
                     MaxPercentageAmountInMaterial:
                     LegislationThreshold: 0.1
             ReferenceType: MiRecordHistoryIdentity
-            ReferenceValue: '565024'
+            ReferenceValue: 565024
           - Legislations:
               - LegislationId: SINList
                 ImpactedSubstances:
@@ -2607,7 +2607,7 @@ components:
                     Flag: RohsBelowThreshold
                 PercentageAmount: 0.1
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '12345'
+                ReferenceValue: 12345
             ReferenceType: MaterialId
             ReferenceValue: S200
           - Indicators:
@@ -2623,7 +2623,7 @@ components:
                     Flag: RohsBelowThreshold
                 PercentageAmount: 0.1
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '12345'
+                ReferenceValue: 12345
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListAboveThreshold
@@ -2631,7 +2631,7 @@ components:
                     Flag: RohsAboveThreshold
                 PercentageAmount: 1.1
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '34567'
+                ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
         LogMessages: [ ]
@@ -2751,9 +2751,9 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '987654'
+                ReferenceValue: 987654
             Coatings:
               - Indicators:
                   - Name: Indicator 1
@@ -2768,9 +2768,9 @@ components:
                         Flag: RohsNotImpacted
                     PercentageAmount: 0
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '62345'
+                    ReferenceValue: 62345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '987654'
+                ReferenceValue: 987654
             Materials: [ ]
             Substances: [ ]
             ReferenceType: SpecificationId
@@ -2796,9 +2796,9 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '111111'
+                ReferenceValue: 111111
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListHasSubstanceAboveThreshold
@@ -2812,7 +2812,7 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                   - Indicators:
                       - Name: Indicator 1
                         Flag: WatchListAboveThreshold
@@ -2820,9 +2820,9 @@ components:
                         Flag: RohsAboveThreshold
                     PercentageAmount: 1.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '34567'
+                    ReferenceValue: 34567
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '222222'
+                ReferenceValue: 222222
             Substances:
               - Indicators:
                   - Name: Indicator 1
@@ -2831,7 +2831,7 @@ components:
                     Flag: RohsBelowThreshold
                 PercentageAmount: 0.1
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '12345'
+                ReferenceValue: 12345
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListAboveThreshold
@@ -2839,7 +2839,7 @@ components:
                     Flag: RohsAboveThreshold
                 PercentageAmount:
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '34567'
+                ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: 3df206df-9fc8-4859-90d4-3519764f8b55
         LogMessages:
@@ -3035,9 +3035,9 @@ components:
                         Flag: RohsNotImpacted
                     PercentageAmount: 0
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '62345'
+                    ReferenceValue: 62345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '987654'
+                ReferenceValue: 987654
             Specifications:
               - Indicators:
                   - Name: Indicator 1
@@ -3055,9 +3055,9 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '987654'
+                ReferenceValue: 987654
             Materials: [ ]
             Substances: [ ]
             ReferenceType: PartNumber
@@ -3083,9 +3083,9 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '111111'
+                ReferenceValue: 111111
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListHasSubstanceAboveThreshold
@@ -3099,7 +3099,7 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                   - Indicators:
                       - Name: Indicator 1
                         Flag: WatchListAboveThreshold
@@ -3107,9 +3107,9 @@ components:
                         Flag: RohsAboveThreshold
                     PercentageAmount: 2.9
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '34567'
+                    ReferenceValue: 34567
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '222222'
+                ReferenceValue: 222222
             Substances:
               - Indicators:
                   - Name: Indicator 1
@@ -3118,7 +3118,7 @@ components:
                     Flag: RohsBelowThreshold
                 PercentageAmount: 0.1
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '12345'
+                ReferenceValue: 12345
               - Indicators:
                   - Name: Indicator 1
                     Flag: WatchListAboveThreshold
@@ -3126,7 +3126,7 @@ components:
                     Flag: RohsAboveThreshold
                 PercentageAmount: 1.1
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '34567'
+                ReferenceValue: 34567
             ReferenceType: MiRecordGuid
             ReferenceValue: f622cc99-158d-43eb-881e-209a08af1108
         LogMessages: [ ]
@@ -3258,7 +3258,7 @@ components:
                         Flag: RohsNotImpacted
                     PercentageAmount: 0
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '62345'
+                    ReferenceValue: 62345
             Specifications: [ ]
             Materials: [ ]
             Substances: [ ]
@@ -3283,9 +3283,9 @@ components:
                         Flag: RohsBelowThreshold
                     PercentageAmount: 0.1
                     ReferenceType: MiRecordHistoryIdentity
-                    ReferenceValue: '12345'
+                    ReferenceValue: 12345
                 ReferenceType: MiRecordHistoryIdentity
-                ReferenceValue: '111111'
+                ReferenceValue: 111111
             Substances: [ ]
         LogMessages: [ ]
     GetAvailableLicenses.Response:
