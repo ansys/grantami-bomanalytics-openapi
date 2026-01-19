@@ -55,7 +55,7 @@ jobs:
       run: |
         uv tool install pre-commit
         git add ansys-grantami-bomanalytics-openapi/
-        pre-commit run --all-files
+        ! pre-commit run --all-files
 
     - name: "Commit changes to library code"
       uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5  #v9.1.4
