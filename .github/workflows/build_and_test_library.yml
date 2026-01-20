@@ -76,7 +76,7 @@ jobs:
 
       - name: "Install requirements"
         run: |
-          uv pip install twine
+          uv tool install twine
 
       - name: "Create source and wheel artifacts"
         working-directory: ${{ env.LIBRARY_NAME }}
@@ -86,7 +86,7 @@ jobs:
       - name: "Validate integrity of artifacts"
         working-directory: ${{ env.LIBRARY_NAME }}
         run: |
-          uv run twine check dist/*
+          twine check dist/*
 
       - name: Generate build provenance attestation
         uses: actions/attest-build-provenance@00014ed6ed5efc5b1ab7f7f34a39eb55d41aa4f8 # v3.1.0
