@@ -1,0 +1,5 @@
+﻿rules:
+  cache-poisoning:
+    ignore:
+      - build_and_test_library.yml:47  # Job does not produce artifacts included in release
+      - generate_library.yml:45  # Job produces python code which is manually reviewed before merging
