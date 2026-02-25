@@ -108,7 +108,7 @@ jobs:
     if: (github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/main') && (inputs.publish-to-private-pypi == 'true')
     steps:
       - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
+        uses: ansys/actions/release-pypi-private@571fb2b8c7d6ad8c8b18e50bd20fb00f125dcfb6  # v10.2.6
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
@@ -139,7 +139,7 @@ jobs:
           skip-existing: false
 
       - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@3931ac9351b13ae11b1203c2ef6b51e5c75502ea  # v10.2.5
+        uses: ansys/actions/release-pypi-private@571fb2b8c7d6ad8c8b18e50bd20fb00f125dcfb6  # v10.2.6
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
