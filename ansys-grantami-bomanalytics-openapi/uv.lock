@@ -8,7 +8,7 @@ resolution-markers = [
 
 [[package]]
 name = "ansys-grantami-bomanalytics-openapi"
-version = "5.1.0.dev291"
+version = "5.1.0.dev294"
 source = { editable = "." }
 dependencies = [
     { name = "ansys-openapi-common" },
