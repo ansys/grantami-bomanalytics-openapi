@@ -9,7 +9,7 @@ repos:
       - '--line-length=100'
 
 - repo: https://github.com/pycqa/isort
-  rev: 9.0.0a3
+  rev: 9.0.0b1
   hooks:
   - id: isort
     files: '^ansys-grantami-bomanalytics-openapi/(src|tests)'
