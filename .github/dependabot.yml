@@ -19,6 +19,10 @@ updates:
     labels:
       - "maintenance"
       - "dependencies"
+    groups:
+       actions:
+          patterns:
+            - "*"
   - package-ecosystem: "uv" # See documentation for possible values
     directory: "/ansys-grantami-bomanalytics-openapi/" # Location of package manifests
     schedule:
@@ -26,3 +30,9 @@ updates:
     labels:
       - "maintenance"
       - "dependencies"
+    groups:
+      dev-deps:
+        patterns:
+        - "pytest*"
+        - "mypy"
+        - "requests-mock"
