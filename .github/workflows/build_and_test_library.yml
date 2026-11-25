@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d  # v10.4.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -70,7 +70,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Install uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d  # v10.4.0
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: 'false'
@@ -108,7 +108,7 @@ jobs:
     if: (github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/main') && (inputs.publish-to-private-pypi == 'true')
     steps:
       - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@f5e1481b9c128197a30d1dc1dfc52b8cd6865555  # v11.1.5
+        uses: ansys/actions/release-pypi-private@5a91d7c2c4da2e86f2b3b62ba62daad189a6b77c  # v11.2.0
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
@@ -139,7 +139,7 @@ jobs:
           skip-existing: false
 
       - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@f5e1481b9c128197a30d1dc1dfc52b8cd6865555  # v11.1.5
+        uses: ansys/actions/release-pypi-private@5a91d7c2c4da2e86f2b3b62ba62daad189a6b77c  # v11.2.0
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
